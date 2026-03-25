@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DaisyUI - MSC Direct Header</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1C58EE",
+              "msc-blue": "#1C58EE",
+              "msc-red": "#EE3124",
+            },
+            fontFamily: {
+              sans: ["Roboto", "sans-serif"],
+            },
+          },
+        },
+        daisyui: {
+          themes: [
+            {
+              light: {
+                primary: "#1C58EE",
+                secondary: "#f000b8",
+                accent: "#37cdbe",
+                neutral: "#3d4451",
+                "base-100": "#ffffff",
+              },
+            },
+          ],
+        },
+      };
+    </script>
+    <style>
+      .msc-border-bottom {
+        border-bottom: 3px solid #1c58ee;
+      }
+      .top-bar {
+        background-color: #f8fafc;
+        font-size: 13px;
+      }
+      /* Force icons to blue color overriding any framework defaults */
+      .navbar i.fa-solid,
+      .navbar i.fa-regular,
+      .navbar i.fa-brands {
+        color: #1c58ee !important;
+      }
+      /* Allow icons inside buttons to inherit the button's text color */
+      .navbar .btn i {
+        color: inherit !important;
+      }
+    </style>
+  </head>
+  <body class="bg-white min-h-screen">
+    <!-- Top Bar -->
+    <div class="top-bar py-1 px-4 lg:px-8 border-b border-gray-200">
+      <div class="mx-auto flex justify-between items-center text-gray-600">
+        <div class="flex gap-2">
+          <div class="dropdown dropdown-hover">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-xs bg-white hover:bg-gray-50 border-gray-200 rounded-full px-3 text-gray-600 normal-case font-medium shadow-sm hover:text-msc-blue hover:border-msc-blue"
+            >
+              Solutions
+              <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i>
+            </div>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-[100] menu p-2 shadow-xl bg-white rounded-box w-52 border border-gray-100 mt-1"
+            >
+              <li><a>Metalworking Solutions</a></li>
+              <li><a>Inventory Management</a></li>
+              <li><a>Safety Services</a></li>
+              <li><a>E-Commerce Solutions</a></li>
+            </ul>
+          </div>
+          <div class="dropdown dropdown-hover">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-xs bg-white hover:bg-gray-50 border-gray-200 rounded-full px-3 text-gray-600 normal-case font-medium shadow-sm hover:text-msc-blue hover:border-msc-blue"
+            >
+              Resources
+              <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i>
+            </div>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-[100] menu p-2 shadow-xl bg-white rounded-box w-52 border border-gray-100 mt-1"
+            >
+              <li><a>Calculators & Tools</a></li>
+              <li><a>MSDS / SDS Search</a></li>
+              <li><a>Webinars & Events</a></li>
+              <li><a>Sustainability</a></li>
+            </ul>
+          </div>
+          <div class="dropdown dropdown-hover">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-xs bg-white hover:bg-gray-50 border-gray-200 rounded-full px-3 text-gray-600 normal-case font-medium shadow-sm hover:text-msc-blue hover:border-msc-blue"
+            >
+              Special Offers
+              <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i>
+            </div>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-[100] menu p-2 shadow-xl bg-white rounded-box w-52 border border-gray-100 mt-1"
+            >
+              <li><a>Current Promotions</a></li>
+              <li><a>Clearance Center</a></li>
+              <li><a>Rebates</a></li>
+              <li><a>New Products</a></li>
+            </ul>
+          </div>
+          <div class="dropdown dropdown-hover">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-xs bg-white hover:bg-gray-50 border-gray-200 rounded-full px-3 text-gray-600 normal-case font-medium shadow-sm hover:text-msc-blue hover:border-msc-blue"
+            >
+              Catalogs
+              <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i>
+            </div>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-[100] menu p-2 shadow-xl bg-white rounded-box w-52 border border-gray-100 mt-1"
+            >
+              <li><a>The Big Book®</a></li>
+              <li><a>Metalworking Catalog</a></li>
+              <li><a>Safety Catalog</a></li>
+              <li><a>Monthly Flyers</a></li>
+            </ul>
+          </div>
+          <div class="dropdown dropdown-hover">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-xs bg-white hover:bg-gray-50 border-gray-200 rounded-full px-3 text-gray-600 normal-case font-medium shadow-sm hover:text-msc-blue hover:border-msc-blue"
+            >
+              Knowledge Center
+              <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i>
+            </div>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-[100] menu p-2 shadow-xl bg-white rounded-box w-52 border border-gray-100 mt-1"
+            >
+              <li><a>Better MRO Blog</a></li>
+              <li><a>Technical Guides</a></li>
+              <li><a>Industry Insights</a></li>
+              <li><a>Success Stories</a></li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          Need help? Call us
+          <span class="font-bold text-msc-blue">1-800-645-7270</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar bg-white px-4 lg:px-8 msc-border-bottom h-24 gap-4">
+      <!-- Logo -->
+      <div class="flex-none">
+        <a class="cursor-pointer">
+          <img
+            src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg"
+            alt="MSC Direct"
+            class="h-12"
+          />
+        </a>
+      </div>
+
+      <div class="flex-none gap-6 lg:flex-1">
+        <!-- Dropdown: Shop All Products -->
+        <div class="dropdown dropdown-end lg:dropdown-start">
+          <div
+            tabindex="0"
+            role="button"
+            class="btn btn-outline btn-primary text-msc-blue font-bold px-2"
+          >
+            Shop All Products
+            <i class="fa-solid fa-chevron-down text-xs ml-1 text-msc-blue"></i>
+          </div>
+          <ul
+            tabindex="0"
+            class="dropdown-content z-[1] menu p-2 shadow bg-white rounded-box w-52 mt-4 border border-gray-200"
+          >
+            <li><a>Metalworking</a></li>
+            <li><a>Fasteners</a></li>
+            <li><a>Safety</a></li>
+            <li><a>Hand Tools</a></li>
+          </ul>
+        </div>
+
+        <!-- Search Input -->
+        <div
+          class="form-control hidden md:flex relative flex-row items-stretch flex-1"
+        >
+          <input
+            type="text"
+            placeholder="Search by keyword or part number..."
+            class="input input-bordered w-full rounded-r-none border-primary focus:outline-none focus:border-msc-blue h-11"
+          />
+          <button
+            class="btn bg-msc-blue hover:bg-blue-700 border-none rounded-l-none text-white h-11 min-h-0 w-12 px-0"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+
+        <!-- Quick Order -->
+        <a
+          class="flex items-center gap-1 text-msc-blue hover:text-blue-800 transition-colors cursor-pointer group ml-auto"
+        >
+          <i class="fa-solid fa-clipboard-list text-xl text-msc-blue"></i>
+          <span
+            class="text-[11px] font-bold uppercase tracking-tigh text-msc-blue"
+            >Quick Order</span
+          >
+        </a>
+
+        <!-- Login/Register -->
+        <a
+          class="flex items-center gap-1 text-msc-blue hover:text-blue-800 transition-colors cursor-pointer group"
+        >
+          <i class="fa-regular fa-user text-xl text-msc-blue"></i>
+          <span
+            class="text-[11px] font-bold uppercase tracking-tight text-msc-blue"
+            >Login / Register</span
+          >
+        </a>
+
+        <!-- Cart -->
+        <div class="dropdown dropdown-end">
+          <div
+            tabindex="0"
+            role="button"
+            class="flex items-center gap-1 text-msc-blue hover:text-blue-800 transition-colors cursor-pointer relative"
+          >
+            <div class="indicator">
+              <i class="fa-solid fa-cart-shopping text-xl text-msc-blue"></i>
+              <span
+                class="badge badge-sm badge-success indicator-item text-white border-none font-bold"
+                style="background-color: #31a444"
+                >1</span
+              >
+            </div>
+            <span
+              class="text-[11px] font-bold uppercase tracking-tight text-msc-blue"
+              >Cart</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLOATING MENU  -->
+
+    <div class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[9999]">
+      <div
+        class="bg-white/90 backdrop-blur-md border border-gray-200 rounded-full p-1 shadow-2xl flex items-center gap-2"
+      >
+        <div
+          class="flex bg-gray-100 rounded-full p-1 relative"
+          id="frameworkToggle"
+        >
+          <div
+            id="toggleHighlight"
+            class="absolute bg-msc-blue rounded-full transition-all duration-300 ease-out h-[calc(100%-8px)] top-1"
+          ></div>
+
+          <label
+            class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight"
+            data-url="daisyui.html"
+          >
+            <input type="radio" name="framework" class="sr-only" checked />
+            <span class="text-white">DaisyUI</span>
+          </label>
+          <label
+            class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight"
+            data-url="flowbite.html"
+          >
+            <input type="radio" name="framework" class="sr-only" />
+            <span class="text-gray-500">Flowbite</span>
+          </label>
+          <label
+            class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight"
+            data-url="untitled_ui.html"
+          >
+            <input type="radio" name="framework" class="sr-only" />
+            <span class="text-gray-500">UntitledUI</span>
+          </label>
+          <label
+            class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight"
+            data-url="tailwind_plus.html"
+          >
+            <input type="radio" name="framework" class="sr-only" />
+            <span class="text-gray-500">Plus</span>
+          </label>
+        </div>
+
+        <a
+          href="index.html"
+          class="p-2 hover:bg-gray-100 rounded-full transition-colors text-msc-blue"
+          title="Home"
+        >
+          <i class="fa-solid fa-house text-lg"></i>
+        </a>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggle = document.getElementById("frameworkToggle");
+        const highlight = document.getElementById("toggleHighlight");
+        const labels = toggle.querySelectorAll("label");
+        const currentPage =
+          window.location.pathname.split("/").pop() || "index.html";
+
+        function updateToggle(activeLabel) {
+          if (!activeLabel) {
+            highlight.style.width = "0px";
+            return;
+          }
+          const rect = activeLabel.getBoundingClientRect();
+          const containerRect = toggle.getBoundingClientRect();
+
+          highlight.style.width = `${rect.width}px`;
+          highlight.style.left = `${rect.left - containerRect.left}px`;
+
+          labels.forEach((label) => {
+            const span = label.querySelector("span");
+            if (label === activeLabel) {
+              span.classList.remove("text-gray-500");
+              span.classList.add("text-white");
+            } else {
+              span.classList.remove("text-white");
+              span.classList.add("text-gray-500");
+            }
+          });
+        }
+
+        let found = false;
+        labels.forEach((label) => {
+          const url = label.getAttribute("data-url");
+          if (currentPage === url) {
+            label.querySelector("input").checked = true;
+            updateToggle(label);
+            found = true;
+          }
+
+          label.addEventListener("click", (e) => {
+            if (currentPage !== url) {
+              window.location.href = url;
+            }
+          });
+        });
+
+        if (!found) highlight.style.width = "0px";
+
+        window.addEventListener("resize", () => {
+          const checked = toggle.querySelector("input:checked");
+          if (checked) updateToggle(checked.parentElement);
+        });
+
+        // Initial position with a small delay to ensure rendering
+        setTimeout(() => {
+          const checked = toggle.querySelector("input:checked");
+          if (checked) updateToggle(checked.parentElement);
+        }, 100);
+      });
+    </script>
+  </body>
+</html>

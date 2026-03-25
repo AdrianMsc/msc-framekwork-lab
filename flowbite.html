@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowbite - MSC Direct Header</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.4.1/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'msc-blue': '#1C58EE',
+                        'msc-red': '#EE3124',
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .msc-border-bottom { border-bottom: 3px solid #1C58EE; }
+        .top-bar { background-color: #f8fafc; font-size: 13px; }
+        .bg-mesh {
+            background-color: #f8fafc;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(215,100%,95%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225,100%,92%,1) 0, transparent 50%);
+        }
+        nav i.fa-solid:not(.fa-magnifying-glass), 
+        nav i.fa-regular { 
+            color: #1C58EE !important; 
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen">
+
+<!-- Top Bar -->
+<div class="top-bar py-1 px-4 lg:px-8 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto flex justify-between items-center text-gray-600">
+        <div class="flex gap-4">
+            <a href="#" class="hover:underline">Solutions</a>
+            <a href="#" class="hover:underline">Resources</a>
+            <a href="#" class="hover:underline">Special Offers</a>
+            <a href="#" class="hover:underline">Catalogs</a>
+            <a href="#" class="hover:underline">Knowledge Center</a>
+        </div>
+        <div>
+            Need help? Call us <span class="font-bold text-msc-blue">1-800-645-7270</span>
+        </div>
+    </div>
+</div>
+
+<nav class="bg-white msc-border-bottom px-4 py-4">
+    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+        <a href="#" class="flex items-center">
+            <img src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg" alt="MSC Direct" class="h-10">
+        </a>
+        <div class="flex items-center lg:order-2 space-x-6">
+            <!-- Search -->
+            <div class="hidden relative md:flex items-stretch">
+                <input type="text" class="block w-80 p-2 text-sm text-gray-900 border border-gray-300 rounded-l-lg bg-gray-50 focus:ring-msc-blue focus:border-msc-blue" placeholder="Search by keyword or part number...">
+                <button class="bg-msc-blue text-white px-4 rounded-r-lg hover:bg-blue-700 transition-colors">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+
+            <!-- Action Links -->
+            <a href="#" class="flex flex-col items-center text-msc-blue hover:text-blue-800 font-bold group">
+                <i class="fa-solid fa-clipboard-list text-xl text-msc-blue"></i>
+                <span class="text-[10px] uppercase mt-1">Quick Order</span>
+            </a>
+            <a href="#" class="flex flex-col items-center text-msc-blue hover:text-blue-800 font-bold group">
+                <i class="fa-regular fa-user text-xl text-msc-blue"></i>
+                <span class="text-[10px] uppercase mt-1 whitespace-nowrap">Login / Register</span>
+            </a>
+
+            <!-- Cart -->
+             <a href="#" class="flex flex-col items-center text-msc-blue hover:text-blue-800 font-bold relative group">
+                <i class="fa-solid fa-cart-shopping text-xl text-msc-blue"></i>
+                <span class="absolute -top-1 right-2 inline-flex items-center justify-center px-1.5 py-0.5 text-[10px] font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-green-600 rounded-full">1</span>
+                <span class="text-[10px] uppercase mt-1">Cart</span>
+            </a>
+        </div>
+        
+        <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
+            <ul class="flex flex-col mt-4 font-bold lg:flex-row lg:space-x-8 lg:mt-0">
+                <li>
+                    <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-msc-blue hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:p-0">Shop All Products <i class="fa-solid fa-chevron-down text-xs mt-1 text-msc-blue ml-1"></i></button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                          <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Metalworking</a></li>
+                          <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Fasteners</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <div class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[9999]">
+        <div class="bg-white/90 backdrop-blur-md border border-gray-200 rounded-full p-1 shadow-2xl flex items-center gap-2">
+            <div class="flex bg-gray-100 rounded-full p-1 relative" id="frameworkToggle">
+                <div id="toggleHighlight" class="absolute bg-msc-blue rounded-full transition-all duration-300 ease-out h-[calc(100%-8px)] top-1"></div>
+                
+                <label class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight" data-url="daisyui.html">
+                    <input type="radio" name="framework" class="sr-only">
+                    <span class="text-gray-500">DaisyUI</span>
+                </label>
+                <label class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight" data-url="flowbite.html">
+                    <input type="radio" name="framework" class="sr-only" checked>
+                    <span class="text-white">Flowbite</span>
+                </label>
+                <label class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight" data-url="untitled_ui.html">
+                    <input type="radio" name="framework" class="sr-only">
+                    <span class="text-gray-500">UntitledUI</span>
+                </label>
+                <label class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight" data-url="tailwind_plus.html">
+                    <input type="radio" name="framework" class="sr-only">
+                    <span class="text-gray-500">Plus</span>
+                </label>
+            </div>
+            
+            <a href="index.html" class="p-2 hover:bg-gray-100 rounded-full transition-colors text-msc-blue" title="Home">
+                <i class="fa-solid fa-house text-lg"></i>
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.4.1/flowbite.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggle = document.getElementById('frameworkToggle');
+            const highlight = document.getElementById('toggleHighlight');
+            const labels = toggle.querySelectorAll('label');
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+            function updateToggle(activeLabel) {
+                if (!activeLabel) {
+                    highlight.style.width = '0px';
+                    return;
+                }
+                const rect = activeLabel.getBoundingClientRect();
+                const containerRect = toggle.getBoundingClientRect();
+                
+                highlight.style.width = `${rect.width}px`;
+                highlight.style.left = `${rect.left - containerRect.left}px`;
+
+                labels.forEach(label => {
+                    const span = label.querySelector('span');
+                    if (label === activeLabel) {
+                        span.classList.remove('text-gray-500');
+                        span.classList.add('text-white');
+                    } else {
+                        span.classList.remove('text-white');
+                        span.classList.add('text-gray-500');
+                    }
+                });
+            }
+
+            let found = false;
+            labels.forEach(label => {
+                const url = label.getAttribute('data-url');
+                if (currentPage === url) {
+                    label.querySelector('input').checked = true;
+                    updateToggle(label);
+                    found = true;
+                }
+
+                label.addEventListener('click', (e) => {
+                    if (currentPage !== url) {
+                        window.location.href = url;
+                    }
+                });
+            });
+
+            if(!found) highlight.style.width = '0px';
+
+            window.addEventListener('resize', () => {
+                const checked = toggle.querySelector('input:checked');
+                if (checked) updateToggle(checked.parentElement);
+            });
+            
+            setTimeout(() => {
+                const checked = toggle.querySelector('input:checked');
+                if (checked) updateToggle(checked.parentElement);
+            }, 100);
+        });
+    </script>
+</body>
+</html>

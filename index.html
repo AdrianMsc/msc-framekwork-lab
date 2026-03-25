@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Framework Lab | Header Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'gradient-x': 'gradient-x 15s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        'gradient-x': {
+                            '0%, 100%': { 'background-size': '200% 200%', 'background-position': 'left center' },
+                            '50%': { 'background-size': '200% 200%', 'background-position': 'right center' },
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(28, 88, 238, 0.2);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(28, 88, 238, 0.15);
+        }
+        .bg-mesh {
+            background-color: #f8fafc;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(215,100%,95%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225,100%,92%,1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(200,100%,95%,1) 0, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-mesh text-slate-900 min-h-screen font-sans selection:bg-msc-blue selection:text-white">
+
+    <!-- Hero Section -->
+    <div class="relative overflow-hidden pt-20 pb-16 px-6">
+        <div class="max-w-7xl mx-auto relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold uppercase tracking-widest mb-8">
+                <i class="fa-solid fa-flask text-sm"></i> Experimental Lab
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tighter leading-none text-slate-900">
+                Header <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Showcase</span>
+            </h1>
+            <p class="text-xl text-slate-600 max-w-2xl mx-auto font-medium">
+                Explora 4 implementaciones únicas de encabezados de <span class="text-blue-600 font-bold">MSC Direct</span> utilizando los frameworks de UI más populares.
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Grid -->
+    <main class="max-w-7xl mx-auto px-6 pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- DaisyUI Card -->
+            <a href="daisyui.html" class="glass-card p-8 rounded-[2.5rem] group overflow-hidden relative">
+                <div class="absolute -right-16 -top-16 w-64 h-64 bg-emerald-500/5 blur-[80px] group-hover:bg-emerald-500/10 transition-all duration-700"></div>
+                <div class="relative z-10">
+                    <div class="w-16 h-16 bg-white shadow-sm rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500 border border-emerald-50 p-3">
+                        <img src="https://img.daisyui.com/images/daisyui/mark-static.svg" alt="DaisyUI Logo" class="w-full h-full object-contain">
+                    </div>
+                    <h2 class="text-3xl font-extrabold mb-3 text-slate-800">DaisyUI</h2>
+                    <p class="text-slate-500 mb-8 leading-relaxed font-semibold">Implementación semántica con el estilo oficial de MSC. Ligera y basada en temas de DaisyUI.</p>
+                    <div class="flex items-center gap-2 text-emerald-600 font-bold tracking-tight uppercase text-sm">
+                        Abrir Demo <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Flowbite Card -->
+            <a href="flowbite.html" class="glass-card p-8 rounded-[2.5rem] group overflow-hidden relative">
+                <div class="absolute -right-16 -top-16 w-64 h-64 bg-blue-500/5 blur-[80px] group-hover:bg-blue-500/10 transition-all duration-700"></div>
+                <div class="relative z-10">
+                    <div class="w-16 h-16 bg-white shadow-sm rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-500 border border-blue-50 p-3">
+                        <img src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo" class="w-full h-full object-contain">
+                    </div>
+                    <h2 class="text-3xl font-extrabold mb-3 text-slate-800">Flowbite</h2>
+                    <p class="text-slate-500 mb-8 leading-relaxed font-semibold">Uso de componentes robustos y accesibles. Fiel a la interactividad nativa de Flowbite.</p>
+                    <div class="flex items-center gap-2 text-blue-600 font-bold tracking-tight uppercase text-sm">
+                        Ver Componente <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Untitled UI Card -->
+            <a href="untitled_ui.html" class="glass-card p-8 rounded-[2.5rem] group overflow-hidden relative">
+                <div class="absolute -right-16 -top-16 w-64 h-64 bg-indigo-500/5 blur-[80px] group-hover:bg-indigo-500/10 transition-all duration-700"></div>
+                <div class="relative z-10">
+                    <div class="w-16 h-16 bg-white shadow-sm rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500 border border-indigo-50 p-3">
+                        <img src="https://cdn.prod.website-files.com/636496d3f0ebfdaba9784655/67085e706eec80d4d64e4385_untitled-ui-palantir.svg" alt="Untitled UI Logo" class="w-full h-full object-contain">
+                    </div>
+                    <h2 class="text-3xl font-extrabold mb-3 text-slate-800">Untitled UI</h2>
+                    <p class="text-slate-500 mb-8 leading-relaxed font-semibold">Estética SaaS minimalista aplicada a la marca MSC. Diseño limpio y tipografía impecable.</p>
+                    <div class="flex items-center gap-2 text-indigo-600 font-bold tracking-tight uppercase text-sm">
+                        Explorar Estética <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Tailwind Plus Card -->
+            <a href="tailwind_plus.html" class="glass-card p-8 rounded-[2.5rem] group overflow-hidden relative">
+                <div class="absolute -right-16 -top-16 w-64 h-64 bg-blue-600/5 blur-[80px] group-hover:bg-blue-600/10 transition-all duration-700"></div>
+                <div class="relative z-10">
+                    <div class="w-16 h-16 bg-white shadow-sm rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-500 border border-blue-50 p-3">
+                        <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind Logo" class="w-full h-full object-contain">
+                    </div>
+                    <h2 class="text-3xl font-extrabold mb-3 text-slate-800">Tailwind Plus</h2>
+                    <p class="text-slate-500 mb-8 leading-relaxed font-semibold">Implementación premium con efectos avanzados de cristal y micro-interacciones de alta fidelidad.</p>
+                    <div class="flex items-center gap-2 text-blue-600 font-bold tracking-tight uppercase text-sm">
+                        Probar Experiencia <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="text-center pb-12 text-slate-400 text-sm font-bold uppercase tracking-widest">
+        Framework Lab &copy; 2026 Crafted with ❤️ for MSC
+    </footer>
+
+    <div class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[9999]">
+        <div class="bg-white/90 backdrop-blur-md border border-gray-200 rounded-full p-1 shadow-2xl flex items-center gap-2">
+            <div class="flex bg-gray-100 rounded-full p-1 relative" id="frameworkToggle">
+                <div id="toggleHighlight" class="absolute bg-msc-blue rounded-full transition-all duration-300 ease-out h-[calc(100%-8px)] top-1"></div>
+                
+                <label class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight" data-url="daisyui.html">
+                    <input type="radio" name="framework" class="sr-only">
+                    <span class="text-gray-500">DaisyUI</span>
+                </label>
+                <label class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight" data-url="flowbite.html">
+                    <input type="radio" name="framework" class="sr-only">
+                    <span class="text-gray-500">Flowbite</span>
+                </label>
+                <label class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight" data-url="untitled_ui.html">
+                    <input type="radio" name="framework" class="sr-only">
+                    <span class="text-gray-500">UntitledUI</span>
+                </label>
+                <label class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight" data-url="tailwind_plus.html">
+                    <input type="radio" name="framework" class="sr-only">
+                    <span class="text-gray-500">Plus</span>
+                </label>
+            </div>
+            
+            <a href="index.html" class="p-2 hover:bg-gray-100 rounded-full transition-colors text-msc-blue" title="Home">
+                <i class="fa-solid fa-house text-lg"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggle = document.getElementById('frameworkToggle');
+            const highlight = document.getElementById('toggleHighlight');
+            const labels = toggle.querySelectorAll('label');
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+            function updateToggle(activeLabel) {
+                if (!activeLabel) {
+                    highlight.style.width = '0px';
+                    return;
+                }
+                const rect = activeLabel.getBoundingClientRect();
+                const containerRect = toggle.getBoundingClientRect();
+                
+                highlight.style.width = `${rect.width}px`;
+                highlight.style.left = `${rect.left - containerRect.left}px`;
+
+                labels.forEach(label => {
+                    const span = label.querySelector('span');
+                    if (label === activeLabel) {
+                        span.classList.remove('text-gray-500');
+                        span.classList.add('text-white');
+                    } else {
+                        span.classList.remove('text-white');
+                        span.classList.add('text-gray-500');
+                    }
+                });
+            }
+
+            let found = false;
+            labels.forEach(label => {
+                const url = label.getAttribute('data-url');
+                if (currentPage === url) {
+                    label.querySelector('input').checked = true;
+                    updateToggle(label);
+                    found = true;
+                }
+
+                label.addEventListener('click', (e) => {
+                    if (currentPage !== url) {
+                        window.location.href = url;
+                    }
+                });
+            });
+
+            if(!found) highlight.style.width = '0px';
+
+            window.addEventListener('resize', () => {
+                const checked = toggle.querySelector('input:checked');
+                if (checked) updateToggle(checked.parentElement);
+            });
+            
+            setTimeout(() => {
+                const checked = toggle.querySelector('input:checked');
+                if (checked) updateToggle(checked.parentElement);
+            }, 100);
+        });
+    </script>
+</body>
+</html>
