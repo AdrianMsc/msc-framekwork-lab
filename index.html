@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -144,94 +144,5 @@
     <footer class="text-center pb-12 text-slate-400 text-sm font-bold uppercase tracking-widest">
         Framework Lab &copy; 2026 Crafted with ❤️ for MSC
     </footer>
-
-    <div class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[9999]">
-        <div class="bg-white/90 backdrop-blur-md border border-gray-200 rounded-full p-1 shadow-2xl flex items-center gap-2">
-            <div class="flex bg-gray-100 rounded-full p-1 relative" id="frameworkToggle">
-                <div id="toggleHighlight" class="absolute bg-msc-blue rounded-full transition-all duration-300 ease-out h-[calc(100%-8px)] top-1"></div>
-                
-                <label class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight" data-url="daisyui.html">
-                    <input type="radio" name="framework" class="sr-only">
-                    <span class="text-gray-500">DaisyUI</span>
-                </label>
-                <label class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight" data-url="flowbite.html">
-                    <input type="radio" name="framework" class="sr-only">
-                    <span class="text-gray-500">Flowbite</span>
-                </label>
-                <label class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight" data-url="untitled_ui.html">
-                    <input type="radio" name="framework" class="sr-only">
-                    <span class="text-gray-500">UntitledUI</span>
-                </label>
-                <label class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight" data-url="tailwind_plus.html">
-                    <input type="radio" name="framework" class="sr-only">
-                    <span class="text-gray-500">Plus</span>
-                </label>
-            </div>
-            
-            <a href="index.html" class="p-2 hover:bg-gray-100 rounded-full transition-colors text-msc-blue" title="Home">
-                <i class="fa-solid fa-house text-lg"></i>
-            </a>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const toggle = document.getElementById('frameworkToggle');
-            const highlight = document.getElementById('toggleHighlight');
-            const labels = toggle.querySelectorAll('label');
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-
-            function updateToggle(activeLabel) {
-                if (!activeLabel) {
-                    highlight.style.width = '0px';
-                    return;
-                }
-                const rect = activeLabel.getBoundingClientRect();
-                const containerRect = toggle.getBoundingClientRect();
-                
-                highlight.style.width = `${rect.width}px`;
-                highlight.style.left = `${rect.left - containerRect.left}px`;
-
-                labels.forEach(label => {
-                    const span = label.querySelector('span');
-                    if (label === activeLabel) {
-                        span.classList.remove('text-gray-500');
-                        span.classList.add('text-white');
-                    } else {
-                        span.classList.remove('text-white');
-                        span.classList.add('text-gray-500');
-                    }
-                });
-            }
-
-            let found = false;
-            labels.forEach(label => {
-                const url = label.getAttribute('data-url');
-                if (currentPage === url) {
-                    label.querySelector('input').checked = true;
-                    updateToggle(label);
-                    found = true;
-                }
-
-                label.addEventListener('click', (e) => {
-                    if (currentPage !== url) {
-                        window.location.href = url;
-                    }
-                });
-            });
-
-            if(!found) highlight.style.width = '0px';
-
-            window.addEventListener('resize', () => {
-                const checked = toggle.querySelector('input:checked');
-                if (checked) updateToggle(checked.parentElement);
-            });
-            
-            setTimeout(() => {
-                const checked = toggle.querySelector('input:checked');
-                if (checked) updateToggle(checked.parentElement);
-            }, 100);
-        });
-    </script>
 </body>
 </html>
