@@ -55,6 +55,14 @@
       nav i.fa-regular {
         color: #1c58ee !important;
       }
+      /* Placeholder styling for broken images */
+      .img-placeholder {
+        background-color: #f8fafc;
+        border: 1px dashed #cbd5e1;
+        object-fit: contain !important;
+        padding: 8px;
+        transition: all 0.3s ease;
+      }
     </style>
   </head>
   <body class="bg-white min-h-screen">
@@ -688,6 +696,25 @@
           const checked = toggle.querySelector("input:checked");
           if (checked) updateToggle(checked.parentElement);
         }, 100);
+
+        // Global error handler for broken images
+        window.addEventListener(
+          "error",
+          function (event) {
+            if (event.target.tagName === "IMG") {
+              // Avoid infinite loops
+              if (event.target.dataset.fallbackApplied) return;
+
+              event.target.dataset.fallbackApplied = "true";
+              event.target.classList.add("img-placeholder");
+
+              // Modern, clean SVG placeholder
+              event.target.src =
+                "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2218%22%20height%3D%2218%22%20rx%3D%222%22%20ry%3D%222%22%3E%3C%2Frect%3E%3Ccircle%20cx%3D%228.5%22%20cy%3D%228.5%22%20r%3D%221.5%22%3E%3C%2Fcircle%3E%3Cpolyline%20points%3D%2221%2015%2016%2010%205%2021%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E";
+            }
+          },
+          true,
+        );
       });
     </script>
   </body>
