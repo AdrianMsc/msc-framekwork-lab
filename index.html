@@ -58,36 +58,36 @@
 <body class="bg-mesh text-slate-900 min-h-screen font-sans selection:bg-msc-blue selection:text-white">
 
     <!-- Hero Section -->
-    <div class="relative overflow-hidden pt-20 pb-16 px-6">
+    <div class="relative overflow-hidden pt-12 md:pt-20 pb-12 md:pb-16 px-4 md:px-6">
         <div class="max-w-7xl mx-auto relative z-10 text-center">
-            <div class="flex justify-center mb-8">
-                <img src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg" alt="MSC Direct" class="h-16">
+            <div class="flex justify-center mb-6 md:mb-8">
+                <img src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg" alt="MSC Direct" class="h-12 md:h-16">
             </div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold uppercase tracking-widest mb-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold uppercase tracking-widest mb-6 md:mb-8">
                 <i class="fa-solid fa-flask text-sm"></i> Experimental Lab
             </div>
-            <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tighter leading-none text-slate-900">
+            <h1 class="text-4xl sm:text-6xl md:text-8xl font-black mb-6 tracking-tighter leading-none text-slate-900">
                 Header <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Showcase</span>
             </h1>
-            <p class="text-xl text-slate-600 max-w-2xl mx-auto font-medium">
+            <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-medium px-4">
                 Explore 4 unique header implementations for <span class="text-blue-600 font-bold">MSC Direct</span> using the most popular UI frameworks.
             </p>
         </div>
     </div>
 
     <!-- Main Grid -->
-    <main class="max-w-7xl mx-auto px-6 pb-24">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <main class="max-w-7xl mx-auto px-4 md:px-6 pb-24">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8">
             
             <!-- DaisyUI Card -->
-            <a href="daisyui.html" class="glass-card p-8 rounded-[2.5rem] group overflow-hidden relative">
+            <a href="daisyui.html" class="glass-card p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] group overflow-hidden relative">
                 <div class="absolute -right-16 -top-16 w-64 h-64 bg-emerald-500/5 blur-[80px] group-hover:bg-emerald-500/10 transition-all duration-700"></div>
                 <div class="relative z-10">
-                    <div class="w-16 h-16 bg-white shadow-sm rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500 border border-emerald-50 p-3">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-white shadow-sm rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500 border border-emerald-50 p-2 md:p-3">
                         <img src="https://img.daisyui.com/images/daisyui/mark-static.svg" alt="DaisyUI Logo" class="w-full h-full object-contain">
                     </div>
-                    <h2 class="text-3xl font-extrabold mb-3 text-slate-800">DaisyUI</h2>
-                    <p class="text-slate-500 mb-8 leading-relaxed font-semibold">Semantic implementation with MSC's official style. Lightweight and based on DaisyUI themes.</p>
+                    <h2 class="text-2xl md:text-3xl font-extrabold mb-2 md:mb-3 text-slate-800">DaisyUI</h2>
+                    <p class="text-sm md:text-base text-slate-500 mb-6 md:mb-8 leading-relaxed font-semibold">Semantic implementation with MSC's official style. Lightweight and based on DaisyUI themes.</p>
                     <div class="flex items-center gap-2 text-emerald-600 font-bold tracking-tight uppercase text-sm">
                         Open Demo <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
                     </div>
@@ -95,14 +95,14 @@
             </a>
 
             <!-- Flowbite Card -->
-            <a href="flowbite.html" class="glass-card p-8 rounded-[2.5rem] group overflow-hidden relative">
+            <a href="flowbite.html" class="glass-card p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] group overflow-hidden relative">
                 <div class="absolute -right-16 -top-16 w-64 h-64 bg-blue-500/5 blur-[80px] group-hover:bg-blue-500/10 transition-all duration-700"></div>
                 <div class="relative z-10">
-                    <div class="w-16 h-16 bg-white shadow-sm rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-500 border border-blue-50 p-3">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-white shadow-sm rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-500 border border-blue-50 p-2 md:p-3">
                         <img src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo" class="w-full h-full object-contain">
                     </div>
-                    <h2 class="text-3xl font-extrabold mb-3 text-slate-800">Flowbite</h2>
-                    <p class="text-slate-500 mb-8 leading-relaxed font-semibold">Reliable and accessible components. Faithful to Flowbite's native interactivity.</p>
+                    <h2 class="text-2xl md:text-3xl font-extrabold mb-2 md:mb-3 text-slate-800">Flowbite</h2>
+                    <p class="text-sm md:text-base text-slate-500 mb-6 md:mb-8 leading-relaxed font-semibold">Reliable and accessible components. Faithful to Flowbite's native interactivity.</p>
                     <div class="flex items-center gap-2 text-blue-600 font-bold tracking-tight uppercase text-sm">
                         View Component <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
                     </div>
@@ -110,14 +110,14 @@
             </a>
 
             <!-- Untitled UI Card -->
-            <a href="untitled_ui.html" class="glass-card p-8 rounded-[2.5rem] group overflow-hidden relative">
+            <a href="untitled_ui.html" class="glass-card p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] group overflow-hidden relative">
                 <div class="absolute -right-16 -top-16 w-64 h-64 bg-indigo-500/5 blur-[80px] group-hover:bg-indigo-500/10 transition-all duration-700"></div>
                 <div class="relative z-10">
-                    <div class="w-16 h-16 bg-white shadow-sm rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500 border border-indigo-50 p-3">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-white shadow-sm rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500 border border-indigo-50 p-2 md:p-3">
                         <img src="https://cdn.prod.website-files.com/636496d3f0ebfdaba9784655/67085e706eec80d4d64e4385_untitled-ui-palantir.svg" alt="Untitled UI Logo" class="w-full h-full object-contain">
                     </div>
-                    <h2 class="text-3xl font-extrabold mb-3 text-slate-800">Untitled UI</h2>
-                    <p class="text-slate-500 mb-8 leading-relaxed font-semibold">Minimalist SaaS aesthetics applied to the MSC brand. Clean design and impeccable typography.</p>
+                    <h2 class="text-2xl md:text-3xl font-extrabold mb-2 md:mb-3 text-slate-800">Untitled UI</h2>
+                    <p class="text-sm md:text-base text-slate-500 mb-6 md:mb-8 leading-relaxed font-semibold">Minimalist SaaS aesthetics applied to the MSC brand. Clean design and impeccable typography.</p>
                     <div class="flex items-center gap-2 text-indigo-600 font-bold tracking-tight uppercase text-sm">
                         Explore Aesthetics <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
                     </div>
@@ -125,14 +125,14 @@
             </a>
 
             <!-- Tailwind Plus Card -->
-            <a href="tailwind_plus.html" class="glass-card p-8 rounded-[2.5rem] group overflow-hidden relative">
+            <a href="tailwind_plus.html" class="glass-card p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] group overflow-hidden relative">
                 <div class="absolute -right-16 -top-16 w-64 h-64 bg-blue-600/5 blur-[80px] group-hover:bg-blue-600/10 transition-all duration-700"></div>
                 <div class="relative z-10">
-                    <div class="w-16 h-16 bg-white shadow-sm rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-500 border border-blue-50 p-3">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-white shadow-sm rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-500 border border-blue-50 p-2 md:p-3">
                         <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind Logo" class="w-full h-full object-contain">
                     </div>
-                    <h2 class="text-3xl font-extrabold mb-3 text-slate-800">Tailwind Plus</h2>
-                    <p class="text-slate-500 mb-8 leading-relaxed font-semibold">Premium implementation with advanced glass effects and high-fidelity micro-interactions.</p>
+                    <h2 class="text-2xl md:text-3xl font-extrabold mb-2 md:mb-3 text-slate-800">Tailwind Plus</h2>
+                    <p class="text-sm md:text-base text-slate-500 mb-6 md:mb-8 leading-relaxed font-semibold">Premium implementation with advanced glass effects and high-fidelity micro-interactions.</p>
                     <div class="flex items-center gap-2 text-blue-600 font-bold tracking-tight uppercase text-sm">
                         Test Experience <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
                     </div>

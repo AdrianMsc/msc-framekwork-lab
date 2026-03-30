@@ -54,106 +54,131 @@
 
     <!-- Top Bar -->
     <div class="top-bar py-1 px-4 lg:px-8 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto flex justify-between items-center text-gray-500 font-medium">
-            <div class="flex gap-6">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-500 font-medium gap-2 sm:gap-0">
+            <div class="hidden sm:flex gap-6 text-xs md:text-[13px]">
                 <a href="#" class="hover:text-msc-blue">Solutions</a>
                 <a href="#" class="hover:text-msc-blue">Resources</a>
                 <a href="#" class="hover:text-msc-blue">Special Offers</a>
                 <a href="#" class="hover:text-msc-blue">Catalogs</a>
             </div>
-            <div>
+            <div class="text-[11px] md:text-[13px]">
                 Need help? Call us <span class="font-bold text-msc-blue">1-800-645-7270</span>
             </div>
         </div>
     </div>
 
-    <header class="bg-white msc-border-bottom sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-24">
+    <header class="bg-white msc-border-bottom sticky top-0 z-50 shadow-sm md:shadow-none">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 md:h-24">
+                <!-- Mobile Menu Button -->
+                <div class="flex md:hidden items-center mr-2">
+                    <button id="mobileMenuBtn" class="text-msc-blue p-2">
+                        <i class="fa-solid fa-bars-staggered text-2xl"></i>
+                    </button>
+                </div>
+
                 <!-- Logo & Nav -->
-                <div class="flex items-center gap-8">
+                <div class="flex items-center gap-4 md:gap-8">
                     <a href="#" class="flex items-center group">
-                        <img src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg" alt="MSC Direct" class="h-10">
+                        <img src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg" alt="MSC Direct" class="h-8 md:h-10">
                     </a>
 
                     <!-- Dropdown: Shop All Products -->
-                    <div class="hidden lg:block relative group">
-                        <button class="flex items-center gap-2 text-msc-blue font-bold py-2 whitespace-nowrap">
+                    <div class="hidden lg:block relative group px-2">
+                        <button class="flex items-center gap-2 text-msc-blue font-bold py-2 whitespace-nowrap text-sm">
                             Shop All Products
-                            <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180 text-msc-blue"></i>
+                            <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180 text-msc-blue"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- Search & Actions -->
-                <div class="flex items-center gap-6 flex-1 max-w-4xl justify-end ml-8">
+                <div class="flex items-center gap-3 md:gap-6 flex-1 max-w-4xl justify-end ml-2 md:ml-8">
                     <div class="relative w-full hidden md:flex items-stretch group">
-                        <input type="text" placeholder="Search by keyword or part number..." class="w-full bg-white border border-gray-300 rounded-l-lg py-2.5 pl-4 pr-4 untitled-shadow focus:ring-2 focus:ring-msc-blue/20 focus:border-msc-blue outline-none transition-all placeholder:text-gray-400 font-medium">
+                        <input type="text" placeholder="Search by keyword or part number..." class="w-full bg-white border border-gray-300 rounded-l-lg py-2 pl-4 pr-4 untitled-shadow focus:ring-2 focus:ring-msc-blue/20 focus:border-msc-blue outline-none transition-all placeholder:text-gray-400 font-medium text-sm">
                         <button class="bg-msc-blue text-white px-5 rounded-r-lg hover:bg-blue-700 transition-colors">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </div>
 
-                    <div class="flex items-center gap-6 pl-4">
+                    <!-- Mobile Search Icon -->
+                    <button class="md:hidden text-msc-blue p-2">
+                        <i class="fa-solid fa-magnifying-glass text-xl"></i>
+                    </button>
+
+                    <div class="flex items-center gap-4 md:gap-6 md:pl-4">
                         <!-- Quick Order -->
-                        <a href="#" class="flex flex-col items-center gap-1 text-msc-blue hover:text-blue-800 transition-colors group">
+                        <a href="#" class="hidden sm:flex flex-col items-center gap-1 text-msc-blue hover:text-blue-800 transition-colors group">
                             <i class="fa-solid fa-clipboard-list text-xl text-msc-blue"></i>
-                            <span class="text-[10px] font-bold uppercase tracking-tight">Quick Order</span>
+                            <span class="text-[9px] md:text-[10px] font-bold uppercase tracking-tight">Quick Order</span>
                         </a>
 
                         <!-- Login/Register -->
                         <a href="#" class="flex flex-col items-center gap-1 text-msc-blue hover:text-blue-800 transition-colors group">
                             <i class="fa-regular fa-user text-xl text-msc-blue"></i>
-                            <span class="text-[10px] font-bold uppercase tracking-tight whitespace-nowrap">Login / Register</span>
+                            <span class="text-[9px] md:text-[10px] font-bold uppercase tracking-tight whitespace-nowrap">Login</span>
                         </a>
                         
                         <!-- Cart -->
                         <button class="flex flex-col items-center gap-1 text-msc-blue hover:text-blue-800 transition-colors relative">
                             <div class="relative">
                                 <i class="fa-solid fa-cart-shopping text-xl text-msc-blue"></i>
-                                <span class="absolute -top-1 -right-1.5 bg-green-600 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">1</span>
+                                <span class="absolute -top-1 -right-1.5 bg-green-600 text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full">1</span>
                             </div>
-                            <span class="text-[10px] font-bold uppercase tracking-tight">Cart</span>
+                            <span class="text-[9px] md:text-[10px] font-bold uppercase tracking-tight">Cart</span>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Mobile Menu Dropdown (JS needed to toggle) -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg p-6 font-sans">
+            <nav class="flex flex-col gap-4">
+                <a href="#" class="text-msc-blue font-bold flex items-center gap-2"><i class="fa-solid fa-layer-group w-5"></i> Shop All Products</a>
+                <a href="#" class="text-msc-blue font-bold flex items-center gap-2"><i class="fa-solid fa-clipboard-list w-5"></i> Quick Order</a>
+                <div class="h-px bg-gray-100 my-2"></div>
+                <a href="#" class="text-gray-600 font-bold">Solutions</a>
+                <a href="#" class="text-gray-600 font-bold">Resources</a>
+                <a href="#" class="text-gray-600 font-bold">Special Offers</a>
+                <a href="#" class="text-gray-600 font-bold">Catalogs</a>
+            </nav>
+        </div>
     </header>
 
     <!-- STANDARD VERSION -->
-    <div class="divider px-8 mt-20 mb-8 uppercase font-black text-slate-400 text-xs tracking-widest text-center h-px bg-slate-200 flex items-center justify-center max-w-7xl mx-auto"><span class="bg-white px-4">Standard Framework Version</span></div>
+    <div class="divider px-4 md:px-8 mt-12 md:mt-20 mb-8 uppercase font-black text-slate-400 text-[10px] md:text-xs tracking-widest text-center h-px bg-slate-200 flex items-center justify-center max-w-7xl mx-auto"><span class="bg-white px-2 md:px-4">Standard Framework Version</span></div>
 
-    <header class="bg-white border border-gray-200 mt-10 mb-20 mx-auto max-w-7xl rounded-2xl shadow-sm overflow-hidden font-sans">
-        <div class="px-6">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-10">
+    <header class="bg-white border border-gray-200 mt-6 md:mt-10 mb-20 mx-auto max-w-[95%] md:max-w-7xl rounded-xl md:rounded-2xl shadow-sm overflow-hidden font-sans">
+        <div class="px-4 md:px-6">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <div class="flex items-center gap-4 md:gap-10">
                     <a href="#" class="flex-shrink-0">
-                        <img src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg" class="h-8 w-auto" alt="Logo">
+                        <img src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg" class="h-6 md:h-8 w-auto" alt="Logo">
                     </a>
                     <nav class="hidden md:flex space-x-6">
-                        <div class="relative group">
+                        <div class="relative group text-sm">
                             <button class="text-gray-600 hover:text-gray-900 font-semibold flex items-center gap-1">
                                 Shop All Products
                                 <i class="fa-solid fa-chevron-down text-[10px]"></i>
                             </button>
                         </div>
-                        <a href="#" class="text-gray-600 hover:text-gray-900 font-semibold">Quick Order</a>
+                        <a href="#" class="text-gray-600 hover:text-gray-900 font-semibold text-sm">Quick Order</a>
                     </nav>
                 </div>
-                <div class="flex items-center gap-6">
-                    <div class="relative hidden lg:block">
+                <div class="flex items-center gap-3 md:gap-6">
+                    <div class="relative hidden sm:block">
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <i class="fa-solid fa-magnifying-glass text-gray-400 text-sm"></i>
                         </div>
-                        <input type="text" class="block w-64 pl-10 pr-3 py-2 border border-gray-300 rounded-lg leading-5 bg-gray-50 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-msc-blue/20 focus:border-msc-blue sm:text-sm" placeholder="Search by keyword...">
+                        <input type="text" class="block w-40 md:w-64 pl-10 pr-3 py-1.5 border border-gray-200 rounded-lg text-sm bg-gray-50 focus:outline-none focus:ring-2 focus:ring-msc-blue/20 focus:border-msc-blue" placeholder="Search...">
                     </div>
                     
-                    <div class="flex items-center gap-4">
-                        <a href="#" class="text-gray-600 hover:text-gray-900 font-semibold text-sm">Login</a>
+                    <div class="flex items-center gap-3 md:gap-4">
+                        <a href="#" class="text-gray-600 hover:text-gray-900 font-semibold text-[13px] md:text-sm">Login</a>
                         <button class="relative p-2 text-gray-600 hover:text-msc-blue transition-colors">
                             <i class="fa-solid fa-cart-shopping text-xl"></i>
-                            <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-[10px] font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-green-600 rounded-full">1</span>
+                            <span class="absolute top-0 right-0 inline-flex items-center justify-center px-1.5 py-0.5 text-[9px] font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-green-600 rounded-full">1</span>
                         </button>
                         <a href="#" class="hidden sm:inline-flex items-center px-4 py-2 border border-transparent text-sm font-bold rounded-lg text-white bg-msc-blue hover:bg-blue-700 transition-all">Register</a>
                     </div>
@@ -162,44 +187,46 @@
         </div>
     </header>
 
-    <div class="divider px-8 mt-20 mb-8 uppercase font-black text-slate-400 text-xs tracking-widest text-center h-px bg-slate-200 flex items-center justify-center max-w-7xl mx-auto"><span class="bg-white px-4">Card Example</span></div>
+    <div class="divider px-4 md:px-8 mt-12 md:mt-20 mb-8 uppercase font-black text-slate-400 text-[10px] md:text-xs tracking-widest text-center h-px bg-slate-200 flex items-center justify-center max-w-7xl mx-auto"><span class="bg-white px-2 md:px-4">Card Example</span></div>
 
     <!-- eProcurement Showcase -->
-    <div class="max-w-2xl mx-auto bg-white border border-gray-200 rounded-2xl shadow-sm mb-20 overflow-hidden font-sans">
-        <img src="eprocurement.png" alt="eProcurement" class="w-full h-72 object-cover">
-        <div class="p-8 flex justify-between items-center h-24">
-            <h3 class="text-2xl font-bold text-gray-900">eProcurement</h3>
-            <a href="#" class="inline-flex items-center px-8 py-2.5 border border-msc-blue text-sm font-bold rounded-full text-msc-blue hover:bg-blue-50 transition-all">
-                Learn More
-            </a>
+    <div class="px-4 md:px-6 mb-20">
+        <div class="max-w-2xl mx-auto bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden font-sans">
+            <img src="eprocurement.png" alt="eProcurement" class="w-full h-48 md:h-72 object-cover">
+            <div class="p-6 md:p-8 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
+                <h3 class="text-xl md:text-2xl font-bold text-gray-900">eProcurement</h3>
+                <a href="#" class="w-full sm:w-auto inline-flex justify-center items-center px-8 py-2.5 border border-msc-blue text-sm font-bold rounded-full text-msc-blue hover:bg-blue-50 transition-all">
+                    Learn More
+                </a>
+            </div>
         </div>
     </div>
 
-    <div class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[9999]">
-        <div class="bg-white/90 backdrop-blur-md border border-gray-200 rounded-full p-1 shadow-2xl flex items-center gap-2">
-            <div class="flex bg-gray-100 rounded-full p-1 relative" id="frameworkToggle">
-                <div id="toggleHighlight" class="absolute bg-msc-blue rounded-full transition-all duration-300 ease-out h-[calc(100%-8px)] top-1"></div>
+    <div class="fixed bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-[9999] w-[95%] max-w-max">
+        <div class="bg-white/90 backdrop-blur-md border border-gray-200 rounded-full p-1 shadow-2xl flex items-center gap-1 md:gap-2">
+            <div class="flex bg-gray-100 rounded-full p-0.5 md:p-1 relative overflow-hidden" id="frameworkToggle">
+                <div id="toggleHighlight" class="absolute bg-msc-blue rounded-full transition-all duration-300 ease-out h-[calc(100%-4px)] md:h-[calc(100%-8px)] top-0.5 md:top-1"></div>
                 
-                <label class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight" data-url="daisyui.html">
+                <label class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight" data-url="daisyui.html">
                     <input type="radio" name="framework" class="sr-only">
-                    <span class="text-gray-500">DaisyUI</span>
+                    <span class="text-gray-500">Daisy</span>
                 </label>
-                <label class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight" data-url="flowbite.html">
+                <label class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight" data-url="flowbite.html">
                     <input type="radio" name="framework" class="sr-only">
-                    <span class="text-gray-500">Flowbite</span>
+                    <span class="text-gray-500">Flow</span>
                 </label>
-                <label class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight" data-url="untitled_ui.html">
+                <label class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight" data-url="untitled_ui.html">
                     <input type="radio" name="framework" class="sr-only" checked>
-                    <span class="text-white">UntitledUI</span>
+                    <span class="text-white">Untitled</span>
                 </label>
-                <label class="relative z-10 cursor-pointer px-4 py-2 text-xs font-bold transition-colors uppercase tracking-tight" data-url="tailwind_plus.html">
+                <label class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight" data-url="tailwind_plus.html">
                     <input type="radio" name="framework" class="sr-only">
                     <span class="text-gray-500">Plus</span>
                 </label>
             </div>
             
-            <a href="index.html" class="p-2 hover:bg-gray-100 rounded-full transition-colors text-msc-blue" title="Home">
-                <i class="fa-solid fa-house text-lg"></i>
+            <a href="index.html" class="p-1.5 md:p-2 hover:bg-gray-100 rounded-full transition-colors text-msc-blue" title="Home">
+                <i class="fa-solid fa-house text-base md:text-lg"></i>
             </a>
         </div>
     </div>
@@ -210,6 +237,15 @@
             const highlight = document.getElementById('toggleHighlight');
             const labels = toggle.querySelectorAll('label');
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if(mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
 
             function updateToggle(activeLabel) {
                 if (!activeLabel) {
