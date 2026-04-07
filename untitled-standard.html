@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg">
+    <title>Untitled UI - Standard Framework Header</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'msc-blue': '#1C58EE',
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+    <header class="bg-white border border-gray-200 mt-8 mb-20 mx-auto max-w-[95%] md:max-w-7xl rounded-xl md:rounded-2xl shadow-sm overflow-hidden font-sans">
+        <div class="px-4 md:px-6">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <div class="flex items-center gap-4 md:gap-10">
+                    <a href="#" class="flex-shrink-0">
+                        <img src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg" class="h-6 md:h-8 w-auto" alt="Logo">
+                    </a>
+                    <nav class="hidden md:flex space-x-6">
+                        <div class="relative group text-sm">
+                            <button class="text-gray-600 hover:text-gray-900 font-semibold flex items-center gap-1">
+                                Shop All Products
+                                <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                            </button>
+                        </div>
+                        <a href="#" class="text-gray-600 hover:text-gray-900 font-semibold text-sm">Quick Order</a>
+                    </nav>
+                </div>
+                <div class="flex items-center gap-3 md:gap-6">
+                    <div class="relative hidden sm:block">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fa-solid fa-magnifying-glass text-gray-400 text-sm"></i>
+                        </div>
+                        <input type="text" class="block w-40 md:w-64 pl-10 pr-3 py-1.5 border border-gray-200 rounded-lg text-sm bg-gray-50 focus:outline-none focus:ring-2 focus:ring-msc-blue/20 focus:border-msc-blue" placeholder="Search...">
+                    </div>
+                    
+                    <div class="flex items-center gap-3 md:gap-4">
+                        <a href="#" class="text-gray-600 hover:text-gray-900 font-semibold text-[13px] md:text-sm">Login</a>
+                        <button class="relative p-2 text-gray-600 hover:text-msc-blue transition-colors">
+                            <i class="fa-solid fa-cart-shopping text-xl"></i>
+                            <span class="absolute top-0 right-0 inline-flex items-center justify-center px-1.5 py-0.5 text-[9px] font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-green-600 rounded-full">1</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-12 text-center">
+        <h1 class="text-3xl font-black text-slate-800">Standard Untitled UI Header</h1>
+        <p class="text-slate-500 mb-12">Pure framework implementation using Untitled UI header patterns</p>
+
+        <!-- eProcurement Showcase -->
+        <div class="px-4 md:px-6 mb-20">
+            <div class="max-w-2xl mx-auto bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden font-sans text-left">
+                <img src="eprocurement.png" alt="eProcurement" class="w-full h-48 md:h-72 object-cover">
+                <div class="p-6 md:p-8 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-900">eProcurement</h3>
+                    <a href="#" class="w-full sm:w-auto inline-flex justify-center items-center px-8 py-2.5 border border-msc-blue text-sm font-bold rounded-full text-msc-blue hover:bg-blue-50 transition-all">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING MENU  -->
+    <div class="fixed bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-[9999] w-[95%] max-w-max">
+        <div class="bg-white/90 backdrop-blur-md border border-gray-200 rounded-full p-1 shadow-2xl flex items-center gap-1 md:gap-2">
+            <div class="flex bg-gray-100 rounded-full p-0.5 md:p-1 relative overflow-hidden" id="frameworkToggle">
+                <div id="toggleHighlight" class="absolute bg-msc-blue rounded-full transition-all duration-300 ease-out h-[calc(100%-4px)] md:h-[calc(100%-8px)] top-0.5 md:top-1"></div>
+                <label class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight" data-url="daisyui-custom.html">
+                    <input type="radio" name="framework" class="sr-only">
+                    <span class="text-gray-500">Daisy</span>
+                </label>
+                <label class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight" data-url="flowbite-custom.html">
+                    <input type="radio" name="framework" class="sr-only">
+                    <span class="text-gray-500">Flowbite</span>
+                </label>
+                <label class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight" data-url="untitled-custom.html">
+                    <input type="radio" name="framework" class="sr-only">
+                    <span class="text-gray-500">Untitled</span>
+                </label>
+                <label class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight" data-url="plus-custom.html">
+                    <input type="radio" name="framework" class="sr-only">
+                    <span class="text-gray-500">Plus</span>
+                </label>
+            </div>
+
+            <div class="h-6 w-px bg-gray-200 mx-1"></div>
+
+            <div class="flex gap-1">
+                <a href="untitled-custom.html" class="px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-slate-500 hover:bg-gray-100 transition-all">Custom</a>
+                <a href="untitled-standard.html" class="px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-msc-blue text-white shadow-sm transition-all">Standard</a>
+            </div>
+
+            <div class="h-6 w-px bg-gray-200 mx-1"></div>
+            
+            <a href="index.html" class="p-1.5 md:p-2 hover:bg-gray-100 rounded-full transition-colors text-msc-blue" title="Home">
+                <i class="fa-solid fa-house text-base md:text-lg"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggle = document.getElementById('frameworkToggle');
+            const highlight = document.getElementById('toggleHighlight');
+            const labels = toggle.querySelectorAll('label');
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+            function updateToggle(activeLabel) {
+                if (!activeLabel) {
+                    highlight.style.width = '0px';
+                    return;
+                }
+                const rect = activeLabel.getBoundingClientRect();
+                const containerRect = toggle.getBoundingClientRect();
+                
+                highlight.style.width = `${rect.width}px`;
+                highlight.style.left = `${rect.left - containerRect.left}px`;
+
+                labels.forEach(label => {
+                    const span = label.querySelector('span');
+                    if (label === activeLabel) {
+                        span.classList.remove('text-gray-500');
+                        span.classList.add('text-white');
+                    } else {
+                        span.classList.remove('text-white');
+                        span.classList.add('text-gray-500');
+                    }
+                });
+            }
+
+            labels.forEach(label => {
+                const url = label.getAttribute('data-url');
+                const frameworkKey = url.split('-')[0];
+                if (currentPage.includes(frameworkKey)) {
+                    label.querySelector("input").checked = true;
+                    updateToggle(label);
+                }
+                label.addEventListener('click', () => window.location.href = url);
+            });
+            
+            setTimeout(() => {
+                const checked = toggle.querySelector('input:checked');
+                if (checked) updateToggle(checked.parentElement);
+            }, 100);
+        });
+    </script>
+</body>
+</html>

@@ -8,7 +8,7 @@
       type="image/svg+xml"
       href="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg"
     />
-    <title>DaisyUI - MSC Direct Header</title>
+    <title>DaisyUI - Custom MSC Header</title>
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
       rel="stylesheet"
@@ -75,7 +75,9 @@
   <body class="bg-white min-h-screen">
     <!-- Top Bar -->
     <div class="top-bar py-1 px-4 lg:px-8 border-b border-gray-200">
-      <div class="mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-600 gap-2 sm:gap-0">
+      <div
+        class="mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-600 gap-2 sm:gap-0"
+      >
         <div class="hidden sm:flex gap-2">
           <div class="dropdown dropdown-hover">
             <div
@@ -123,7 +125,9 @@
       </div>
     </div>
 
-    <div class="navbar bg-white px-4 lg:px-8 msc-border-bottom h-20 md:h-24 gap-2 md:gap-4">
+    <div
+      class="navbar bg-white px-4 lg:px-8 msc-border-bottom h-20 md:h-24 gap-2 md:gap-4"
+    >
       <!-- Hamburger for Mobile -->
       <div class="flex-none lg:hidden">
         <label for="my-drawer" class="btn btn-ghost btn-circle">
@@ -142,7 +146,9 @@
         </a>
       </div>
 
-      <div class="flex-none gap-2 md:gap-6 lg:flex-1 justify-end lg:justify-start">
+      <div
+        class="flex-none gap-2 md:gap-6 lg:flex-1 justify-end lg:justify-start"
+      >
         <!-- Dropdown: Shop All Products (Hidden on Small) -->
         <div class="dropdown dropdown-end lg:dropdown-start hidden sm:block">
           <div
@@ -183,54 +189,54 @@
 
         <!-- Mobile Search Icon -->
         <button class="btn btn-ghost btn-circle md:hidden">
-            <i class="fa-solid fa-magnifying-glass text-xl"></i>
+          <i class="fa-solid fa-magnifying-glass text-xl"></i>
         </button>
 
         <!-- Actions -->
         <div class="flex items-center gap-2 md:gap-4 ml-auto">
-            <!-- Quick Order -->
-            <a
-              class="hidden sm:flex flex-col items-center gap-0.5 text-msc-blue hover:text-blue-800 transition-colors cursor-pointer group"
+          <!-- Quick Order -->
+          <a
+            class="hidden sm:flex flex-col items-center gap-0.5 text-msc-blue hover:text-blue-800 transition-colors cursor-pointer group"
+          >
+            <i class="fa-solid fa-clipboard-list text-xl text-msc-blue"></i>
+            <span
+              class="text-[9px] md:text-[10px] font-bold uppercase tracking-tight text-msc-blue"
+              >Quick Order</span
             >
-              <i class="fa-solid fa-clipboard-list text-xl text-msc-blue"></i>
-              <span
-                class="text-[9px] md:text-[10px] font-bold uppercase tracking-tight text-msc-blue"
-                >Quick Order</span
-              >
-            </a>
+          </a>
 
-            <!-- Login/Register -->
-            <a
-              class="flex flex-col items-center gap-0.5 text-msc-blue hover:text-blue-800 transition-colors cursor-pointer group"
+          <!-- Login/Register -->
+          <a
+            class="flex flex-col items-center gap-0.5 text-msc-blue hover:text-blue-800 transition-colors cursor-pointer group"
+          >
+            <i class="fa-regular fa-user text-xl text-msc-blue"></i>
+            <span
+              class="text-[9px] md:text-[10px] font-bold uppercase tracking-tight text-msc-blue"
+              >Login</span
             >
-              <i class="fa-regular fa-user text-xl text-msc-blue"></i>
-              <span
-                class="text-[9px] md:text-[10px] font-bold uppercase tracking-tight text-msc-blue"
-                >Login</span
-              >
-            </a>
+          </a>
 
-            <!-- Cart -->
-            <div class="dropdown dropdown-end">
-              <div
-                tabindex="0"
-                role="button"
-                class="flex flex-col items-center gap-0.5 text-msc-blue hover:text-blue-800 transition-colors cursor-pointer relative"
-              >
-                <div class="indicator">
-                  <i class="fa-solid fa-cart-shopping text-xl text-msc-blue"></i>
-                  <span
-                    class="badge badge-xs md:badge-sm badge-success indicator-item text-white border-none font-bold"
-                    style="background-color: #31a444"
-                    >1</span
-                  >
-                </div>
+          <!-- Cart -->
+          <div class="dropdown dropdown-end">
+            <div
+              tabindex="0"
+              role="button"
+              class="flex flex-col items-center gap-0.5 text-msc-blue hover:text-blue-800 transition-colors cursor-pointer relative"
+            >
+              <div class="indicator">
+                <i class="fa-solid fa-cart-shopping text-xl text-msc-blue"></i>
                 <span
-                  class="text-[9px] md:text-[10px] font-bold uppercase tracking-tight text-msc-blue"
-                  >Cart</span
+                  class="badge badge-xs md:badge-sm badge-success indicator-item text-white border-none font-bold"
+                  style="background-color: #31a444"
+                  >1</span
                 >
               </div>
+              <span
+                class="text-[9px] md:text-[10px] font-bold uppercase tracking-tight text-msc-blue"
+                >Cart</span
+              >
             </div>
+          </div>
         </div>
       </div>
     </div>
@@ -239,160 +245,84 @@
     <div class="drawer z-[200]">
       <input id="my-drawer" type="checkbox" class="drawer-toggle" />
       <div class="drawer-side">
-        <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-        <ul class="menu p-4 w-80 min-h-full bg-base-100 text-base-content font-bold">
+        <label
+          for="my-drawer"
+          aria-label="close sidebar"
+          class="drawer-overlay"
+        ></label>
+        <ul
+          class="menu p-4 w-80 min-h-full bg-base-100 text-base-content font-bold"
+        >
           <!-- Sidebar content here -->
           <li class="mb-4">
-              <img
-                src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg"
-                alt="MSC Direct"
-                class="h-8"
-              />
+            <img
+              src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg"
+              alt="MSC Direct"
+              class="h-8"
+            />
           </li>
-          <li><a><i class="fa-solid fa-layer-group w-6"></i> Shop All Products</a></li>
-          <li><a><i class="fa-solid fa-clipboard-list w-6"></i> Quick Order</a></li>
+          <li>
+            <a><i class="fa-solid fa-layer-group w-6"></i> Shop All Products</a>
+          </li>
+          <li>
+            <a><i class="fa-solid fa-clipboard-list w-6"></i> Quick Order</a>
+          </li>
           <div class="divider"></div>
           <li><a>Solutions</a></li>
           <li><a>Resources</a></li>
           <li><a>Special Offers</a></li>
           <li><a>Catalogs</a></li>
           <div class="divider"></div>
-          <li><a><i class="fa-regular fa-user w-6"></i> Login / Register</a></li>
-          <li><a><i class="fa-solid fa-cart-shopping w-6"></i> My Cart (1)</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- STANDARD VERSION -->
-    <div
-      class="divider px-8 mt-20 mb-8 uppercase font-black text-slate-400 text-xs tracking-widest"
-    >
-      Standard Framework Version
-    </div>
-
-    <div
-      class="navbar bg-white px-2 md:px-6 h-16 md:h-20 shadow-lg mx-auto max-w-[95%] rounded-xl md:rounded-2xl mb-20"
-    >
-      <div class="navbar-start flex-1 sm:flex-none">
-        <div class="dropdown">
-          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden p-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </div>
-          <ul
-            tabindex="0"
-            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow font-bold"
-          >
-            <li><a>Shop All Products</a></li>
-            <li><a>Quick Order</a></li>
-            <li><a>Login / Register</a></li>
-          </ul>
-        </div>
-        <a class="btn btn-ghost h-auto hover:bg-slate-300/20 px-2 md:px-4">
-          <img
-            src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg"
-            alt="MSC Direct"
-            class="h-6 md:h-8"
-          />
-        </a>
-      </div>
-      <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1 font-bold gap-2 text-sm">
           <li>
-            <details>
-              <summary>Shop All Products</summary>
-              <ul class="p-2 z-[100] w-52">
-                <li><a>Metalworking</a></li>
-                <li><a>Fasteners</a></li>
-                <li><a>Hand Tools</a></li>
-              </ul>
-            </details>
+            <a><i class="fa-regular fa-user w-6"></i> Login / Register</a>
           </li>
-          <li><a>Quick Order</a></li>
+          <li>
+            <a><i class="fa-solid fa-cart-shopping w-6"></i> My Cart (1)</a>
+          </li>
         </ul>
       </div>
-      <div class="navbar-end gap-1 md:gap-3 flex-none">
-        <div class="form-control hidden sm:flex">
-          <div class="join shadow-sm">
-            <input
-              class="input input-sm md:input-md input-bordered join-item w-32 md:w-48 lg:w-64 focus:outline-none"
-              placeholder="Search..."
-            />
-            <button class="btn btn-sm md:btn-md btn-primary join-item px-3 md:px-4">
-              <i
-                class="fa-solid fa-magnifying-glass text-white !important"
-                style="color: white !important"
-              ></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Mobile Search Button -->
-        <button class="btn btn-ghost btn-circle sm:hidden">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-
-        <div class="dropdown dropdown-end">
-          <div
-            tabindex="0"
-            role="button"
-            class="btn btn-ghost btn-circle btn-sm md:btn-md hover:bg-slate-300/20"
-          >
-            <div class="indicator">
-              <i class="fa-solid fa-cart-shopping text-lg md:text-xl"></i>
-              <span
-                class="badge badge-xs md:badge-sm badge-success indicator-item text-white border-none font-bold"
-                >1</span
-              >
-            </div>
-          </div>
-        </div>
-
-        <div class="btn btn-ghost btn-circle btn-sm md:btn-md avatar hover:bg-slate-300/20">
-          <div
-            class="w-8 md:w-10 rounded-full bg-slate-200 flex items-center justify-center border border-slate-300"
-          >
-            <i class="fa-regular fa-user text-base md:text-lg"></i>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <!-- Card Example Separator -->
-    <div
-      class="divider px-4 md:px-8 mt-12 md:mt-20 mb-8 uppercase font-black text-slate-400 text-[10px] md:text-xs tracking-widest"
-    >
-      Card Example
-    </div>
+    <div class="container mx-auto px-4 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl font-black text-slate-800">Custom Implementation</h1>
+            <p class="text-slate-500">Premium design with DaisyUI themes and custom MSC styling</p>
+        </div>
 
-    <!-- eProcurement Showcase -->
-    <div class="px-4 md:px-6 mb-20">
-        <div class="card w-full max-w-2xl bg-base-100 shadow-sm mx-auto border border-gray-100 rounded-2xl overflow-hidden font-sans">
-          <figure><img src="eprocurement.png" alt="eProcurement" class="w-full h-48 md:h-72 object-cover" /></figure>
-          <div class="card-body p-6 md:p-8 flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
-            <h2 class="card-title text-xl md:text-2xl font-bold text-gray-900">eProcurement</h2>
-            <div class="card-actions w-full sm:w-auto">
-              <button class="btn btn-outline btn-primary rounded-full px-8 normal-case font-bold h-10 min-h-0 w-full sm:w-auto">Learn More</button>
+        <!-- Card Example -->
+        <div class="px-4 md:px-6 mb-20">
+          <div
+            class="card w-full max-w-2xl bg-base-100 shadow-sm mx-auto border border-gray-100 rounded-2xl overflow-hidden font-sans"
+          >
+            <figure>
+              <img
+                src="eprocurement.png"
+                alt="eProcurement"
+                class="w-full h-48 md:h-72 object-cover"
+              />
+            </figure>
+            <div
+              class="card-body p-6 md:p-8 flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0"
+            >
+              <h2 class="card-title text-xl md:text-2xl font-bold text-gray-900">
+                eProcurement
+              </h2>
+              <div class="card-actions w-full sm:w-auto">
+                <button
+                  class="btn btn-outline btn-primary rounded-full px-8 normal-case font-bold h-10 min-h-0 w-full sm:w-auto"
+                >
+                  Learn More
+                </button>
+              </div>
             </div>
           </div>
         </div>
     </div>
 
     <!-- FLOATING MENU  -->
-
-    <div class="fixed bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-[9999] w-[95%] max-w-max">
+    <div
+      class="fixed bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-[9999] w-[95%] max-w-max"
+    >
       <div
         class="bg-white/90 backdrop-blur-md border border-gray-200 rounded-full p-1 shadow-2xl flex items-center gap-1 md:gap-2"
       >
@@ -407,33 +337,42 @@
 
           <label
             class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight"
-            data-url="daisyui.html"
+            data-url="daisyui-custom.html"
           >
             <input type="radio" name="framework" class="sr-only" checked />
             <span class="text-white">Daisy</span>
           </label>
           <label
             class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight"
-            data-url="flowbite.html"
+            data-url="flowbite-custom.html"
           >
             <input type="radio" name="framework" class="sr-only" />
             <span class="text-gray-500">Flowbite</span>
           </label>
           <label
             class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight"
-            data-url="untitled_ui.html"
+            data-url="untitled-custom.html"
           >
             <input type="radio" name="framework" class="sr-only" />
             <span class="text-gray-500">Untitled</span>
           </label>
           <label
             class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight"
-            data-url="tailwind_plus.html"
+            data-url="plus-custom.html"
           >
             <input type="radio" name="framework" class="sr-only" />
             <span class="text-gray-500">Plus</span>
           </label>
         </div>
+
+        <div class="h-6 w-px bg-gray-200 mx-1"></div>
+
+        <div class="flex gap-1">
+            <a href="daisyui-custom.html" class="px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-msc-blue text-white shadow-sm transition-all">Custom</a>
+            <a href="daisyui-standard.html" class="px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-slate-500 hover:bg-gray-100 transition-all">Standard</a>
+        </div>
+
+        <div class="h-6 w-px bg-gray-200 mx-1"></div>
 
         <a
           href="index.html"
@@ -479,14 +418,15 @@
         let found = false;
         labels.forEach((label) => {
           const url = label.getAttribute("data-url");
-          if (currentPage === url) {
+          const frameworkKey = url.split('-')[0];
+          if (currentPage.includes(frameworkKey)) {
             label.querySelector("input").checked = true;
             updateToggle(label);
             found = true;
           }
 
           label.addEventListener("click", (e) => {
-            if (currentPage !== url) {
+            if (!currentPage.includes(frameworkKey)) {
               window.location.href = url;
             }
           });
@@ -499,7 +439,6 @@
           if (checked) updateToggle(checked.parentElement);
         });
 
-        // Initial position with a small delay to ensure rendering
         setTimeout(() => {
           const checked = toggle.querySelector("input:checked");
           if (checked) updateToggle(checked.parentElement);

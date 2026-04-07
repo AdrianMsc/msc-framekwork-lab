@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg">
+    <title>Tailwind Plus - Custom MSC Header</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Roboto', 'sans-serif'] },
+                    colors: { 'msc-blue': '#1C58EE' },
+                    boxShadow: { 'premium': '0 4px 6px -1px rgba(0, 0, 0, 0.1)', 'plus': '0 20px 25px -5px rgba(0, 0, 0, 0.1)' }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-header { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); }
+        .msc-border-bottom { border-bottom: 4px solid #1C58EE; }
+        .top-bar { background-color: #f1f5f9; font-size: 12px; }
+        header i.fa-solid:not(.fa-magnifying-glass), header i.fa-regular { color: #1C58EE !important; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+    <div class="top-bar py-1.5 px-4 md:px-6 border-b border-slate-200">
+        <div class="max-w-screen-2xl mx-auto flex justify-between items-center text-slate-500 font-bold uppercase tracking-wider text-[10px] md:text-[12px]">
+            <div class="hidden sm:flex gap-8">
+                <a href="#">Solutions</a><a href="#">Resources</a>
+            </div>
+            <div>Need help? <span class="text-msc-blue">1-800-645-7270</span></div>
+        </div>
+    </div>
+
+    <header class="glass-header sticky top-0 z-[100] msc-border-bottom shadow-sm">
+        <div class="max-w-screen-2xl mx-auto px-4 md:px-6 h-20 md:h-24 flex items-center justify-between gap-2">
+            <div class="flex items-center gap-4 lg:gap-12">
+                <a href="#" class="flex items-center group transition-transform hover:scale-105">
+                   <img src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg" alt="MSC Direct" class="h-8 md:h-12">
+                </a>
+                <nav class="hidden lg:flex items-center">
+                    <button class="flex items-center gap-2 text-sm font-black text-msc-blue uppercase tracking-tighter">Shop All Products <i class="fa-solid fa-chevron-down text-xs mt-0.5"></i></button>
+                </nav>
+            </div>
+            <div class="hidden md:block flex-1 max-w-2xl px-8">
+                <div class="flex items-stretch bg-white border-2 border-slate-200 rounded-lg focus-within:border-msc-blue overflow-hidden shadow-sm">
+                    <input type="text" placeholder="Search products..." class="bg-transparent border-none outline-none pl-4 py-3 text-sm text-slate-700 w-full font-bold">
+                    <button class="bg-msc-blue text-white px-6 hover:bg-blue-700"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 md:gap-8">
+                <a href="#" class="flex flex-col items-center gap-1 text-msc-blue hover:scale-110 transition-transform">
+                    <i class="fa-regular fa-user text-2xl"></i>
+                    <span class="text-[9px] md:text-[10px] font-black uppercase tracking-widest">Login</span>
+                </a>
+                <button class="flex flex-col items-center gap-1 text-msc-blue hover:scale-110 relative">
+                    <div class="relative">
+                        <i class="fa-solid fa-cart-shopping text-2xl"></i>
+                        <span class="absolute -top-1.5 -right-2 w-4 md:w-5 h-4 md:h-5 bg-green-600 text-white text-[9px] font-black flex items-center justify-center rounded-full border-2 border-white shadow-sm">1</span>
+                    </div>
+                    <span class="text-[9px] md:text-[10px] font-black uppercase tracking-widest">Cart</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-12 text-center">
+        <h1 class="text-3xl font-black text-slate-800">Custom Tailwind Plus</h1>
+        <p class="text-slate-500 mb-12">Premium high-fidelity implementation with advanced glassmorphism</p>
+
+        <div class="px-4 md:px-6 mb-20">
+            <div class="max-w-2xl mx-auto bg-white border-b-4 border-msc-blue rounded-xl shadow-premium overflow-hidden font-sans text-left">
+                <img src="eprocurement.png" alt="eProcurement" class="w-full h-48 md:h-72 object-cover">
+                <div class="p-6 md:p-8 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
+                    <h3 class="text-xl md:text-2xl font-black text-gray-900 uppercase tracking-tighter">eProcurement</h3>
+                    <a href="#" class="w-full sm:w-auto inline-flex justify-center items-center px-10 py-3 border-2 border-msc-blue text-xs font-black rounded-full text-msc-blue hover:bg-msc-blue hover:text-white transition-all uppercase tracking-widest">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING MENU  -->
+    <div class="fixed bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-[9999] w-[95%] max-w-max">
+        <div class="bg-white/90 backdrop-blur-md border border-gray-200 rounded-full p-1 shadow-2xl flex items-center gap-1 md:gap-2">
+            <div class="flex bg-gray-100 rounded-full p-0.5 md:p-1 relative overflow-hidden" id="frameworkToggle">
+                <div id="toggleHighlight" class="absolute bg-msc-blue rounded-full transition-all duration-300 ease-out h-[calc(100%-4px)] md:h-[calc(100%-8px)] top-0.5 md:top-1"></div>
+                <label class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight" data-url="daisyui-custom.html">
+                    <input type="radio" name="framework" class="sr-only">
+                    <span class="text-gray-500">Daisy</span>
+                </label>
+                <label class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight" data-url="flowbite-custom.html">
+                    <input type="radio" name="framework" class="sr-only">
+                    <span class="text-gray-500">Flowbite</span>
+                </label>
+                <label class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight" data-url="untitled-custom.html">
+                    <input type="radio" name="framework" class="sr-only">
+                    <span class="text-gray-500">Untitled</span>
+                </label>
+                <label class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight" data-url="plus-custom.html">
+                    <input type="radio" name="framework" class="sr-only">
+                    <span class="text-gray-500">Plus</span>
+                </label>
+            </div>
+
+            <div class="h-6 w-px bg-gray-200 mx-1"></div>
+
+            <div class="flex gap-1">
+                <a href="plus-custom.html" class="px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-msc-blue text-white shadow-sm transition-all">Custom</a>
+                <a href="plus-standard.html" class="px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-slate-500 hover:bg-gray-100 transition-all">Standard</a>
+            </div>
+
+            <div class="h-6 w-px bg-gray-200 mx-1"></div>
+            
+            <a href="index.html" class="p-1.5 md:p-2 hover:bg-gray-100 rounded-full transition-colors text-msc-blue" title="Home"><i class="fa-solid fa-house text-base md:text-lg"></i></a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggle = document.getElementById('frameworkToggle');
+            const highlight = document.getElementById('toggleHighlight');
+            const labels = toggle.querySelectorAll('label');
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+            function updateToggle(activeLabel) {
+                if (!activeLabel) { highlight.style.width = '0px'; return; }
+                const rect = activeLabel.getBoundingClientRect();
+                const containerRect = toggle.getBoundingClientRect();
+                highlight.style.width = `${rect.width}px`;
+                highlight.style.left = `${rect.left - containerRect.left}px`;
+                labels.forEach(label => {
+                    const span = label.querySelector('span');
+                    if (label === activeLabel) { span.classList.remove('text-gray-500'); span.classList.add('text-white'); }
+                    else { span.classList.remove('text-white'); span.classList.add('text-gray-500'); }
+                });
+            }
+
+            labels.forEach(label => {
+                const url = label.getAttribute('data-url');
+                const frameworkKey = url.split('-')[0];
+                if (currentPage.includes(frameworkKey)) {
+                    label.querySelector("input").checked = true;
+                    updateToggle(label);
+                }
+                label.addEventListener('click', () => window.location.href = url);
+            });
+            setTimeout(() => { const checked = toggle.querySelector('input:checked'); if (checked) updateToggle(checked.parentElement); }, 100);
+        });
+    </script>
+</body>
+</html>

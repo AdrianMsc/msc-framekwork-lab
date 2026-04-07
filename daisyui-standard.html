@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en" data-theme="light" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg"
+    />
+    <title>DaisyUI - Standard Framework Header</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1C58EE",
+              "msc-blue": "#1C58EE",
+              "msc-red": "#EE3124",
+            },
+            fontFamily: {
+              sans: ["Roboto", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-slate-50 min-h-screen">
+    <div
+      class="navbar bg-white px-2 md:px-6 h-16 md:h-20 shadow-lg mx-auto max-w-[95%] rounded-xl md:rounded-2xl mt-8 mb-20"
+    >
+      <div class="navbar-start flex-1">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden p-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </div>
+          <ul
+            tabindex="0"
+            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow font-bold"
+          >
+            <li><a>Shop All Products</a></li>
+            <li><a>Quick Order</a></li>
+            <li><a>Login / Register</a></li>
+          </ul>
+        </div>
+        <a class="btn btn-ghost h-auto hover:bg-slate-300/20 px-2 md:px-4">
+          <img
+            src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg"
+            alt="MSC Direct"
+            class="h-6 md:h-8"
+          />
+        </a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1 font-bold gap-2 text-sm">
+          <li>
+            <details>
+              <summary>Shop All Products</summary>
+              <ul class="p-2 z-[100] w-52">
+                <li><a>Metalworking</a></li>
+                <li><a>Fasteners</a></li>
+                <li><a>Hand Tools</a></li>
+              </ul>
+            </details>
+          </li>
+          <li><a>Quick Order</a></li>
+        </ul>
+      </div>
+      <div class="navbar-end flex-1 gap-1 md:gap-3">
+        <div class="form-control hidden sm:flex">
+          <div class="join shadow-sm">
+            <input
+              class="input input-sm md:input-md input-bordered join-item w-24 sm:w-32 md:w-48 lg:w-64 focus:outline-none"
+              placeholder="Search..."
+            />
+            <button
+              class="btn btn-sm md:btn-md btn-primary join-item px-3 md:px-4"
+            >
+              <i
+                class="fa-solid fa-magnifying-glass text-white !important"
+                style="color: white !important"
+              ></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Search Button -->
+        <button class="btn btn-ghost btn-circle sm:hidden">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <div class="dropdown dropdown-end">
+          <div
+            tabindex="0"
+            role="button"
+            class="btn btn-ghost btn-circle btn-sm md:btn-md hover:bg-slate-300/20"
+          >
+            <div class="indicator">
+              <i class="fa-solid fa-cart-shopping text-lg md:text-xl"></i>
+              <span
+                class="badge badge-xs md:badge-sm badge-success indicator-item text-white border-none font-bold"
+                >1</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="btn btn-ghost btn-circle btn-sm md:btn-md avatar hover:bg-slate-300/20"
+        >
+          <div
+            class="w-8 md:w-10 rounded-full bg-slate-200 flex items-center justify-center border border-slate-300"
+          >
+            <i class="fa-regular fa-user text-base md:text-lg"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl font-black text-slate-800">Standard DaisyUI Header</h1>
+            <p class="text-slate-500">Pure framework implementation using DaisyUI navbar components</p>
+        </div>
+
+        <!-- Card Example -->
+        <div class="px-4 md:px-6 mb-20">
+          <div
+            class="card w-full max-w-2xl bg-base-100 shadow-sm mx-auto border border-gray-100 rounded-2xl overflow-hidden font-sans"
+          >
+            <figure>
+              <img
+                src="eprocurement.png"
+                alt="eProcurement"
+                class="w-full h-48 md:h-72 object-cover"
+              />
+            </figure>
+            <div
+              class="card-body p-6 md:p-8 flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0"
+            >
+              <h2 class="card-title text-xl md:text-2xl font-bold text-gray-900">
+                eProcurement
+              </h2>
+              <div class="card-actions w-full sm:w-auto">
+                <button
+                  class="btn btn-outline btn-primary rounded-full px-8 normal-case font-bold h-10 min-h-0 w-full sm:w-auto"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- FLOATING MENU  -->
+    <div
+      class="fixed bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-[9999] w-[95%] max-w-max"
+    >
+      <div
+        class="bg-white/90 backdrop-blur-md border border-gray-200 rounded-full p-1 shadow-2xl flex items-center gap-1 md:gap-2"
+      >
+        <div
+          class="flex bg-gray-100 rounded-full p-0.5 md:p-1 relative overflow-hidden"
+          id="frameworkToggle"
+        >
+          <div
+            id="toggleHighlight"
+            class="absolute bg-msc-blue rounded-full transition-all duration-300 ease-out h-[calc(100%-4px)] md:h-[calc(100%-8px)] top-0.5 md:top-1"
+          ></div>
+
+          <label class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight" data-url="daisyui-custom.html">
+            <input type="radio" name="framework" class="sr-only" />
+            <span class="text-gray-500">Daisy</span>
+          </label>
+          <label class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight" data-url="flowbite-custom.html">
+            <input type="radio" name="framework" class="sr-only" />
+            <span class="text-gray-500">Flowbite</span>
+          </label>
+          <label class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight" data-url="untitled-custom.html">
+            <input type="radio" name="framework" class="sr-only" />
+            <span class="text-gray-500">Untitled</span>
+          </label>
+          <label class="relative z-10 cursor-pointer px-2 md:px-4 py-1.5 md:py-2 text-[9px] md:text-xs font-bold transition-colors uppercase tracking-tight" data-url="plus-custom.html">
+            <input type="radio" name="framework" class="sr-only" />
+            <span class="text-gray-500">Plus</span>
+          </label>
+        </div>
+
+        <div class="h-6 w-px bg-gray-200 mx-1"></div>
+
+        <div class="flex gap-1">
+            <a href="daisyui-custom.html" class="px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-slate-500 hover:bg-gray-100 transition-all">Custom</a>
+            <a href="daisyui-standard.html" class="px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-msc-blue text-white shadow-sm transition-all">Standard</a>
+        </div>
+
+        <div class="h-6 w-px bg-gray-200 mx-1"></div>
+
+        <a
+          href="index.html"
+          class="p-1.5 md:p-2 hover:bg-gray-100 rounded-full transition-colors text-msc-blue"
+          title="Home"
+        >
+          <i class="fa-solid fa-house text-base md:text-lg"></i>
+        </a>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggle = document.getElementById("frameworkToggle");
+        const highlight = document.getElementById("toggleHighlight");
+        const labels = toggle.querySelectorAll("label");
+        const currentPage =
+          window.location.pathname.split("/").pop() || "index.html";
+
+        function updateToggle(activeLabel) {
+          if (!activeLabel) {
+            highlight.style.width = "0px";
+            return;
+          }
+          const rect = activeLabel.getBoundingClientRect();
+          const containerRect = toggle.getBoundingClientRect();
+
+          highlight.style.width = `${rect.width}px`;
+          highlight.style.left = `${rect.left - containerRect.left}px`;
+
+          labels.forEach((label) => {
+            const span = label.querySelector("span");
+            if (label === activeLabel) {
+              span.classList.remove("text-gray-500");
+              span.classList.add("text-white");
+            } else {
+              span.classList.remove("text-white");
+              span.classList.add("text-gray-500");
+            }
+          });
+        }
+
+        let found = false;
+        labels.forEach((label) => {
+          const url = label.getAttribute("data-url");
+          const frameworkKey = url.split('-')[0];
+          if (currentPage.includes(frameworkKey)) {
+            label.querySelector("input").checked = true;
+            updateToggle(label);
+            found = true;
+          }
+
+          label.addEventListener("click", (e) => {
+            if (!currentPage.includes(frameworkKey)) {
+              window.location.href = url;
+            }
+          });
+        });
+
+        if (!found) highlight.style.width = "0px";
+
+        window.addEventListener("resize", () => {
+          const checked = toggle.querySelector("input:checked");
+          if (checked) updateToggle(checked.parentElement);
+        });
+
+        setTimeout(() => {
+          const checked = toggle.querySelector("input:checked");
+          if (checked) updateToggle(checked.parentElement);
+        }, 100);
+      });
+    </script>
+  </body>
+</html>
