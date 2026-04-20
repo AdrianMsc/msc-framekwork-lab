@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Table Framework Lab - Index</title>
+
+    <!-- Fonts & Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- DaisyUI CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "msc-blue": "#1C58EE",
+            },
+            fontFamily: {
+              sans: ["Outfit", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        min-height: 100vh;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .card-hover:hover {
+        transform: translateY(-5px);
+        transition: all 0.3s ease;
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      }
+    </style>
+  </head>
+
+  <body class="flex items-center justify-center p-6">
+    <div class="max-w-4xl w-full">
+      <div class="text-center mb-12">
+        <h1 class="text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+          Data Table <span class="text-msc-blue">Lab</span>
+        </h1>
+        <p class="text-lg text-gray-600">Select a replica style to explore its features and responsiveness.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Grainger Card -->
+        <a href="./data-table-grainger.html" class="glass-card card-hover p-8 rounded-3xl flex flex-col items-center text-center group">
+          <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-red-600 group-hover:text-white transition-colors border border-red-200">
+            <i class="fa-solid fa-hammer"></i>
+          </div>
+          <h2 class="text-xl font-bold text-gray-800 mb-3">Grainger Replica</h2>
+          <p class="text-gray-500 text-sm mb-6">High-density table structure with expanding rows.</p>
+          <div class="btn btn-outline btn-error btn-sm rounded-full px-8 mt-auto">View Lab</div>
+        </a>
+        <!-- MSC Card -->
+        <a href="./data-table-msc-daisy.html" class="glass-card card-hover p-8 rounded-3xl flex flex-col items-center text-center group border-2 border-msc-blue/20">
+          <div class="w-16 h-16 bg-blue-100 text-msc-blue rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-msc-blue group-hover:text-white transition-colors border border-blue-200">
+            <i class="fa-solid fa-table-list"></i>
+          </div>
+          <h2 class="text-xl font-bold text-gray-800 mb-3">MSC DaisyUI</h2>
+          <p class="text-gray-500 text-sm mb-6">Technical View with DaisyUI components.</p>
+          <div class="btn btn-primary btn-sm rounded-full px-8 mt-auto shadow-lg shadow-blue-200">View Lab</div>
+        </a>
+
+        <!-- MSC Plain Card -->
+        <a href="./data-table-msc-plain.html" class="glass-card card-hover p-8 rounded-3xl flex flex-col items-center text-center group">
+          <div class="w-16 h-16 bg-slate-100 text-slate-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-slate-800 group-hover:text-white transition-colors border border-slate-200">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h2 class="text-xl font-bold text-gray-800 mb-3">MSC Plain</h2>
+          <p class="text-gray-500 text-sm mb-6">Technical View using custom CSS (No Framework).</p>
+          <div class="btn btn-outline btn-sm rounded-full px-8 mt-auto border-slate-300">View Lab</div>
+        </a>
+      </div>
+
+      <div class="mt-16 text-center text-gray-400 text-sm">
+        Advanced Framework Lab &copy; 2026
+      </div>
+    </div>
+  </body>
+</html>

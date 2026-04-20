@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grainger Table View Replica</title>
+
+    <!-- Fonts & Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- DaisyUI CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "msc-blue": "#1C58EE",
+              "success-available": "#187a41",
+            },
+            fontFamily: {
+              sans: ["Roboto", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #fff;
+      }
+
+      .msc-tv-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+        color: #333;
+      }
+
+      .msc-tv-table th,
+      .msc-tv-table td {
+        padding: 4px 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .tvstkh th {
+        font-weight: bold;
+        background-color: #fff;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+
+      .tvbt {
+        border-bottom: 2px solid #333 !important;
+      }
+
+      .bl {
+        border-left: 1px solid #ddd !important;
+      }
+
+      .tvbl {
+        border-left: 1px solid #ddd !important;
+      }
+
+      .msc-tv-no-border {
+        border: none !important;
+      }
+
+      .msc-tv-table-brand-logo {
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+      }
+
+      .msc-tv-table-brand-logo img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+      }
+
+      .tv-td a {
+        color: #1c58ee;
+        text-decoration: none;
+      }
+
+      .tv-td a:hover {
+        text-decoration: underline;
+      }
+
+      .qv-selected {
+        background-color: #f8fafc;
+        font-weight: bold;
+      }
+
+      h4 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      /* Quickview styling */
+      #msc-tv-quickview {
+        background-color: #fff;
+        border-left: 4px solid #1c58ee;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .tn-view-comp {
+        padding: 24px;
+      }
+
+      .part-quantity {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        height: 36px;
+        width: 60px;
+        text-align: center;
+      }
+
+      .rating_box path {
+        fill: #ddd;
+      }
+
+      .rating_box .filled {
+        fill: #facc15;
+      }
+
+      /* Desktop adjustments */
+      @media (min-width: 768px) {
+        .md\:w-248 {
+            width: 248px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- SECTION 1: Original Hammer Table -->
+    <div class="w-full max-w-6xl mx-auto mt-10 p-4">
+      <h3 class="text-sm h-[30px] leading-[30px] font-semibold mb-2">
+        Fiberglass Handle With Textured Grip
+      </h3>
+
+      <div class="overflow-x-auto bg-white shadow rounded">
+        <table class="min-w-full text-sm border border-gray-200" id="productTable">
+          <thead class="bg-gray-100 sticky top-0 z-10">
+            <tr>
+              <th class="p-2 cursor-pointer select-none" data-key="weight">Head Weight ⬆</th>
+              <th class="p-2 cursor-pointer select-none" data-key="length">Overall Length</th>
+              <th class="p-2 cursor-pointer select-none" data-key="diameter">Face Diameter</th>
+              <th class="p-2 cursor-pointer select-none" data-key="texture">Face Texture</th>
+              <th class="p-2 cursor-pointer select-none" data-key="nailHolder">Includes Nail Holder</th>
+              <th class="p-2 cursor-pointer select-none" data-key="brand">Brand</th>
+              <th class="p-2 cursor-pointer select-none" data-key="price">Price</th>
+            </tr>
+          </thead>
+
+          <tbody class="product-group divide-y" data-weight="16" data-length="13" data-diameter="1" data-texture="Smooth" data-nailholder="No" data-brand="VAUGHAN" data-price="38.01">
+            <tr class="main-row active hover:bg-gray-50 cursor-pointer transition">
+              <td class="p-2">16 oz</td>
+              <td class="p-2">13 in</td>
+              <td class="p-2">1 in</td>
+              <td class="p-2">Smooth</td>
+              <td class="p-2">No</td>
+              <td class="p-2">VAUGHAN</td>
+              <td class="p-2 text-blue-600 font-bold">
+                $38.01
+                <a href="#" class="ml-2 underline text-[10px] text-slate-400">799EF6</a>
+              </td>
+            </tr>
+            <tr class="details-row bg-white border-t border-gray-200">
+              <td colspan="7" class="p-4">
+                <div class="flex flex-col md:flex-row gap-6 animate-fade-in">
+                  <div class="w-full md:w-48 flex-shrink-0 flex items-center justify-center">
+                    <img src="https://static.grainger.com/rp/s/is/image/Grainger/4YR57-A0075-1_v1?$adapimg$&hei=160&wid=160" alt="Product Image" class="max-h-32 object-contain" />
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="mb-2">
+                      <h2 class="text-[14px] font-bold text-gray-900 leading-[1.2]">
+                        Curved Claw Hammer: 16 oz Head Wt, 13 in Overall Lg, High-Carbon Steel, Smooth Face
+                      </h2>
+                    </div>
+                    <div class="space-y-1 text-[13px]">
+                      <div class="text-gray-500">Item <span class="font-bold text-gray-900">799EF6</span></div>
+                      <div class="text-gray-500">Mfr. Model <span class="font-bold text-gray-900">799EF6</span></div>
+                    </div>
+                    <a href="#" class="text-[#005a8f] hover:underline font-bold text-[13px] block mt-2">View Product Details</a>
+                    <div class="mt-4 flex items-center gap-2">
+                      <input type="checkbox" class="checkbox checkbox-primary checkbox-xs rounded-none" />
+                      <span class="text-xs font-bold text-gray-700">Compare</span>
+                    </div>
+                  </div>
+                  <div class="w-full md:w-[320px] flex items-start">
+                    <div class="w-px bg-gray-200 self-stretch mx-4 hidden md:block"></div>
+                    <div class="flex-1 space-y-4">
+                       <div>
+                        <div class="flex items-center gap-1 text-[13px] text-gray-500">
+                          Web Price <i class="fa-solid fa-circle-info text-gray-400"></i>
+                        </div>
+                        <div class="flex items-baseline gap-1 mt-1">
+                          <span class="text-[#187a41] text-2xl font-bold">$38.01</span>
+                          <span class="text-gray-500 text-xs">/ each</span>
+                        </div>
+                      </div>
+                      <div class="text-[13px]">
+                        <div class="font-medium text-gray-900">To check availability</div>
+                        <a href="#" class="text-[#005a8f] font-bold hover:underline flex items-center gap-1">
+                          Enter location <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                        </a>
+                      </div>
+                      <div class="flex items-end gap-3 pt-2">
+                        <div class="relative">
+                          <label class="absolute -top-5 left-0 text-[11px] font-bold text-gray-500">Qty</label>
+                          <input type="text" value="1" class="input input-bordered w-14 h-11 rounded-none text-center font-bold border-gray-400 focus:outline-none" />
+                        </div>
+                        <button class="btn btn-primary h-11 text-white font-bold rounded-xl px-6 flex-1 shadow-md hover:shadow-lg transition-all">
+                          Add to Cart
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Floating Navigation -->
+    <div class="fixed bottom-6 right-6 flex flex-col items-end gap-3 z-50">
+      <div class="flex gap-2 p-2 bg-white/80 backdrop-blur-md border border-gray-200 shadow-2xl rounded-2xl items-center">
+        <a href="./index.html" class="btn btn-ghost btn-circle btn-sm tooltip" data-tip="Go to Index">
+          <i class="fa-solid fa-house"></i>
+        </a>
+        <div class="divider divider-horizontal mx-0"></div>
+        <a href="./data-table-msc-daisy.html" class="btn btn-primary btn-sm rounded-full px-4 gap-2 shadow-lg">
+          <i class="fa-solid fa-table-list"></i>
+          <span>Switch to MSC Table</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

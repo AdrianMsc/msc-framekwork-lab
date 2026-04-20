@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MSC Table View Replica - DaisyUI</title>
+
+    <!-- Fonts & Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- DaisyUI CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1C58EE",
+              "msc-blue": "#1C58EE",
+              "msc-red": "#EE3124",
+              "success-available": "#187a41",
+            },
+            fontFamily: {
+              sans: ["Roboto", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #fff;
+      }
+
+      .msc-tv-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+        color: #333;
+      }
+
+      .msc-tv-table th,
+      .msc-tv-table td {
+        padding: 4px 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .tvstkh th {
+        font-weight: bold;
+        background-color: #fff;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+
+      .tvbt {
+        border-bottom: 2px solid #333 !important;
+      }
+
+      .bl {
+        border-left: 1px solid #ddd !important;
+      }
+
+      .tvbl {
+        border-left: 1px solid #ddd !important;
+      }
+
+      .msc-tv-no-border {
+        border: none !important;
+      }
+
+      .msc-tv-table-brand-logo {
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+      }
+
+      .msc-tv-table-brand-logo img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+      }
+
+      .tv-td a {
+        color: #1c58ee;
+        text-decoration: none;
+      }
+
+      .tv-td a:hover {
+        text-decoration: underline;
+      }
+
+      .qv-selected {
+        background-color: #f8fafc;
+        font-weight: bold;
+      }
+
+      h4 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      /* Quickview styling */
+      #msc-tv-quickview {
+        background-color: #fff;
+        border-left: 4px solid #1c58ee;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .tn-view-comp {
+        padding: 24px;
+      }
+
+      /* Desktop adjustments */
+      @media (min-width: 768px) {
+        .md\:w-248 {
+            width: 248px;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 min-h-screen">
+    <div class="navbar bg-white px-2 md:px-6 h-16 md:h-20 shadow-md w-full mb-20">
+      <div class="navbar-start flex-1">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden p-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </div>
+          <ul
+            tabindex="0"
+            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow font-bold"
+          >
+            <li><a>Shop All Products</a></li>
+            <li><a>Quick Order</a></li>
+            <li><a>Login / Register</a></li>
+          </ul>
+        </div>
+        <a class="btn btn-ghost h-auto hover:bg-slate-300/20 px-2 md:px-4">
+          <img
+            src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg"
+            alt="MSC Direct"
+            class="h-6 md:h-8"
+          />
+        </a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1 font-bold gap-2 text-sm">
+          <li>
+            <details>
+              <summary>Shop All Products</summary>
+              <ul class="p-2 z-[100] w-52">
+                <li><a>Metalworking</a></li>
+                <li><a>Fasteners</a></li>
+                <li><a>Hand Tools</a></li>
+              </ul>
+            </details>
+          </li>
+          <li><a>Quick Order</a></li>
+        </ul>
+      </div>
+      <div class="navbar-end flex-1 gap-1 md:gap-3">
+        <div class="form-control hidden sm:flex">
+          <div class="join shadow-sm">
+            <input
+              class="input input-sm md:input-md input-bordered join-item w-24 sm:w-32 md:w-48 lg:w-64 focus:outline-none"
+              placeholder="Search..."
+            />
+            <button
+              class="btn btn-sm md:btn-md btn-primary join-item px-3 md:px-4"
+            >
+              <i
+                class="fa-solid fa-magnifying-glass text-white !important"
+                style="color: white !important"
+              ></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Search Button -->
+        <button class="btn btn-ghost btn-circle sm:hidden">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <div class="dropdown dropdown-end">
+          <div
+            tabindex="0"
+            role="button"
+            class="btn btn-ghost btn-circle btn-sm md:btn-md hover:bg-slate-300/20"
+          >
+            <div class="indicator">
+              <i class="fa-solid fa-cart-shopping text-lg md:text-xl"></i>
+              <span
+                class="badge badge-xs md:badge-sm badge-success indicator-item text-white border-none font-bold"
+                >1</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="btn btn-ghost btn-circle btn-sm md:btn-md avatar hover:bg-slate-300/20"
+        >
+          <div
+            class="w-8 md:w-10 rounded-full bg-slate-200 flex items-center justify-center border border-slate-300"
+          >
+            <i class="fa-regular fa-user text-base md:text-lg"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-full max-w-[1400px] mx-auto p-4 mb-20">
+      <table id="msc-tv-table-" class="table table-xs msc-tv-table tv-branded bg-white">
+        <tbody class="tvstkh">
+          <tr class="hover:bg-transparent">
+            <td colspan="5" class="msc-tv-no-border py-4">
+              <h4 class="text-xl font-black text-slate-800">Fractional Inch</h4>
+            </td>
+            <td colspan="2" class="tvbl">
+              <div class="msc-tv-table-brand-logo">
+                <img src="https://cdn.mscdirect.com/global/images/Logos/HERTEL-91.gif" alt="Hertel" />
+              </div>
+            </td>
+            <td colspan="2" class="tvbl">
+              <div class="msc-tv-table-brand-logo">
+                <img src="https://cdn.mscdirect.com/global/images/Logos/ACCUPREM-91.gif" alt="Accupro" />
+              </div>
+            </td>
+            <td colspan="2" class="tvbl">
+              <div class="msc-tv-table-brand-logo">
+                <img src="https://cdn.mscdirect.com/global/images/Logos/WIDIA-61.gif" alt="Widia" />
+              </div>
+            </td>
+            <td colspan="2" class="tvbl">
+              <div class="msc-tv-table-brand-logo">
+                <img src="https://cdn.mscdirect.com/global/images/Logos/SECO-61.gif" alt="Seco" />
+              </div>
+            </td>
+            <td colspan="2" class="tvbl">
+              <div class="msc-tv-table-brand-logo">
+                <img src="https://cdn.mscdirect.com/global/images/Logos/MAFORD-61.gif" alt="M.A. Ford" />
+              </div>
+            </td>
+            <td colspan="2" class="tvbl">
+              <div class="msc-tv-table-brand-logo">
+                <img src="https://cdn.mscdirect.com/global/images/Logos/SGSSOLID-61.gif" alt="SGS" />
+              </div>
+            </td>
+          </tr>
+          <tr class="bg-slate-50">
+            <th class="tvbt cursor-pointer hover:bg-slate-100 transition-colors uppercase text-[11px] font-bold tracking-wider" data-key="mill-dia">Mill Dia.</th>
+            <th class="tvbt cursor-pointer hover:bg-slate-100 transition-colors uppercase text-[11px] font-bold tracking-wider" data-key="loc">LOC</th>
+            <th class="tvbt cursor-pointer hover:bg-slate-100 transition-colors uppercase text-[11px] font-bold tracking-wider" data-key="shank-dia">Shank Dia.</th>
+            <th class="tvbt cursor-pointer hover:bg-slate-100 transition-colors uppercase text-[11px] font-bold tracking-wider" data-key="oal">OAL</th>
+            <th class="tvbt cursor-pointer hover:bg-slate-100 transition-colors uppercase text-[11px] font-bold tracking-wider" data-key="helix">Helix</th>
+
+            <th class="bl tvbt uppercase text-[11px] font-bold text-msc-blue">MSC #</th>
+            <th class="tvbt uppercase text-[11px] font-bold text-msc-blue text-right px-4">Web Price</th>
+
+            <th class="bl tvbt uppercase text-[11px] font-bold text-msc-blue">MSC #</th>
+            <th class="tvbt uppercase text-[11px] font-bold text-msc-blue text-right px-4">Web Price</th>
+
+            <th class="bl tvbt uppercase text-[11px] font-bold text-msc-blue">MSC #</th>
+            <th class="tvbt uppercase text-[11px] font-bold text-msc-blue text-right px-4">Web Price</th>
+
+            <th class="bl tvbt uppercase text-[11px] font-bold text-msc-blue">MSC #</th>
+            <th class="tvbt uppercase text-[11px] font-bold text-msc-blue text-right px-4">Web Price</th>
+
+            <th class="bl tvbt uppercase text-[11px] font-bold text-msc-blue">MSC #</th>
+            <th class="tvbt uppercase text-[11px] font-bold text-msc-blue text-right px-4">Web Price</th>
+
+            <th class="bl tvbt uppercase text-[11px] font-bold text-msc-blue">MSC #</th>
+            <th class="tvbt uppercase text-[11px] font-bold text-msc-blue text-right px-4">Web Price</th>
+          </tr>
+        </tbody>
+
+        <tbody class="product-group" data-mill-dia="0.0156" data-loc="0.0312" data-shank-dia="0.125" data-oal="1.5" data-helix="30">
+          <tr class="main-row active cursor-pointer border-l-4 border-l-msc-blue bg-blue-50/50" data-ids="81748386">
+            <td>1/64</td>
+            <td>1/32</td>
+            <td>1/8</td>
+            <td>1-1/2</td>
+            <td>30</td>
+            <td class="bl">-</td>
+            <td class="text-right px-4">-</td>
+            <td class="bl">-</td>
+            <td class="text-right px-4">-</td>
+            <td class="bl">-</td>
+            <td class="text-right px-4">-</td>
+            <td class="bl">-</td>
+            <td class="text-right px-4">-</td>
+            <td class="bl">-</td>
+            <td class="text-right px-4">-</td>
+            <td class="bl tv-td qv-selected">
+              <a href="#" class="link link-primary">81748386</a>
+            </td>
+            <td class="tv-td qv-selected text-right px-4 font-bold">$48.20</td>
+          </tr>
+          <tr class="details-row">
+            <td id="msc-tv-quickview" colspan="17" class="!p-0 border-l-4 border-l-msc-blue">
+              <div class="tn-view-comp flex flex-col md:flex-row gap-8 bg-white p-8">
+                <div class="w-full md:w-56 flex-shrink-0">
+                  <div class="bg-slate-50 rounded-xl p-4 border border-slate-100 shadow-sm">
+                    <img src="https://cdn.mscdirect.com/global/images/ProductImages/8174838-21.jpg" alt="Ball End Mill" class="w-full h-auto object-contain mix-blend-multiply" />
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <div class="mb-4">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="badge badge-outline badge-sm font-bold opacity-70">SGS</span>
+                    </div>
+                    <h2 class="text-2xl font-black text-slate-800 tracking-tight leading-tight">
+                      Ball End Mill: 1/64" Dia, 1/32" LOC, 4 Flute, Solid Carbide
+                    </h2>
+                    <p class="text-sm text-slate-500 mt-2 font-medium">
+                      1-1/2" OAL, 1/8" Shank Dia, 30 deg Helix, AlTiN Finish, Single End, Series 01B
+                    </p>
+                  </div>
+                  <div class="flex gap-6 text-sm mb-4">
+                    <div class="flex flex-col">
+                        <span class="text-[10px] uppercase font-bold text-slate-400">MSC#</span>
+                        <span class="font-bold text-slate-700">81748386</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-[10px] uppercase font-bold text-slate-400">Mfr#</span>
+                        <span class="font-bold text-slate-700">30031</span>
+                    </div>
+                  </div>
+                  <div class="flex items-center mb-6">
+                    <div class="rating rating-xs">
+                        <input type="radio" name="rating-1" class="mask mask-star-2 bg-slate-200" />
+                        <input type="radio" name="rating-1" class="mask mask-star-2 bg-slate-200" />
+                        <input type="radio" name="rating-1" class="mask mask-star-2 bg-slate-200" />
+                        <input type="radio" name="rating-1" class="mask mask-star-2 bg-slate-200" />
+                        <input type="radio" name="rating-1" class="mask mask-star-2 bg-slate-200" />
+                    </div>
+                    <span class="ml-2 text-xs font-bold text-slate-400">0 Reviews</span>
+                  </div>
+                  <div class="badge badge-success gap-2 py-3 px-4 font-bold text-white shadow-sm">
+                    <i class="fa-solid fa-check text-[10px]"></i> In Stock
+                  </div>
+                </div>
+                <div class="w-full md:w-80 flex flex-col bg-slate-50/50 p-6 rounded-2xl border border-slate-100">
+                  <div class="border-b border-dashed border-slate-200 pb-4 mb-4 flex justify-between items-baseline">
+                    <span class="text-xs uppercase font-bold text-slate-400">Web Price</span>
+                    <div class="text-right">
+                        <span class="text-3xl font-black text-slate-800">$48.20</span>
+                        <span class="text-sm font-bold text-slate-400"> / ea.</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-4 mt-auto">
+                    <div class="form-control w-full">
+                        <label class="label pt-0">
+                            <span class="label-text text-[10px] uppercase font-bold text-slate-400">Quantity</span>
+                        </label>
+                        <input type="number" value="1" class="input input-bordered input-md w-full text-center font-bold focus:input-primary shadow-sm" />
+                    </div>
+                    <button class="btn btn-primary w-full text-white font-bold rounded-full shadow-lg shadow-blue-200">
+                        <i class="fa-solid fa-cart-shopping mr-2"></i>
+                        Add to Cart
+                    </button>
+                    <button class="btn btn-ghost btn-sm btn-block text-slate-400 font-bold hover:bg-transparent">
+                        <i class="fa-solid fa-list-check mr-2"></i>
+                        Add to List
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+
+        <tbody class="product-group" data-mill-dia="0.0312" data-loc="0.0781" data-shank-dia="0.125" data-oal="1.5" data-helix="30">
+          <tr class="main-row cursor-pointer hover:bg-slate-50 transition-colors" data-ids="59544056,89095632">
+            <td>1/32</td>
+            <td>5/64</td>
+            <td>1/8</td>
+            <td>1-1/2</td>
+            <td>30</td>
+            <td class="bl">-</td>
+            <td class="text-right px-4">-</td>
+            <td class="bl">-</td>
+            <td class="text-right px-4">-</td>
+            <td class="bl">-</td>
+            <td class="text-right px-4">-</td>
+            <td class="bl">-</td>
+            <td class="text-right px-4">-</td>
+            <td class="bl tv-td">
+              <a href="#" class="link link-primary">59544056</a>
+            </td>
+            <td class="tv-td text-right px-4 font-bold">$35.93</td>
+            <td class="bl tv-td">
+              <a href="#" class="link link-primary">89095632</a>
+            </td>
+            <td class="tv-td text-right px-4 font-bold">$25.81</td>
+          </tr>
+          <tr class="details-row hidden">
+            <td colspan="17" class="p-8 text-center text-slate-400 italic bg-slate-50 font-medium">Product details loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Floating Navigation -->
+    <div class="fixed bottom-6 right-6 flex flex-col items-end gap-3 z-50">
+      <div class="flex gap-2 p-2 bg-white/80 backdrop-blur-md border border-gray-200 shadow-2xl rounded-2xl items-center">
+        <a href="./index.html" class="btn btn-ghost btn-circle btn-sm tooltip" data-tip="Go to Index">
+          <i class="fa-solid fa-house"></i>
+        </a>
+        <div class="divider divider-horizontal mx-0"></div>
+        <a href="./data-table-msc-plain.html" class="btn btn-ghost btn-sm rounded-full px-4 gap-2 border-slate-200">
+          <i class="fa-solid fa-code"></i>
+          <span>Switch to Plain</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
