@@ -2,6 +2,11 @@
 // UTILITIES & GLOBAL ACTIONS
 // ==========================
 
+window.filterShowMoreClickHandler = (id, name, block) => {
+    console.log(`Filter Show More: ${id} (${name}) in ${block}`);
+    alert(`Refinement Modal for: ${name}`);
+};
+
 window.advancedChat = () => {
     console.log("Initializing Advanced Chat...");
     // Mock for Chat Integration

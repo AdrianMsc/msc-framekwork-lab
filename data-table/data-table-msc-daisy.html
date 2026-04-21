@@ -479,9 +479,65 @@
             making them a good choice for many general machining applications.
           </p>
         </div>
+
+        <!-- Refine Your Search Section -->
+        <div id="msc-tv-master-group-refinements" class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-4">
+          <div class="msc-top-filters-section">
+            <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Refine your search</h4>
+            <div class="flex flex-wrap gap-3">
+              <button id="End-Mill-Material-show-more" onclick="filterShowMoreClickHandler('End-Mill-Material','End Mill Material', 'table view top refinement block')" class="btn btn-sm bg-slate-50 border-slate-200 hover:border-primary hover:bg-white text-slate-600 font-bold rounded-lg normal-case gap-2 group transition-all">
+                End Mill Material
+                <i class="fa-solid fa-plus text-[10px] text-slate-400 group-hover:text-primary transition-colors"></i>
+              </button>
+
+              <button id="Number-Of-Flutes-show-more" onclick="filterShowMoreClickHandler('Number-Of-Flutes','Number Of Flutes', 'table view top refinement block')" class="btn btn-sm bg-slate-50 border-slate-200 hover:border-primary hover:bg-white text-slate-600 font-bold rounded-lg normal-case gap-2 group transition-all">
+                Number Of Flutes
+                <i class="fa-solid fa-plus text-[10px] text-slate-400 group-hover:text-primary transition-colors"></i>
+              </button>
+
+              <button id="Coating-Finish-Family-show-more" onclick="filterShowMoreClickHandler('Coating-Finish-Family','Coating/Finish Family', 'table view top refinement block')" class="btn btn-sm bg-slate-50 border-slate-200 hover:border-primary hover:bg-white text-slate-600 font-bold rounded-lg normal-case gap-2 group transition-all">
+                Coating/Finish Family
+                <i class="fa-solid fa-plus text-[10px] text-slate-400 group-hover:text-primary transition-colors"></i>
+              </button>
+
+              <button id="Single-Or-Double-End-show-more" onclick="filterShowMoreClickHandler('Single-Or-Double-End','Single Or Double End', 'table view top refinement block')" class="btn btn-sm bg-slate-50 border-slate-200 hover:border-primary hover:bg-white text-slate-600 font-bold rounded-lg normal-case gap-2 group transition-all">
+                Single Or Double End
+                <i class="fa-solid fa-plus text-[10px] text-slate-400 group-hover:text-primary transition-colors"></i>
+              </button>
+
+              <button id="Primary-Workpiece-Material-show-more" onclick="filterShowMoreClickHandler('Primary-Workpiece-Material','Primary Workpiece Material', 'table view top refinement block')" class="btn btn-sm bg-slate-50 border-slate-200 hover:border-primary hover:bg-white text-slate-600 font-bold rounded-lg normal-case gap-2 group transition-all">
+                Primary Workpiece Material
+                <i class="fa-solid fa-plus text-[10px] text-slate-400 group-hover:text-primary transition-colors"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Group Info Section -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 mb-4 p-6">
+          <h3 class="text-md font-black text-slate-800 tracking-tight mb-4">
+            Solid Carbide 4-Flute Centercutting Single End AlTiN
+          </h3>
+          <div class="flex flex-col md:flex-row gap-8 items-start">
+            <div class="w-32 h-32 flex-shrink-0 bg-slate-50 rounded-xl p-4 flex items-center justify-center border border-slate-100">
+              <img 
+                src="https://cdn.mscdirect.com/global/images/ProductImages/0913779-24.gif" 
+                alt="Solid Carbide End Mill" 
+                class="max-h-full mix-blend-multiply"
+              >
+            </div>
+            <div class="flex-1">
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Solid Carbide end mills provide superior wear resistance and can withstand the highest cutting temperatures offering a higher degree of accuracy over other materials. Four or more flutes allow for faster feed rates and produce a finer finish than two and three flute tools. Centercutting design allows for plunge milling into solid materials with good chip removal capability. The AlTiN coating maintains high surface hardness at elevated temperatures improving tool life and allowing faster feed rates in ferrous materials.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div
           class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden"
         >
+
           <div class="overflow-x-auto p-4">
             <table
               id="msc-tv-table-"
@@ -490,6 +546,7 @@
               <thead>
                 <tr class="bg-white border-b-0">
                   <th colspan="5" class="p-1 border-none">
+
                     <h2
                       class="text-lg font-black text-slate-800 tracking-tight"
                     >
