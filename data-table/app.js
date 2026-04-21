@@ -1,11 +1,27 @@
 // ==========================
+// UTILITIES & GLOBAL ACTIONS
+// ==========================
+
+window.advancedChat = () => {
+    console.log("Initializing Advanced Chat...");
+    // Mock for Chat Integration
+    alert("Live Chat would be initialized here.");
+};
+
+window.lightboxShow = (selector) => {
+    document.querySelector(selector)?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+};
+
+window.lightboxHide = () => {
+    document.querySelectorAll('[id*="lightbox"], [id*="modal"]').forEach(el => el.classList.add('hidden'));
+    document.body.style.overflow = '';
+};
+
+// ==========================
 // GENERIC TABLE MANAGER
 // ==========================
 
-/**
- * Initializes functionality for a single table
- * @param {HTMLTableElement} tableElement 
- */
 function initTable(tableElement) {
   let currentSort = {
     key: tableElement.querySelector("th[data-key]")?.dataset.key || "",
@@ -15,7 +31,6 @@ function initTable(tableElement) {
   const headerCells = tableElement.querySelectorAll("th[data-key]");
   let groups = Array.from(tableElement.querySelectorAll(".product-group"));
 
-  // --- Sorting ---
   function sortTable() {
     const sorted = [...groups].sort((a, b) => {
       let valA = a.dataset[currentSort.key] || "";
@@ -27,10 +42,9 @@ function initTable(tableElement) {
       if (!isNaN(numA) && !isNaN(numB)) {
         return currentSort.asc ? numA - numB : numB - numA;
       }
-      return (valA).localeCompare(valB);
+      return valA.localeCompare(valB);
     });
 
-    // Re-append to the table body or table directly
     sorted.forEach((group) => tableElement.appendChild(group));
     updateSortIndicators();
   }
@@ -43,14 +57,13 @@ function initTable(tableElement) {
 
       if (key === currentSort.key) {
         th.setAttribute("aria-sort", currentSort.asc ? "ascending" : "descending");
-        th.innerText = `${label} ${currentSort.asc ? "⬆" : "⬇"}`;
+        th.classList.add("bg-slate-100");
       } else {
-        th.innerText = label;
+        th.classList.remove("bg-slate-100");
       }
     });
   }
 
-  // --- Toggling ---
   function setupToggling() {
     groups.forEach((group) => {
       const mainRow = group.querySelector(".main-row");
@@ -60,53 +73,89 @@ function initTable(tableElement) {
 
       mainRow.addEventListener("click", (e) => {
         if (e.target.tagName === "A" || e.target.closest("a")) return;
-
         detailsRow.classList.toggle("hidden");
-
-        if (!detailsRow.classList.contains("hidden")) {
-          mainRow.classList.add("active");
-          // Apply highlight style if it's the MSC table type
-          if (tableElement.classList.contains("msc-tv-table")) {
-            mainRow.querySelectorAll("td").forEach(td => td.classList.add("qv-selected"));
-          }
-        } else {
-          mainRow.classList.remove("active");
-          if (tableElement.classList.contains("msc-tv-table")) {
-            mainRow.querySelectorAll("td").forEach(td => td.classList.remove("qv-selected"));
-          }
-        }
+        mainRow.classList.toggle("active");
       });
     });
   }
 
-  // --- Events ---
   headerCells.forEach((th) => {
     th.addEventListener("click", () => {
       const key = th.dataset.key;
-      if (currentSort.key === key) {
-        currentSort.asc = !currentSort.asc;
-      } else {
-        currentSort.key = key;
-        currentSort.asc = true;
-      }
+      currentSort.asc = (currentSort.key === key) ? !currentSort.asc : true;
+      currentSort.key = key;
       sortTable();
     });
   });
 
   setupToggling();
-  // Initial sort indicator setup
   updateSortIndicators();
 }
 
 // ==========================
-// INIT ALL TABLES
+// FEATURE INITIALIZATION
 // ==========================
+
+const initFeatures = () => {
+    // 1. Read More Toggle
+    const toggleBtn = document.getElementById('toggleButton');
+    const categoryText = document.getElementById('categoryText');
+    if (toggleBtn && categoryText) {
+        toggleBtn.addEventListener('click', () => {
+            categoryText.classList.toggle('line-clamp-3');
+            toggleBtn.innerHTML = categoryText.classList.contains('line-clamp-3') 
+                ? 'READ MORE <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i>' 
+                : 'READ LESS <i class="fa-solid fa-chevron-up text-[10px] ml-1"></i>';
+        });
+    }
+
+    // 2. Carousel Controls
+    const carousel = document.querySelector('.carousel');
+    const nextBtn = document.querySelector('.fa-chevron-right')?.parentElement;
+    const prevBtn = document.querySelector('.fa-chevron-left')?.parentElement;
+
+    if (carousel && nextBtn && prevBtn) {
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+    }
+
+    // 3. View Switcher
+    const viewButtons = document.querySelectorAll('.hidden.md\\:flex button');
+    const mainContent = document.querySelector('main');
+    viewButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            viewButtons.forEach(b => {
+                b.classList.remove('bg-white', 'shadow-sm');
+                b.classList.add('btn-ghost');
+            });
+            btn.classList.add('bg-white', 'shadow-sm');
+            btn.classList.remove('btn-ghost');
+            
+            // Example layout toggle
+            if (btn.innerText.includes('Grid')) {
+                mainContent?.classList.add('grid-mode');
+            } else {
+                mainContent?.classList.remove('grid-mode');
+            }
+        });
+    });
+};
+
+// ==========================
+// INIT ON LOAD
+// ==========================
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Target both original and new table formats
   const tables = document.querySelectorAll("table");
   tables.forEach(table => {
     if (table.querySelector(".product-group")) {
       initTable(table);
     }
   });
+
+  initFeatures();
 });
