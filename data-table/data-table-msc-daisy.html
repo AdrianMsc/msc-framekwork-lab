@@ -8,10 +8,6 @@
     <!-- Fonts & Icons -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
-    />
-    <link
-      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
 
@@ -35,27 +31,7 @@
               "success-available": "#187a41",
             },
             fontFamily: {
-              sans: ["Roboto", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
-
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#1C58EE",
-              "msc-blue": "#1C58EE",
-              "msc-red": "#EE3124",
-              "success-available": "#187a41",
-            },
-            fontFamily: {
-              sans: ["Roboto", "sans-serif"],
+              sans: ["Arial", "Helvetica", "sans-serif"],
             },
           },
         },
@@ -143,9 +119,7 @@
     <!-- Sub-Header / Tool Bar -->
     <div class="w-full max-w-[1800px] mx-auto px-4 md:px-8 mt-6">
       <!-- Utility Row: Search Feedback & Catalog -->
-      <div
-        class="flex flex-col md:flex-row items-center justify-end gap-6 mb-4"
-      >
+      <div class="flex flex-col md:flex-row items-center justify-end gap-6">
         <a
           href="#"
           class="flex items-center gap-2 text-sm font-bold text-primary hover:underline"
@@ -164,10 +138,8 @@
       </div>
 
       <!-- Breadcrumbs & Layout Wrapper -->
-      <div class="border-b border-slate-200 pb-8 mb-8">
-        <div
-          class="text-xs md:text-sm breadcrumbs text-slate-400 mb-6 font-medium"
-        >
+      <div class="border-b border-slate-200 pb-8">
+        <div class="text-xs md:text-sm breadcrumbs text-slate-400 font-medium">
           <ul>
             <li><a class="hover:text-primary transition-colors">Home</a></li>
             <li><a class="hover:text-primary transition-colors">Milling</a></li>
@@ -183,7 +155,7 @@
         >
           <div>
             <h1
-              class="text-3xl md:text-4xl font-black text-slate-800 tracking-tight"
+              class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight"
             >
               Ball End Mills
             </h1>
@@ -234,7 +206,7 @@
 
     <!-- Main Content Container -->
     <div
-      class="flex flex-col lg:flex-row gap-8 w-full max-w-[1800px] mx-auto p-4 md:p-8 mb-20"
+      class="flex flex-col lg:flex-row gap-8 w-full max-w-[1800px] mx-auto p-4 md:p-8"
     >
       <!-- Sidebar (25%) -->
       <aside class="w-full lg:w-1/4 flex-shrink-0">
@@ -491,9 +463,26 @@
       <!-- Table Content (75%) -->
       <main class="w-full lg:w-3/4">
         <div
+          class="bg-white rounded-xl shadow-sm border border-slate-200 mb-4 p-4"
+        >
+          <h1 class="text-lg font-black text-slate-800 tracking-tight">
+            General Purpose Ball End Mills
+          </h1>
+
+          <p class="text-slate-600 text-sm">
+            General purpose ball end mills are versatile cutting tools used in
+            milling operations to remove material from a workpiece. Ball end
+            mills have a rounded tip, which is ideal for creating curved
+            surfaces, contours, and 3D shapes, and are used for shallow
+            slotting, contour milling and pocketing applications. They are
+            designed to handle a variety of materials and machining tasks,
+            making them a good choice for many general machining applications.
+          </p>
+        </div>
+        <div
           class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden"
         >
-          <div class="overflow-x-auto">
+          <div class="overflow-x-auto p-4">
             <table
               id="msc-tv-table-"
               class="table table-xs w-full text-slate-700 border-collapse"
@@ -502,7 +491,7 @@
                 <tr class="bg-white border-b-0">
                   <th colspan="5" class="p-1 border-none">
                     <h2
-                      class="text-2xl font-black text-slate-800 tracking-tight"
+                      class="text-lg font-black text-slate-800 tracking-tight"
                     >
                       Fractional Inch
                     </h2>
@@ -657,18 +646,18 @@
                   </th>
 
                   <th
-                    class="border-l border-slate-200 p-0 uppercase text-[10px] font-black text-primary"
+                    class="border-l border-slate-200 p-1 uppercase text-[10px] font-black text-primary"
                   >
                     MSC #
                   </th>
                   <th
-                    class="p-0 uppercase text-[10px] font-black text-primary text-right"
+                    class="p-1 uppercase text-[10px] font-black text-primary text-right"
                   >
                     Price
                   </th>
 
                   <th
-                    class="border-l border-slate-200 p-4 uppercase text-[10px] font-black text-primary"
+                    class="border-l border-slate-200 p-1 uppercase text-[10px] font-black text-primary"
                   >
                     MSC #
                   </th>
@@ -953,7 +942,7 @@
     </div>
 
     <!-- Help Section Footer -->
-    <div class="w-full max-w-[1800px] mx-auto px-4 md:px-8 pb-10 mt-16">
+    <div class="w-full max-w-[1800px] mx-auto px-4 md:px-8 pb-10">
       <div
         class="bg-white border-2 border-slate-100 rounded-xl p-8 md:p-12 lg:p-4 flex flex-col lg:flex-row items-center justify-between shadow-sm hover:shadow-md transition-shadow"
       >
@@ -1058,299 +1047,304 @@
 
       <div class="w-full overflow-x-auto">
         <div class="carousel carousel-center rounded-box space-x-6 p-4 -mx-4">
-        <!-- Card 1 -->
-        <div class="carousel-item">
-          <div
-            class="card w-72 bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all rounded-3xl overflow-hidden group"
-          >
-            <figure class="px-6 pt-6 relative">
-              <span
-                class="absolute top-4 right-4 badge badge-error text-white font-bold text-[10px] py-3"
-                >DISCOUNT</span
-              >
-              <div
-                class="bg-slate-50 w-full rounded-2xl p-4 h-48 flex items-center justify-center group-hover:bg-white transition-colors"
-              >
-                <img
-                  src="https://cdn.mscdirect.com/global/images/ProductImages/8596653AI-24.jpg"
-                  alt="Disposable Gloves"
-                  class="max-h-full object-contain mix-blend-multiply"
-                />
-              </div>
-            </figure>
-            <div class="card-body p-6">
-              <div class="flex justify-between items-start mb-2">
+          <!-- Card 1 -->
+          <div class="carousel-item">
+            <div
+              class="card w-72 bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all rounded-3xl overflow-hidden group"
+            >
+              <figure class="px-6 pt-6 relative">
                 <span
-                  class="text-[10px] font-black text-slate-400 uppercase tracking-widest"
-                  >Your Price</span
+                  class="absolute top-4 right-4 badge badge-error text-white font-bold text-[10px] py-3"
+                  >DISCOUNT</span
                 >
-                <div class="text-right">
-                  <span class="text-xl font-black text-slate-900 tracking-tight"
-                    >$13.85</span
-                  >
-                  <span class="text-xs font-bold text-slate-400">/ea.</span>
+                <div
+                  class="bg-slate-50 w-full rounded-2xl p-4 h-48 flex items-center justify-center group-hover:bg-white transition-colors"
+                >
+                  <img
+                    src="https://cdn.mscdirect.com/global/images/ProductImages/8596653AI-24.jpg"
+                    alt="Disposable Gloves"
+                    class="max-h-full object-contain mix-blend-multiply"
+                  />
                 </div>
-              </div>
-              <p class="text-xs font-black text-primary uppercase mb-1">
-                PRO-SAFE
-              </p>
-              <h3
-                class="text-sm font-bold text-slate-700 leading-snug h-10 line-clamp-2 hover:text-primary cursor-pointer transition-colors"
-              >
-                Disposable Gloves: Size Large, 5.0mil, Nitrile, Powder-Free
-              </h3>
-              <div class="flex items-center gap-2 mt-4 text-[11px]">
-                <span class="font-bold text-slate-400">MSC #</span>
-                <span class="font-bold text-slate-700">85966539</span>
-              </div>
-              <div class="card-actions mt-6 flex gap-2">
-                <input
-                  type="number"
-                  value="1"
-                  class="input input-bordered w-16 text-center font-bold text-sm focus:border-primary rounded-xl"
-                />
-                <button
-                  class="btn btn-primary flex-1 text-white font-black rounded-xl"
+              </figure>
+              <div class="card-body p-6">
+                <div class="flex justify-between items-start mb-2">
+                  <span
+                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest"
+                    >Your Price</span
+                  >
+                  <div class="text-right">
+                    <span
+                      class="text-xl font-black text-slate-900 tracking-tight"
+                      >$13.85</span
+                    >
+                    <span class="text-xs font-bold text-slate-400">/ea.</span>
+                  </div>
+                </div>
+                <p class="text-xs font-black text-primary uppercase mb-1">
+                  PRO-SAFE
+                </p>
+                <h3
+                  class="text-sm font-bold text-slate-700 leading-snug h-10 line-clamp-2 hover:text-primary cursor-pointer transition-colors"
                 >
-                  Add to Cart
-                </button>
+                  Disposable Gloves: Size Large, 5.0mil, Nitrile, Powder-Free
+                </h3>
+                <div class="flex items-center gap-2 mt-4 text-[11px]">
+                  <span class="font-bold text-slate-400">MSC #</span>
+                  <span class="font-bold text-slate-700">85966539</span>
+                </div>
+                <div class="card-actions mt-6 flex gap-2">
+                  <input
+                    type="number"
+                    value="1"
+                    class="input input-bordered w-16 text-center font-bold text-sm focus:border-primary rounded-xl"
+                  />
+                  <button
+                    class="btn btn-primary flex-1 text-white font-black rounded-xl"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Card 2 -->
-        <div class="carousel-item">
-          <div
-            class="card w-72 bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all rounded-3xl overflow-hidden group"
-          >
-            <figure class="px-6 pt-6 relative">
-              <div
-                class="bg-slate-50 w-full rounded-2xl p-4 h-48 flex items-center justify-center group-hover:bg-white transition-colors"
-              >
-                <img
-                  src="https://cdn.mscdirect.com/global/images/ProductImages/8937426AA-24.jpg"
-                  alt="Lens Towelettes"
-                  class="max-h-full object-contain mix-blend-multiply"
-                />
-              </div>
-            </figure>
-            <div class="card-body p-6">
-              <div class="flex justify-between items-start mb-2">
-                <span
-                  class="text-[10px] font-black text-slate-400 uppercase tracking-widest"
-                  >Your Price</span
+          <!-- Card 2 -->
+          <div class="carousel-item">
+            <div
+              class="card w-72 bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all rounded-3xl overflow-hidden group"
+            >
+              <figure class="px-6 pt-6 relative">
+                <div
+                  class="bg-slate-50 w-full rounded-2xl p-4 h-48 flex items-center justify-center group-hover:bg-white transition-colors"
                 >
-                <div class="text-right">
-                  <span class="text-xl font-black text-slate-900 tracking-tight"
-                    >$8.59</span
-                  >
-                  <span class="text-xs font-bold text-slate-400">/ea.</span>
+                  <img
+                    src="https://cdn.mscdirect.com/global/images/ProductImages/8937426AA-24.jpg"
+                    alt="Lens Towelettes"
+                    class="max-h-full object-contain mix-blend-multiply"
+                  />
                 </div>
-              </div>
-              <p class="text-xs font-black text-primary uppercase mb-1">
-                PRO-SAFE
-              </p>
-              <h3
-                class="text-sm font-bold text-slate-700 leading-snug h-10 line-clamp-2 hover:text-primary cursor-pointer transition-colors"
-              >
-                Silicone Free Lens Cleaning Towelettes: Anti-Fog
-              </h3>
-              <div class="flex items-center gap-2 mt-4 text-[11px]">
-                <span class="font-bold text-slate-400">MSC #</span>
-                <span class="font-bold text-slate-700">89374268</span>
-              </div>
-              <div class="card-actions mt-6 flex gap-2">
-                <input
-                  type="number"
-                  value="1"
-                  class="input input-bordered w-16 text-center font-bold text-sm focus:border-primary rounded-xl"
-                />
-                <button
-                  class="btn btn-primary flex-1 text-white font-black rounded-xl"
+              </figure>
+              <div class="card-body p-6">
+                <div class="flex justify-between items-start mb-2">
+                  <span
+                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest"
+                    >Your Price</span
+                  >
+                  <div class="text-right">
+                    <span
+                      class="text-xl font-black text-slate-900 tracking-tight"
+                      >$8.59</span
+                    >
+                    <span class="text-xs font-bold text-slate-400">/ea.</span>
+                  </div>
+                </div>
+                <p class="text-xs font-black text-primary uppercase mb-1">
+                  PRO-SAFE
+                </p>
+                <h3
+                  class="text-sm font-bold text-slate-700 leading-snug h-10 line-clamp-2 hover:text-primary cursor-pointer transition-colors"
                 >
-                  Add to Cart
-                </button>
+                  Silicone Free Lens Cleaning Towelettes: Anti-Fog
+                </h3>
+                <div class="flex items-center gap-2 mt-4 text-[11px]">
+                  <span class="font-bold text-slate-400">MSC #</span>
+                  <span class="font-bold text-slate-700">89374268</span>
+                </div>
+                <div class="card-actions mt-6 flex gap-2">
+                  <input
+                    type="number"
+                    value="1"
+                    class="input input-bordered w-16 text-center font-bold text-sm focus:border-primary rounded-xl"
+                  />
+                  <button
+                    class="btn btn-primary flex-1 text-white font-black rounded-xl"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Card 3 -->
-        <div class="carousel-item">
-          <div
-            class="card w-72 bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all rounded-3xl overflow-hidden group"
-          >
-            <figure class="px-6 pt-6 relative">
-              <div
-                class="bg-slate-50 w-full rounded-2xl p-4 h-48 flex items-center justify-center group-hover:bg-white transition-colors"
-              >
-                <img
-                  src="https://cdn.mscdirect.com/global/images/ProductImages/0650578-21.jpg"
-                  alt="Batteries"
-                  class="max-h-full object-contain mix-blend-multiply"
-                />
-              </div>
-            </figure>
-            <div class="card-body p-6">
-              <div class="flex justify-between items-start mb-2">
-                <span
-                  class="text-[10px] font-black text-slate-400 uppercase tracking-widest"
-                  >Your Price</span
+          <!-- Card 3 -->
+          <div class="carousel-item">
+            <div
+              class="card w-72 bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all rounded-3xl overflow-hidden group"
+            >
+              <figure class="px-6 pt-6 relative">
+                <div
+                  class="bg-slate-50 w-full rounded-2xl p-4 h-48 flex items-center justify-center group-hover:bg-white transition-colors"
                 >
-                <div class="text-right">
-                  <span class="text-xl font-black text-slate-900 tracking-tight"
-                    >$2.51</span
-                  >
-                  <span class="text-xs font-bold text-slate-400">/ea.</span>
+                  <img
+                    src="https://cdn.mscdirect.com/global/images/ProductImages/0650578-21.jpg"
+                    alt="Batteries"
+                    class="max-h-full object-contain mix-blend-multiply"
+                  />
                 </div>
-              </div>
-              <p class="text-xs font-black text-primary uppercase mb-1">
-                ENERGIZER®
-              </p>
-              <h3
-                class="text-sm font-bold text-slate-700 leading-snug h-10 line-clamp-2 hover:text-primary cursor-pointer transition-colors"
-              >
-                Standard Battery: Size AA, Alkaline (4 Pack)
-              </h3>
-              <div class="flex items-center gap-2 mt-4 text-[11px]">
-                <span class="font-bold text-slate-400">MSC #</span>
-                <span class="font-bold text-slate-700">06505788</span>
-              </div>
-              <div class="card-actions mt-6 flex gap-2">
-                <input
-                  type="number"
-                  value="1"
-                  class="input input-bordered w-16 text-center font-bold text-sm focus:border-primary rounded-xl"
-                />
-                <button
-                  class="btn btn-primary flex-1 text-white font-black rounded-xl"
+              </figure>
+              <div class="card-body p-6">
+                <div class="flex justify-between items-start mb-2">
+                  <span
+                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest"
+                    >Your Price</span
+                  >
+                  <div class="text-right">
+                    <span
+                      class="text-xl font-black text-slate-900 tracking-tight"
+                      >$2.51</span
+                    >
+                    <span class="text-xs font-bold text-slate-400">/ea.</span>
+                  </div>
+                </div>
+                <p class="text-xs font-black text-primary uppercase mb-1">
+                  ENERGIZER®
+                </p>
+                <h3
+                  class="text-sm font-bold text-slate-700 leading-snug h-10 line-clamp-2 hover:text-primary cursor-pointer transition-colors"
                 >
-                  Add to Cart
-                </button>
+                  Standard Battery: Size AA, Alkaline (4 Pack)
+                </h3>
+                <div class="flex items-center gap-2 mt-4 text-[11px]">
+                  <span class="font-bold text-slate-400">MSC #</span>
+                  <span class="font-bold text-slate-700">06505788</span>
+                </div>
+                <div class="card-actions mt-6 flex gap-2">
+                  <input
+                    type="number"
+                    value="1"
+                    class="input input-bordered w-16 text-center font-bold text-sm focus:border-primary rounded-xl"
+                  />
+                  <button
+                    class="btn btn-primary flex-1 text-white font-black rounded-xl"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Card 4 -->
-        <div class="carousel-item">
-          <div
-            class="card w-72 bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all rounded-3xl overflow-hidden group"
-          >
-            <figure class="px-6 pt-6 relative">
-              <span
-                class="absolute top-4 right-4 badge badge-error text-white font-bold text-[10px] py-3"
-                >DISCOUNT</span
-              >
-              <div
-                class="bg-slate-50 w-full rounded-2xl p-4 h-48 flex items-center justify-center group-hover:bg-white transition-colors"
-              >
-                <img
-                  src="https://cdn.mscdirect.com/global/images/ProductImages/0335654-24.jpg"
-                  alt="Sanding Pad"
-                  class="max-h-full object-contain mix-blend-multiply"
-                />
-              </div>
-            </figure>
-            <div class="card-body p-6">
-              <div class="flex justify-between items-start mb-2">
+          <!-- Card 4 -->
+          <div class="carousel-item">
+            <div
+              class="card w-72 bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all rounded-3xl overflow-hidden group"
+            >
+              <figure class="px-6 pt-6 relative">
                 <span
-                  class="text-[10px] font-black text-slate-400 uppercase tracking-widest"
-                  >Your Price</span
+                  class="absolute top-4 right-4 badge badge-error text-white font-bold text-[10px] py-3"
+                  >DISCOUNT</span
                 >
-                <div class="text-right">
-                  <span class="text-xl font-black text-slate-900 tracking-tight"
-                    >$2.04</span
-                  >
-                  <span class="text-xs font-bold text-slate-400">/ea.</span>
+                <div
+                  class="bg-slate-50 w-full rounded-2xl p-4 h-48 flex items-center justify-center group-hover:bg-white transition-colors"
+                >
+                  <img
+                    src="https://cdn.mscdirect.com/global/images/ProductImages/0335654-24.jpg"
+                    alt="Sanding Pad"
+                    class="max-h-full object-contain mix-blend-multiply"
+                  />
                 </div>
-              </div>
-              <p class="text-xs font-black text-primary uppercase mb-1">3M</p>
-              <h3
-                class="text-sm font-bold text-slate-700 leading-snug h-10 line-clamp-2 hover:text-primary cursor-pointer transition-colors"
-              >
-                Hand Sanding Pad: Non-Woven, Aluminum Oxide
-              </h3>
-              <div class="flex items-center gap-2 mt-4 text-[11px]">
-                <span class="font-bold text-slate-400">MSC #</span>
-                <span class="font-bold text-slate-700">03356540</span>
-              </div>
-              <div class="card-actions mt-6 flex gap-2">
-                <input
-                  type="number"
-                  value="1"
-                  class="input input-bordered w-16 text-center font-bold text-sm focus:border-primary rounded-xl"
-                />
-                <button
-                  class="btn btn-primary flex-1 text-white font-black rounded-xl"
+              </figure>
+              <div class="card-body p-6">
+                <div class="flex justify-between items-start mb-2">
+                  <span
+                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest"
+                    >Your Price</span
+                  >
+                  <div class="text-right">
+                    <span
+                      class="text-xl font-black text-slate-900 tracking-tight"
+                      >$2.04</span
+                    >
+                    <span class="text-xs font-bold text-slate-400">/ea.</span>
+                  </div>
+                </div>
+                <p class="text-xs font-black text-primary uppercase mb-1">3M</p>
+                <h3
+                  class="text-sm font-bold text-slate-700 leading-snug h-10 line-clamp-2 hover:text-primary cursor-pointer transition-colors"
                 >
-                  Add to Cart
-                </button>
+                  Hand Sanding Pad: Non-Woven, Aluminum Oxide
+                </h3>
+                <div class="flex items-center gap-2 mt-4 text-[11px]">
+                  <span class="font-bold text-slate-400">MSC #</span>
+                  <span class="font-bold text-slate-700">03356540</span>
+                </div>
+                <div class="card-actions mt-6 flex gap-2">
+                  <input
+                    type="number"
+                    value="1"
+                    class="input input-bordered w-16 text-center font-bold text-sm focus:border-primary rounded-xl"
+                  />
+                  <button
+                    class="btn btn-primary flex-1 text-white font-black rounded-xl"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Card 5 -->
-        <div class="carousel-item">
-          <div
-            class="card w-72 bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all rounded-3xl overflow-hidden group"
-          >
-            <figure class="px-6 pt-6 relative">
-              <div
-                class="bg-slate-50 w-full rounded-2xl p-4 h-48 flex items-center justify-center group-hover:bg-white transition-colors"
-              >
-                <img
-                  src="https://cdn.mscdirect.com/global/images/ProductImages/0652912AA-24.jpg"
-                  alt="Safety Glasses"
-                  class="max-h-full object-contain mix-blend-multiply"
-                />
-              </div>
-            </figure>
-            <div class="card-body p-6">
-              <div class="flex justify-between items-start mb-2">
-                <span
-                  class="text-[10px] font-black text-slate-400 uppercase tracking-widest"
-                  >Your Price</span
+          <!-- Card 5 -->
+          <div class="carousel-item">
+            <div
+              class="card w-72 bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all rounded-3xl overflow-hidden group"
+            >
+              <figure class="px-6 pt-6 relative">
+                <div
+                  class="bg-slate-50 w-full rounded-2xl p-4 h-48 flex items-center justify-center group-hover:bg-white transition-colors"
                 >
-                <div class="text-right">
-                  <span class="text-xl font-black text-slate-900 tracking-tight"
-                    >$2.25</span
-                  >
-                  <span class="text-xs font-bold text-slate-400">/ea.</span>
+                  <img
+                    src="https://cdn.mscdirect.com/global/images/ProductImages/0652912AA-24.jpg"
+                    alt="Safety Glasses"
+                    class="max-h-full object-contain mix-blend-multiply"
+                  />
                 </div>
-              </div>
-              <p class="text-xs font-black text-primary uppercase mb-1">
-                PRO-SAFE
-              </p>
-              <h3
-                class="text-sm font-bold text-slate-700 leading-snug h-10 line-clamp-2 hover:text-primary cursor-pointer transition-colors"
-              >
-                Safety Glasses: Uncoated, Polycarbonate
-              </h3>
-              <div class="flex items-center gap-2 mt-4 text-[11px]">
-                <span class="font-bold text-slate-400">MSC #</span>
-                <span class="font-bold text-slate-700">06529127</span>
-              </div>
-              <div class="card-actions mt-6 flex gap-2">
-                <input
-                  type="number"
-                  value="1"
-                  class="input input-bordered w-16 text-center font-bold text-sm focus:border-primary rounded-xl"
-                />
-                <button
-                  class="btn btn-primary flex-1 text-white font-black rounded"
+              </figure>
+              <div class="card-body p-6">
+                <div class="flex justify-between items-start mb-2">
+                  <span
+                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest"
+                    >Your Price</span
+                  >
+                  <div class="text-right">
+                    <span
+                      class="text-xl font-black text-slate-900 tracking-tight"
+                      >$2.25</span
+                    >
+                    <span class="text-xs font-bold text-slate-400">/ea.</span>
+                  </div>
+                </div>
+                <p class="text-xs font-black text-primary uppercase mb-1">
+                  PRO-SAFE
+                </p>
+                <h3
+                  class="text-sm font-bold text-slate-700 leading-snug h-10 line-clamp-2 hover:text-primary cursor-pointer transition-colors"
                 >
-                  Add to Cart
-                </button>
+                  Safety Glasses: Uncoated, Polycarbonate
+                </h3>
+                <div class="flex items-center gap-2 mt-4 text-[11px]">
+                  <span class="font-bold text-slate-400">MSC #</span>
+                  <span class="font-bold text-slate-700">06529127</span>
+                </div>
+                <div class="card-actions mt-6 flex gap-2">
+                  <input
+                    type="number"
+                    value="1"
+                    class="input input-bordered w-16 text-center font-bold text-sm focus:border-primary rounded-xl"
+                  />
+                  <button
+                    class="btn btn-primary flex-1 text-white font-black rounded"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
     <!-- Category Description (SEO Section) -->
     <div class="w-full max-w-[1800px] mx-auto px-4 md:px-8 mt-32">
