@@ -173,6 +173,13 @@ const renderFractionalTable = () => {
         tbody.dataset.oal = item.oal;
         tbody.dataset.helix = item.helix;
 
+        const primaryBrandKey = Object.keys(item.brands).find(k => item.brands[k].msc !== '-') || 'sgs';
+        const primaryBrand = item.brands[primaryBrandKey] || { msc: 'N/A', price: '$0.00' };
+        const brandName = primaryBrandKey === 'maford' ? 'M.A. FORD' : primaryBrandKey.toUpperCase();
+        const mscNum = primaryBrand.msc;
+        // Using a fixed image to prevent broken links as requested
+        const fixedImgUrl = "https://cdn.mscdirect.com/global/images/ProductImages/8174838-21.jpg";
+
         tbody.innerHTML = `
             <tr class="main-row cursor-pointer hover:bg-blue-50/30 transition-colors border-l-4 border-l-transparent" data-ids="${Object.values(item.brands).map(b => b.msc).filter(id => id !== '-').join(',')}">
                 <td class="p-1 font-bold text-center">${item.millDia}</td>
@@ -212,8 +219,74 @@ const renderFractionalTable = () => {
                 <td class="p-1 text-right ${item.brands.sgs.msc === '-' ? 'text-slate-300' : 'font-bold text-slate-700'}">${item.brands.sgs.price}</td>
             </tr>
             <tr class="details-row hidden">
-                <td colspan="17" class="p-12 text-center text-slate-400 italic bg-slate-50/50 font-medium tracking-wide">
-                    Loading technical specifications for MSC# ${Object.values(item.brands).find(b => b.msc !== '-')?.msc || 'N/A'}...
+                <td colspan="17" class="p-0 bg-white border-b border-slate-100">
+                    <div id="tableview-part-item-${mscNum}" class="p-4 xl:p-6 bg-slate-50/30">
+                        <div class="flex flex-wrap md:flex-nowrap gap-6">
+                            <!-- Product Image -->
+                            <div class="flex-shrink-0">
+                                <div class="h-40 w-40 bg-white rounded-xl border border-slate-200 p-4 flex items-center justify-center relative shadow-sm">
+                                    <a href="#"><img src="${fixedImgUrl}" alt="${brandName} Ball End Mill" class="max-h-full object-contain"></a>
+                                </div>
+                            </div>
+                            
+                            <!-- Product Details -->
+                            <div class="flex-grow">
+                                <div class="flex flex-col md:flex-row justify-between items-start gap-4">
+                                    <div>
+                                        <p class="font-bold uppercase text-xs mb-1 text-primary tracking-wider"><a href="#" class="hover:underline">${brandName}</a></p>
+                                        <h3 class="font-bold text-lg text-slate-800 leading-tight">
+                                            <a href="#" class="hover:text-primary">Ball End Mill: ${item.millDia}" Dia, ${item.loc}" LOC, 4 Flute, Solid Carbide</a>
+                                        </h3>
+                                        <p class="text-slate-500 text-sm mt-1">
+                                            ${item.oal}" OAL, ${item.shankDia}" Shank Dia, ${item.helix} deg Helix, AlTiN Finish, Single End, Series 01B
+                                        </p>
+                                        
+                                        <div class="flex items-center gap-4 mt-4">
+                                            <span class="text-sm font-medium text-slate-600">MSC# <a href="#" class="text-primary font-bold hover:underline">${mscNum}</a></span>
+                                            <span class="text-sm font-medium text-slate-600">Mfr# ${item.mfrPart}</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-1 mt-2 text-amber-400">
+                                            ${Array.from({length: 5}).map((_, i) => `<i class="${i < item.rating ? 'fa-solid' : 'fa-regular'} fa-star text-xs"></i>`).join('')}
+                                            <span class="ml-2 text-xs font-bold text-slate-400">${item.rating > 0 ? item.rating + '.0' : '0'}</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Pricing & CTA -->
+                                    <div class="w-full md:w-64 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+                                        <div class="flex justify-between items-center pb-3 border-b border-slate-100 mb-4">
+                                            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Your Price</span>
+                                            <div class="text-right">
+                                                <span class="text-2xl font-black text-slate-800">${primaryBrand.price}</span>
+                                                <span class="text-xs font-bold text-slate-400">/ ea.</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="space-y-3">
+                                            <div class="flex items-center justify-between">
+                                                <p class="text-success-available font-bold text-sm">
+                                                    <i class="fa-solid fa-check mr-1"></i> ${item.stock} In Stock
+                                                </p>
+                                            </div>
+                                            <p class="text-slate-400 text-[11px] font-medium">
+                                                <i class="fa-solid fa-location-dot mr-1"></i> ${item.locStock} available in ${item.location}
+                                            </p>
+                                        </div>
+
+                                        <div class="mt-6 flex flex-col gap-3">
+                                            <div class="flex items-center justify-between gap-3">
+                                                <label class="text-xs font-black uppercase text-slate-400">Qty</label>
+                                                <input type="number" value="1" class="input input-bordered input-sm w-20 rounded-lg text-center font-bold focus:outline-none focus:border-primary">
+                                            </div>
+                                            <button class="btn btn-primary w-full rounded-xl text-white font-bold shadow-lg shadow-blue-100">
+                                                Add to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </td>
             </tr>
         `;
