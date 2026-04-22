@@ -119,7 +119,7 @@
     <!-- Sub-Header / Tool Bar -->
     <div class="w-full max-w-[1800px] mx-auto px-4 md:px-8 mt-6">
       <!-- Utility Row: Search Feedback & Catalog -->
-      <div class="flex flex-col md:flex-row items-center justify-end gap-6">
+      <div class="flex items-center justify-center md:justify-end gap-6 mb-3">
         <a
           href="#"
           class="flex items-center gap-2 text-sm font-bold text-primary hover:underline"
@@ -209,10 +209,10 @@
       class="flex flex-col lg:flex-row gap-8 w-full max-w-[1800px] mx-auto p-4 md:p-8"
     >
       <!-- Sidebar (25%) -->
-      <aside class="w-full lg:w-1/4 flex-shrink-0">
+      <aside class="w-full lg:w-1/4 flex-shrink-0 lg:sticky lg:top-24 lg:h-fit">
         <div
           id="filter-bar"
-          class="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 sticky top-28 h-fit"
+          class="bg-white rounded-3xl shadow-sm border border-slate-200 p-6"
         >
           <div class="pb-6 border-b border-slate-100">
             <div class="flex items-center justify-between mb-4">
@@ -481,54 +481,133 @@
         </div>
 
         <!-- Refine Your Search Section -->
-        <div id="msc-tv-master-group-refinements" class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-4">
+        <div
+          id="msc-tv-master-group-refinements"
+          class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-4"
+        >
           <div class="msc-top-filters-section">
-            <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Refine your search</h4>
+            <h4
+              class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4"
+            >
+              Refine your search
+            </h4>
             <div class="flex flex-wrap gap-3">
-              <button id="End-Mill-Material-show-more" onclick="filterShowMoreClickHandler('End-Mill-Material','End Mill Material', 'table view top refinement block')" class="btn btn-sm bg-slate-50 border-slate-200 hover:border-primary hover:bg-white text-slate-600 font-bold rounded-lg normal-case gap-2 group transition-all">
+              <button
+                id="End-Mill-Material-show-more"
+                onclick="
+                  filterShowMoreClickHandler(
+                    'End-Mill-Material',
+                    'End Mill Material',
+                    'table view top refinement block',
+                  )
+                "
+                class="btn btn-sm bg-slate-50 border-slate-200 hover:border-primary hover:bg-white text-slate-600 font-bold rounded-lg normal-case gap-2 group transition-all"
+              >
                 End Mill Material
-                <i class="fa-solid fa-plus text-[10px] text-slate-400 group-hover:text-primary transition-colors"></i>
+                <i
+                  class="fa-solid fa-plus text-[10px] text-slate-400 group-hover:text-primary transition-colors"
+                ></i>
               </button>
 
-              <button id="Number-Of-Flutes-show-more" onclick="filterShowMoreClickHandler('Number-Of-Flutes','Number Of Flutes', 'table view top refinement block')" class="btn btn-sm bg-slate-50 border-slate-200 hover:border-primary hover:bg-white text-slate-600 font-bold rounded-lg normal-case gap-2 group transition-all">
+              <button
+                id="Number-Of-Flutes-show-more"
+                onclick="
+                  filterShowMoreClickHandler(
+                    'Number-Of-Flutes',
+                    'Number Of Flutes',
+                    'table view top refinement block',
+                  )
+                "
+                class="btn btn-sm bg-slate-50 border-slate-200 hover:border-primary hover:bg-white text-slate-600 font-bold rounded-lg normal-case gap-2 group transition-all"
+              >
                 Number Of Flutes
-                <i class="fa-solid fa-plus text-[10px] text-slate-400 group-hover:text-primary transition-colors"></i>
+                <i
+                  class="fa-solid fa-plus text-[10px] text-slate-400 group-hover:text-primary transition-colors"
+                ></i>
               </button>
 
-              <button id="Coating-Finish-Family-show-more" onclick="filterShowMoreClickHandler('Coating-Finish-Family','Coating/Finish Family', 'table view top refinement block')" class="btn btn-sm bg-slate-50 border-slate-200 hover:border-primary hover:bg-white text-slate-600 font-bold rounded-lg normal-case gap-2 group transition-all">
+              <button
+                id="Coating-Finish-Family-show-more"
+                onclick="
+                  filterShowMoreClickHandler(
+                    'Coating-Finish-Family',
+                    'Coating/Finish Family',
+                    'table view top refinement block',
+                  )
+                "
+                class="btn btn-sm bg-slate-50 border-slate-200 hover:border-primary hover:bg-white text-slate-600 font-bold rounded-lg normal-case gap-2 group transition-all"
+              >
                 Coating/Finish Family
-                <i class="fa-solid fa-plus text-[10px] text-slate-400 group-hover:text-primary transition-colors"></i>
+                <i
+                  class="fa-solid fa-plus text-[10px] text-slate-400 group-hover:text-primary transition-colors"
+                ></i>
               </button>
 
-              <button id="Single-Or-Double-End-show-more" onclick="filterShowMoreClickHandler('Single-Or-Double-End','Single Or Double End', 'table view top refinement block')" class="btn btn-sm bg-slate-50 border-slate-200 hover:border-primary hover:bg-white text-slate-600 font-bold rounded-lg normal-case gap-2 group transition-all">
+              <button
+                id="Single-Or-Double-End-show-more"
+                onclick="
+                  filterShowMoreClickHandler(
+                    'Single-Or-Double-End',
+                    'Single Or Double End',
+                    'table view top refinement block',
+                  )
+                "
+                class="btn btn-sm bg-slate-50 border-slate-200 hover:border-primary hover:bg-white text-slate-600 font-bold rounded-lg normal-case gap-2 group transition-all"
+              >
                 Single Or Double End
-                <i class="fa-solid fa-plus text-[10px] text-slate-400 group-hover:text-primary transition-colors"></i>
+                <i
+                  class="fa-solid fa-plus text-[10px] text-slate-400 group-hover:text-primary transition-colors"
+                ></i>
               </button>
 
-              <button id="Primary-Workpiece-Material-show-more" onclick="filterShowMoreClickHandler('Primary-Workpiece-Material','Primary Workpiece Material', 'table view top refinement block')" class="btn btn-sm bg-slate-50 border-slate-200 hover:border-primary hover:bg-white text-slate-600 font-bold rounded-lg normal-case gap-2 group transition-all">
+              <button
+                id="Primary-Workpiece-Material-show-more"
+                onclick="
+                  filterShowMoreClickHandler(
+                    'Primary-Workpiece-Material',
+                    'Primary Workpiece Material',
+                    'table view top refinement block',
+                  )
+                "
+                class="btn btn-sm bg-slate-50 border-slate-200 hover:border-primary hover:bg-white text-slate-600 font-bold rounded-lg normal-case gap-2 group transition-all"
+              >
                 Primary Workpiece Material
-                <i class="fa-solid fa-plus text-[10px] text-slate-400 group-hover:text-primary transition-colors"></i>
+                <i
+                  class="fa-solid fa-plus text-[10px] text-slate-400 group-hover:text-primary transition-colors"
+                ></i>
               </button>
             </div>
           </div>
         </div>
 
         <!-- Product Group Info Section -->
-        <div class="bg-white rounded-xl shadow-sm border border-slate-200 mb-4 p-6">
+        <div
+          class="bg-white rounded-xl shadow-sm border border-slate-200 mb-4 p-6"
+        >
           <h3 class="text-md font-black text-slate-800 tracking-tight mb-4">
             Solid Carbide 4-Flute Centercutting Single End AlTiN
           </h3>
           <div class="flex flex-col md:flex-row gap-8 items-start">
-            <div class="w-32 h-32 flex-shrink-0 bg-slate-50 rounded-xl p-4 flex items-center justify-center border border-slate-100">
-              <img 
-                src="https://cdn.mscdirect.com/global/images/ProductImages/0913779-24.gif" 
-                alt="Solid Carbide End Mill" 
+            <div
+              class="w-32 h-32 flex-shrink-0 bg-slate-50 rounded-xl p-4 flex items-center justify-center border border-slate-100"
+            >
+              <img
+                src="https://cdn.mscdirect.com/global/images/ProductImages/0913779-24.gif"
+                alt="Solid Carbide End Mill"
                 class="max-h-full mix-blend-multiply"
-              >
+              />
             </div>
             <div class="flex-1">
               <p class="text-slate-600 text-sm leading-relaxed">
-                Solid Carbide end mills provide superior wear resistance and can withstand the highest cutting temperatures offering a higher degree of accuracy over other materials. Four or more flutes allow for faster feed rates and produce a finer finish than two and three flute tools. Centercutting design allows for plunge milling into solid materials with good chip removal capability. The AlTiN coating maintains high surface hardness at elevated temperatures improving tool life and allowing faster feed rates in ferrous materials.
+                Solid Carbide end mills provide superior wear resistance and can
+                withstand the highest cutting temperatures offering a higher
+                degree of accuracy over other materials. Four or more flutes
+                allow for faster feed rates and produce a finer finish than two
+                and three flute tools. Centercutting design allows for plunge
+                milling into solid materials with good chip removal capability.
+                The AlTiN coating maintains high surface hardness at elevated
+                temperatures improving tool life and allowing faster feed rates
+                in ferrous materials.
               </p>
             </div>
           </div>
@@ -537,7 +616,6 @@
         <div
           class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden"
         >
-
           <div class="overflow-x-auto p-4">
             <table
               id="msc-tv-table-"
@@ -546,7 +624,6 @@
               <thead>
                 <tr class="bg-white border-b-0">
                   <th colspan="5" class="p-1 border-none">
-
                     <h2
                       class="text-lg font-black text-slate-800 tracking-tight"
                     >
@@ -628,31 +705,31 @@
                 </tr>
                 <tr class="bg-slate-50/50 border-b-2 border-slate-800">
                   <th
-                    class="p-1 uppercase text-[10px] font-black tracking-widest text-slate-500 cursor-pointer hover:bg-slate-100 transition-colors"
+                    class="p-1 uppercase text-[10px] font-black tracking-widest text-slate-500 cursor-pointer hover:bg-slate-100 transition-colors text-center"
                     data-key="mill-dia"
                   >
                     Mill Dia.
                   </th>
                   <th
-                    class="p-1 uppercase text-[10px] font-black tracking-widest text-slate-500 cursor-pointer hover:bg-slate-100 transition-colors"
+                    class="p-1 uppercase text-[10px] font-black tracking-widest text-slate-500 cursor-pointer hover:bg-slate-100 transition-colors text-center"
                     data-key="loc"
                   >
                     LOC
                   </th>
                   <th
-                    class="p-1 uppercase text-[10px] font-black tracking-widest text-slate-500 cursor-pointer hover:bg-slate-100 transition-colors"
+                    class="p-1 uppercase text-[10px] font-black tracking-widest text-slate-500 cursor-pointer hover:bg-slate-100 transition-colors text-center"
                     data-key="shank-dia"
                   >
                     Shank Dia.
                   </th>
                   <th
-                    class="p-1 uppercase text-[10px] font-black tracking-widest text-slate-500 cursor-pointer hover:bg-slate-100 transition-colors"
+                    class="p-1 uppercase text-[10px] font-black tracking-widest text-slate-500 cursor-pointer hover:bg-slate-100 transition-colors text-center"
                     data-key="oal"
                   >
                     OAL
                   </th>
                   <th
-                    class="p-1 uppercase text-[10px] font-black tracking-widest text-slate-500 cursor-pointer hover:bg-slate-100 transition-colors"
+                    class="p-1 uppercase text-[10px] font-black tracking-widest text-slate-500 cursor-pointer hover:bg-slate-100 transition-colors text-center"
                     data-key="helix"
                   >
                     Helix
@@ -725,273 +802,6 @@
                   </th>
                 </tr>
               </thead>
-
-              <tbody
-                class="product-group group/body"
-                data-mill-dia="0.0156"
-                data-loc="0.0312"
-                data-shank-dia="0.125"
-                data-oal="1.5"
-                data-helix="30"
-              >
-                <tr
-                  class="main-row active cursor-pointer bg-blue-50/30 hover:bg-blue-50/50 transition-colors"
-                  data-ids="81748386"
-                >
-                  <td class="p-1 font-bold">1/64</td>
-                  <td class="p-1">1/32</td>
-                  <td class="p-1">1/8</td>
-                  <td class="p-1">1-1/2</td>
-                  <td class="p-1">30</td>
-                  <td class="border-l border-slate-100 p-1 text-slate-300">
-                    -
-                  </td>
-                  <td class="p-1 text-right text-slate-300">-</td>
-                  <td class="border-l border-slate-100 p-1 text-slate-300">
-                    -
-                  </td>
-                  <td class="p-1 text-right text-slate-300">-</td>
-                  <td class="border-l border-slate-100 p-1 text-slate-300">
-                    -
-                  </td>
-                  <td class="p-1 text-right text-slate-300">-</td>
-                  <td class="border-l border-slate-100 p-1 text-slate-300">
-                    -
-                  </td>
-                  <td class="p-1 text-right text-slate-300">-</td>
-                  <td class="border-l border-slate-100 p-1 text-slate-300">
-                    -
-                  </td>
-                  <td class="p-1 text-right text-slate-300">-</td>
-                  <td class="border-l border-slate-100 p-1 bg-slate-50/50">
-                    <a href="#" class="text-primary font-bold hover:underline"
-                      >81748386</a
-                    >
-                  </td>
-                  <td
-                    class="p-1 text-right font-black text-slate-900 bg-slate-50/50"
-                  >
-                    $48.20
-                  </td>
-                </tr>
-
-                <!-- Quickview Row -->
-                <tr class="details-row hidden">
-                  <td colspan="17" class="p-0">
-                    <div
-                      class="bg-white p-8 flex flex-col md:flex-row gap-12 shadow-inner border-y border-slate-100"
-                    >
-                      <!-- Product Image -->
-                      <div class="w-full md:w-72 flex-shrink-0">
-                        <div
-                          class="p-6 shadow-sm hover:shadow-md transition-shadow"
-                        >
-                          <img
-                            src="https://cdn.mscdirect.com/global/images/ProductImages/8174838-21.jpg"
-                            alt="Ball End Mill"
-                            class="w-full mix-blend-multiply"
-                          />
-                        </div>
-                      </div>
-
-                      <!-- info Content -->
-                      <div class="flex-1">
-                        <div class="mb-6">
-                          <div class="flex items-center gap-2 mb-3">
-                            <span
-                              class="badge badge-outline badge-sm font-black text-slate-400"
-                              >SGS</span
-                            >
-                          </div>
-                          <h3
-                            class="text-lg font-black text-slate-800 leading-tight tracking-tight"
-                          >
-                            Ball End Mill: 1/64" Dia, 1/32" LOC, 4 Flute, Solid
-                            Carbide
-                          </h3>
-                          <p class="text-slate-500 mt-2 font-medium">
-                            1-1/2" OAL, 1/8" Shank Dia, 30 deg Helix, AlTiN
-                            Finish, Series 01B
-                          </p>
-                        </div>
-
-                        <div
-                          class="grid grid-cols-2 md:grid-cols-3 gap-8 mb-8 text-sm"
-                        >
-                          <div>
-                            <span
-                              class="block text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1"
-                              >MSC#</span
-                            >
-                            <span class="font-bold text-slate-700"
-                              >81748386</span
-                            >
-                          </div>
-                          <div>
-                            <span
-                              class="block text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1"
-                              >Mfr#</span
-                            >
-                            <span class="font-bold text-slate-700">30031</span>
-                          </div>
-                          <div>
-                            <span
-                              class="block text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1"
-                              >In Stock</span
-                            >
-                            <span
-                              class="text-success-available font-bold flex items-center gap-1"
-                            >
-                              <i
-                                class="fa-solid fa-circle-check text-[10px]"
-                              ></i>
-                              Available
-                            </span>
-                          </div>
-                        </div>
-
-                        <div class="flex items-center mb-0">
-                          <div class="rating rating-xs">
-                            <input
-                              type="radio"
-                              class="mask mask-star-2 bg-primary"
-                            />
-                            <input
-                              type="radio"
-                              class="mask mask-star-2 bg-primary"
-                            />
-                            <input
-                              type="radio"
-                              class="mask mask-star-2 bg-primary"
-                            />
-                            <input
-                              type="radio"
-                              class="mask mask-star-2 bg-primary"
-                            />
-                            <input
-                              type="radio"
-                              class="mask mask-star-2 bg-slate-200"
-                              checked
-                            />
-                          </div>
-                          <span class="ml-2 text-xs font-bold text-slate-400"
-                            >4.0 (12 Reviews)</span
-                          >
-                        </div>
-                      </div>
-
-                      <!-- Action Card -->
-                      <div
-                        class="w-full md:w-96 p-8 flex flex-col justify-between"
-                      >
-                        <div class="flex justify-between items-baseline mb-8">
-                          <span
-                            class="text-[10px] font-black uppercase tracking-widest text-slate-400"
-                            >Web Price</span
-                          >
-                          <div class="text-right">
-                            <span
-                              class="text-2xl font-black text-slate-900 tracking-tighter"
-                              >$48.20</span
-                            >
-                            <span class="text-slate-400 font-bold ml-1"
-                              >/ ea.</span
-                            >
-                          </div>
-                        </div>
-
-                        <div class="space-y-4">
-                          <div class="form-control">
-                            <label class="label pt-0 pb-1">
-                              <span
-                                class="label-text text-[10px] font-black uppercase text-slate-400"
-                                >Order Quantity</span
-                              >
-                            </label>
-                            <input
-                              type="number"
-                              value="1"
-                              class="input input-bordered w-full text-center font-bold focus:border-primary focus:ring-0 shadow-sm"
-                            />
-                          </div>
-                          <button
-                            class="btn btn-primary w-full text-white font-black rounded-2xl shadow-xl shadow-blue-200 gap-3"
-                          >
-                            <i class="fa-solid fa-cart-arrow-down"></i> Add to
-                            Cart
-                          </button>
-                          <button
-                            class="btn btn-ghost btn-sm w-full text-slate-400 font-bold border-none hover:bg-transparent"
-                          >
-                            <i class="fa-solid fa-list-ul mr-2"></i> Save to
-                            Favorites
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-
-              <tbody
-                class="product-group group/body"
-                data-mill-dia="0.0312"
-                data-loc="0.0781"
-                data-shank-dia="0.125"
-                data-oal="1.5"
-                data-helix="30"
-              >
-                <tr
-                  class="main-row cursor-pointer hover:bg-slate-50 transition-colors border-l-4 border-l-transparent"
-                  data-ids="59544056,89095632"
-                >
-                  <td class="p-1 font-bold">1/32</td>
-                  <td class="p-1">5/64</td>
-                  <td class="p-1">1/8</td>
-                  <td class="p-1">1-1/2</td>
-                  <td class="p-1">30</td>
-                  <td class="border-l border-slate-100 p-1 text-slate-300">
-                    -
-                  </td>
-                  <td class="p-1 text-right text-slate-300">-</td>
-                  <td class="border-l border-slate-100 p-1 text-slate-300">
-                    -
-                  </td>
-                  <td class="p-1 text-right text-slate-300">-</td>
-                  <td class="border-l border-slate-100 p-1 text-slate-300">
-                    -
-                  </td>
-                  <td class="p-1 text-right text-slate-300">-</td>
-                  <td class="border-l border-slate-100 p-1 text-slate-300">
-                    -
-                  </td>
-                  <td class="p-1 text-right text-slate-300">-</td>
-                  <td class="border-l border-slate-100 p-1">
-                    <a href="#" class="text-primary font-bold hover:underline"
-                      >59544056</a
-                    >
-                  </td>
-                  <td class="p-1 text-right font-bold text-slate-700">
-                    $35.93
-                  </td>
-                  <td class="border-l border-slate-100 p-1">
-                    <a href="#" class="text-primary font-bold hover:underline"
-                      >89095632</a
-                    >
-                  </td>
-                  <td class="p-1 text-right font-bold text-slate-700">
-                    $25.81
-                  </td>
-                </tr>
-                <tr class="details-row hidden">
-                  <td
-                    colspan="17"
-                    class="p-12 text-center text-slate-400 italic bg-slate-50/50 font-medium tracking-wide"
-                  >
-                    Loading technical specifications...
-                  </td>
-                </tr>
-              </tbody>
             </table>
           </div>
         </div>

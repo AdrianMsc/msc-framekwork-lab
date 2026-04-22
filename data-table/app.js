@@ -151,16 +151,84 @@ const initFeatures = () => {
 };
 
 // ==========================
+// TABLE RENDERING
+// ==========================
+
+import fractionalInchData from './dummyData.js';
+
+const renderFractionalTable = () => {
+    const table = document.getElementById('msc-tv-table-');
+    if (!table) return;
+
+    // Remove existing hardcoded rows if any
+    const existingGroups = table.querySelectorAll('.product-group');
+    existingGroups.forEach(g => g.remove());
+
+    fractionalInchData.forEach(item => {
+        const tbody = document.createElement('tbody');
+        tbody.className = 'product-group group/body';
+        tbody.dataset.millDia = item.millDia;
+        tbody.dataset.loc = item.loc;
+        tbody.dataset.shankDia = item.shankDia;
+        tbody.dataset.oal = item.oal;
+        tbody.dataset.helix = item.helix;
+
+        tbody.innerHTML = `
+            <tr class="main-row cursor-pointer hover:bg-blue-50/30 transition-colors border-l-4 border-l-transparent" data-ids="${Object.values(item.brands).map(b => b.msc).filter(id => id !== '-').join(',')}">
+                <td class="p-1 font-bold text-center">${item.millDia}</td>
+                <td class="p-1 text-center">${item.loc}</td>
+                <td class="p-1 text-center">${item.shankDia}</td>
+                <td class="p-1 text-center">${item.oal}</td>
+                <td class="p-1 text-center">${item.helix}</td>
+                
+                <td class="border-l border-slate-100 p-1 ${item.brands.hertel.msc === '-' ? 'text-slate-300' : ''}">
+                    ${item.brands.hertel.msc === '-' ? '-' : `<a href="#" class="text-primary font-bold hover:underline">${item.brands.hertel.msc}</a>`}
+                </td>
+                <td class="p-1 text-right ${item.brands.hertel.msc === '-' ? 'text-slate-300' : 'font-bold text-slate-700'}">${item.brands.hertel.price}</td>
+
+                <td class="border-l border-slate-100 p-1 ${item.brands.accupro.msc === '-' ? 'text-slate-300' : ''}">
+                    ${item.brands.accupro.msc === '-' ? '-' : `<a href="#" class="text-primary font-bold hover:underline">${item.brands.accupro.msc}</a>`}
+                </td>
+                <td class="p-1 text-right ${item.brands.accupro.msc === '-' ? 'text-slate-300' : 'font-bold text-slate-700'}">${item.brands.accupro.price}</td>
+
+                <td class="border-l border-slate-100 p-1 ${item.brands.widia.msc === '-' ? 'text-slate-300' : ''}">
+                    ${item.brands.widia.msc === '-' ? '-' : `<a href="#" class="text-primary font-bold hover:underline">${item.brands.widia.msc}</a>`}
+                </td>
+                <td class="p-1 text-right ${item.brands.widia.msc === '-' ? 'text-slate-300' : 'font-bold text-slate-700'}">${item.brands.widia.price}</td>
+
+                <td class="border-l border-slate-100 p-1 ${item.brands.seco.msc === '-' ? 'text-slate-300' : ''}">
+                    ${item.brands.seco.msc === '-' ? '-' : `<a href="#" class="text-primary font-bold hover:underline">${item.brands.seco.msc}</a>`}
+                </td>
+                <td class="p-1 text-right ${item.brands.seco.msc === '-' ? 'text-slate-300' : 'font-bold text-slate-700'}">${item.brands.seco.price}</td>
+
+                <td class="border-l border-slate-100 p-1 ${item.brands.maford.msc === '-' ? 'text-slate-300' : ''}">
+                    ${item.brands.maford.msc === '-' ? '-' : `<a href="#" class="text-primary font-bold hover:underline">${item.brands.maford.msc}</a>`}
+                </td>
+                <td class="p-1 text-right ${item.brands.maford.msc === '-' ? 'text-slate-300' : 'font-bold text-slate-700'}">${item.brands.maford.price}</td>
+
+                <td class="border-l border-slate-100 p-1 ${item.brands.sgs.msc === '-' ? 'text-slate-300' : ''}">
+                    ${item.brands.sgs.msc === '-' ? '-' : `<a href="#" class="text-primary font-bold hover:underline">${item.brands.sgs.msc}</a>`}
+                </td>
+                <td class="p-1 text-right ${item.brands.sgs.msc === '-' ? 'text-slate-300' : 'font-bold text-slate-700'}">${item.brands.sgs.price}</td>
+            </tr>
+            <tr class="details-row hidden">
+                <td colspan="17" class="p-12 text-center text-slate-400 italic bg-slate-50/50 font-medium tracking-wide">
+                    Loading technical specifications for MSC# ${Object.values(item.brands).find(b => b.msc !== '-')?.msc || 'N/A'}...
+                </td>
+            </tr>
+        `;
+        table.appendChild(tbody);
+    });
+
+    // Re-initialize table logic (sorting, toggling) after rendering
+    initTable(table);
+};
+
+// ==========================
 // INIT ON LOAD
 // ==========================
 
 document.addEventListener("DOMContentLoaded", () => {
-  const tables = document.querySelectorAll("table");
-  tables.forEach(table => {
-    if (table.querySelector(".product-group")) {
-      initTable(table);
-    }
-  });
-
+  renderFractionalTable();
   initFeatures();
 });
