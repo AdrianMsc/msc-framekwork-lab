@@ -37,84 +37,195 @@
         },
       };
     </script>
+    <style>
+      .msc-border-bottom {
+        border-bottom: 3px solid #1c58ee;
+      }
+      .top-bar {
+        background-color: #f8fafc;
+        font-size: 13px;
+      }
+      /* Force icons to blue color overriding any framework defaults */
+      .navbar i.fa-solid,
+      .navbar i.fa-regular,
+      .navbar i.fa-brands {
+        color: #1c58ee !important;
+      }
+      /* Allow icons inside buttons to inherit the button's text color */
+      .navbar .btn i {
+        color: inherit !important;
+      }
+    </style>
   </head>
 
   <body class="bg-slate-50 min-h-screen font-sans text-slate-800">
-    <header
-      class="navbar bg-white px-4 md:px-8 h-20 shadow-sm w-full sticky top-0 z-[100]"
-    >
-      <div class="navbar-start">
-        <div class="dropdown">
-          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-            <i class="fa-solid fa-bars text-xl"></i>
+    <!-- Top Bar -->
+    <div class="top-bar py-1 px-4 lg:px-8 border-b border-gray-200">
+      <div
+        class="mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-600 gap-2 sm:gap-0"
+      >
+        <div class="hidden sm:flex gap-2">
+          <div class="dropdown dropdown-hover">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-xs bg-white hover:bg-gray-50 border-gray-200 rounded-full px-3 text-gray-600 normal-case font-medium shadow-sm hover:text-msc-blue hover:border-msc-blue"
+            >
+              Solutions
+              <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i>
+            </div>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-[100] menu p-2 shadow-xl bg-white rounded-box w-52 border border-gray-100 mt-1"
+            >
+              <li><a>Metalworking Solutions</a></li>
+              <li><a>Inventory Management</a></li>
+              <li><a>Safety Services</a></li>
+              <li><a>E-Commerce Solutions</a></li>
+            </ul>
           </div>
-          <ul
-            tabindex="0"
-            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow-xl font-bold"
-          >
-            <li><a>Shop All Products</a></li>
-            <li><a>Quick Order</a></li>
-            <li><a>Login / Register</a></li>
-          </ul>
+          <div class="dropdown dropdown-hover">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-xs bg-white hover:bg-gray-50 border-gray-200 rounded-full px-3 text-gray-600 normal-case font-medium shadow-sm hover:text-msc-blue hover:border-msc-blue"
+            >
+              Resources
+              <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i>
+            </div>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-[100] menu p-2 shadow-xl bg-white rounded-box w-52 border border-gray-100 mt-1"
+            >
+              <li><a>Calculators & Tools</a></li>
+              <li><a>MSDS / SDS Search</a></li>
+              <li><a>Webinars & Events</a></li>
+              <li><a>Sustainability</a></li>
+            </ul>
+          </div>
         </div>
-        <a class="btn btn-ghost h-auto hover:bg-slate-50 px-4">
+        <div class="text-[11px] sm:text-[13px]">
+          Need help? Call us
+          <span class="font-bold text-msc-blue">1-800-645-7270</span>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="navbar bg-white px-4 lg:px-8 msc-border-bottom h-20 md:h-24 gap-2 md:gap-4 sticky top-0 z-[100]"
+    >
+      <!-- Hamburger for Mobile -->
+      <div class="flex-none lg:hidden">
+        <label for="my-drawer" class="btn btn-ghost btn-circle">
+          <i class="fa-solid fa-bars text-xl text-msc-blue"></i>
+        </label>
+      </div>
+
+      <!-- Logo -->
+      <div class="flex-none">
+        <a class="cursor-pointer">
           <img
             src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg"
             alt="MSC Direct"
-            class="h-8"
+            class="h-8 md:h-12"
           />
         </a>
       </div>
 
-      <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1 font-bold gap-4 text-sm">
-          <li>
-            <details>
-              <summary>Shop All Products</summary>
-              <ul
-                class="p-2 z-[100] w-64 shadow-2xl rounded-xl border border-slate-100"
-              >
-                <li><a>Metalworking</a></li>
-                <li><a>Fasteners</a></li>
-                <li><a>Hand Tools</a></li>
-              </ul>
-            </details>
-          </li>
-          <li><a>Quick Order</a></li>
-        </ul>
-      </div>
+      <div
+        class="flex-none gap-2 md:gap-6 lg:flex-1 justify-end lg:justify-start"
+      >
+        <!-- Dropdown: Shop All Products (Hidden on Small) -->
+        <div class="dropdown dropdown-end lg:dropdown-start hidden sm:block">
+          <div
+            tabindex="0"
+            role="button"
+            class="btn btn-sm md:btn-md btn-outline btn-primary text-msc-blue font-bold px-2 md:px-4"
+          >
+            <span class="hidden lg:inline">Shop All Products</span>
+            <span class="lg:hidden">Products</span>
+            <i class="fa-solid fa-chevron-down text-xs ml-1 text-msc-blue"></i>
+          </div>
+          <ul
+            tabindex="0"
+            class="dropdown-content z-[101] menu p-2 shadow-xl bg-white rounded-box w-52 mt-4 border border-gray-100"
+          >
+            <li><a>Metalworking</a></li>
+            <li><a>Fasteners</a></li>
+            <li><a>Safety</a></li>
+            <li><a>Hand Tools</a></li>
+          </ul>
+        </div>
 
-      <div class="navbar-end gap-4">
-        <div class="join hidden md:flex">
+        <!-- Search Input (Hidden on Small) -->
+        <div
+          class="form-control hidden md:flex relative flex-row items-stretch flex-1 max-w-md"
+        >
           <input
-            class="input input-bordered join-item w-64 lg:w-96 focus:outline-none focus:border-primary"
-            placeholder="Search products, brands, etc."
+            type="text"
+            placeholder="Search products..."
+            class="input input-bordered w-full rounded-r-none border-primary focus:outline-none focus:border-msc-blue h-10 md:h-11"
           />
-          <button class="btn btn-primary join-item px-6">
-            <i class="fa-solid fa-magnifying-glass text-white"></i>
+          <button
+            class="btn bg-msc-blue hover:bg-blue-700 border-none rounded-l-none text-white h-10 md:h-11 min-h-0 w-12 px-0"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
 
-        <div class="flex items-center gap-2">
-          <div
-            class="indicator cursor-pointer p-2 hover:bg-slate-50 rounded-full transition-colors"
+        <!-- Mobile Search Icon -->
+        <button class="btn btn-ghost btn-circle md:hidden">
+          <i class="fa-solid fa-magnifying-glass text-xl"></i>
+        </button>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-2 md:gap-4 ml-auto">
+          <!-- Quick Order -->
+          <a
+            class="hidden sm:flex flex-col items-center gap-0.5 text-msc-blue hover:text-blue-800 transition-colors cursor-pointer group"
           >
-            <i class="fa-solid fa-cart-shopping text-xl"></i>
+            <i class="fa-solid fa-clipboard-list text-xl text-msc-blue"></i>
             <span
-              class="badge badge-sm badge-success indicator-item text-white font-bold border-none"
-              >1</span
+              class="text-[9px] md:text-[10px] font-bold uppercase tracking-tight text-msc-blue"
+              >Quick Order</span
             >
-          </div>
-          <div class="btn btn-ghost btn-circle avatar border border-slate-200">
+          </a>
+
+          <!-- Login/Register -->
+          <a
+            class="flex flex-col items-center gap-0.5 text-msc-blue hover:text-blue-800 transition-colors cursor-pointer group"
+          >
+            <i class="fa-regular fa-user text-xl text-msc-blue"></i>
+            <span
+              class="text-[9px] md:text-[10px] font-bold uppercase tracking-tight text-msc-blue"
+              >Login</span
+            >
+          </a>
+
+          <!-- Cart -->
+          <div class="dropdown dropdown-end">
             <div
-              class="w-10 rounded-full bg-slate-100 flex items-center justify-center"
+              tabindex="0"
+              role="button"
+              class="flex flex-col items-center gap-0.5 text-msc-blue hover:text-blue-800 transition-colors cursor-pointer relative"
             >
-              <i class="fa-regular fa-user text-lg"></i>
+              <div class="indicator">
+                <i class="fa-solid fa-cart-shopping text-xl text-msc-blue"></i>
+                <span
+                  class="badge badge-xs md:badge-sm badge-success indicator-item text-white border-none font-bold"
+                  style="background-color: #31a444"
+                  >1</span
+                >
+              </div>
+              <span
+                class="text-[9px] md:text-[10px] font-bold uppercase tracking-tight text-msc-blue"
+                >Cart</span
+              >
             </div>
           </div>
         </div>
       </div>
-    </header>
+    </div>
 
     <!-- Sub-Header / Tool Bar -->
     <div class="w-full max-w-[1800px] mx-auto px-4 md:px-8 mt-6">
@@ -212,53 +323,132 @@
       <aside class="w-full lg:w-1/4 flex-shrink-0 lg:sticky lg:top-24 lg:h-fit">
         <div
           id="filter-bar"
-          class="bg-white rounded-3xl shadow-sm border border-slate-200 p-6"
+          class="bg-white rounded-3xl shadow-sm border border-slate-200"
         >
-          <div class="pb-6 border-b border-slate-100">
-            <div class="flex items-center justify-between mb-4">
-              <p
-                class="font-black text-slate-800 uppercase tracking-wider text-xs"
-              >
-                Applied Filters
-              </p>
-              <button class="text-primary text-xs font-bold hover:underline">
-                Clear All
-              </button>
-            </div>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="badge badge-md bg-blue-50 text-primary border-blue-100 font-bold px-3 py-4 gap-2"
-              >
-                <i class="fa-solid fa-xmark text-[10px] cursor-pointer"></i>
-                Ball End Mills
-              </span>
-            </div>
-          </div>
-
-          <div class="space-y-2 mt-4">
-            <!-- Brand Accordion -->
-            <div
-              class="collapse collapse-arrow bg-transparent border-b border-slate-50 rounded-none"
+          <!-- Mobile Toggle (Hidden on Desktop) -->
+          <input type="checkbox" id="filter-toggle" class="peer hidden" />
+          <label
+            for="filter-toggle"
+            class="lg:hidden flex items-center justify-between p-6 cursor-pointer select-none"
+          >
+            <span
+              class="font-black text-slate-800 uppercase tracking-wider text-xs"
             >
-              <input type="checkbox" checked />
-              <div class="collapse-title p-4 px-0 min-h-0 flex items-center">
-                <span
-                  class="font-black text-slate-700 text-sm uppercase tracking-wide"
-                  >Brand</span
+              Filters & Refinements
+            </span>
+            <i
+              class="fa-solid fa-chevron-down transition-transform peer-checked:rotate-180 text-slate-400"
+            ></i>
+          </label>
+
+          <!-- Filter Content (Hidden on Mobile unless toggled, Always visible on Desktop) -->
+          <div class="hidden peer-checked:block lg:block p-6 pt-0 lg:pt-6">
+            <div class="pb-6 border-b border-slate-100">
+              <div class="flex items-center justify-between mb-4">
+                <p
+                  class="font-black text-slate-800 uppercase tracking-wider text-xs"
                 >
+                  Applied Filters
+                </p>
+                <button class="text-primary text-xs font-bold hover:underline">
+                  Clear All
+                </button>
               </div>
-              <div class="collapse-content px-0">
-                <div class="relative mb-4">
-                  <input
-                    type="text"
-                    class="input input-sm input-bordered w-full rounded-full pl-8 bg-slate-50 text-xs"
-                    placeholder="Search Brand"
-                  />
-                  <i
-                    class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-[10px]"
-                  ></i>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="badge badge-md bg-blue-50 text-primary border-blue-100 font-bold px-3 py-4 gap-2"
+                >
+                  <i class="fa-solid fa-xmark text-[10px] cursor-pointer"></i>
+                  Ball End Mills
+                </span>
+              </div>
+            </div>
+
+            <div class="space-y-2 mt-4">
+              <!-- Brand Accordion -->
+              <div
+                class="collapse collapse-arrow bg-transparent border-b border-slate-50 rounded-none"
+              >
+                <input type="checkbox" checked />
+                <div class="collapse-title p-4 px-0 min-h-0 flex items-center">
+                  <span
+                    class="font-black text-slate-700 text-sm uppercase tracking-wide"
+                    >Brand</span
+                  >
                 </div>
-                <div class="space-y-3">
+                <div class="collapse-content px-0">
+                  <div class="relative mb-4">
+                    <input
+                      type="text"
+                      class="input input-sm input-bordered w-full rounded-full pl-8 bg-slate-50 text-xs"
+                      placeholder="Search Brand"
+                    />
+                    <i
+                      class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-[10px]"
+                    ></i>
+                  </div>
+                  <div class="space-y-3">
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        class="checkbox checkbox-primary checkbox-xs rounded"
+                        checked
+                      />
+                      <span
+                        class="text-sm text-slate-600 group-hover:text-primary transition-colors"
+                        >Accupro
+                        <span class="text-slate-400 text-xs ml-1"
+                          >(3512)</span
+                        ></span
+                      >
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        class="checkbox checkbox-primary checkbox-xs rounded"
+                      />
+                      <span
+                        class="text-sm text-slate-600 group-hover:text-primary transition-colors"
+                        >Ceratizit
+                        <span class="text-slate-400 text-xs ml-1"
+                          >(625)</span
+                        ></span
+                      >
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        class="checkbox checkbox-primary checkbox-xs rounded"
+                      />
+                      <span
+                        class="text-sm text-slate-600 group-hover:text-primary transition-colors"
+                        >Fraisa
+                        <span class="text-slate-400 text-xs ml-1"
+                          >(627)</span
+                        ></span
+                      >
+                    </label>
+                    <button
+                      class="text-primary text-[10px] font-black uppercase tracking-widest mt-2 hover:opacity-80 flex items-center gap-1"
+                    >
+                      <i class="fa-solid fa-plus"></i> SHOW MORE
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- In Stock Accordion -->
+              <div
+                class="collapse collapse-arrow bg-transparent border-b border-slate-50 rounded-none"
+              >
+                <input type="checkbox" checked />
+                <div class="collapse-title p-4 px-0 min-h-0 flex items-center">
+                  <span
+                    class="font-black text-slate-700 text-sm uppercase tracking-wide"
+                    >In Stock</span
+                  >
+                </div>
+                <div class="collapse-content px-0">
                   <label class="flex items-center gap-3 cursor-pointer group">
                     <input
                       type="checkbox"
@@ -267,196 +457,136 @@
                     />
                     <span
                       class="text-sm text-slate-600 group-hover:text-primary transition-colors"
-                      >Accupro
+                      >Yes
                       <span class="text-slate-400 text-xs ml-1"
-                        >(3512)</span
+                        >(7168)</span
                       ></span
                     >
                   </label>
-                  <label class="flex items-center gap-3 cursor-pointer group">
-                    <input
-                      type="checkbox"
-                      class="checkbox checkbox-primary checkbox-xs rounded"
-                    />
-                    <span
-                      class="text-sm text-slate-600 group-hover:text-primary transition-colors"
-                      >Ceratizit
-                      <span class="text-slate-400 text-xs ml-1"
-                        >(625)</span
-                      ></span
-                    >
-                  </label>
-                  <label class="flex items-center gap-3 cursor-pointer group">
-                    <input
-                      type="checkbox"
-                      class="checkbox checkbox-primary checkbox-xs rounded"
-                    />
-                    <span
-                      class="text-sm text-slate-600 group-hover:text-primary transition-colors"
-                      >Fraisa
-                      <span class="text-slate-400 text-xs ml-1"
-                        >(627)</span
-                      ></span
-                    >
-                  </label>
-                  <button
-                    class="text-primary text-[10px] font-black uppercase tracking-widest mt-2 hover:opacity-80 flex items-center gap-1"
-                  >
-                    <i class="fa-solid fa-plus"></i> SHOW MORE
-                  </button>
                 </div>
               </div>
-            </div>
 
-            <!-- In Stock Accordion -->
-            <div
-              class="collapse collapse-arrow bg-transparent border-b border-slate-50 rounded-none"
-            >
-              <input type="checkbox" checked />
-              <div class="collapse-title p-4 px-0 min-h-0 flex items-center">
-                <span
-                  class="font-black text-slate-700 text-sm uppercase tracking-wide"
-                  >In Stock</span
-                >
-              </div>
-              <div class="collapse-content px-0">
-                <label class="flex items-center gap-3 cursor-pointer group">
-                  <input
-                    type="checkbox"
-                    class="checkbox checkbox-primary checkbox-xs rounded"
-                    checked
-                  />
+              <!-- Made in USA Accordion -->
+              <div
+                class="collapse collapse-arrow bg-transparent border-b border-slate-50 rounded-none"
+              >
+                <input type="checkbox" />
+                <div class="collapse-title p-4 px-0 min-h-0 flex items-center">
                   <span
-                    class="text-sm text-slate-600 group-hover:text-primary transition-colors"
-                    >Yes
-                    <span class="text-slate-400 text-xs ml-1"
-                      >(7168)</span
-                    ></span
+                    class="font-black text-slate-700 text-sm uppercase tracking-wide"
+                    >Made in USA</span
                   >
-                </label>
+                </div>
+                <div class="collapse-content px-0">
+                  <label class="flex items-center gap-3 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      class="checkbox checkbox-primary checkbox-xs rounded"
+                    />
+                    <span
+                      class="text-sm text-slate-600 group-hover:text-primary transition-colors"
+                      >Yes
+                      <span class="text-slate-400 text-xs ml-1"
+                        >(19133)</span
+                      ></span
+                    >
+                  </label>
+                </div>
               </div>
-            </div>
 
-            <!-- Made in USA Accordion -->
-            <div
-              class="collapse collapse-arrow bg-transparent border-b border-slate-50 rounded-none"
-            >
-              <input type="checkbox" />
-              <div class="collapse-title p-4 px-0 min-h-0 flex items-center">
-                <span
-                  class="font-black text-slate-700 text-sm uppercase tracking-wide"
-                  >Made in USA</span
-                >
-              </div>
-              <div class="collapse-content px-0">
-                <label class="flex items-center gap-3 cursor-pointer group">
-                  <input
-                    type="checkbox"
-                    class="checkbox checkbox-primary checkbox-xs rounded"
-                  />
+              <!-- Mill Diameter Accordion -->
+              <div
+                class="collapse collapse-arrow bg-transparent border-b border-slate-50 rounded-none"
+              >
+                <input type="checkbox" />
+                <div class="collapse-title p-4 px-0 min-h-0 flex items-center">
                   <span
-                    class="text-sm text-slate-600 group-hover:text-primary transition-colors"
-                    >Yes
-                    <span class="text-slate-400 text-xs ml-1"
-                      >(19133)</span
-                    ></span
+                    class="font-black text-slate-700 text-sm uppercase tracking-wide"
+                    >Mill Diameter (mm)</span
                   >
-                </label>
+                </div>
+                <div class="collapse-content px-0">
+                  <div class="space-y-3">
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        class="checkbox checkbox-primary checkbox-xs rounded"
+                      />
+                      <span
+                        class="text-sm text-slate-600 group-hover:text-primary transition-colors"
+                        >0.10
+                        <span class="text-slate-400 text-xs ml-1"
+                          >(68)</span
+                        ></span
+                      >
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        class="checkbox checkbox-primary checkbox-xs rounded"
+                      />
+                      <span
+                        class="text-sm text-slate-600 group-hover:text-primary transition-colors"
+                        >0.20
+                        <span class="text-slate-400 text-xs ml-1"
+                          >(292)</span
+                        ></span
+                      >
+                    </label>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <!-- Mill Diameter Accordion -->
-            <div
-              class="collapse collapse-arrow bg-transparent border-b border-slate-50 rounded-none"
-            >
-              <input type="checkbox" />
-              <div class="collapse-title p-4 px-0 min-h-0 flex items-center">
-                <span
-                  class="font-black text-slate-700 text-sm uppercase tracking-wide"
-                  >Mill Diameter (mm)</span
-                >
-              </div>
-              <div class="collapse-content px-0">
-                <div class="space-y-3">
-                  <label class="flex items-center gap-3 cursor-pointer group">
-                    <input
-                      type="checkbox"
-                      class="checkbox checkbox-primary checkbox-xs rounded"
-                    />
-                    <span
-                      class="text-sm text-slate-600 group-hover:text-primary transition-colors"
-                      >0.10
-                      <span class="text-slate-400 text-xs ml-1"
-                        >(68)</span
-                      ></span
-                    >
-                  </label>
-                  <label class="flex items-center gap-3 cursor-pointer group">
-                    <input
-                      type="checkbox"
-                      class="checkbox checkbox-primary checkbox-xs rounded"
-                    />
-                    <span
-                      class="text-sm text-slate-600 group-hover:text-primary transition-colors"
-                      >0.20
-                      <span class="text-slate-400 text-xs ml-1"
-                        >(292)</span
-                      ></span
-                    >
-                  </label>
+              <!-- Flutes Accordion -->
+              <div
+                class="collapse collapse-arrow bg-transparent border-b border-slate-50 rounded-none"
+              >
+                <input type="checkbox" />
+                <div class="collapse-title p-4 px-0 min-h-0 flex items-center">
+                  <span
+                    class="font-black text-slate-700 text-sm uppercase tracking-wide"
+                    >Number of Flutes</span
+                  >
+                </div>
+                <div class="collapse-content px-0">
+                  <div class="space-y-3">
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        class="checkbox checkbox-primary checkbox-xs rounded"
+                      />
+                      <span
+                        class="text-sm text-slate-600 group-hover:text-primary transition-colors"
+                        >2
+                        <span class="text-slate-400 text-xs ml-1"
+                          >(15931)</span
+                        ></span
+                      >
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        class="checkbox checkbox-primary checkbox-xs rounded"
+                      />
+                      <span
+                        class="text-sm text-slate-600 group-hover:text-primary transition-colors"
+                        >4
+                        <span class="text-slate-400 text-xs ml-1"
+                          >(10039)</span
+                        ></span
+                      >
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- Flutes Accordion -->
-            <div
-              class="collapse collapse-arrow bg-transparent border-b border-slate-50 rounded-none"
+            <button
+              class="btn btn-primary w-full mt-8 text-white font-bold rounded-2xl shadow-lg shadow-blue-100"
             >
-              <input type="checkbox" />
-              <div class="collapse-title p-4 px-0 min-h-0 flex items-center">
-                <span
-                  class="font-black text-slate-700 text-sm uppercase tracking-wide"
-                  >Number of Flutes</span
-                >
-              </div>
-              <div class="collapse-content px-0">
-                <div class="space-y-3">
-                  <label class="flex items-center gap-3 cursor-pointer group">
-                    <input
-                      type="checkbox"
-                      class="checkbox checkbox-primary checkbox-xs rounded"
-                    />
-                    <span
-                      class="text-sm text-slate-600 group-hover:text-primary transition-colors"
-                      >2
-                      <span class="text-slate-400 text-xs ml-1"
-                        >(15931)</span
-                      ></span
-                    >
-                  </label>
-                  <label class="flex items-center gap-3 cursor-pointer group">
-                    <input
-                      type="checkbox"
-                      class="checkbox checkbox-primary checkbox-xs rounded"
-                    />
-                    <span
-                      class="text-sm text-slate-600 group-hover:text-primary transition-colors"
-                      >4
-                      <span class="text-slate-400 text-xs ml-1"
-                        >(10039)</span
-                      ></span
-                    >
-                  </label>
-                </div>
-              </div>
-            </div>
+              Apply Refinements
+            </button>
           </div>
-
-          <button
-            class="btn btn-primary w-full mt-8 text-white font-bold rounded-2xl shadow-lg shadow-blue-100"
-          >
-            Apply Refinements
-          </button>
         </div>
       </aside>
 
@@ -1625,6 +1755,48 @@
         >
           Continue Shopping
         </button>
+      </div>
+    </div>
+
+    <!-- Drawer Side Selection for Mobile Menu -->
+    <div class="drawer z-[200]">
+      <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-side">
+        <label
+          for="my-drawer"
+          aria-label="close sidebar"
+          class="drawer-overlay"
+        ></label>
+        <ul
+          class="menu p-4 w-80 min-h-full bg-base-100 text-base-content font-bold"
+        >
+          <!-- Sidebar content here -->
+          <li class="mb-4">
+            <img
+              src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg"
+              alt="MSC Direct"
+              class="h-8"
+            />
+          </li>
+          <li>
+            <a><i class="fa-solid fa-layer-group w-6"></i> Shop All Products</a>
+          </li>
+          <li>
+            <a><i class="fa-solid fa-clipboard-list w-6"></i> Quick Order</a>
+          </li>
+          <div class="divider"></div>
+          <li><a>Solutions</a></li>
+          <li><a>Resources</a></li>
+          <li><a>Special Offers</a></li>
+          <li><a>Catalogs</a></li>
+          <div class="divider"></div>
+          <li>
+            <a><i class="fa-regular fa-user w-6"></i> Login / Register</a>
+          </li>
+          <li>
+            <a><i class="fa-solid fa-cart-shopping w-6"></i> My Cart (1)</a>
+          </li>
+        </ul>
       </div>
     </div>
 
