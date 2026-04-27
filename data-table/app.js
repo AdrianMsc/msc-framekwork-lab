@@ -129,25 +129,50 @@ const initFeatures = () => {
     }
 
     // 3. View Switcher
-    const viewButtons = document.querySelectorAll('.hidden.md\\:flex button');
-    const mainContent = document.querySelector('main');
-    viewButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            viewButtons.forEach(b => {
-                b.classList.remove('bg-white', 'shadow-sm');
-                b.classList.add('btn-ghost');
-            });
-            btn.classList.add('bg-white', 'shadow-sm');
-            btn.classList.remove('btn-ghost');
-            
-            // Example layout toggle
-            if (btn.innerText.includes('Grid')) {
-                mainContent?.classList.add('grid-mode');
-            } else {
-                mainContent?.classList.remove('grid-mode');
-            }
+    const viewButtons = {
+        table: document.getElementById('view-table-btn'),
+        list: document.getElementById('view-list-btn'),
+        grid: document.getElementById('view-grid-btn')
+    };
+
+    const containers = {
+        table: document.getElementById('table-view-container'),
+        list: document.getElementById('list-view-container'),
+        grid: document.getElementById('grid-view-container')
+    };
+
+    const switchView = (view) => {
+        // Update Buttons
+        Object.values(viewButtons).forEach(btn => {
+            if (!btn) return;
+            btn.classList.remove('bg-white', 'shadow-sm');
+            btn.classList.add('btn-ghost');
         });
-    });
+        if (viewButtons[view]) {
+            viewButtons[view].classList.add('bg-white', 'shadow-sm');
+            viewButtons[view].classList.remove('btn-ghost');
+        }
+
+        // Update Containers
+        Object.values(containers).forEach(container => {
+            if (!container) return;
+            container.classList.add('hidden');
+        });
+        if (containers[view]) {
+            containers[view].classList.remove('hidden');
+        }
+
+        // Specific rendering if needed (optional optimization)
+        if (view === 'list' && containers.list.children.length === 0) renderFractionalList();
+        if (view === 'grid' && containers.grid.children.length === 0) renderFractionalGrid();
+    };
+
+    if (viewButtons.table) viewButtons.table.addEventListener('click', () => switchView('table'));
+    if (viewButtons.list) viewButtons.list.addEventListener('click', () => switchView('list'));
+    if (viewButtons.grid) viewButtons.grid.addEventListener('click', () => switchView('grid'));
+
+    // Set initial view to List as requested
+    switchView('list');
 };
 
 // ==========================
@@ -155,6 +180,8 @@ const initFeatures = () => {
 // ==========================
 
 import fractionalInchData from './dummyData.js';
+
+const fixedImgUrl = "https://cdn.mscdirect.com/global/images/ProductImages/8174838-21.jpg";
 
 const renderFractionalTable = () => {
     const table = document.getElementById('msc-tv-table-');
@@ -177,8 +204,6 @@ const renderFractionalTable = () => {
         const primaryBrand = item.brands[primaryBrandKey] || { msc: 'N/A', price: '$0.00' };
         const brandName = primaryBrandKey === 'maford' ? 'M.A. FORD' : primaryBrandKey.toUpperCase();
         const mscNum = primaryBrand.msc;
-        // Using a fixed image to prevent broken links as requested
-        const fixedImgUrl = "https://cdn.mscdirect.com/global/images/ProductImages/8174838-21.jpg";
 
         tbody.innerHTML = `
             <tr class="main-row cursor-pointer hover:bg-blue-50/30 transition-colors border-l-4 border-l-transparent" data-ids="${Object.values(item.brands).map(b => b.msc).filter(id => id !== '-').join(',')}">
@@ -245,13 +270,11 @@ const renderFractionalTable = () => {
                                             <span class="text-sm font-medium text-slate-600">MSC# <a href="#" class="text-primary font-bold hover:underline">${mscNum}</a></span>
                                             <span class="text-sm font-medium text-slate-600">Mfr# ${item.mfrPart}</span>
                                         </div>
-
                                         <div class="flex items-center gap-1 mt-2 text-amber-400">
-                                            ${Array.from({length: 5}).map((_, i) => `<i class="${i < item.rating ? 'fa-solid' : 'fa-regular'} fa-star text-xs"></i>`).join('')}
-                                            <span class="ml-2 text-xs font-bold text-slate-400">${item.rating > 0 ? item.rating + '.0' : '0'}</span>
+                                            ${Array.from({length: 5}).map((_, i) => `<i class="${i < (item.rating || 3) ? 'fa-solid' : 'fa-regular'} fa-star text-xs"></i>`).join('')}
+                                            <span class="ml-2 text-xs font-bold text-slate-400">${item.rating || 3}.0</span>
                                         </div>
                                     </div>
-
                                     <!-- Pricing & CTA -->
                                     <div class="w-full md:w-64 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
                                         <div class="flex justify-between items-center pb-3 border-b border-slate-100 mb-4">
@@ -261,7 +284,6 @@ const renderFractionalTable = () => {
                                                 <span class="text-xs font-bold text-slate-400">/ ea.</span>
                                             </div>
                                         </div>
-
                                         <div class="space-y-3">
                                             <div class="flex items-center justify-between">
                                                 <p class="text-success-available font-bold text-sm">
@@ -272,7 +294,6 @@ const renderFractionalTable = () => {
                                                 <i class="fa-solid fa-location-dot mr-1"></i> ${item.locStock} available in ${item.location}
                                             </p>
                                         </div>
-
                                         <div class="mt-6 flex flex-col gap-3">
                                             <div class="flex items-center justify-between gap-3">
                                                 <label class="text-xs font-black uppercase text-slate-400">Qty</label>
@@ -298,10 +319,158 @@ const renderFractionalTable = () => {
 };
 
 // ==========================
+// LIST RENDERING
+// ==========================
+
+const renderFractionalList = () => {
+    const container = document.getElementById('list-view-container');
+    if (!container) return;
+    container.innerHTML = '';
+
+    fractionalInchData.forEach(item => {
+        Object.keys(item.brands).forEach(brandKey => {
+            const brandData = item.brands[brandKey];
+            if (brandData.msc === '-') return;
+
+            const brandName = brandKey === 'maford' ? 'M.A. FORD' : brandKey.toUpperCase();
+            
+            const card = document.createElement('div');
+            card.className = "bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row";
+            
+            card.innerHTML = `
+                <!-- Left: Image & Compare -->
+                <div class="w-full md:w-48 p-4 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-slate-100">
+                    <div class="h-32 w-32 flex items-center justify-center mb-4">
+                        <img src="${fixedImgUrl}" alt="${brandName} Ball End Mill" class="max-h-full object-contain">
+                    </div>
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="checkbox" class="checkbox checkbox-sm checkbox-primary rounded">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-tight">Compare</span>
+                    </label>
+                </div>
+
+                <!-- Middle: Info -->
+                <div class="flex-1 p-6">
+                    <div class="mb-4">
+                        <p class="text-xs font-black text-slate-800 uppercase tracking-widest mb-1">${brandName}</p>
+                        <h3 class="text-lg font-black text-slate-800 leading-tight mb-2 hover:text-primary cursor-pointer transition-colors">
+                            Ball End Mill: ${item.millDia}" Dia, ${item.loc}" LOC, 4 Flute, Solid Carbide
+                        </h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            ${item.oal}" OAL, ${item.shankDia}" Shank Dia, ${item.helix} deg Helix, AlTiN Finish, Single End, Series 01B
+                        </p>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mb-4">
+                        <div class="text-xs font-bold text-slate-600">
+                            MSC# <span class="text-primary hover:underline cursor-pointer">${brandData.msc}</span>
+                        </div>
+                        <div class="text-xs font-bold text-slate-600">
+                            Mfr# ${item.mfrPart}
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-1 mb-4 text-msc-blue">
+                        ${Array.from({length: 5}).map((_, i) => `<i class="${i < (item.rating || 3) ? 'fa-solid' : 'fa-regular'} fa-star text-xs"></i>`).join('')}
+                        <span class="ml-2 text-xs font-bold text-slate-400">${item.rating || 3}</span>
+                    </div>
+
+                    <div class="space-y-1">
+                        <p class="text-success-available font-bold text-sm">
+                            <i class="fa-solid fa-check mr-1"></i> ${item.stock} In Stock
+                        </p>
+                        <p class="text-slate-400 text-xs font-medium">
+                            <i class="fa-solid fa-location-dot mr-1"></i> ${item.locStock} available in ${item.location}
+                        </p>
+                    </div>
+
+                    <div class="mt-4">
+                        <a href="#" class="text-primary text-xs font-black uppercase tracking-widest hover:underline">View Alternatives</a>
+                    </div>
+                </div>
+
+                <!-- Right: Pricing & CTA -->
+                <div class="w-full md:w-64 p-6 bg-slate-50/30 border-t md:border-t-0 md:border-l border-slate-100 flex flex-col">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-xs font-black text-slate-400 uppercase tracking-widest pt-1">Your Price</span>
+                        <div class="text-right">
+                            <span class="text-2xl font-black text-slate-800 tracking-tight">${brandData.price}</span>
+                            <span class="text-xs font-bold text-slate-400">/ ea.</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto space-y-4">
+                        <div class="flex items-center justify-between gap-4">
+                            <label class="text-xs font-black uppercase text-slate-800 tracking-tight">Quantity</label>
+                            <input type="number" value="1" class="input input-bordered input-sm w-24 rounded-lg text-center font-bold focus:outline-none focus:border-primary bg-white shadow-sm">
+                        </div>
+                        <button class="btn btn-primary w-full rounded-full text-white font-black uppercase tracking-widest shadow-lg shadow-blue-100 h-12">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    });
+};
+
+// ==========================
+// GRID RENDERING
+// ==========================
+
+const renderFractionalGrid = () => {
+    const container = document.getElementById('grid-view-container');
+    if (!container) return;
+    container.innerHTML = '';
+
+    fractionalInchData.forEach(item => {
+        const brandKey = Object.keys(item.brands).find(k => item.brands[k].msc !== '-') || 'sgs';
+        const brandData = item.brands[brandKey];
+        const brandName = brandKey === 'maford' ? 'M.A. FORD' : brandKey.toUpperCase();
+
+        const card = document.createElement('div');
+        card.className = "card bg-white border border-slate-200 shadow-sm hover:shadow-xl transition-all rounded-3xl overflow-hidden group";
+        card.innerHTML = `
+            <figure class="px-6 pt-6 relative">
+                <div class="bg-slate-50 w-full rounded-2xl p-4 h-48 flex items-center justify-center group-hover:bg-white transition-colors">
+                    <img src="${fixedImgUrl}" alt="${brandName} Ball End Mill" class="max-h-full object-contain mix-blend-multiply">
+                </div>
+            </figure>
+            <div class="card-body p-6">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Your Price</span>
+                    <div class="text-right">
+                        <span class="text-xl font-black text-slate-900 tracking-tight">${brandData.price}</span>
+                        <span class="text-xs font-bold text-slate-400">/ea.</span>
+                    </div>
+                </div>
+                <p class="text-xs font-black text-primary uppercase mb-1">${brandName}</p>
+                <h3 class="text-sm font-bold text-slate-700 leading-snug h-10 line-clamp-2 hover:text-primary cursor-pointer transition-colors">
+                    Ball End Mill: ${item.millDia}" Dia, ${item.loc}" LOC, 4 Flute, Solid Carbide
+                </h3>
+                <div class="flex items-center gap-2 mt-4 text-[11px]">
+                    <span class="font-bold text-slate-400">MSC #</span>
+                    <span class="font-bold text-slate-700">${brandData.msc}</span>
+                </div>
+                <div class="card-actions mt-6 flex gap-2">
+                    <input type="number" value="1" class="input input-bordered w-16 text-center font-bold text-sm focus:border-primary rounded-xl bg-white">
+                    <button class="btn btn-primary flex-1 text-white font-black rounded-xl">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+};
+
+// ==========================
 // INIT ON LOAD
 // ==========================
 
 document.addEventListener("DOMContentLoaded", () => {
   renderFractionalTable();
+  // Grid and List will be rendered on demand or initially via switchView
   initFeatures();
 });
