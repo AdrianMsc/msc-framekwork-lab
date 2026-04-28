@@ -55,6 +55,18 @@
       .navbar .btn i {
         color: inherit !important;
       }
+
+      /* Sticky Toolbar Stuck State */
+      #sticky-toolbar.is-stuck {
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid #e2e8f0;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05),
+          0 2px 4px -2px rgb(0 0 0 / 0.1);
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+      }
     </style>
   </head>
 
@@ -248,29 +260,35 @@
         </a>
       </div>
 
-      <!-- Breadcrumbs & Layout Wrapper -->
-      <div class="border-b border-slate-200 pb-8">
-        <div class="text-xs md:text-sm breadcrumbs text-slate-400 font-medium">
-          <ul>
-            <li><a class="hover:text-primary transition-colors">Home</a></li>
-            <li><a class="hover:text-primary transition-colors">Milling</a></li>
-            <li>
-              <a class="hover:text-primary transition-colors">End Mills</a>
-            </li>
-            <li class="font-bold text-slate-800">Ball End Mills</li>
-          </ul>
-        </div>
+      <!-- Breadcrumbs -->
+      <div class="text-xs md:text-sm breadcrumbs text-slate-400 font-medium mb-2">
+        <ul>
+          <li><a class="hover:text-primary transition-colors">Home</a></li>
+          <li><a class="hover:text-primary transition-colors">Milling</a></li>
+          <li>
+            <a class="hover:text-primary transition-colors">End Mills</a>
+          </li>
+          <li class="font-bold text-slate-800">Ball End Mills</li>
+        </ul>
+      </div>
+    </div>
 
+    <!-- Sticky Toolbar Section -->
+    <div
+      id="sticky-toolbar"
+      class="sticky top-20 md:top-24 z-[50] transition-all duration-300 py-4 mb-8"
+    >
+      <div class="w-full max-w-[1800px] mx-auto px-4 md:px-8">
         <div
-          class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6"
+          class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 lg:gap-6"
         >
           <div>
             <h1
-              class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight"
+              class="text-xl md:text-2xl font-black text-slate-800 tracking-tight"
             >
               Ball End Mills
             </h1>
-            <p class="text-slate-400 font-bold mt-2 text-sm">
+            <p class="text-slate-400 font-bold mt-0.5 text-xs">
               33,161 items returned
             </p>
           </div>
@@ -282,11 +300,11 @@
             >
               <button
                 id="view-table-btn"
-                class="btn btn-sm bg-white border-none shadow-sm gap-2 font-bold px-4"
+                class="btn btn-sm btn-ghost gap-2 font-bold px-4"
               >
                 <i class="fa-solid fa-table-list"></i> Table
               </button>
-              <button id="view-list-btn" class="btn btn-sm btn-ghost gap-2 font-bold px-4">
+              <button id="view-list-btn" class="btn btn-sm bg-white border-none shadow-sm gap-2 font-bold px-4">
                 <i class="fa-solid fa-list"></i> List
               </button>
               <button id="view-grid-btn" class="btn btn-sm btn-ghost gap-2 font-bold px-4">
@@ -297,11 +315,11 @@
             <!-- Sort Select -->
             <div class="flex items-center gap-4 flex-1 md:flex-initial">
               <span
-                class="text-xs font-black uppercase text-slate-400 tracking-widest whitespace-nowrap"
+                class="text-[10px] font-black uppercase text-slate-400 tracking-widest whitespace-nowrap"
                 >Sort by</span
               >
               <select
-                class="select select-bordered select-md w-full md:w-48 rounded-xl font-bold focus:outline-none focus:border-primary shadow-sm bg-white"
+                class="select select-bordered select-sm md:select-md w-full md:w-48 rounded-xl font-bold focus:outline-none focus:border-primary shadow-sm bg-white"
               >
                 <option selected>Best Match</option>
                 <option>Price: Low to High</option>
@@ -321,7 +339,7 @@
       class="flex flex-col lg:flex-row gap-8 w-full max-w-[1800px] mx-auto p-4 md:p-8"
     >
       <!-- Sidebar (25%) -->
-      <aside class="w-full lg:w-1/4 flex-shrink-0 lg:sticky lg:top-24 lg:h-fit">
+      <aside class="w-full lg:w-1/4 flex-shrink-0 lg:sticky lg:top-52 lg:h-fit">
         <div
           id="filter-bar"
           class="bg-white rounded-3xl shadow-sm border border-slate-200"
@@ -1814,6 +1832,24 @@
     </div>
 
     <!-- JS Handling -->
-    <script type="module" src="./app.js"></script>
+    <script src="app.js" type="module"></script>
+    <script>
+      // Handle Sticky Toolbar Background Toggle
+      window.addEventListener("scroll", () => {
+        const toolbar = document.getElementById("sticky-toolbar");
+        if (!toolbar) return;
+
+        // The toolbar sticks at top-20 (80px) on mobile and top-24 (96px) on md+
+        const stickyThreshold = window.innerWidth >= 768 ? 96 : 80;
+        const rect = toolbar.getBoundingClientRect();
+
+        // If the toolbar has reached its sticky position
+        if (rect.top <= stickyThreshold + 1) {
+          toolbar.classList.add("is-stuck");
+        } else {
+          toolbar.classList.remove("is-stuck");
+        }
+      });
+    </script>
   </body>
 </html>
