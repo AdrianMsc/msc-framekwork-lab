@@ -141,6 +141,11 @@ const initFeatures = () => {
         grid: document.getElementById('grid-view-container')
     };
 
+    const paginationContainers = {
+        list: document.getElementById('list-pagination'),
+        grid: document.getElementById('grid-pagination')
+    };
+
     const switchView = (view) => {
         // Update Buttons
         Object.values(viewButtons).forEach(btn => {
@@ -162,9 +167,17 @@ const initFeatures = () => {
             containers[view].classList.remove('hidden');
         }
 
+        // Update Pagination Containers
+        Object.values(paginationContainers).forEach(c => {
+            if (c) c.classList.add('hidden');
+        });
+        if (paginationContainers[view]) {
+            paginationContainers[view].classList.remove('hidden');
+        }
+
         // Specific rendering if needed (optional optimization)
-        if (view === 'list' && containers.list.children.length === 0) renderFractionalList();
-        if (view === 'grid' && containers.grid.children.length === 0) renderFractionalGrid();
+        if (view === 'list') renderFractionalList();
+        if (view === 'grid') renderFractionalGrid();
     };
 
     if (viewButtons.table) viewButtons.table.addEventListener('click', () => switchView('table'));
@@ -182,6 +195,60 @@ const initFeatures = () => {
 import fractionalInchData from './dummyData.js';
 
 const fixedImgUrl = "https://cdn.mscdirect.com/global/images/ProductImages/8174838-21.jpg";
+
+let listPage = 1;
+let gridPage = 1;
+const LIST_PAGE_SIZE = 10;
+const GRID_PAGE_SIZE = 9;
+
+const renderPagination = (containerId, currentPage, totalPages, onPageChange) => {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = '';
+
+    if (totalPages <= 1) return;
+
+    const div = document.createElement('div');
+    div.className = "join shadow-sm bg-white rounded-xl overflow-hidden border border-slate-200";
+
+    // Previous
+    const prev = document.createElement('button');
+    prev.className = `join-item btn btn-sm md:btn-md bg-white border-none hover:bg-slate-50 text-slate-600 ${currentPage === 1 ? 'btn-disabled opacity-50' : ''}`;
+    prev.innerHTML = '<i class="fa-solid fa-chevron-left text-[10px]"></i>';
+    prev.onclick = () => onPageChange(currentPage - 1);
+    div.appendChild(prev);
+
+    // Page numbers
+    for (let i = 1; i <= totalPages; i++) {
+        // Simple logic for brevity: show all or just around current
+        if (totalPages > 7) {
+            if (i > 2 && i < totalPages - 1 && Math.abs(i - currentPage) > 1) {
+                if (i === 3 || i === totalPages - 2) {
+                    const dot = document.createElement('button');
+                    dot.className = "join-item btn btn-sm md:btn-md bg-white border-none btn-disabled";
+                    dot.innerText = "...";
+                    div.appendChild(dot);
+                }
+                continue;
+            }
+        }
+
+        const btn = document.createElement('button');
+        btn.className = `join-item btn btn-sm md:btn-md border-none ${i === currentPage ? 'bg-primary text-white hover:bg-primary' : 'bg-white text-slate-600 hover:bg-slate-50'}`;
+        btn.innerText = i;
+        btn.onclick = () => onPageChange(i);
+        div.appendChild(btn);
+    }
+
+    // Next
+    const next = document.createElement('button');
+    next.className = `join-item btn btn-sm md:btn-md bg-white border-none hover:bg-slate-50 text-slate-600 ${currentPage === totalPages ? 'btn-disabled opacity-50' : ''}`;
+    next.innerHTML = '<i class="fa-solid fa-chevron-right text-[10px]"></i>';
+    next.onclick = () => onPageChange(currentPage + 1);
+    div.appendChild(next);
+
+    container.appendChild(div);
+};
 
 const renderFractionalTable = () => {
     const table = document.getElementById('msc-tv-table-');
@@ -327,91 +394,109 @@ const renderFractionalList = () => {
     if (!container) return;
     container.innerHTML = '';
 
+    // Flatten data for brand-specific cards
+    const flattenedData = [];
     fractionalInchData.forEach(item => {
         Object.keys(item.brands).forEach(brandKey => {
-            const brandData = item.brands[brandKey];
-            if (brandData.msc === '-') return;
-
-            const brandName = brandKey === 'maford' ? 'M.A. FORD' : brandKey.toUpperCase();
-            
-            const card = document.createElement('div');
-            card.className = "bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row";
-            
-            card.innerHTML = `
-                <!-- Left: Image & Compare -->
-                <div class="w-full md:w-48 p-4 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-slate-100">
-                    <div class="h-32 w-32 flex items-center justify-center mb-4">
-                        <img src="${fixedImgUrl}" alt="${brandName} Ball End Mill" class="max-h-full object-contain">
-                    </div>
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="checkbox" class="checkbox checkbox-sm checkbox-primary rounded">
-                        <span class="text-xs font-bold text-slate-500 uppercase tracking-tight">Compare</span>
-                    </label>
-                </div>
-
-                <!-- Middle: Info -->
-                <div class="flex-1 p-6">
-                    <div class="mb-4">
-                        <p class="text-xs font-black text-slate-800 uppercase tracking-widest mb-1">${brandName}</p>
-                        <h3 class="text-lg font-black text-slate-800 leading-tight mb-2 hover:text-primary cursor-pointer transition-colors">
-                            Ball End Mill: ${item.millDia}" Dia, ${item.loc}" LOC, 4 Flute, Solid Carbide
-                        </h3>
-                        <p class="text-sm text-slate-500 leading-relaxed">
-                            ${item.oal}" OAL, ${item.shankDia}" Shank Dia, ${item.helix} deg Helix, AlTiN Finish, Single End, Series 01B
-                        </p>
-                    </div>
-
-                    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mb-4">
-                        <div class="text-xs font-bold text-slate-600">
-                            MSC# <span class="text-primary hover:underline cursor-pointer">${brandData.msc}</span>
-                        </div>
-                        <div class="text-xs font-bold text-slate-600">
-                            Mfr# ${item.mfrPart}
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-1 mb-4 text-msc-blue">
-                        ${Array.from({length: 5}).map((_, i) => `<i class="${i < (item.rating || 3) ? 'fa-solid' : 'fa-regular'} fa-star text-xs"></i>`).join('')}
-                        <span class="ml-2 text-xs font-bold text-slate-400">${item.rating || 3}</span>
-                    </div>
-
-                    <div class="space-y-1">
-                        <p class="text-success-available font-bold text-sm">
-                            <i class="fa-solid fa-check mr-1"></i> ${item.stock} In Stock
-                        </p>
-                        <p class="text-slate-400 text-xs font-medium">
-                            <i class="fa-solid fa-location-dot mr-1"></i> ${item.locStock} available in ${item.location}
-                        </p>
-                    </div>
-
-                    <div class="mt-4">
-                        <a href="#" class="text-primary text-xs font-black uppercase tracking-widest hover:underline">View Alternatives</a>
-                    </div>
-                </div>
-
-                <!-- Right: Pricing & CTA -->
-                <div class="w-full md:w-64 p-6 bg-slate-50/30 border-t md:border-t-0 md:border-l border-slate-100 flex flex-col">
-                    <div class="flex justify-between items-start mb-6">
-                        <span class="text-xs font-black text-slate-400 uppercase tracking-widest pt-1">Your Price</span>
-                        <div class="text-right">
-                            <span class="text-2xl font-black text-slate-800 tracking-tight">${brandData.price}</span>
-                            <span class="text-xs font-bold text-slate-400">/ ea.</span>
-                        </div>
-                    </div>
-
-                    <div class="mt-auto space-y-4">
-                        <div class="flex items-center justify-between gap-4">
-                            <label class="text-xs font-black uppercase text-slate-800 tracking-tight">Quantity</label>
-                            <input type="number" value="1" class="input input-bordered input-sm w-24 rounded-lg text-center font-bold focus:outline-none focus:border-primary bg-white shadow-sm">
-                        </div>
-                        <button class="btn btn-primary w-full rounded-full text-white font-black uppercase tracking-widest shadow-lg shadow-blue-100 h-12">
-                            Add to Cart
-                        </button>
-                    </div>
-                </div>
-            `;
-            container.appendChild(card);
+            if (item.brands[brandKey].msc !== '-') {
+                flattenedData.push({ ...item, selectedBrandKey: brandKey });
+            }
         });
+    });
+
+    const totalPages = Math.ceil(flattenedData.length / LIST_PAGE_SIZE);
+    const start = (listPage - 1) * LIST_PAGE_SIZE;
+    const pagedData = flattenedData.slice(start, start + LIST_PAGE_SIZE);
+
+    pagedData.forEach(data => {
+        const item = data;
+        const brandKey = data.selectedBrandKey;
+        const brandData = item.brands[brandKey];
+        const brandName = brandKey === 'maford' ? 'M.A. FORD' : brandKey.toUpperCase();
+        
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row";
+        
+        card.innerHTML = `
+            <!-- Left: Image & Compare -->
+            <div class="w-full md:w-48 p-4 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-slate-100">
+                <div class="h-32 w-32 flex items-center justify-center mb-4">
+                    <img src="${fixedImgUrl}" alt="${brandName} Ball End Mill" class="max-h-full object-contain">
+                </div>
+                <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" class="checkbox checkbox-sm checkbox-primary rounded">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-tight">Compare</span>
+                </label>
+            </div>
+
+            <!-- Middle: Info -->
+            <div class="flex-1 p-6">
+                <div class="mb-4">
+                    <p class="text-xs font-black text-slate-800 uppercase tracking-widest mb-1">${brandName}</p>
+                    <h3 class="text-lg font-black text-slate-800 leading-tight mb-2 hover:text-primary cursor-pointer transition-colors">
+                        Ball End Mill: ${item.millDia}" Dia, ${item.loc}" LOC, 4 Flute, Solid Carbide
+                    </h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        ${item.oal}" OAL, ${item.shankDia}" Shank Dia, ${item.helix} deg Helix, AlTiN Finish, Single End, Series 01B
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mb-4">
+                    <div class="text-xs font-bold text-slate-600">
+                        MSC# <span class="text-primary hover:underline cursor-pointer">${brandData.msc}</span>
+                    </div>
+                    <div class="text-xs font-bold text-slate-600">
+                        Mfr# ${item.mfrPart}
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-1 mb-4 text-msc-blue">
+                    ${Array.from({length: 5}).map((_, i) => `<i class="${i < (item.rating || 3) ? 'fa-solid' : 'fa-regular'} fa-star text-xs"></i>`).join('')}
+                    <span class="ml-2 text-xs font-bold text-slate-400">${item.rating || 3}</span>
+                </div>
+
+                <div class="space-y-1">
+                    <p class="text-success-available font-bold text-sm">
+                        <i class="fa-solid fa-check mr-1"></i> ${item.stock} In Stock
+                    </p>
+                    <p class="text-slate-400 text-xs font-medium">
+                        <i class="fa-solid fa-location-dot mr-1"></i> ${item.locStock} available in ${item.location}
+                    </p>
+                </div>
+
+                <div class="mt-4">
+                    <a href="#" class="text-primary text-xs font-black uppercase tracking-widest hover:underline">View Alternatives</a>
+                </div>
+            </div>
+
+            <!-- Right: Pricing & CTA -->
+            <div class="w-full md:w-64 p-6 bg-slate-50/30 border-t md:border-t-0 md:border-l border-slate-100 flex flex-col">
+                <div class="flex justify-between items-start mb-6">
+                    <span class="text-xs font-black text-slate-400 uppercase tracking-widest pt-1">Your Price</span>
+                    <div class="text-right">
+                        <span class="text-2xl font-black text-slate-800 tracking-tight">${brandData.price}</span>
+                        <span class="text-xs font-bold text-slate-400">/ ea.</span>
+                    </div>
+                </div>
+
+                <div class="mt-auto space-y-4">
+                    <div class="flex items-center justify-between gap-4">
+                        <label class="text-xs font-black uppercase text-slate-800 tracking-tight">Quantity</label>
+                        <input type="number" value="1" class="input input-bordered input-sm w-24 rounded-lg text-center font-bold focus:outline-none focus:border-primary bg-white shadow-sm">
+                    </div>
+                    <button class="btn btn-primary w-full rounded-full text-white font-black uppercase tracking-widest shadow-lg shadow-blue-100 h-12">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+
+    renderPagination('list-pagination', listPage, totalPages, (newPage) => {
+        listPage = newPage;
+        renderFractionalList();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 };
 
@@ -424,7 +509,11 @@ const renderFractionalGrid = () => {
     if (!container) return;
     container.innerHTML = '';
 
-    fractionalInchData.forEach(item => {
+    const totalPages = Math.ceil(fractionalInchData.length / GRID_PAGE_SIZE);
+    const start = (gridPage - 1) * GRID_PAGE_SIZE;
+    const pagedData = fractionalInchData.slice(start, start + GRID_PAGE_SIZE);
+
+    pagedData.forEach(item => {
         const brandKey = Object.keys(item.brands).find(k => item.brands[k].msc !== '-') || 'sgs';
         const brandData = item.brands[brandKey];
         const brandName = brandKey === 'maford' ? 'M.A. FORD' : brandKey.toUpperCase();
@@ -462,6 +551,12 @@ const renderFractionalGrid = () => {
             </div>
         `;
         container.appendChild(card);
+    });
+
+    renderPagination('grid-pagination', gridPage, totalPages, (newPage) => {
+        gridPage = newPage;
+        renderFractionalGrid();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 };
 

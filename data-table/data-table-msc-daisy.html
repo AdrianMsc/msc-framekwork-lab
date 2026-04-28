@@ -62,10 +62,26 @@
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border-bottom: 1px solid #e2e8f0;
-        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05),
+        box-shadow:
+          0 4px 6px -1px rgb(0 0 0 / 0.05),
           0 2px 4px -2px rgb(0 0 0 / 0.1);
         padding-top: 0.75rem;
         padding-bottom: 0.75rem;
+      }
+
+      /* Custom Scrollbar */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
       }
     </style>
   </head>
@@ -261,7 +277,9 @@
       </div>
 
       <!-- Breadcrumbs -->
-      <div class="text-xs md:text-sm breadcrumbs text-slate-400 font-medium mb-2">
+      <div
+        class="text-xs md:text-sm breadcrumbs text-slate-400 font-medium mb-2"
+      >
         <ul>
           <li><a class="hover:text-primary transition-colors">Home</a></li>
           <li><a class="hover:text-primary transition-colors">Milling</a></li>
@@ -304,10 +322,16 @@
               >
                 <i class="fa-solid fa-table-list"></i> Table
               </button>
-              <button id="view-list-btn" class="btn btn-sm bg-white border-none shadow-sm gap-2 font-bold px-4">
+              <button
+                id="view-list-btn"
+                class="btn btn-sm bg-white border-none shadow-sm gap-2 font-bold px-4"
+              >
                 <i class="fa-solid fa-list"></i> List
               </button>
-              <button id="view-grid-btn" class="btn btn-sm btn-ghost gap-2 font-bold px-4">
+              <button
+                id="view-grid-btn"
+                class="btn btn-sm btn-ghost gap-2 font-bold px-4"
+              >
                 <i class="fa-solid fa-table-cells-large"></i> Grid
               </button>
             </div>
@@ -749,15 +773,15 @@
               </div>
               <div class="flex-1">
                 <p class="text-slate-600 text-sm leading-relaxed">
-                  Solid Carbide end mills provide superior wear resistance and can
-                  withstand the highest cutting temperatures offering a higher
-                  degree of accuracy over other materials. Four or more flutes
-                  allow for faster feed rates and produce a finer finish than two
-                  and three flute tools. Centercutting design allows for plunge
-                  milling into solid materials with good chip removal capability.
-                  The AlTiN coating maintains high surface hardness at elevated
-                  temperatures improving tool life and allowing faster feed rates
-                  in ferrous materials.
+                  Solid Carbide end mills provide superior wear resistance and
+                  can withstand the highest cutting temperatures offering a
+                  higher degree of accuracy over other materials. Four or more
+                  flutes allow for faster feed rates and produce a finer finish
+                  than two and three flute tools. Centercutting design allows
+                  for plunge milling into solid materials with good chip removal
+                  capability. The AlTiN coating maintains high surface hardness
+                  at elevated temperatures improving tool life and allowing
+                  faster feed rates in ferrous materials.
                 </p>
               </div>
             </div>
@@ -961,11 +985,16 @@
         <div id="list-view-container" class="view-container hidden space-y-4">
           <!-- List items will be injected here -->
         </div>
+        <div id="list-pagination" class="sticky bottom-0 z-[40] flex justify-center py-6 mt-auto"></div>
 
         <!-- Grid View Container -->
-        <div id="grid-view-container" class="view-container hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          id="grid-view-container"
+          class="view-container hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           <!-- Grid items will be injected here -->
         </div>
+        <div id="grid-pagination" class="sticky bottom-0 z-[40] flex justify-center py-6 mt-auto"></div>
       </main>
     </div>
 
