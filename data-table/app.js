@@ -320,7 +320,7 @@ const renderFractionalTable = () => {
                             <!-- Product Image -->
                             <div class="flex-shrink-0">
                                 <div class="h-40 w-40 bg-white rounded-xl border border-slate-200 p-4 flex items-center justify-center relative shadow-sm">
-                                    <a href="#"><img src="${fixedImgUrl}" alt="${brandName} Ball End Mill" class="max-h-full object-contain"></a>
+                                    <a href="#"><img src="${fixedImgUrl}" alt="${brandName} Ball End Mill" class="max-h-full object-contain" width="160" height="160"></a>
                                 </div>
                             </div>
                             
@@ -342,16 +342,16 @@ const renderFractionalTable = () => {
                                         </div>
                                         <div class="flex items-center gap-1 mt-2 text-amber-400">
                                             ${Array.from({length: 5}).map((_, i) => `<i class="${i < (item.rating || 3) ? 'fa-solid' : 'fa-regular'} fa-star text-xs"></i>`).join('')}
-                                            <span class="ml-2 text-xs font-bold text-slate-400">${item.rating || 3}.0</span>
+                                            <span class="ml-2 text-xs font-bold text-slate-600">${item.rating || 3}.0</span>
                                         </div>
                                     </div>
                                     <!-- Pricing & CTA -->
                                     <div class="w-full md:w-64 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
                                         <div class="flex justify-between items-center pb-3 border-b border-slate-100 mb-4">
-                                            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Your Price</span>
+                                            <span class="text-xs font-bold text-slate-600 uppercase tracking-widest">Your Price</span>
                                             <div class="text-right">
                                                 <span class="text-2xl font-black text-slate-800">${primaryBrand.price}</span>
-                                                <span class="text-xs font-bold text-slate-400">/ ea.</span>
+                                                <span class="text-xs font-bold text-slate-600">/ ea.</span>
                                             </div>
                                         </div>
                                         <div class="space-y-3">
@@ -360,13 +360,13 @@ const renderFractionalTable = () => {
                                                     <i class="fa-solid fa-check mr-1"></i> ${item.stock} In Stock
                                                 </p>
                                             </div>
-                                            <p class="text-slate-400 text-[11px] font-medium">
+                                            <p class="text-slate-500 text-[11px] font-medium">
                                                 <i class="fa-solid fa-location-dot mr-1"></i> ${item.locStock} available in ${item.location}
                                             </p>
                                         </div>
                                         <div class="mt-6 flex flex-col gap-3">
                                             <div class="flex items-center justify-between gap-3">
-                                                <label class="text-xs font-black uppercase text-slate-400" for="qty-${mscNum}">Qty</label>
+                                                <label class="text-xs font-black uppercase text-slate-600" for="qty-${mscNum}">Qty</label>
                                                 <input id="qty-${mscNum}" type="number" value="1" aria-label="Quantity" class="input input-bordered input-sm w-20 rounded-lg text-center font-bold focus:outline-none focus:border-primary">
                                             </div>
                                             <button class="btn btn-primary w-full rounded-xl text-white font-bold shadow-lg shadow-blue-100">
@@ -424,7 +424,7 @@ const renderFractionalList = () => {
             <!-- Left: Image & Compare -->
             <div class="w-full md:w-48 p-4 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-slate-100">
                 <div class="h-32 w-32 flex items-center justify-center mb-4">
-                    <img src="${fixedImgUrl}" alt="${brandName} Ball End Mill" class="max-h-full object-contain">
+                    <img src="${fixedImgUrl}" alt="${brandName} Ball End Mill" class="max-h-full object-contain" width="128" height="128">
                 </div>
                 <label class="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" class="checkbox checkbox-sm checkbox-primary rounded">
@@ -455,14 +455,14 @@ const renderFractionalList = () => {
 
                 <div class="flex items-center gap-1 mb-4 text-msc-blue">
                     ${Array.from({length: 5}).map((_, i) => `<i class="${i < (item.rating || 3) ? 'fa-solid' : 'fa-regular'} fa-star text-xs"></i>`).join('')}
-                    <span class="ml-2 text-xs font-bold text-slate-400">${item.rating || 3}</span>
+                    <span class="ml-2 text-xs font-bold text-slate-600">${item.rating || 3}</span>
                 </div>
 
                 <div class="space-y-1">
                     <p class="text-success-available font-bold text-sm">
                         <i class="fa-solid fa-check mr-1"></i> ${item.stock} In Stock
                     </p>
-                    <p class="text-slate-400 text-xs font-medium">
+                    <p class="text-slate-500 text-xs font-medium">
                         <i class="fa-solid fa-location-dot mr-1"></i> ${item.locStock} available in ${item.location}
                     </p>
                 </div>
@@ -475,7 +475,7 @@ const renderFractionalList = () => {
             <!-- Right: Pricing & CTA -->
             <div class="w-full md:w-64 p-6 bg-slate-50/30 border-t md:border-t-0 md:border-l border-slate-100 flex flex-col">
                 <div class="flex justify-between items-start mb-6">
-                    <span class="text-xs font-black text-slate-400 uppercase tracking-widest pt-1">Your Price</span>
+                    <span class="text-xs font-black text-slate-600 uppercase tracking-widest pt-1">Your Price</span>
                     <div class="text-right">
                         <span class="text-2xl font-black text-slate-800 tracking-tight">${brandData.price}</span>
                         <span class="text-xs font-bold text-slate-400">/ ea.</span>
@@ -526,15 +526,15 @@ const renderFractionalGrid = () => {
         card.innerHTML = `
             <figure class="px-6 pt-6 relative">
                 <div class="bg-slate-50 w-full rounded-2xl p-4 h-48 flex items-center justify-center group-hover:bg-white transition-colors">
-                    <img src="${fixedImgUrl}" alt="${brandName} Ball End Mill" class="max-h-full object-contain mix-blend-multiply">
+                    <img src="${fixedImgUrl}" alt="${brandName} Ball End Mill" class="max-h-full object-contain mix-blend-multiply" width="200" height="200">
                 </div>
             </figure>
             <div class="card-body p-6">
                 <div class="flex justify-between items-start mb-2">
-                    <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Your Price</span>
+                    <span class="text-[10px] font-black text-slate-600 uppercase tracking-widest">Your Price</span>
                     <div class="text-right">
                         <span class="text-xl font-black text-slate-900 tracking-tight">${brandData.price}</span>
-                        <span class="text-xs font-bold text-slate-400">/ea.</span>
+                        <span class="text-xs font-bold text-slate-600">/ea.</span>
                     </div>
                 </div>
                 <p class="text-xs font-black text-primary uppercase mb-1">${brandName}</p>
