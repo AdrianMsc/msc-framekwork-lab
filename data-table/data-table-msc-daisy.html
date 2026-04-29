@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MSC Table View Replica - DaisyUI</title>
+    <meta name="description" content="MSC Industrial Supply replica using DaisyUI and Tailwind CSS. Explore our data table laboratory for industrial-grade UI/UX solutions.">
 
     <!-- Fonts & Icons -->
     <link
@@ -144,7 +145,7 @@
     >
       <!-- Hamburger for Mobile -->
       <div class="flex-none lg:hidden">
-        <label for="my-drawer" class="btn btn-ghost btn-circle">
+        <label for="my-drawer" class="btn btn-ghost btn-circle" aria-label="Toggle mobile menu">
           <i class="fa-solid fa-bars text-xl text-msc-blue"></i>
         </label>
       </div>
@@ -196,13 +197,14 @@
           />
           <button
             class="btn bg-msc-blue hover:bg-blue-700 border-none rounded-l-none text-white h-10 md:h-11 min-h-0 w-12 px-0"
+            aria-label="Search"
           >
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
 
         <!-- Mobile Search Icon -->
-        <button class="btn btn-ghost btn-circle md:hidden">
+        <button class="btn btn-ghost btn-circle md:hidden" aria-label="Mobile Search">
           <i class="fa-solid fa-magnifying-glass text-xl"></i>
         </button>
 
@@ -319,18 +321,21 @@
               <button
                 id="view-table-btn"
                 class="btn btn-sm btn-ghost gap-2 font-bold px-4"
+                aria-label="Switch to Table View"
               >
                 <i class="fa-solid fa-table-list"></i> Table
               </button>
               <button
                 id="view-list-btn"
                 class="btn btn-sm bg-white border-none shadow-sm gap-2 font-bold px-4"
+                aria-label="Switch to List View"
               >
                 <i class="fa-solid fa-list"></i> List
               </button>
               <button
                 id="view-grid-btn"
                 class="btn btn-sm btn-ghost gap-2 font-bold px-4"
+                aria-label="Switch to Grid View"
               >
                 <i class="fa-solid fa-table-cells-large"></i> Grid
               </button>
@@ -425,6 +430,7 @@
                       type="text"
                       class="input input-sm input-bordered w-full rounded-full pl-8 bg-slate-50 text-xs"
                       placeholder="Search Brand"
+                      aria-label="Search Brand"
                     />
                     <i
                       class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-[10px]"
@@ -1506,7 +1512,9 @@
                 >Shipping Options</a
               >
               <a
+                href="/ui/myaccount/newquote"
                 onclick="
+                  event.preventDefault();
                   validateGuestLogin(
                     '#guest-user-popup',
                     '/ui/myaccount/newquote',
@@ -1552,7 +1560,9 @@
                 >Catalogs</a
               >
               <a
+                href="/FlyerView?contentPath=/sales-catalogs/big-book"
                 onclick="
+                  event.preventDefault();
                   bigbook.lightboxShow(
                     '/FlyerView?contentPath=/sales-catalogs/big-book',
                   )
@@ -1597,12 +1607,14 @@
                 >Call Us 1-800-645-7270</a
               >
               <a
-                onclick="f('#QSIFeedbackButton-btn')?.click()"
+                href="#"
+                onclick="f('#QSIFeedbackButton-btn')?.click(); return false;"
                 class="link link-hover text-slate-500 font-medium text-sm hover:text-primary transition-colors cursor-pointer text-primary font-bold"
                 >Give Feedback</a
               >
               <a
-                onclick="advancedChat()"
+                href="#"
+                onclick="advancedChat(); return false;"
                 class="link link-hover text-slate-500 font-medium text-sm hover:text-primary transition-colors cursor-pointer"
                 >Chat</a
               >
@@ -1694,21 +1706,25 @@
             <a
               href="#"
               class="text-slate-400 hover:text-primary transition-all scale-110"
+              aria-label="X (Twitter)"
               ><i class="fab fa-x-twitter text-xl"></i
             ></a>
             <a
               href="#"
               class="text-slate-400 hover:text-primary transition-all scale-110"
+              aria-label="Facebook"
               ><i class="fab fa-facebook-f text-xl"></i
             ></a>
             <a
               href="#"
               class="text-slate-400 hover:text-primary transition-all scale-110"
+              aria-label="LinkedIn"
               ><i class="fab fa-linkedin-in text-xl"></i
             ></a>
             <a
               href="#"
               class="text-slate-400 hover:text-primary transition-all scale-110"
+              aria-label="Instagram"
               ><i class="fab fa-instagram text-xl"></i
             ></a>
           </div>

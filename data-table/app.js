@@ -215,6 +215,7 @@ const renderPagination = (containerId, currentPage, totalPages, onPageChange) =>
     const prev = document.createElement('button');
     prev.className = `join-item btn btn-sm md:btn-md bg-white border-none hover:bg-slate-50 text-slate-600 ${currentPage === 1 ? 'btn-disabled opacity-50' : ''}`;
     prev.innerHTML = '<i class="fa-solid fa-chevron-left text-[10px]"></i>';
+    prev.setAttribute('aria-label', 'Previous page');
     prev.onclick = () => onPageChange(currentPage - 1);
     div.appendChild(prev);
 
@@ -236,6 +237,7 @@ const renderPagination = (containerId, currentPage, totalPages, onPageChange) =>
         const btn = document.createElement('button');
         btn.className = `join-item btn btn-sm md:btn-md border-none ${i === currentPage ? 'bg-primary text-white hover:bg-primary' : 'bg-white text-slate-600 hover:bg-slate-50'}`;
         btn.innerText = i;
+        btn.setAttribute('aria-label', `Page ${i}`);
         btn.onclick = () => onPageChange(i);
         div.appendChild(btn);
     }
@@ -244,6 +246,7 @@ const renderPagination = (containerId, currentPage, totalPages, onPageChange) =>
     const next = document.createElement('button');
     next.className = `join-item btn btn-sm md:btn-md bg-white border-none hover:bg-slate-50 text-slate-600 ${currentPage === totalPages ? 'btn-disabled opacity-50' : ''}`;
     next.innerHTML = '<i class="fa-solid fa-chevron-right text-[10px]"></i>';
+    next.setAttribute('aria-label', 'Next page');
     next.onclick = () => onPageChange(currentPage + 1);
     div.appendChild(next);
 
@@ -363,8 +366,8 @@ const renderFractionalTable = () => {
                                         </div>
                                         <div class="mt-6 flex flex-col gap-3">
                                             <div class="flex items-center justify-between gap-3">
-                                                <label class="text-xs font-black uppercase text-slate-400">Qty</label>
-                                                <input type="number" value="1" class="input input-bordered input-sm w-20 rounded-lg text-center font-bold focus:outline-none focus:border-primary">
+                                                <label class="text-xs font-black uppercase text-slate-400" for="qty-${mscNum}">Qty</label>
+                                                <input id="qty-${mscNum}" type="number" value="1" aria-label="Quantity" class="input input-bordered input-sm w-20 rounded-lg text-center font-bold focus:outline-none focus:border-primary">
                                             </div>
                                             <button class="btn btn-primary w-full rounded-xl text-white font-bold shadow-lg shadow-blue-100">
                                                 Add to Cart
@@ -481,8 +484,8 @@ const renderFractionalList = () => {
 
                 <div class="mt-auto space-y-4">
                     <div class="flex items-center justify-between gap-4">
-                        <label class="text-xs font-black uppercase text-slate-800 tracking-tight">Quantity</label>
-                        <input type="number" value="1" class="input input-bordered input-sm w-24 rounded-lg text-center font-bold focus:outline-none focus:border-primary bg-white shadow-sm">
+                        <label class="text-xs font-black uppercase text-slate-800 tracking-tight" for="qty-list-${brandData.msc}">Quantity</label>
+                        <input id="qty-list-${brandData.msc}" type="number" value="1" aria-label="Quantity" class="input input-bordered input-sm w-24 rounded-lg text-center font-bold focus:outline-none focus:border-primary bg-white shadow-sm">
                     </div>
                     <button class="btn btn-primary w-full rounded-full text-white font-black uppercase tracking-widest shadow-lg shadow-blue-100 h-12">
                         Add to Cart
@@ -543,7 +546,7 @@ const renderFractionalGrid = () => {
                     <span class="font-bold text-slate-700">${brandData.msc}</span>
                 </div>
                 <div class="card-actions mt-6 flex gap-2">
-                    <input type="number" value="1" class="input input-bordered w-16 text-center font-bold text-sm focus:border-primary rounded-xl bg-white">
+                    <input type="number" value="1" aria-label="Quantity" class="input input-bordered w-16 text-center font-bold text-sm focus:border-primary rounded-xl bg-white">
                     <button class="btn btn-primary flex-1 text-white font-black rounded-xl">
                         Add to Cart
                     </button>
