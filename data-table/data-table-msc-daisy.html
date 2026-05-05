@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MSC Table View Replica - DaisyUI</title>
-    <meta name="description" content="MSC Industrial Supply replica using DaisyUI and Tailwind CSS. Explore our data table laboratory for industrial-grade UI/UX solutions.">
+    <meta
+      name="description"
+      content="MSC Industrial Supply replica using DaisyUI and Tailwind CSS. Explore our data table laboratory for industrial-grade UI/UX solutions."
+    />
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
@@ -90,175 +93,189 @@
   </head>
 
   <body class="bg-slate-50 min-h-screen font-sans text-slate-800">
-    <!-- Top Bar -->
-    <div class="top-bar py-1 px-4 lg:px-8 border-b border-gray-200">
+    <!-- Top Utility Bar -->
+    <div class="bg-slate-100 border-b border-slate-200 py-1">
       <div
-        class="mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-600 gap-2 sm:gap-0"
+        class="max-w-[1800px] mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-2"
       >
-        <div class="hidden sm:flex gap-2">
+        <!-- Left: Basic Dropdowns -->
+        <div class="flex flex-wrap items-center gap-1 md:gap-4">
           <div class="dropdown dropdown-hover">
             <div
               tabindex="0"
               role="button"
-              class="btn btn-xs bg-white hover:bg-gray-50 border-gray-200 rounded-full px-3 text-gray-600 normal-case font-medium shadow-sm hover:text-msc-blue hover:border-msc-blue"
+              class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
             >
-              Solutions
-              <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i>
+              Solutions <i class="fa-solid fa-chevron-down text-[8px]"></i>
             </div>
             <ul
               tabindex="0"
-              class="dropdown-content z-[100] menu p-2 shadow-xl bg-white rounded-box w-52 border border-gray-100 mt-1"
+              class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li><a>Metalworking Solutions</a></li>
+              <li><a>Supply Chain</a></li>
               <li><a>Inventory Management</a></li>
-              <li><a>Safety Services</a></li>
-              <li><a>E-Commerce Solutions</a></li>
             </ul>
           </div>
+
           <div class="dropdown dropdown-hover">
             <div
               tabindex="0"
               role="button"
-              class="btn btn-xs bg-white hover:bg-gray-50 border-gray-200 rounded-full px-3 text-gray-600 normal-case font-medium shadow-sm hover:text-msc-blue hover:border-msc-blue"
+              class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
             >
-              Resources
-              <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i>
+              Resources <i class="fa-solid fa-chevron-down text-[8px]"></i>
             </div>
             <ul
               tabindex="0"
-              class="dropdown-content z-[100] menu p-2 shadow-xl bg-white rounded-box w-52 border border-gray-100 mt-1"
+              class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li><a>Calculators & Tools</a></li>
-              <li><a>MSDS / SDS Search</a></li>
-              <li><a>Webinars & Events</a></li>
-              <li><a>Sustainability</a></li>
+              <li><a>Catalogs</a></li>
+              <li><a>Technical Support</a></li>
             </ul>
           </div>
-        </div>
-        <div class="text-[11px] sm:text-[13px]">
-          Need help? Call us
-          <span class="font-bold text-msc-blue">1-800-645-7270</span>
-        </div>
-      </div>
-    </div>
 
-    <div
-      class="navbar bg-white px-4 lg:px-8 msc-border-bottom h-20 md:h-24 gap-2 md:gap-4 sticky top-0 z-[100]"
-    >
-      <!-- Hamburger for Mobile -->
-      <div class="flex-none lg:hidden">
-        <label for="my-drawer" class="btn btn-ghost btn-circle" aria-label="Toggle mobile menu">
-          <i class="fa-solid fa-bars text-xl text-msc-blue"></i>
-        </label>
-      </div>
-
-      <!-- Logo -->
-      <div class="flex-none">
-        <a class="cursor-pointer">
-          <img
-            src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg"
-            alt="MSC Direct"
-            class="h-8 md:h-12"
-          />
-        </a>
-      </div>
-
-      <div
-        class="flex-none gap-2 md:gap-6 lg:flex-1 justify-end lg:justify-start"
-      >
-        <!-- Dropdown: Shop All Products (Hidden on Small) -->
-        <div class="dropdown dropdown-end lg:dropdown-start hidden sm:block">
-          <div
-            tabindex="0"
-            role="button"
-            class="btn btn-sm md:btn-md btn-outline btn-primary text-msc-blue font-bold px-2 md:px-4"
-          >
-            <span class="hidden lg:inline">Shop All Products</span>
-            <span class="lg:hidden">Products</span>
-            <i class="fa-solid fa-chevron-down text-xs ml-1 text-msc-blue"></i>
-          </div>
-          <ul
-            tabindex="0"
-            class="dropdown-content z-[101] menu p-2 shadow-xl bg-white rounded-box w-52 mt-4 border border-gray-100"
-          >
-            <li><a>Metalworking</a></li>
-            <li><a>Fasteners</a></li>
-            <li><a>Safety</a></li>
-            <li><a>Hand Tools</a></li>
-          </ul>
-        </div>
-
-        <!-- Search Input (Hidden on Small) -->
-        <div
-          class="form-control hidden md:flex relative flex-row items-stretch flex-1 max-w-md"
-        >
-          <input
-            type="text"
-            placeholder="Search products..."
-            class="input input-bordered w-full rounded-r-none border-primary focus:outline-none focus:border-msc-blue h-10 md:h-11"
-          />
-          <button
-            class="btn bg-msc-blue hover:bg-blue-700 border-none rounded-l-none text-white h-10 md:h-11 min-h-0 w-12 px-0"
-            aria-label="Search"
-          >
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
-
-        <!-- Mobile Search Icon -->
-        <button class="btn btn-ghost btn-circle md:hidden" aria-label="Mobile Search">
-          <i class="fa-solid fa-magnifying-glass text-xl"></i>
-        </button>
-
-        <!-- Actions -->
-        <div class="flex items-center gap-2 md:gap-4 ml-auto">
-          <!-- Quick Order -->
-          <a
-            class="hidden sm:flex flex-col items-center gap-0.5 text-msc-blue hover:text-blue-800 transition-colors cursor-pointer group"
-          >
-            <i class="fa-solid fa-clipboard-list text-xl text-msc-blue"></i>
-            <span
-              class="text-[9px] md:text-[10px] font-bold uppercase tracking-tight text-msc-blue"
-              >Quick Order</span
-            >
-          </a>
-
-          <!-- Login/Register -->
-          <a
-            class="flex flex-col items-center gap-0.5 text-msc-blue hover:text-blue-800 transition-colors cursor-pointer group"
-          >
-            <i class="fa-regular fa-user text-xl text-msc-blue"></i>
-            <span
-              class="text-[9px] md:text-[10px] font-bold uppercase tracking-tight text-msc-blue"
-              >Login</span
-            >
-          </a>
-
-          <!-- Cart -->
-          <div class="dropdown dropdown-end">
+          <div class="dropdown dropdown-hover">
             <div
               tabindex="0"
               role="button"
-              class="flex flex-col items-center gap-0.5 text-msc-blue hover:text-blue-800 transition-colors cursor-pointer relative"
+              class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
             >
-              <div class="indicator">
-                <i class="fa-solid fa-cart-shopping text-xl text-msc-blue"></i>
-                <span
-                  class="badge badge-xs md:badge-sm badge-success indicator-item text-white border-none font-bold"
-                  style="background-color: #31a444"
-                  >1</span
-                >
-              </div>
-              <span
-                class="text-[9px] md:text-[10px] font-bold uppercase tracking-tight text-msc-blue"
-                >Cart</span
-              >
+              Deals <i class="fa-solid fa-chevron-down text-[8px]"></i>
             </div>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li><a>Clearance</a></li>
+              <li><a>Weekly Specials</a></li>
+            </ul>
           </div>
+
+          <div class="dropdown dropdown-hover">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
+            >
+              Knowledge Center <i class="fa-solid fa-chevron-down text-[8px]"></i>
+            </div>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li><a>Articles</a></li>
+              <li><a>Training</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown dropdown-hover">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
+            >
+              Notifications
+              <i class="fa-solid fa-circle-question text-primary"></i>
+              <i class="fa-solid fa-chevron-down text-[8px]"></i>
+            </div>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li><a>Recent Alerts</a></li>
+              <li><a>Settings</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right: Help Text -->
+        <div class="text-[11px] text-slate-600 font-medium">
+          Need help? Call us
+          <a href="tel:1-800-645-7270" class="text-primary font-bold"
+            >1-800-645-7270</a
+          >
         </div>
       </div>
     </div>
+    <!-- MSC Main Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-[100]">
+      <div
+        class="max-w-[1800px] mx-auto px-4 md:px-8 h-20 flex items-center justify-between gap-4"
+      >
+        <!-- Left: Logo and Primary Nav -->
+        <div class="flex items-center gap-10">
+          <a href="/" class="flex-shrink-0">
+            <span
+              class="text-3xl font-black italic text-msc-red tracking-tighter"
+              style="font-family: 'Arial Black', Gadget, sans-serif"
+              >MSC</span
+            >
+          </a>
+          <nav class="hidden lg:flex items-center gap-8">
+            <div class="dropdown dropdown-hover">
+              <div
+                tabindex="0"
+                role="button"
+                class="flex items-center gap-2 font-bold text-slate-700 hover:text-primary text-[14px] whitespace-nowrap"
+              >
+                Shop All Products
+                <i class="fa-solid fa-chevron-down text-[10px]"></i>
+              </div>
+              <ul
+                tabindex="0"
+                class="dropdown-content z-[1] menu p-2 shadow-xl bg-base-100 rounded-box w-52 mt-4 border border-slate-100"
+              >
+                <li><a class="font-bold py-2">Cutting Tools</a></li>
+                <li><a class="font-bold py-2">Abrasives</a></li>
+                <li><a class="font-bold py-2">Fasteners</a></li>
+                <li><a class="font-bold py-2">Measuring & Inspecting</a></li>
+              </ul>
+            </div>
+            <a
+              href="#"
+              class="font-bold text-slate-700 hover:text-primary text-[14px] whitespace-nowrap"
+              >Quick Order</a
+            >
+          </nav>
+        </div>
 
+        <!-- Center: Search Bar -->
+        <div class="flex-1 max-w-2xl mx-6">
+          <div class="join w-full">
+            <input
+              class="input input-bordered join-item w-full focus:outline-none focus:border-primary border-slate-200 h-11 text-sm rounded-l-lg"
+              placeholder="Search..."
+            />
+            <button
+              class="btn btn-primary join-item px-6 text-white border-none bg-msc-blue hover:bg-blue-700 h-11 min-h-0 rounded-r-lg"
+            >
+              <i class="fa-solid fa-magnifying-glass text-lg"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Action Icons -->
+        <div class="flex items-center gap-6">
+          <!-- Cart -->
+          <div class="indicator cursor-pointer group p-1">
+            <i
+              class="fa-solid fa-cart-shopping text-2xl text-slate-600 group-hover:text-primary transition-colors"
+            ></i>
+            <span
+              class="indicator-item badge badge-sm bg-[#187a41] border-none text-white font-bold h-5 w-5 p-0 text-[10px]"
+              >1</span
+            >
+          </div>
+
+          <!-- User -->
+          <div
+            class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center cursor-pointer hover:bg-slate-200 transition-all border border-slate-200/50"
+          >
+            <i class="fa-solid fa-user text-xl text-slate-400"></i>
+          </div>
+        </div>
+      </div>
+    </header>
     <!-- Sub-Header / Tool Bar -->
     <div class="w-full max-w-[1800px] mx-auto px-4 md:px-8 mt-6">
       <!-- Utility Row: Search Feedback & Catalog -->
@@ -995,7 +1012,10 @@
         <div id="list-view-container" class="view-container hidden space-y-4">
           <!-- List items will be injected here -->
         </div>
-        <div id="list-pagination" class="sticky bottom-0 z-[40] flex justify-center py-6 mt-auto"></div>
+        <div
+          id="list-pagination"
+          class="sticky bottom-0 z-[40] flex justify-center py-6 mt-auto"
+        ></div>
 
         <!-- Grid View Container -->
         <div
@@ -1004,7 +1024,10 @@
         >
           <!-- Grid items will be injected here -->
         </div>
-        <div id="grid-pagination" class="sticky bottom-0 z-[40] flex justify-center py-6 mt-auto"></div>
+        <div
+          id="grid-pagination"
+          class="sticky bottom-0 z-[40] flex justify-center py-6 mt-auto"
+        ></div>
       </main>
     </div>
 
@@ -1522,7 +1545,7 @@
                   validateGuestLogin(
                     '#guest-user-popup',
                     '/ui/myaccount/newquote',
-                  )
+                  );
                 "
                 class="link link-hover text-slate-500 font-medium text-sm hover:text-primary transition-colors cursor-pointer"
                 >Request a Quote</a
@@ -1569,7 +1592,7 @@
                   event.preventDefault();
                   bigbook.lightboxShow(
                     '/FlyerView?contentPath=/sales-catalogs/big-book',
-                  )
+                  );
                 "
                 class="link link-hover text-slate-500 font-medium text-sm hover:text-primary transition-colors cursor-pointer"
                 >Big Book</a
@@ -1612,13 +1635,19 @@
               >
               <a
                 href="#"
-                onclick="f('#QSIFeedbackButton-btn')?.click(); return false;"
+                onclick="
+                  f('#QSIFeedbackButton-btn')?.click();
+                  return false;
+                "
                 class="link link-hover text-slate-500 font-medium text-sm hover:text-primary transition-colors cursor-pointer text-primary font-bold"
                 >Give Feedback</a
               >
               <a
                 href="#"
-                onclick="advancedChat(); return false;"
+                onclick="
+                  advancedChat();
+                  return false;
+                "
                 class="link link-hover text-slate-500 font-medium text-sm hover:text-primary transition-colors cursor-pointer"
                 >Chat</a
               >
