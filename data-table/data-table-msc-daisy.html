@@ -75,7 +75,74 @@
         padding-bottom: 0.75rem;
       }
 
-      /* Custom Scrollbar */
+      /* Table to Grid on Mobile */
+      @media (max-width: 1024px) {
+        #table-view-container .overflow-x-auto {
+          overflow-x: visible;
+        }
+        #msc-tv-table- {
+          display: grid !important;
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          gap: 0 !important;
+          border: none !important;
+          background: #e2e8f0; /* Slate 200 for the grid lines effect if gap is 0, but user asked for borders */
+        }
+        #msc-tv-table- thead {
+          display: none !important;
+        }
+        #msc-tv-table- tbody {
+          display: contents !important;
+        }
+        #msc-tv-table- tr.main-row {
+          display: none !important;
+        }
+        #msc-tv-table- tr.details-row {
+          display: block !important;
+          border: 0.5px solid #e2e8f0 !important;
+          margin: 0 !important;
+          background: white !important;
+        }
+        #msc-tv-table- tr.details-row td {
+          display: block !important;
+          width: 100% !important;
+          border: none !important;
+          padding: 0 !important;
+        }
+        /* Tighten internal content */
+        #msc-tv-table- .details-row .flex-wrap {
+          flex-direction: column !important;
+          gap: 0 !important;
+        }
+        #msc-tv-table- .details-row .h-40.w-40 {
+          width: 100% !important;
+          height: auto !important;
+          aspect-ratio: 1/1;
+          padding: 0.5rem !important;
+        }
+        #msc-tv-table- .details-row .w-full.md:w-64 {
+          width: 100% !important;
+          border: none !important;
+          border-radius: 0 !important;
+          box-shadow: none !important;
+          padding: 0.5rem !important;
+        }
+        #msc-tv-table- .details-row .p-2.md:p-4 {
+          padding: 0.5rem !important;
+          margin: 0 !important;
+        }
+        #msc-tv-table- .details-row h3 {
+          font-size: 0.875rem !important;
+          line-height: 1.25 !important;
+        }
+        #msc-tv-table- .details-row p {
+          font-size: 0.75rem !important;
+        }
+        #msc-tv-table- .details-row .mt-4,
+        #msc-tv-table- .details-row .mt-6 {
+          margin-top: 0.5rem !important;
+        }
+      }
+
       .custom-scrollbar::-webkit-scrollbar {
         width: 6px;
       }
@@ -157,7 +224,8 @@
               role="button"
               class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
             >
-              Knowledge Center <i class="fa-solid fa-chevron-down text-[8px]"></i>
+              Knowledge Center
+              <i class="fa-solid fa-chevron-down text-[8px]"></i>
             </div>
             <ul
               tabindex="0"
@@ -207,7 +275,7 @@
           <a href="/" class="flex-shrink-0">
             <span
               class="text-3xl font-black italic text-msc-red tracking-tighter"
-              style="font-family: 'Arial Black', Gadget, sans-serif"
+              style="font-family: &quot;Arial Black&quot;, Gadget, sans-serif"
               >MSC</span
             >
           </a>
@@ -231,85 +299,323 @@
                 class="dropdown-content z-[100] mt-[30px] p-0 shadow-2xl bg-white rounded-b-xl border-t-[3px] border-primary left-0 w-[95vw] lg:w-[1000px] overflow-hidden"
               >
                 <!-- Categories Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-6 gap-2">
+                <div
+                  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-6 gap-2"
+                >
                   <!-- Column 1 -->
                   <ul class="menu menu-compact p-0">
-                    <li><a href="/ProductsHomeView" class="text-slate-800 font-bold hover:text-primary">All Product Categories</a></li>
-                    <li><a href="/browse/Abrasives" class="text-slate-600 hover:text-primary">Abrasives</a></li>
-                    <li><a href="/browse/Clamping-Workholding-Positioning" class="text-slate-600 hover:text-primary">Clamping, Workholding & Positioning</a></li>
-                    <li><a href="/browse/Fasteners" class="text-slate-600 hover:text-primary">Fasteners</a></li>
-                    <li><a href="/browse/Fleet-Maintenance" class="text-slate-600 hover:text-primary">Fleet Maintenance</a></li>
-                    <li><a href="/browse/HVAC" class="text-slate-600 hover:text-primary">HVAC</a></li>
-                    <li><a href="/browse/Hand-Tools" class="text-slate-600 hover:text-primary">Hand Tools</a></li>
-                    <li><a href="/browse/Hardware" class="text-slate-600 hover:text-primary">Hardware</a></li>
-                    <li><a href="/browse/Holemaking" class="text-slate-600 hover:text-primary">Holemaking</a></li>
+                    <li>
+                      <a
+                        href="/ProductsHomeView"
+                        class="text-slate-800 font-bold hover:text-primary"
+                        >All Product Categories</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Abrasives"
+                        class="text-slate-600 hover:text-primary"
+                        >Abrasives</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Clamping-Workholding-Positioning"
+                        class="text-slate-600 hover:text-primary"
+                        >Clamping, Workholding & Positioning</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Fasteners"
+                        class="text-slate-600 hover:text-primary"
+                        >Fasteners</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Fleet-Maintenance"
+                        class="text-slate-600 hover:text-primary"
+                        >Fleet Maintenance</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/HVAC"
+                        class="text-slate-600 hover:text-primary"
+                        >HVAC</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Hand-Tools"
+                        class="text-slate-600 hover:text-primary"
+                        >Hand Tools</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Hardware"
+                        class="text-slate-600 hover:text-primary"
+                        >Hardware</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Holemaking"
+                        class="text-slate-600 hover:text-primary"
+                        >Holemaking</a
+                      >
+                    </li>
                   </ul>
                   <!-- Column 2 -->
                   <ul class="menu menu-compact p-0">
-                    <li><a href="/browse/Hose-Tube-Fittings-Valves" class="text-slate-600 hover:text-primary">Hose, Tube, Fittings & Valves</a></li>
-                    <li><a href="/browse/Indexable-Cutting-Tools" class="text-slate-600 hover:text-primary">Indexable Cutting Tools</a></li>
-                    <li><a href="/browse/Janitorial-Facility-Maintenance" class="text-slate-600 hover:text-primary">Janitorial & Facility Maintenance</a></li>
-                    <li><a href="/browse/Lighting-Electrical" class="text-slate-600 hover:text-primary">Lighting & Electrical</a></li>
-                    <li><a href="/browse/Lubricants-Coolants-Fluids" class="text-slate-600 hover:text-primary">Lubricants, Coolants & Fluids</a></li>
-                    <li><a href="/browse/Machinery" class="text-slate-600 hover:text-primary">Machinery</a></li>
-                    <li><a href="/browse/Marking-Labeling" class="text-slate-600 hover:text-primary">Marking & Labeling</a></li>
-                    <li><a href="/browse/Material-Handling-Storage" class="text-slate-600 hover:text-primary">Material Handling & Storage</a></li>
-                    <li><a href="/browse/Measuring-Inspecting" class="text-slate-600 hover:text-primary">Measuring & Inspecting</a></li>
+                    <li>
+                      <a
+                        href="/browse/Hose-Tube-Fittings-Valves"
+                        class="text-slate-600 hover:text-primary"
+                        >Hose, Tube, Fittings & Valves</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Indexable-Cutting-Tools"
+                        class="text-slate-600 hover:text-primary"
+                        >Indexable Cutting Tools</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Janitorial-Facility-Maintenance"
+                        class="text-slate-600 hover:text-primary"
+                        >Janitorial & Facility Maintenance</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Lighting-Electrical"
+                        class="text-slate-600 hover:text-primary"
+                        >Lighting & Electrical</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Lubricants-Coolants-Fluids"
+                        class="text-slate-600 hover:text-primary"
+                        >Lubricants, Coolants & Fluids</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Machinery"
+                        class="text-slate-600 hover:text-primary"
+                        >Machinery</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Marking-Labeling"
+                        class="text-slate-600 hover:text-primary"
+                        >Marking & Labeling</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Material-Handling-Storage"
+                        class="text-slate-600 hover:text-primary"
+                        >Material Handling & Storage</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Measuring-Inspecting"
+                        class="text-slate-600 hover:text-primary"
+                        >Measuring & Inspecting</a
+                      >
+                    </li>
                   </ul>
                   <!-- Column 3 -->
                   <ul class="menu menu-compact p-0">
-                    <li><a href="/browse/Milling" class="text-slate-600 hover:text-primary">Milling</a></li>
-                    <li><a href="/browse/Motion-Control-Fluid-Power" class="text-slate-600 hover:text-primary">Motion Control & Fluid Power</a></li>
-                    <li><a href="/browse/Plumbing-Pumps-Filtration" class="text-slate-600 hover:text-primary">Plumbing, Pumps & Filtration</a></li>
-                    <li><a href="/browse/Power-Tools" class="text-slate-600 hover:text-primary">Power Tools</a></li>
-                    <li><a href="/browse/Raw-Materials" class="text-slate-600 hover:text-primary">Raw Materials</a></li>
-                    <li><a href="/browse/Safety" class="text-slate-600 hover:text-primary">Safety</a></li>
-                    <li><a href="/browse/Saw-Blades" class="text-slate-600 hover:text-primary">Saw Blades</a></li>
-                    <li><a href="/browse/Shipping-Office-Supplies" class="text-slate-600 hover:text-primary">Shipping & Office Supplies</a></li>
-                    <li><a href="/browse/Tapes-Adhesives" class="text-slate-600 hover:text-primary">Tapes & Adhesives</a></li>
+                    <li>
+                      <a
+                        href="/browse/Milling"
+                        class="text-slate-600 hover:text-primary"
+                        >Milling</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Motion-Control-Fluid-Power"
+                        class="text-slate-600 hover:text-primary"
+                        >Motion Control & Fluid Power</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Plumbing-Pumps-Filtration"
+                        class="text-slate-600 hover:text-primary"
+                        >Plumbing, Pumps & Filtration</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Power-Tools"
+                        class="text-slate-600 hover:text-primary"
+                        >Power Tools</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Raw-Materials"
+                        class="text-slate-600 hover:text-primary"
+                        >Raw Materials</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Safety"
+                        class="text-slate-600 hover:text-primary"
+                        >Safety</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Saw-Blades"
+                        class="text-slate-600 hover:text-primary"
+                        >Saw Blades</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Shipping-Office-Supplies"
+                        class="text-slate-600 hover:text-primary"
+                        >Shipping & Office Supplies</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Tapes-Adhesives"
+                        class="text-slate-600 hover:text-primary"
+                        >Tapes & Adhesives</a
+                      >
+                    </li>
                   </ul>
                   <!-- Column 4 -->
                   <ul class="menu menu-compact p-0">
-                    <li><a href="/browse/Threading" class="text-slate-600 hover:text-primary">Threading</a></li>
-                    <li><a href="/browse/Tool-Holding" class="text-slate-600 hover:text-primary">Tool Holding</a></li>
-                    <li><a href="/browse/Turning-Boring" class="text-slate-600 hover:text-primary">Turning & Boring</a></li>
-                    <li><a href="/browse/Welding-Soldering" class="text-slate-600 hover:text-primary">Welding & Soldering</a></li>
+                    <li>
+                      <a
+                        href="/browse/Threading"
+                        class="text-slate-600 hover:text-primary"
+                        >Threading</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Tool-Holding"
+                        class="text-slate-600 hover:text-primary"
+                        >Tool Holding</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Turning-Boring"
+                        class="text-slate-600 hover:text-primary"
+                        >Turning & Boring</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/browse/Welding-Soldering"
+                        class="text-slate-600 hover:text-primary"
+                        >Welding & Soldering</a
+                      >
+                    </li>
                   </ul>
                 </div>
 
                 <!-- Bottom Toolbar -->
                 <div class="bg-slate-50 border-t border-slate-200 px-6 py-4">
-                  <div class="flex flex-wrap items-center justify-between gap-4">
+                  <div
+                    class="flex flex-wrap items-center justify-between gap-4"
+                  >
                     <div class="flex items-center gap-6 flex-wrap">
-                      <a href="/r/clearance-specials" class="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors">
+                      <a
+                        href="/r/clearance-specials"
+                        class="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors"
+                      >
                         <i class="fa fa-tag text-primary"></i> Clearance
                       </a>
-                      <a href="/corporate/industrial-suppliers-line-card" class="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors">
-                        <img src="https://cdn.mscdirect.com/global/v2/img/nav/topnav-icon-book.svg?im=Resize,width=14,height=15" alt="" class="w-3.5 h-3.5" />
+                      <a
+                        href="/corporate/industrial-suppliers-line-card"
+                        class="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors"
+                      >
+                        <img
+                          src="https://cdn.mscdirect.com/global/v2/img/nav/topnav-icon-book.svg?im=Resize,width=14,height=15"
+                          alt=""
+                          class="w-3.5 h-3.5"
+                        />
                         All Brands
                       </a>
-                      <a href="/products/new-items" class="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors">
-                        <span class="badge badge-primary badge-xs rounded-sm text-[8px] h-3.5 border-none">NEW</span>
+                      <a
+                        href="/products/new-items"
+                        class="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors"
+                      >
+                        <span
+                          class="badge badge-primary badge-xs rounded-sm text-[8px] h-3.5 border-none"
+                          >NEW</span
+                        >
                         Products
                       </a>
-                      <a href="/products/exclusive-brands" class="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors">
-                        <img src="https://cdn.mscdirect.com/global/v2/img/nav/topnav-icon-stars.svg?im=Resize,width=14,height=15" alt="" class="w-3.5 h-3.5" />
+                      <a
+                        href="/products/exclusive-brands"
+                        class="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors"
+                      >
+                        <img
+                          src="https://cdn.mscdirect.com/global/v2/img/nav/topnav-icon-stars.svg?im=Resize,width=14,height=15"
+                          alt=""
+                          class="w-3.5 h-3.5"
+                        />
                         Exclusive Brands
                       </a>
-                      <a href="#" class="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors">
-                        <img src="https://cdn.mscdirect.com/global/v2/img/nav/topnav-icon-quote.svg?im=Resize,width=14,height=15" alt="" class="w-3.5 h-3.5" />
+                      <a
+                        href="#"
+                        class="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors"
+                      >
+                        <img
+                          src="https://cdn.mscdirect.com/global/v2/img/nav/topnav-icon-quote.svg?im=Resize,width=14,height=15"
+                          alt=""
+                          class="w-3.5 h-3.5"
+                        />
                         Request a Quote
                       </a>
-                      <a href="/products/voe/productivity-end" class="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors">
-                        <img src="https://cdn.mscdirect.com/global/v2/img/nav/topnav-icon-tools.svg?im=Resize,width=14,height=15" alt="" class="w-3.5 h-3.5" />
+                      <a
+                        href="/products/voe/productivity-end"
+                        class="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors"
+                      >
+                        <img
+                          src="https://cdn.mscdirect.com/global/v2/img/nav/topnav-icon-tools.svg?im=Resize,width=14,height=15"
+                          alt=""
+                          class="w-3.5 h-3.5"
+                        />
                         Metalworking
                       </a>
-                      <a href="/products/innovation" class="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors">
-                        <img src="https://cdn.mscdirect.com/global/v2/img/nav/topnav-icon-lightbulb.svg?im=Resize,width=14,height=15" alt="" class="w-3.5 h-3.5" />
+                      <a
+                        href="/products/innovation"
+                        class="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors"
+                      >
+                        <img
+                          src="https://cdn.mscdirect.com/global/v2/img/nav/topnav-icon-lightbulb.svg?im=Resize,width=14,height=15"
+                          alt=""
+                          class="w-3.5 h-3.5"
+                        />
                         Innovation
                       </a>
-                      <a href="/ui/order/history?tab=buy_again" class="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors">
-                        <i class="fas fa-sync-alt text-primary text-[10px]"></i> Buy Again
+                      <a
+                        href="/ui/order/history?tab=buy_again"
+                        class="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-primary transition-colors"
+                      >
+                        <i class="fas fa-sync-alt text-primary text-[10px]"></i>
+                        Buy Again
                       </a>
                     </div>
                   </div>
@@ -400,12 +706,10 @@
     <!-- Sticky Toolbar Section -->
     <div
       id="sticky-toolbar"
-      class="sticky top-20 md:top-24 z-[50] transition-all duration-300 py-4 mb-8"
+      class="sticky top-20 md:top-20 z-50 transition-all duration-300 py-4 mb-8"
     >
       <div class="w-full max-w-[1800px] mx-auto px-4 md:px-8">
-        <div
-          class="flex flex-row justify-between items-center gap-2 lg:gap-6"
-        >
+        <div class="flex flex-row justify-between items-center gap-2 lg:gap-6">
           <!-- Title & Count -->
           <div class="flex flex-row items-baseline gap-2 min-w-0">
             <h1
@@ -413,7 +717,9 @@
             >
               Ball End Mills
             </h1>
-            <p class="text-[9px] md:text-xs text-slate-500 font-bold whitespace-nowrap">
+            <p
+              class="text-[9px] md:text-xs text-slate-500 font-bold whitespace-nowrap"
+            >
               33,161 items
             </p>
           </div>
@@ -444,7 +750,9 @@
                 class="btn btn-xs md:btn-sm btn-ghost px-2 md:px-4 font-bold"
                 aria-label="Switch to Grid View"
               >
-                <i class="fa-solid fa-table-cells-large text-[10px] md:text-sm"></i>
+                <i
+                  class="fa-solid fa-table-cells-large text-[10px] md:text-sm"
+                ></i>
                 <span class="hidden sm:inline">Grid</span>
               </button>
             </div>
