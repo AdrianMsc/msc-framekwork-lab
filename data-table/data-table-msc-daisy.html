@@ -160,125 +160,133 @@
   </head>
 
   <body class="bg-slate-50 min-h-screen font-sans text-slate-800">
-    <!-- Top Utility Bar -->
-    <div class="hidden md:block bg-slate-100 border-b border-slate-200 py-1">
-      <div
-        class="max-w-[1800px] mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-2"
-      >
-        <!-- Left: Basic Dropdowns -->
-        <div class="flex flex-wrap items-center gap-1 md:gap-4">
-          <div class="dropdown dropdown-hover">
-            <div
-              tabindex="0"
-              role="button"
-              class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
-            >
-              Solutions <i class="fa-solid fa-chevron-down text-[8px]"></i>
-            </div>
-            <ul
-              tabindex="0"
-              class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li><a>Supply Chain</a></li>
-              <li><a>Inventory Management</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown dropdown-hover">
-            <div
-              tabindex="0"
-              role="button"
-              class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
-            >
-              Resources <i class="fa-solid fa-chevron-down text-[8px]"></i>
-            </div>
-            <ul
-              tabindex="0"
-              class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li><a>Catalogs</a></li>
-              <li><a>Technical Support</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown dropdown-hover">
-            <div
-              tabindex="0"
-              role="button"
-              class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
-            >
-              Deals <i class="fa-solid fa-chevron-down text-[8px]"></i>
-            </div>
-            <ul
-              tabindex="0"
-              class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li><a>Clearance</a></li>
-              <li><a>Weekly Specials</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown dropdown-hover">
-            <div
-              tabindex="0"
-              role="button"
-              class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
-            >
-              Knowledge Center
-              <i class="fa-solid fa-chevron-down text-[8px]"></i>
-            </div>
-            <ul
-              tabindex="0"
-              class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li><a>Articles</a></li>
-              <li><a>Training</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown dropdown-hover">
-            <div
-              tabindex="0"
-              role="button"
-              class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
-            >
-              Notifications
-              <i class="fa-solid fa-circle-question text-primary"></i>
-              <i class="fa-solid fa-chevron-down text-[8px]"></i>
-            </div>
-            <ul
-              tabindex="0"
-              class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li><a>Recent Alerts</a></li>
-              <li><a>Settings</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Right: Help Text -->
-        <div class="text-[11px] text-slate-600 font-medium">
-          Need help? Call us
-          <a href="tel:1-800-645-7270" class="text-primary font-bold"
-            >1-800-645-7270</a
+    <div class="drawer">
+      <input id="mobile-menu-drawer" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content flex flex-col">
+        <!-- Top Utility Bar -->
+        <div class="hidden md:block bg-slate-100 border-b border-slate-200 py-1">
+          <div
+            class="max-w-[1800px] mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-2"
           >
+            <!-- Left: Basic Dropdowns -->
+            <div class="flex flex-wrap items-center gap-1 md:gap-4">
+              <div class="dropdown dropdown-hover">
+                <div
+                  tabindex="0"
+                  role="button"
+                  class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
+                >
+                  Solutions <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="dropdown-content z-[110] menu p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li><a>Supply Chain</a></li>
+                  <li><a>Inventory Management</a></li>
+                </ul>
+              </div>
+
+              <div class="dropdown dropdown-hover">
+                <div
+                  tabindex="0"
+                  role="button"
+                  class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
+                >
+                  Resources <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="dropdown-content z-[110] menu p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li><a>Catalogs</a></li>
+                  <li><a>Technical Support</a></li>
+                </ul>
+              </div>
+
+              <div class="dropdown dropdown-hover">
+                <div
+                  tabindex="0"
+                  role="button"
+                  class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
+                >
+                  Deals <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="dropdown-content z-[110] menu p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li><a>Clearance</a></li>
+                  <li><a>Weekly Specials</a></li>
+                </ul>
+              </div>
+
+              <div class="dropdown dropdown-hover">
+                <div
+                  tabindex="0"
+                  role="button"
+                  class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
+                >
+                  Knowledge Center
+                  <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="dropdown-content z-[110] menu p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li><a>Articles</a></li>
+                  <li><a>Training</a></li>
+                </ul>
+              </div>
+
+              <div class="dropdown dropdown-hover">
+                <div
+                  tabindex="0"
+                  role="button"
+                  class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
+                >
+                  Notifications
+                  <i class="fa-solid fa-circle-question text-primary"></i>
+                  <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="dropdown-content z-[110] menu p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li><a>Recent Alerts</a></li>
+                  <li><a>Settings</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Right: Help Text -->
+            <div class="text-[11px] text-slate-600 font-medium">
+              Need help? Call us
+              <a href="tel:1-800-645-7270" class="text-primary font-bold"
+                >1-800-645-7270</a
+              >
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <!-- MSC Main Header -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-[100]">
-      <div
-        class="max-w-[1800px] mx-auto px-4 md:px-8 h-20 flex items-center justify-between gap-4"
-      >
-        <!-- Left: Logo and Primary Nav -->
-        <div class="flex items-center gap-10">
-          <a href="/" class="flex-shrink-0">
-            <span
-              class="text-3xl font-black italic text-msc-red tracking-tighter"
-              style="font-family: &quot;Arial Black&quot;, Gadget, sans-serif"
-              >MSC</span
-            >
-          </a>
+        <!-- MSC Main Header -->
+        <header class="bg-white border-b border-slate-200 sticky top-0 z-[100]">
+          <div
+            class="max-w-[1800px] mx-auto px-4 md:px-8 h-20 flex items-center justify-between gap-4"
+          >
+            <!-- Left: Logo and Primary Nav -->
+            <div class="flex items-center gap-4 lg:gap-10">
+              <!-- Mobile Menu Toggle -->
+              <label for="mobile-menu-drawer" class="btn btn-ghost lg:hidden p-0 min-h-0 h-auto">
+                <i class="fa-solid fa-bars text-2xl text-msc-blue"></i>
+              </label>
+
+              <a href="/" class="flex-shrink-0">
+                <span
+                  class="text-2xl md:text-3xl font-black italic text-msc-red tracking-tighter"
+                  style="font-family: &quot;Arial Black&quot;, Gadget, sans-serif"
+                  >MSC</span
+                >
+              </a>
           <nav class="hidden lg:flex items-center gap-8">
             <!-- Shop All Products Mega Menu -->
             <div class="dropdown dropdown-hover group">
@@ -2290,49 +2298,128 @@
       </div>
     </div>
 
-    <!-- Drawer Side Selection for Mobile Menu -->
-    <div class="drawer z-[200]">
-      <input id="my-drawer" type="checkbox" class="drawer-toggle" />
-      <div class="drawer-side">
-        <label
-          for="my-drawer"
-          aria-label="close sidebar"
-          class="drawer-overlay"
-        ></label>
-        <ul
-          class="menu p-4 w-80 min-h-full bg-base-100 text-base-content font-bold"
-        >
-          <!-- Sidebar content here -->
-          <li class="mb-4">
-            <img
-              src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg"
-              alt="MSC Direct Logo"
-              class="h-8"
-              width="120"
-              height="32"
-            />
-          </li>
-          <li>
-            <a><i class="fa-solid fa-layer-group w-6"></i> Shop All Products</a>
-          </li>
-          <li>
-            <a><i class="fa-solid fa-clipboard-list w-6"></i> Quick Order</a>
-          </li>
-          <div class="divider"></div>
-          <li><a>Solutions</a></li>
-          <li><a>Resources</a></li>
-          <li><a>Special Offers</a></li>
-          <li><a>Catalogs</a></li>
-          <div class="divider"></div>
-          <li>
-            <a><i class="fa-regular fa-user w-6"></i> Login / Register</a>
-          </li>
-          <li>
-            <a><i class="fa-solid fa-cart-shopping w-6"></i> My Cart (1)</a>
-          </li>
-        </ul>
+    </div> <!-- Close drawer-content -->
+
+    <div class="drawer-side z-[200]">
+      <label for="mobile-menu-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+      <div class="w-10/12 max-w-sm min-h-full bg-[#F2F2F2] flex flex-col shadow-2xl">
+        <!-- Drawer Header -->
+        <div class="flex justify-between items-center px-6 py-4 bg-msc-blue text-white shrink-0">
+          <span class="text-xl font-bold">Menu</span>
+          <label for="mobile-menu-drawer" class="btn btn-ghost btn-circle btn-sm text-white hover:bg-white/10">
+            <i class="fa-solid fa-xmark text-xl"></i>
+          </label>
+        </div>
+
+        <!-- Drawer Content -->
+        <div class="flex-1 overflow-y-auto custom-scrollbar">
+          <ul class="menu menu-vertical p-4 gap-1 text-slate-700">
+            <!-- Products -->
+            <li class="bg-white rounded-lg mb-2 shadow-sm border border-slate-200">
+              <details>
+                <summary class="font-bold py-3 hover:bg-slate-50 transition-colors">
+                  <span class="flex items-center gap-3">
+                    <i class="fa-solid fa-shop text-primary"></i>
+                    Shop All Products
+                  </span>
+                </summary>
+                <ul class="mt-2 pl-4 border-l-2 border-slate-100 pb-2">
+                  <li><a href="/ProductsHomeView" class="font-bold text-primary mb-2 italic">All Product Categories</a></li>
+                  <li><a href="/browse/Abrasives">Abrasives</a></li>
+                  <li><a href="/browse/Clamping-Workholding-Positioning">Clamping, Workholding & Positioning</a></li>
+                  <li><a href="/browse/Fasteners">Fasteners</a></li>
+                  <li><a href="/browse/Fleet-Maintenance">Fleet Maintenance</a></li>
+                  <li><a href="/browse/HVAC">HVAC</a></li>
+                  <li><a href="/browse/Hand-Tools">Hand Tools</a></li>
+                  <li><a href="/browse/Hardware">Hardware</a></li>
+                  <li><a href="/browse/Holemaking">Holemaking</a></li>
+                </ul>
+              </details>
+            </li>
+
+            <!-- Solutions -->
+            <li class="bg-white rounded-lg mb-2 shadow-sm border border-slate-200">
+              <details>
+                <summary class="font-bold py-3 hover:bg-slate-50 transition-colors">
+                  <span class="flex items-center gap-3">
+                    <i class="fa-solid fa-lightbulb text-primary"></i>
+                    Solutions
+                  </span>
+                </summary>
+                <ul class="mt-2 pl-4 border-l-2 border-slate-100 pb-2">
+                  <li><a href="/solutions" class="font-bold">All Solutions</a></li>
+                  <li><a href="/solutions/eprocurement">eProcurement</a></li>
+                  <li><a href="/solutions/managed-inventory">Managed Inventory</a></li>
+                  <li><a href="/solutions/metalworking-innovations">Metalworking Innovations</a></li>
+                </ul>
+              </details>
+            </li>
+
+            <!-- Resources -->
+            <li class="bg-white rounded-lg mb-2 shadow-sm border border-slate-200">
+              <details>
+                <summary class="font-bold py-3 hover:bg-slate-50 transition-colors">
+                  <span class="flex items-center gap-3">
+                    <i class="fa-solid fa-book text-primary"></i>
+                    Resources
+                  </span>
+                </summary>
+                <ul class="mt-2 pl-4 border-l-2 border-slate-100 pb-2">
+                  <li><a href="/resources/resources-home" class="font-bold">All Resources</a></li>
+                  <li><a href="/ui/identity/locateaccount">Access Your Account</a></li>
+                  <li><a href="/resources/buying-guides">Buying Guides</a></li>
+                </ul>
+              </details>
+            </li>
+
+            <!-- Deals -->
+            <li class="bg-white rounded-lg mb-2 shadow-sm border border-slate-200">
+              <details>
+                <summary class="font-bold py-3 hover:bg-slate-50 transition-colors">
+                  <span class="flex items-center gap-3">
+                    <i class="fa-solid fa-tag text-primary"></i>
+                    Deals
+                  </span>
+                </summary>
+                <ul class="mt-2 pl-4 border-l-2 border-slate-100 pb-2">
+                  <li><a href="/special-offers/special-offers-home" class="font-bold">All Deals</a></li>
+                  <li><a href="/r/web-specials">Web Specials</a></li>
+                  <li><a href="/r/clearance-specials">Clearance</a></li>
+                </ul>
+              </details>
+            </li>
+
+            <!-- Knowledge Center -->
+            <li class="bg-white rounded-lg mb-2 shadow-sm border border-slate-200">
+              <details>
+                <summary class="font-bold py-3 hover:bg-slate-50 transition-colors">
+                  <span class="flex items-center gap-3">
+                    <i class="fa-solid fa-graduation-cap text-primary"></i>
+                    Knowledge Center
+                  </span>
+                </summary>
+                <ul class="mt-2 pl-4 border-l-2 border-slate-100 pb-2">
+                  <li><a href="/knowledge-center" class="font-bold">All Knowledge Center</a></li>
+                  <li><a href="/knowledge-center/articles">Article Library</a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Drawer Footer -->
+        <div class="p-6 bg-white border-t border-slate-200 shrink-0">
+          <div class="flex items-center gap-4 text-xs font-medium text-slate-500">
+             <i class="fa-solid fa-headset text-xl text-primary"></i>
+             <div>
+                <p>Need help? Call us</p>
+                <a href="tel:1-800-645-7270" class="text-primary font-bold text-lg leading-none">1-800-645-7270</a>
+             </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div> <!-- Close drawer -->
 
     <!-- JS Handling -->
     <script src="app.js" type="module"></script>
