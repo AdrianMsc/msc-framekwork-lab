@@ -648,15 +648,41 @@
         <!-- Right: Action Icons -->
         <div class="flex items-center gap-6">
           <!-- Cart -->
-          <div class="indicator cursor-pointer group p-1">
-            <i
-              class="fa-solid fa-cart-shopping text-2xl text-slate-600 group-hover:text-primary transition-colors"
-            ></i>
-            <span
-              class="indicator-item badge badge-sm bg-[#187a41] border-none text-white font-bold h-5 w-5 p-0 text-[10px]"
-              >1</span
+          <div class="dropdown dropdown-end group">
+            <div
+              tabindex="0"
+              role="button"
+              class="indicator cursor-pointer p-1"
             >
+              <i
+                class="fa-solid fa-cart-shopping text-2xl text-slate-600 group-hover:text-primary transition-colors"
+              ></i>
+              <span
+                id="cart-count"
+                class="indicator-item badge badge-sm bg-[#187a41] border-none text-white font-bold h-5 w-5 p-0 text-[10px]"
+                >0</span
+              >
+            </div>
+            <div
+              tabindex="0"
+              class="dropdown-content z-[100] card card-compact w-80 p-2 shadow-2xl bg-white border border-slate-200 mt-4"
+            >
+              <div class="card-body">
+                <span id="cart-items-title" class="font-bold text-lg text-slate-800">0 Items</span>
+                <div id="cart-items-container" class="max-h-64 overflow-y-auto py-2 space-y-2">
+                  <p class="text-slate-400 text-center py-4">Your cart is empty</p>
+                </div>
+                <div class="card-actions border-t border-slate-100 pt-4 mt-2">
+                  <div class="flex justify-between w-full mb-2">
+                    <span class="font-bold text-slate-600 uppercase text-[10px] tracking-widest">Subtotal</span>
+                    <span id="cart-subtotal" class="font-black text-slate-800">$0.00</span>
+                  </div>
+                  <button class="btn btn-primary btn-block text-white font-bold rounded-xl">View Cart & Checkout</button>
+                </div>
+              </div>
+            </div>
           </div>
+
 
           <!-- User -->
           <div

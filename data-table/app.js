@@ -26,6 +26,99 @@ window.lightboxHide = () => {
 };
 
 // ==========================
+// CART MANAGEMENT
+// ==========================
+
+let cart = JSON.parse(localStorage.getItem("msc_cart")) || [];
+
+const saveCart = () => {
+  localStorage.setItem("msc_cart", JSON.stringify(cart));
+  updateCartUI();
+};
+
+const updateCartUI = () => {
+  const countBadge = document.getElementById("cart-count");
+  const itemsTitle = document.getElementById("cart-items-title");
+  const container = document.getElementById("cart-items-container");
+  const subtotalEl = document.getElementById("cart-subtotal");
+
+  if (!countBadge || !container) return;
+
+  const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+  const subtotal = cart.reduce((sum, item) => {
+    const price = parseFloat(item.price.replace("$", ""));
+    return sum + price * item.qty;
+  }, 0);
+
+  countBadge.innerText = totalQty;
+  if (itemsTitle) itemsTitle.innerText = `${totalQty} Item${totalQty !== 1 ? "s" : ""}`;
+  if (subtotalEl) subtotalEl.innerText = `$${subtotal.toFixed(2)}`;
+
+  if (cart.length === 0) {
+    container.innerHTML = `<p class="text-slate-400 text-center py-4">Your cart is empty</p>`;
+  } else {
+    container.innerHTML = cart
+      .map(
+        (item) => `
+      <div class="flex items-center gap-3 py-2 border-b border-slate-50 last:border-0">
+        <div class="h-12 w-12 bg-slate-50 rounded p-1 flex-shrink-0">
+          <img src="${item.img}" class="h-full w-full object-contain" />
+        </div>
+        <div class="flex-grow min-w-0">
+          <p class="font-bold text-xs truncate text-slate-800">${item.name}</p>
+          <p class="text-[10px] text-slate-500 font-medium">MSC# ${item.msc} | Qty: ${item.qty}</p>
+          <p class="text-xs font-bold text-primary">${item.price}</p>
+        </div>
+        <button onclick="window.removeFromCart('${item.msc}')" class="text-slate-300 hover:text-msc-red transition-colors">
+          <i class="fa-solid fa-trash-can text-xs"></i>
+        </button>
+      </div>
+    `,
+      )
+      .join("");
+  }
+};
+
+window.addToCart = (msc, name, price, img, qtyInputId) => {
+  const qtyInput = document.getElementById(qtyInputId);
+  const qty = parseInt(qtyInput?.value || 1);
+
+  const existing = cart.find((item) => item.msc === msc);
+  if (existing) {
+    existing.qty += qty;
+  } else {
+    cart.push({ msc, name, price, img, qty });
+  }
+
+  saveCart();
+
+  // Show a mini notification
+  showToast(`Added ${qty} item(s) to cart`);
+};
+
+window.removeFromCart = (msc) => {
+  cart = cart.filter((item) => item.msc !== msc);
+  saveCart();
+};
+
+const showToast = (message) => {
+  const toast = document.createElement("div");
+  toast.className =
+    "fixed bottom-8 right-8 z-[200] bg-slate-900 text-white px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 animate-bounce";
+  toast.innerHTML = `
+    <i class="fa-solid fa-circle-check text-success-available"></i>
+    <span class="font-bold text-sm">${message}</span>
+  `;
+  document.body.appendChild(toast);
+  setTimeout(() => {
+    toast.classList.remove("animate-bounce");
+    toast.classList.add("opacity-0", "transition-opacity", "duration-500");
+    setTimeout(() => toast.remove(), 500);
+  }, 3000);
+};
+
+
+// ==========================
 // GENERIC TABLE MANAGER
 // ==========================
 
@@ -402,7 +495,10 @@ const renderFractionalTable = () => {
                                                 <label class="text-xs font-black uppercase text-slate-600" for="qty-${mscNum}">Qty</label>
                                                 <input id="qty-${mscNum}" type="number" value="1" aria-label="Quantity" class="input input-bordered input-sm w-20 rounded-lg text-center font-bold focus:outline-none focus:border-primary">
                                             </div>
-                                            <button class="btn btn-sm md:btn-md btn-primary w-full rounded-xl text-white font-bold shadow-lg shadow-blue-100">
+                                            <button 
+                                                onclick="window.addToCart('${mscNum}', 'Ball End Mill: ${item.millDia}', '${primaryBrand.price}', '${fixedImgUrl}', 'qty-${mscNum}')"
+                                                class="btn btn-sm md:btn-md btn-primary w-full rounded-xl text-white font-bold shadow-lg shadow-blue-100"
+                                            >
                                                 Add to Cart
                                             </button>
                                         </div>
@@ -527,7 +623,10 @@ const renderFractionalList = () => {
                         <label class="text-xs font-black uppercase text-slate-800 tracking-tight" for="qty-list-${brandData.msc}">Quantity</label>
                         <input id="qty-list-${brandData.msc}" type="number" value="1" aria-label="Quantity" class="input input-bordered input-sm w-24 rounded-lg text-center font-bold focus:outline-none focus:border-primary bg-white shadow-sm">
                     </div>
-                    <button class="btn btn-primary w-full rounded-full text-white font-black uppercase tracking-widest shadow-lg shadow-blue-100 h-12">
+                    <button 
+                        onclick="window.addToCart('${brandData.msc}', 'Ball End Mill: ${item.millDia}', '${brandData.price}', '${fixedImgUrl}', 'qty-list-${brandData.msc}')"
+                        class="btn btn-primary w-full rounded-full text-white font-black uppercase tracking-widest shadow-lg shadow-blue-100 h-12"
+                    >
                         Add to Cart
                     </button>
                 </div>
@@ -589,8 +688,11 @@ const renderFractionalGrid = () => {
                     <span class="font-bold text-slate-700">${brandData.msc}</span>
                 </div>
                 <div class="card-actions mt-6 flex gap-2">
-                    <input type="number" value="1" aria-label="Quantity" class="input input-bordered w-16 text-center font-bold text-sm focus:border-primary rounded-xl bg-white">
-                    <button class="btn btn-primary flex-1 text-white font-black rounded-xl">
+                    <input id="qty-grid-${brandData.msc}" type="number" value="1" aria-label="Quantity" class="input input-bordered w-16 text-center font-bold text-sm focus:border-primary rounded-xl bg-white">
+                    <button 
+                        onclick="window.addToCart('${brandData.msc}', 'Ball End Mill: ${item.millDia}', '${brandData.price}', '${fixedImgUrl}', 'qty-grid-${brandData.msc}')"
+                        class="btn btn-primary flex-1 text-white font-black rounded-xl"
+                    >
                         Add to Cart
                     </button>
                 </div>
@@ -614,4 +716,5 @@ document.addEventListener("DOMContentLoaded", () => {
   renderFractionalTable();
   // Grid and List will be rendered on demand or initially via switchView
   initFeatures();
+  updateCartUI();
 });
