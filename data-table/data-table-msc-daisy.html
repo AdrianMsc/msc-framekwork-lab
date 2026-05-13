@@ -637,9 +637,10 @@
         </div>
 
         <!-- Center: Search Bar -->
-        <div class="order-3 lg:order-none w-full lg:flex-1 lg:max-w-2xl mx-0 lg:mx-6">
+        <div class="relative order-3 lg:order-none w-full lg:flex-1 lg:max-w-2xl mx-0 lg:mx-6">
           <div class="join w-full">
             <input
+              id="main-search-input"
               class="input input-bordered join-item w-full focus:outline-none focus:border-primary border-slate-200 h-11 text-sm rounded-l-lg"
               placeholder="Search..."
             />
@@ -648,6 +649,87 @@
             >
               <i class="fa-solid fa-magnifying-glass text-lg"></i>
             </button>
+          </div>
+
+          <!-- Search History Overlay -->
+          <div onmousedown="event.preventDefault()" id="search-history-overlay" class="absolute left-0 right-0 top-full mt-1 z-[200] text-left items-center font-normal leading-8 rounded-b-xl pb-5 bg-white shadow-2xl border border-slate-200 hidden overflow-hidden">       
+            <ul id="section_recentSearches" class="flex flex-col bg-white custom-scrollbar max-h-[350px] overflow-y-auto pt-5">
+              <li class="border-b border-slate-100 flex flex-row justify-between bg-white mx-6 mb-2 pb-1">
+                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Recent Searches</p>
+                <button type="button" class="text-primary text-xs font-bold hover:underline">Clear</button>
+              </li>
+              <li class="flex-grow text-sm py-2 cursor-pointer font-bold hover:bg-slate-50 px-6 text-slate-800 transition-colors">
+                endmill
+              </li>
+            </ul>
+
+            <ul id="trendingSearchesSection" class="flex flex-col bg-white custom-scrollbar max-h-[350px] overflow-y-auto pt-5 hidden">
+              <div class="border-b border-slate-100 flex flex-row justify-between bg-white mx-6 mb-2 pb-1">
+                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Trending Searches</p>
+              </div>
+              <div class="relative group">
+                <i class="fa-solid fa-arrow-trend-up absolute left-6 top-1/2 -translate-y-1/2 text-slate-400 group-hover:text-primary transition-colors"></i>
+                <li class="pl-12 pr-6 py-2 text-sm cursor-pointer font-bold hover:bg-slate-50 text-slate-800 transition-colors">
+                  End mill
+                </li>
+              </div>
+            </ul>
+                
+            <div id="popularCategoriesSection" class="bg-white mt-4">
+              <div class="border-b border-slate-100 flex flex-row justify-between bg-white mx-6 mb-2 pb-1">
+                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Popular Categories</p>
+              </div>
+              <ul class="flex flex-row flex-wrap w-full py-4 px-2"> 
+                <li class="w-1/3 md:w-1/6 py-4 flex flex-col items-center group cursor-pointer">
+                  <div class="h-20 w-20 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
+                    <img src="https://cdn.mscdirect.com/global/images/CategoryAttributes/C182017B-22.jpg" alt="Holemaking" class="max-h-full max-w-full object-contain" />
+                  </div>
+                  <span class="text-center line-clamp-2 text-[11px] font-bold text-slate-600 group-hover:text-primary px-1">
+                    Holemaking
+                  </span>
+                </li>
+                <li class="w-1/3 md:w-1/6 py-4 flex flex-col items-center group cursor-pointer">
+                  <div class="h-20 w-20 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
+                    <img src="https://cdn.mscdirect.com/global/images/CategoryAttributes/C182027-22.jpg" alt="Milling" class="max-h-full max-w-full object-contain" />
+                  </div>
+                  <span class="text-center line-clamp-2 text-[11px] font-bold text-slate-600 group-hover:text-primary px-1">
+                    Milling
+                  </span>
+                </li>
+                <li class="w-1/3 md:w-1/6 py-4 flex flex-col items-center group cursor-pointer">
+                  <div class="h-20 w-20 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
+                    <img src="https://cdn.mscdirect.com/global/images/CategoryAttributes/C182010A-22.jpg" alt="Abrasives" class="max-h-full max-w-full object-contain" />
+                  </div>
+                  <span class="text-center line-clamp-2 text-[11px] font-bold text-slate-600 group-hover:text-primary px-1">
+                    Abrasives
+                  </span>
+                </li>
+                <li class="w-1/3 md:w-1/6 py-4 flex flex-col items-center group cursor-pointer">
+                  <div class="h-20 w-20 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
+                    <img src="https://cdn.mscdirect.com/global/images/CategoryAttributes/C182032A-22.jpg" alt="Safety" class="max-h-full max-w-full object-contain" />
+                  </div>
+                  <span class="text-center line-clamp-2 text-[11px] font-bold text-slate-600 group-hover:text-primary px-1">
+                    Safety
+                  </span>
+                </li>
+                <li class="w-1/3 md:w-1/6 py-4 flex flex-col items-center group cursor-pointer">
+                  <div class="h-20 w-20 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
+                    <img src="https://cdn.mscdirect.com/global/images/CategoryAttributes/C182019-22.jpg" alt="Indexable Cutting Tools" class="max-h-full max-w-full object-contain" />
+                  </div>
+                  <span class="text-center line-clamp-2 text-[11px] font-bold text-slate-600 group-hover:text-primary px-1">
+                    Indexable Cutting Tools
+                  </span>
+                </li>
+                <li class="w-1/3 md:w-1/6 py-4 flex flex-col items-center group cursor-pointer">
+                  <div class="h-20 w-20 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
+                    <img src="https://cdn.mscdirect.com/global/images/CategoryAttributes/C182036-22.jpg" alt="Threading" class="max-h-full max-w-full object-contain" />
+                  </div>
+                  <span class="text-center line-clamp-2 text-[11px] font-bold text-slate-600 group-hover:text-primary px-1">
+                    Threading
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -2438,6 +2520,23 @@
           toolbar.classList.remove("is-stuck");
         }
       });
+
+      // Handle Search History Overlay Focus
+      const searchInput = document.getElementById("main-search-input");
+      const searchOverlay = document.getElementById("search-history-overlay");
+
+      if (searchInput && searchOverlay) {
+        searchInput.addEventListener("focus", () => {
+          searchOverlay.classList.remove("hidden");
+        });
+
+        searchInput.addEventListener("blur", () => {
+          // Small delay to allow clicks on the overlay to register
+          setTimeout(() => {
+            searchOverlay.classList.add("hidden");
+          }, 200);
+        });
+      }
     </script>
   </body>
 </html>
