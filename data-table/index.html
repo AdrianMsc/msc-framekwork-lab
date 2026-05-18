@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
@@ -52,7 +52,9 @@
       .card-hover:hover {
         transform: translateY(-5px);
         transition: all 0.3s ease;
-        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        box-shadow:
+          0 20px 25px -5px rgb(0 0 0 / 0.1),
+          0 8px 10px -6px rgb(0 0 0 / 0.1);
       }
     </style>
   </head>
@@ -63,37 +65,72 @@
         <h1 class="text-5xl font-bold text-gray-900 mb-4 tracking-tight">
           Data Table <span class="text-msc-blue">Lab</span>
         </h1>
-        <p class="text-lg text-gray-600">Select a replica style to explore its features and responsiveness.</p>
+        <p class="text-lg text-gray-600">
+          Select a replica style to explore its features and responsiveness.
+        </p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Grainger Card -->
-        <a href="./data-table-grainger.html" class="glass-card card-hover p-8 rounded-3xl flex flex-col items-center text-center group">
-          <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-red-600 group-hover:text-white transition-colors border border-red-200">
+        <a
+          href="/data-table/data-table-grainger.html"
+          class="glass-card card-hover p-8 rounded-3xl flex flex-col items-center text-center group"
+        >
+          <div
+            class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-red-600 group-hover:text-white transition-colors border border-red-200"
+          >
             <i class="fa-solid fa-hammer"></i>
           </div>
           <h2 class="text-xl font-bold text-gray-800 mb-3">Grainger Replica</h2>
-          <p class="text-gray-500 text-sm mb-6">High-density table structure with expanding rows.</p>
-          <div class="btn btn-outline btn-error btn-sm rounded-full px-8 mt-auto">View Lab</div>
+          <p class="text-gray-500 text-sm mb-6">
+            High-density table structure with expanding rows.
+          </p>
+          <div
+            class="btn btn-outline btn-error btn-sm rounded-full px-8 mt-auto"
+          >
+            View Lab
+          </div>
         </a>
         <!-- MSC Card -->
-        <a href="./data-table-msc-daisy.html" class="glass-card card-hover p-8 rounded-3xl flex flex-col items-center text-center group border-2 border-msc-blue/20">
-          <div class="w-16 h-16 bg-blue-100 text-msc-blue rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-msc-blue group-hover:text-white transition-colors border border-blue-200">
+        <a
+          href="/data-table/data-table-msc-daisy.html"
+          class="glass-card card-hover p-8 rounded-3xl flex flex-col items-center text-center group border-2 border-msc-blue/20"
+        >
+          <div
+            class="w-16 h-16 bg-blue-100 text-msc-blue rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-msc-blue group-hover:text-white transition-colors border border-blue-200"
+          >
             <i class="fa-solid fa-table-list"></i>
           </div>
           <h2 class="text-xl font-bold text-gray-800 mb-3">MSC DaisyUI</h2>
-          <p class="text-gray-500 text-sm mb-6">Technical View with DaisyUI components.</p>
-          <div class="btn btn-primary btn-sm rounded-full px-8 mt-auto shadow-lg shadow-blue-200">View Lab</div>
+          <p class="text-gray-500 text-sm mb-6">
+            Technical View with DaisyUI components.
+          </p>
+          <div
+            class="btn btn-primary btn-sm rounded-full px-8 mt-auto shadow-lg shadow-blue-200"
+          >
+            View Lab
+          </div>
         </a>
 
         <!-- MSC Plain Card -->
-        <a href="./data-table-msc-plain.html" class="glass-card card-hover p-8 rounded-3xl flex flex-col items-center text-center group">
-          <div class="w-16 h-16 bg-slate-100 text-slate-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-slate-800 group-hover:text-white transition-colors border border-slate-200">
+        <a
+          href="/data-table/data-table-msc-plain.html"
+          class="glass-card card-hover p-8 rounded-3xl flex flex-col items-center text-center group"
+        >
+          <div
+            class="w-16 h-16 bg-slate-100 text-slate-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-slate-800 group-hover:text-white transition-colors border border-slate-200"
+          >
             <i class="fa-solid fa-code"></i>
           </div>
           <h2 class="text-xl font-bold text-gray-800 mb-3">MSC Plain</h2>
-          <p class="text-gray-500 text-sm mb-6">Technical View using custom CSS (No Framework).</p>
-          <div class="btn btn-outline btn-sm rounded-full px-8 mt-auto border-slate-300">View Lab</div>
+          <p class="text-gray-500 text-sm mb-6">
+            Technical View using custom CSS (No Framework).
+          </p>
+          <div
+            class="btn btn-outline btn-sm rounded-full px-8 mt-auto border-slate-300"
+          >
+            View Lab
+          </div>
         </a>
       </div>
 
