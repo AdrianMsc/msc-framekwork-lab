@@ -44,6 +44,25 @@
       };
     </script>
     <style>
+      /* Mobile Drawer Tap & Active Color Overrides */
+      .drawer-side * {
+        -webkit-tap-highlight-color: transparent !important;
+      }
+      .drawer-side .menu li a:active,
+      .drawer-side .menu li summary:active,
+      .drawer-side .menu li a:focus,
+      .drawer-side .menu li summary:focus,
+      .drawer-side .menu li ul li a:active,
+      .drawer-side .menu li ul li a:focus {
+        background-color: transparent !important;
+        color: #1c58ee !important;
+      }
+      .drawer-side .menu li a:hover,
+      .drawer-side .menu li summary:hover {
+        background-color: #f8fafc !important;
+        color: #1c58ee !important;
+      }
+
       .msc-border-bottom {
         border-bottom: 3px solid #1c58ee;
       }
