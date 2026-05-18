@@ -182,7 +182,7 @@
                 </div>
                 <ul
                   tabindex="0"
-                  class="dropdown-content z-310 menu p-2 shadow bg-base-100 rounded-box w-52"
+                  class="dropdown-content z-[310] menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li><a>Supply Chain</a></li>
                   <li><a>Inventory Management</a></li>
@@ -271,7 +271,7 @@
           </div>
         </div>
         <!-- MSC Main Header -->
-        <header class="bg-white border-b border-slate-200 sticky top-0 z-100">
+        <header class="bg-white border-b border-slate-200 sticky top-0 z-[150]">
           <div
             class="max-w-[1800px] mx-auto px-4 md:px-8 h-auto min-h-[5rem] lg:h-20 flex flex-wrap lg:flex-nowrap items-center justify-between gap-x-4 gap-y-2 py-3 lg:py-0"
           >
@@ -1367,7 +1367,7 @@
               </p>
             </div>
 
-            <div id="table-view-container" class="view-container">
+            <div id="table-view-container" class="view-container hidden">
               <!-- Refine Your Search Section (Specific to Table View in this mockup) -->
               <div
                 id="msc-tv-master-group-refinements"
@@ -1715,7 +1715,7 @@
             <!-- List View Container -->
             <div
               id="list-view-container"
-              class="view-container hidden space-y-4"
+              class="view-container space-y-4"
             >
               <!-- List items will be injected here -->
             </div>
@@ -2609,30 +2609,34 @@
           class="drawer-overlay"
         ></label>
         <div
-          class="w-10/12 max-w-sm min-h-full bg-base-200 flex flex-col shadow-2xl"
+          class="w-10/12 max-w-sm min-h-full bg-white flex flex-col shadow-2xl"
         >
           <!-- Drawer Header -->
           <div
-            class="flex justify-between items-center px-6 py-4 bg-primary text-primary-content shrink-0"
+            class="flex justify-between items-center px-6 py-5 bg-white border-b border-slate-100 shrink-0"
           >
-            <span class="text-xl font-bold">Menu</span>
+            <img
+              src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg"
+              alt="MSC Industrial Supply"
+              class="h-7 w-auto"
+            />
             <label
               for="mobile-menu-drawer"
-              class="btn btn-ghost btn-circle btn-sm text-primary-content hover:bg-black/10"
+              class="btn btn-ghost btn-circle btn-sm text-slate-400 hover:text-slate-600 hover:bg-slate-50"
             >
-              <i class="fa-solid fa-xmark text-xl"></i>
+              <i class="fa-solid fa-xmark text-lg"></i>
             </label>
           </div>
 
           <!-- Drawer Content -->
-          <div class="flex-1 overflow-y-auto custom-scrollbar">
+          <div class="flex-1 overflow-y-auto custom-scrollbar bg-slate-50/50">
             <ul class="menu menu-lg p-4 gap-2">
               <!-- Products -->
               <li>
                 <details>
-                  <summary class="font-bold">
+                  <summary class="font-bold text-slate-700">
                     <i
-                      class="fa-solid fa-shop text-primary w-5 text-center"
+                      class="fa-solid fa-shop text-slate-400 w-5 text-center mr-1"
                     ></i>
                     Shop All Products
                   </summary>
@@ -2665,9 +2669,9 @@
               <!-- Solutions -->
               <li>
                 <details>
-                  <summary class="font-bold">
+                  <summary class="font-bold text-slate-700">
                     <i
-                      class="fa-solid fa-lightbulb text-primary w-5 text-center"
+                      class="fa-solid fa-lightbulb text-slate-400 w-5 text-center mr-1"
                     ></i>
                     Solutions
                   </summary>
@@ -2693,9 +2697,9 @@
               <!-- Resources -->
               <li>
                 <details>
-                  <summary class="font-bold">
+                  <summary class="font-bold text-slate-700">
                     <i
-                      class="fa-solid fa-book text-primary w-5 text-center"
+                      class="fa-solid fa-book text-slate-400 w-5 text-center mr-1"
                     ></i>
                     Resources
                   </summary>
@@ -2720,8 +2724,8 @@
               <!-- Deals -->
               <li>
                 <details>
-                  <summary class="font-bold">
-                    <i class="fa-solid fa-tag text-primary w-5 text-center"></i>
+                  <summary class="font-bold text-slate-700">
+                    <i class="fa-solid fa-tag text-slate-400 w-5 text-center mr-1"></i>
                     Deals
                   </summary>
                   <ul>
@@ -2741,9 +2745,9 @@
               <!-- Knowledge Center -->
               <li>
                 <details>
-                  <summary class="font-bold">
+                  <summary class="font-bold text-slate-700">
                     <i
-                      class="fa-solid fa-graduation-cap text-primary w-5 text-center"
+                      class="fa-solid fa-graduation-cap text-slate-400 w-5 text-center mr-1"
                     ></i>
                     Knowledge Center
                   </summary>
@@ -2763,11 +2767,11 @@
           </div>
 
           <!-- Drawer Footer -->
-          <div class="p-6 bg-white border-t border-slate-200 shrink-0">
+          <div class="p-6 bg-white border-t border-slate-100 shrink-0">
             <div
               class="flex items-center gap-4 text-xs font-medium text-slate-500"
             >
-              <i class="fa-solid fa-headset text-xl text-primary"></i>
+              <i class="fa-solid fa-headset text-xl text-slate-400"></i>
               <div>
                 <p>Need help? Call us</p>
                 <a

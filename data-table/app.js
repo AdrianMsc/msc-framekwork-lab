@@ -285,8 +285,8 @@ const initFeatures = () => {
   if (viewButtons.grid)
     viewButtons.grid.addEventListener("click", () => switchView("grid"));
 
-  // Set initial view to Table as requested
-  switchView("table");
+  // Set initial view to List by default
+  switchView("list");
 };
 
 // ==========================
