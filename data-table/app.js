@@ -196,6 +196,143 @@ function initTable(tableElement) {
 }
 
 // ==========================
+// SEARCH AUTOCOMPLETE
+// ==========================
+
+const initSearch = () => {
+  const searchInput = document.getElementById("main-search-input");
+  const overlay = document.getElementById("search-history-overlay");
+  const recentSection = document.getElementById("section_recentSearches");
+  const trendingSection = document.getElementById("trendingSearchesSection");
+  const categoriesSection = document.getElementById("popularCategoriesSection");
+  const resultsContainer = document.getElementById("searchResultsContainer");
+  
+  const suggestionsList = document.getElementById("searchSuggestionsList");
+  const matchingCatList = document.getElementById("matchingCategoriesList");
+  const recommendationsList = document.getElementById("searchRecommendationsList");
+
+  if (!searchInput || !overlay) return;
+
+  const mockData = {
+    "hammer": {
+      suggestions: [
+        "dead blow hammers",
+        "trade hammers",
+        "hammers",
+        "welders hammers"
+      ],
+      categories: [
+        "Rotary Hammer Drill Bits",
+        "Hammer & Chipper Replacement Chisels",
+        "Sledge Hammers"
+      ],
+      recommendations: [
+        {
+          id: "29165982",
+          title: 'Bon Tool - Dead Blow Hammer: 3 lb Head, 4" Face Dia, Rubber Head - 14" OAL, Rubber Handle',
+          img: "https://cdn.mscdirect.com/global/images/ProductImages/2916598-21.jpg"
+        },
+        {
+          id: "48783229",
+          title: 'Arm & Hammer - Air Freshener: Spray, 7 oz Aerosol Can - Light & Pleasant Scent',
+          img: "https://cdn.mscdirect.com/global/images/ProductImages/4878322-21.jpg"
+        },
+        {
+          id: "19923101",
+          title: 'Bon Tool - Dead Blow Hammer: 4 lb Head, 2" Face Dia, Rubber Head - 14-1/2" OAL, Rubber Handle',
+          img: "https://cdn.mscdirect.com/global/images/ProductImages/1992310-21.jpg"
+        }
+      ]
+    }
+  };
+
+  const highlightMatch = (text, query) => {
+    if (!query) return `<b>${text}</b>`;
+    const lowerText = text.toLowerCase();
+    const lowerQuery = query.toLowerCase();
+    const index = lowerText.indexOf(lowerQuery);
+    if (index === -1) return `<b>${text}</b>`;
+    
+    const before = text.substring(0, index);
+    const match = text.substring(index, index + query.length);
+    const after = text.substring(index + query.length);
+    
+    return `${before ? `<b>${before}</b>` : ''}${match}${after ? `<b>${after}</b>` : ''}`;
+  };
+
+  searchInput.addEventListener("focus", () => {
+    overlay.classList.remove("hidden");
+    searchInput.dispatchEvent(new Event("input"));
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!searchInput.contains(e.target) && !overlay.contains(e.target)) {
+      overlay.classList.add("hidden");
+    }
+  });
+
+  searchInput.addEventListener("input", (e) => {
+    const query = e.target.value.trim().toLowerCase();
+    
+    if (query.length === 0) {
+      recentSection.classList.remove("hidden");
+      categoriesSection.classList.remove("hidden");
+      if(trendingSection) trendingSection.classList.add("hidden");
+      resultsContainer.classList.add("hidden");
+      return;
+    }
+
+    // Hide default sections
+    recentSection.classList.add("hidden");
+    categoriesSection.classList.add("hidden");
+    if(trendingSection) trendingSection.classList.add("hidden");
+    
+    // Show results
+    resultsContainer.classList.remove("hidden");
+    
+    // Fetch mock data (default to hammer data if query includes hammer, else generic)
+    const data = query.includes("hammer") ? mockData["hammer"] : {
+      suggestions: [`${query} tools`, `${query} accessories`],
+      categories: [`${query} Kits`, `${query} Components`],
+      recommendations: [
+         {
+          id: "12345678",
+          title: `Generic Product matching "${query}"`,
+          img: "https://cdn.mscdirect.com/global/images/ProductImages/8174838-21.jpg"
+        }
+      ]
+    };
+
+    // Render Suggestions
+    suggestionsList.innerHTML = data.suggestions.map(s => `
+      <li class="px-6 py-2 cursor-pointer hover:bg-slate-50 text-[15px] text-slate-700 transition-colors">
+        ${highlightMatch(s, query)}
+      </li>
+    `).join("");
+
+    // Render Categories
+    matchingCatList.innerHTML = data.categories.map(c => `
+      <li class="cursor-pointer hover:underline text-[15px] font-bold text-slate-700 transition-colors">
+        ${c}
+      </li>
+    `).join("");
+
+    // Render Recommendations
+    recommendationsList.innerHTML = data.recommendations.map(r => `
+      <div class="bg-white rounded-xl p-3 flex gap-4 items-center shadow-sm cursor-pointer hover:shadow-md transition-shadow border border-slate-100">
+        <div class="h-16 w-16 flex-shrink-0 flex items-center justify-center">
+          <img src="${r.img}" alt="${r.title}" onerror="this.src='https://cdn.mscdirect.com/global/images/ProductImages/8174838-21.jpg'" class="max-h-full max-w-full object-contain mix-blend-multiply" />
+        </div>
+        <div class="flex flex-col min-w-0">
+          <span class="text-xs font-black text-slate-900 mb-1">${r.id}</span>
+          <span class="text-[13px] text-slate-700 leading-snug">${r.title}</span>
+        </div>
+      </div>
+    `).join("");
+  });
+};
+
+// ==========================
 // FEATURE INITIALIZATION
 // ==========================
 
@@ -715,6 +852,7 @@ const renderFractionalGrid = () => {
 document.addEventListener("DOMContentLoaded", () => {
   renderFractionalTable();
   // Grid and List will be rendered on demand or initially via switchView
+  initSearch();
   initFeatures();
   updateCartUI();
 });

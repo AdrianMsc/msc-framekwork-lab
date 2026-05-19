@@ -865,6 +865,30 @@
                     </li>
                   </ul>
                 </div>
+                
+                <!-- Search Results Container (Hidden by Default) -->
+                <div id="searchResultsContainer" class="hidden flex flex-col md:flex-row w-full">
+                  <!-- Left Column: Suggestions & Categories -->
+                  <div class="w-full md:w-1/2 flex flex-col py-5">
+                    <ul id="searchSuggestionsList" class="flex flex-col mb-8">
+                      <!-- Populated by JS -->
+                    </ul>
+                    <div id="matchingCategoriesSection" class="px-6">
+                      <p class="text-slate-500 text-[13px] mb-3">Matching Categories</p>
+                      <ul id="matchingCategoriesList" class="flex flex-col gap-4">
+                        <!-- Populated by JS -->
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <!-- Right Column: Recommendations -->
+                  <div class="w-full md:w-1/2 bg-[#f8fafc] p-6 border-l border-slate-100">
+                    <p class="text-slate-400 text-[13px] mb-4">Recommendations</p>
+                    <div id="searchRecommendationsList" class="flex flex-col gap-3">
+                      <!-- Populated by JS -->
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
