@@ -230,17 +230,17 @@ const initSearch = () => {
         {
           id: "29165982",
           title: 'Bon Tool - Dead Blow Hammer: 3 lb Head, 4" Face Dia, Rubber Head - 14" OAL, Rubber Handle',
-          img: "https://cdn.mscdirect.com/global/images/ProductImages/2916598-21.jpg"
+          img: "https://cdn.mscdirect.com/global/images/ProductImages/8596653AI-24.jpg"
         },
         {
           id: "48783229",
           title: 'Arm & Hammer - Air Freshener: Spray, 7 oz Aerosol Can - Light & Pleasant Scent',
-          img: "https://cdn.mscdirect.com/global/images/ProductImages/4878322-21.jpg"
+          img: "https://cdn.mscdirect.com/global/images/ProductImages/0650578-21.jpg"
         },
         {
           id: "19923101",
           title: 'Bon Tool - Dead Blow Hammer: 4 lb Head, 2" Face Dia, Rubber Head - 14-1/2" OAL, Rubber Handle',
-          img: "https://cdn.mscdirect.com/global/images/ProductImages/1992310-21.jpg"
+          img: "https://cdn.mscdirect.com/global/images/ProductImages/8937426AA-24.jpg"
         }
       ]
     }
@@ -271,6 +271,19 @@ const initSearch = () => {
     }
   });
 
+  if (recentSection) {
+    const recentItems = recentSection.querySelectorAll('li:not(:first-child)');
+    recentItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        const text = e.target.textContent.trim();
+        searchInput.value = text;
+        // Trigger input event to show results
+        searchInput.dispatchEvent(new Event("input"));
+        searchInput.focus();
+      });
+    });
+  }
+
   searchInput.addEventListener("input", (e) => {
     const query = e.target.value.trim().toLowerCase();
     
@@ -298,7 +311,12 @@ const initSearch = () => {
          {
           id: "12345678",
           title: `Generic Product matching "${query}"`,
-          img: "https://cdn.mscdirect.com/global/images/ProductImages/8174838-21.jpg"
+          img: "https://cdn.mscdirect.com/global/images/ProductImages/0335654-24.jpg"
+        },
+        {
+          id: "98765432",
+          title: `Premium ${query} Accessory`,
+          img: "https://cdn.mscdirect.com/global/images/ProductImages/0652912AA-24.jpg"
         }
       ]
     };
