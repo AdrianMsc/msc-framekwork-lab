@@ -2823,182 +2823,154 @@
           aria-label="close sidebar"
           class="drawer-overlay"
         ></label>
-        <div
-          class="w-10/12 max-w-sm min-h-full bg-white flex flex-col shadow-2xl"
-        >
-          <!-- Drawer Header -->
-          <div
-            class="flex justify-between items-center px-6 py-5 bg-white border-b border-slate-100 shrink-0"
-          >
-            <img
-              src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg"
-              alt="MSC Industrial Supply"
-              class="h-7 w-auto"
-            />
-            <label
-              for="mobile-menu-drawer"
-              class="btn btn-ghost btn-circle btn-sm text-slate-400 hover:text-slate-600 hover:bg-slate-50"
-            >
-              <i class="fa-solid fa-xmark text-lg"></i>
-            </label>
-          </div>
+        <div class="w-10/12 max-w-sm min-h-full bg-slate-100 shadow-2xl relative overflow-hidden flex flex-col">
+          
+          <!-- MAIN MENU PANEL -->
+          <div id="main-menu-panel" class="absolute inset-0 flex flex-col bg-slate-100 transition-transform duration-300 ease-in-out transform translate-x-0 z-10">
+            <!-- Header -->
+            <div class="flex justify-between items-center px-6 py-5 bg-white border-b border-slate-100 shrink-0">
+              <img
+                src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg"
+                alt="MSC Industrial Supply"
+                class="h-7 w-auto"
+              />
+              <label for="mobile-menu-drawer" class="btn btn-ghost btn-circle btn-sm text-slate-400 hover:text-slate-600 hover:bg-slate-50 cursor-pointer">
+                <i class="fa-solid fa-xmark text-lg"></i>
+              </label>
+            </div>
+            
+            <!-- Content -->
+            <div class="flex-1 overflow-y-auto custom-scrollbar p-4">
+              <!-- Shop All Products -->
+              <div class="bg-white rounded border border-[#2563eb] p-4 flex justify-between items-center cursor-pointer shadow-sm mb-6">
+                <span class="font-bold text-[#2563eb]">Shop All Products</span>
+                <i class="fa-solid fa-chevron-right text-[#2563eb]"></i>
+              </div>
+              
+              <!-- Category Links -->
+              <div class="space-y-2">
+                <div class="bg-white rounded p-4 flex justify-between items-center cursor-pointer shadow-sm" onclick="openSubmenu('solutions-menu')">
+                  <span class="text-slate-700">Solutions</span>
+                  <i class="fa-solid fa-chevron-right text-slate-400 text-sm"></i>
+                </div>
+                <div class="bg-white rounded p-4 flex justify-between items-center cursor-pointer shadow-sm" onclick="openSubmenu('resources-menu')">
+                  <span class="text-slate-700">Resources</span>
+                  <i class="fa-solid fa-chevron-right text-slate-400 text-sm"></i>
+                </div>
+                <div class="bg-white rounded p-4 flex justify-between items-center cursor-pointer shadow-sm" onclick="openSubmenu('deals-menu')">
+                  <span class="text-slate-700">Deals</span>
+                  <i class="fa-solid fa-chevron-right text-slate-400 text-sm"></i>
+                </div>
+                <div class="bg-white rounded p-4 flex justify-between items-center cursor-pointer shadow-sm" onclick="openSubmenu('knowledge-menu')">
+                  <span class="text-slate-700">Knowledge Center</span>
+                  <i class="fa-solid fa-chevron-right text-slate-400 text-sm"></i>
+                </div>
+              </div>
+            </div>
 
-          <!-- Drawer Content -->
-          <div class="flex-1 overflow-y-auto custom-scrollbar bg-slate-50/50">
-            <ul class="menu menu-lg p-4 gap-2">
-              <!-- Products -->
-              <li>
-                <details>
-                  <summary class="font-bold text-slate-700">
-                    <i
-                      class="fa-solid fa-shop text-slate-400 w-5 text-center mr-1"
-                    ></i>
-                    Shop All Products
-                  </summary>
-                  <ul>
-                    <li>
-                      <a
-                        href="/ProductsHomeView"
-                        class="font-bold text-primary italic"
-                        >All Product Categories</a
-                      >
-                    </li>
-                    <li><a href="/browse/Abrasives">Abrasives</a></li>
-                    <li>
-                      <a href="/browse/Clamping-Workholding-Positioning"
-                        >Clamping, Workholding & Positioning</a
-                      >
-                    </li>
-                    <li><a href="/browse/Fasteners">Fasteners</a></li>
-                    <li>
-                      <a href="/browse/Fleet-Maintenance">Fleet Maintenance</a>
-                    </li>
-                    <li><a href="/browse/HVAC">HVAC</a></li>
-                    <li><a href="/browse/Hand-Tools">Hand Tools</a></li>
-                    <li><a href="/browse/Hardware">Hardware</a></li>
-                    <li><a href="/browse/Holemaking">Holemaking</a></li>
-                  </ul>
-                </details>
-              </li>
-
-              <!-- Solutions -->
-              <li>
-                <details>
-                  <summary class="font-bold text-slate-700">
-                    <i
-                      class="fa-solid fa-lightbulb text-slate-400 w-5 text-center mr-1"
-                    ></i>
-                    Solutions
-                  </summary>
-                  <ul>
-                    <li>
-                      <a href="/solutions" class="font-bold">All Solutions</a>
-                    </li>
-                    <li><a href="/solutions/eprocurement">eProcurement</a></li>
-                    <li>
-                      <a href="/solutions/managed-inventory"
-                        >Managed Inventory</a
-                      >
-                    </li>
-                    <li>
-                      <a href="/solutions/metalworking-innovations"
-                        >Metalworking Innovations</a
-                      >
-                    </li>
-                  </ul>
-                </details>
-              </li>
-
-              <!-- Resources -->
-              <li>
-                <details>
-                  <summary class="font-bold text-slate-700">
-                    <i
-                      class="fa-solid fa-book text-slate-400 w-5 text-center mr-1"
-                    ></i>
-                    Resources
-                  </summary>
-                  <ul>
-                    <li>
-                      <a href="/resources/resources-home" class="font-bold"
-                        >All Resources</a
-                      >
-                    </li>
-                    <li>
-                      <a href="/ui/identity/locateaccount"
-                        >Access Your Account</a
-                      >
-                    </li>
-                    <li>
-                      <a href="/resources/buying-guides">Buying Guides</a>
-                    </li>
-                  </ul>
-                </details>
-              </li>
-
-              <!-- Deals -->
-              <li>
-                <details>
-                  <summary class="font-bold text-slate-700">
-                    <i
-                      class="fa-solid fa-tag text-slate-400 w-5 text-center mr-1"
-                    ></i>
-                    Deals
-                  </summary>
-                  <ul>
-                    <li>
-                      <a
-                        href="/special-offers/special-offers-home"
-                        class="font-bold"
-                        >All Deals</a
-                      >
-                    </li>
-                    <li><a href="/r/web-specials">Web Specials</a></li>
-                    <li><a href="/r/clearance-specials">Clearance</a></li>
-                  </ul>
-                </details>
-              </li>
-
-              <!-- Knowledge Center -->
-              <li>
-                <details>
-                  <summary class="font-bold text-slate-700">
-                    <i
-                      class="fa-solid fa-graduation-cap text-slate-400 w-5 text-center mr-1"
-                    ></i>
-                    Knowledge Center
-                  </summary>
-                  <ul>
-                    <li>
-                      <a href="/knowledge-center" class="font-bold"
-                        >All Knowledge Center</a
-                      >
-                    </li>
-                    <li>
-                      <a href="/knowledge-center/articles">Article Library</a>
-                    </li>
-                  </ul>
-                </details>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Drawer Footer -->
-          <div class="p-6 bg-white border-t border-slate-100 shrink-0">
-            <div
-              class="flex items-center gap-4 text-xs font-medium text-slate-500"
-            >
-              <i class="fa-solid fa-headset text-xl text-slate-400"></i>
-              <div>
-                <p>Need help? Call us</p>
-                <a
-                  href="tel:1-800-645-7270"
-                  class="text-primary font-bold text-lg leading-none"
-                  >1-800-645-7270</a
-                >
+            <!-- Footer -->
+            <div class="px-4 py-6 shrink-0 bg-slate-100">
+              <div class="flex flex-wrap items-center gap-1 text-sm text-slate-800">
+                <span>Need help? Call us</span>
+                <a href="tel:1-800-645-7270" class="text-[#2563eb] font-bold">1-800-645-7270</a>
               </div>
             </div>
           </div>
+
+          <!-- SOLUTIONS SUBMENU PANEL -->
+          <div id="solutions-menu" class="absolute inset-0 flex flex-col bg-white transition-transform duration-300 ease-in-out transform translate-x-full z-20">
+            <!-- Submenu Header -->
+            <div class="flex justify-between items-center px-4 py-4 bg-slate-100 border-b border-slate-200 shrink-0">
+              <button onclick="closeSubmenu('solutions-menu')" class="flex items-center text-slate-800 hover:text-[#2563eb]">
+                <i class="fa-solid fa-chevron-left mr-2 text-slate-500"></i>
+                <span>Back to main menu</span>
+              </button>
+              <label for="mobile-menu-drawer" class="cursor-pointer text-slate-500 hover:text-slate-800">
+                <i class="fa-solid fa-xmark text-lg"></i>
+              </label>
+            </div>
+            
+            <!-- Submenu Content -->
+            <div class="flex-1 overflow-y-auto custom-scrollbar bg-slate-100">
+              <div class="bg-blue-50 px-4 py-3 flex justify-between items-center">
+                <span class="font-bold text-[#2563eb]">All Solutions</span>
+                <a href="/solutions" class="text-sm font-bold text-slate-800 underline hover:text-[#2563eb]">See all</a>
+              </div>
+              
+              <ul class="flex flex-col text-slate-700 bg-white border-b border-slate-200">
+                <li><a href="#" class="block px-4 py-3 hover:bg-slate-50 border-b border-slate-100">eProcurement</a></li>
+                <li><a href="#" class="block px-4 py-3 hover:bg-slate-50 border-b border-slate-100">Managed Inventory</a></li>
+                <li class="border-b border-slate-100">
+                  <a href="#" class="block px-4 py-3 hover:bg-slate-50">Metalworking Innovations</a>
+                  <ul class="flex flex-col pl-4 text-sm text-slate-700">
+                    <li><a href="#" class="block px-4 py-2 hover:bg-slate-50">Accupro ST Series</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-slate-50">MachineMax Pro</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-slate-50">MillMax</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-slate-50">Techmate</a></li>
+                  </ul>
+                </li>
+                <li><a href="#" class="block px-4 py-3 hover:bg-slate-50 border-b border-slate-100">Supply Chain Services</a></li>
+                <li><a href="#" class="block px-4 py-3 hover:bg-slate-50 border-b border-slate-100">MRO GO</a></li>
+                <li><a href="#" class="block px-4 py-3 hover:bg-slate-50 border-b border-slate-100">Safety Services</a></li>
+                <li><a href="#" class="block px-4 py-3 hover:bg-slate-50">ResaleLink</a></li>
+              </ul>
+              
+              <!-- Industries Section -->
+              <div class="bg-slate-100 pb-10">
+                <div class="px-4 py-3 font-bold text-slate-800">Industries</div>
+                <ul class="flex flex-col text-slate-700">
+                  <li><a href="#" class="block px-4 py-3 hover:bg-slate-200">Machinery</a></li>
+                  <li><a href="#" class="block px-4 py-3 hover:bg-slate-200">Automotive</a></li>
+                  <li><a href="#" class="block px-4 py-3 hover:bg-slate-200">Medical</a></li>
+                  <li><a href="#" class="block px-4 py-3 hover:bg-slate-200">Public Sector</a></li>
+                  <li><a href="#" class="block px-4 py-3 hover:bg-slate-200">Aerospace</a></li>
+                  <li><a href="#" class="block px-4 py-3 hover:bg-slate-200">Education</a></li>
+                  <li><a href="#" class="block px-4 py-3 hover:bg-slate-200">National Accounts</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dummy panels for other options -->
+          <div id="resources-menu" class="absolute inset-0 flex flex-col bg-white transition-transform duration-300 ease-in-out transform translate-x-full z-20">
+            <div class="flex justify-between items-center px-4 py-4 bg-slate-100 border-b border-slate-200 shrink-0">
+              <button onclick="closeSubmenu('resources-menu')" class="flex items-center text-slate-800">
+                <i class="fa-solid fa-chevron-left mr-2 text-slate-500"></i>
+                <span>Back to main menu</span>
+              </button>
+              <label for="mobile-menu-drawer" class="cursor-pointer text-slate-500 hover:text-slate-800">
+                <i class="fa-solid fa-xmark text-lg"></i>
+              </label>
+            </div>
+            <div class="flex-1 overflow-y-auto p-4">Resources Content...</div>
+          </div>
+          
+          <div id="deals-menu" class="absolute inset-0 flex flex-col bg-white transition-transform duration-300 ease-in-out transform translate-x-full z-20">
+            <div class="flex justify-between items-center px-4 py-4 bg-slate-100 border-b border-slate-200 shrink-0">
+              <button onclick="closeSubmenu('deals-menu')" class="flex items-center text-slate-800">
+                <i class="fa-solid fa-chevron-left mr-2 text-slate-500"></i>
+                <span>Back to main menu</span>
+              </button>
+              <label for="mobile-menu-drawer" class="cursor-pointer text-slate-500 hover:text-slate-800">
+                <i class="fa-solid fa-xmark text-lg"></i>
+              </label>
+            </div>
+            <div class="flex-1 overflow-y-auto p-4">Deals Content...</div>
+          </div>
+          
+          <div id="knowledge-menu" class="absolute inset-0 flex flex-col bg-white transition-transform duration-300 ease-in-out transform translate-x-full z-20">
+            <div class="flex justify-between items-center px-4 py-4 bg-slate-100 border-b border-slate-200 shrink-0">
+              <button onclick="closeSubmenu('knowledge-menu')" class="flex items-center text-slate-800">
+                <i class="fa-solid fa-chevron-left mr-2 text-slate-500"></i>
+                <span>Back to main menu</span>
+              </button>
+              <label for="mobile-menu-drawer" class="cursor-pointer text-slate-500 hover:text-slate-800">
+                <i class="fa-solid fa-xmark text-lg"></i>
+              </label>
+            </div>
+            <div class="flex-1 overflow-y-auto p-4">Knowledge Center Content...</div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -3040,6 +3012,37 @@
           }, 200);
         });
       }
+
+      // Drawer Submenu Navigation
+      function openSubmenu(menuId) {
+        const mainMenu = document.getElementById("main-menu-panel");
+        const submenu = document.getElementById(menuId);
+        
+        if (mainMenu && submenu) {
+          mainMenu.classList.remove("translate-x-0");
+          mainMenu.classList.add("-translate-x-full");
+          
+          submenu.classList.remove("translate-x-full");
+          submenu.classList.add("translate-x-0");
+        }
+      }
+
+      function closeSubmenu(menuId) {
+        const mainMenu = document.getElementById("main-menu-panel");
+        const submenu = document.getElementById(menuId);
+        
+        if (mainMenu && submenu) {
+          submenu.classList.remove("translate-x-0");
+          submenu.classList.add("translate-x-full");
+          
+          mainMenu.classList.remove("-translate-x-full");
+          mainMenu.classList.add("translate-x-0");
+        }
+      }
+      
+      // Make functions available globally so onclick attributes can use them
+      window.openSubmenu = openSubmenu;
+      window.closeSubmenu = closeSubmenu;
     </script>
   </body>
 </html>
