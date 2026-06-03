@@ -18,139 +18,7 @@
     />
 
     <link rel="stylesheet" href="../dist/output.css" />
-    <style>
-      /* Mobile Drawer Tap & Active Color Overrides */
-      .drawer-side * {
-        -webkit-tap-highlight-color: transparent !important;
-      }
-      .drawer-side .menu li a:active,
-      .drawer-side .menu li summary:active,
-      .drawer-side .menu li a:focus,
-      .drawer-side .menu li summary:focus,
-      .drawer-side .menu li ul li a:active,
-      .drawer-side .menu li ul li a:focus {
-        background-color: transparent !important;
-        color: #1c58ee !important;
-      }
-      .drawer-side .menu li a:hover,
-      .drawer-side .menu li summary:hover {
-        background-color: #f8fafc !important;
-        color: #1c58ee !important;
-      }
 
-      .msc-border-bottom {
-        border-bottom: 3px solid #1c58ee;
-      }
-      .top-bar {
-        background-color: #f8fafc;
-        font-size: 13px;
-      }
-      /* Force icons to blue color overriding any framework defaults */
-      .navbar i.fa-solid,
-      .navbar i.fa-regular,
-      .navbar i.fa-brands {
-        color: #1c58ee !important;
-      }
-      /* Allow icons inside buttons to inherit the button's text color */
-      .navbar .btn i {
-        color: inherit !important;
-      }
-
-      /* Sticky Toolbar Stuck State */
-      #sticky-toolbar.is-stuck {
-        background-color: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid #e2e8f0;
-        box-shadow:
-          0 4px 6px -1px rgb(0 0 0 / 0.05),
-          0 2px 4px -2px rgb(0 0 0 / 0.1);
-        padding-top: 0.75rem;
-        padding-bottom: 0.75rem;
-      }
-
-      /* Table to Grid on Mobile */
-      @media (max-width: 1024px) {
-        #table-view-container .overflow-x-auto {
-          overflow-x: visible;
-        }
-        #msc-tv-table- {
-          display: grid !important;
-          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-          gap: 0 !important;
-          border: none !important;
-          background: #e2e8f0; /* Slate 200 for the grid lines effect if gap is 0, but user asked for borders */
-        }
-        #msc-tv-table- thead {
-          display: none !important;
-        }
-        #msc-tv-table- tbody {
-          display: contents !important;
-        }
-        #msc-tv-table- tr.main-row {
-          display: none !important;
-        }
-        #msc-tv-table- tr.details-row {
-          display: block !important;
-          border: 0.5px solid #e2e8f0 !important;
-          margin: 0 !important;
-          background: white !important;
-        }
-        #msc-tv-table- tr.details-row td {
-          display: block !important;
-          width: 100% !important;
-          border: none !important;
-          padding: 0 !important;
-        }
-        /* Tighten internal content */
-        #msc-tv-table- .details-row .flex-wrap {
-          flex-direction: column !important;
-          gap: 0 !important;
-        }
-        #msc-tv-table- .details-row .h-40.w-40 {
-          width: 100% !important;
-          height: auto !important;
-          aspect-ratio: 1/1;
-          padding: 0.5rem !important;
-        }
-        #msc-tv-table- .details-row .w-full.md:w-64 {
-          width: 100% !important;
-          border: none !important;
-          border-radius: 0 !important;
-          box-shadow: none !important;
-          padding: 0.5rem !important;
-        }
-        #msc-tv-table- .details-row .p-2.md:p-4 {
-          padding: 0.5rem !important;
-          margin: 0 !important;
-        }
-        #msc-tv-table- .details-row h3 {
-          font-size: 0.875rem !important;
-          line-height: 1.25 !important;
-        }
-        #msc-tv-table- .details-row p {
-          font-size: 0.75rem !important;
-        }
-        #msc-tv-table- .details-row .mt-4,
-        #msc-tv-table- .details-row .mt-6 {
-          margin-top: 0.5rem !important;
-        }
-      }
-
-      .custom-scrollbar::-webkit-scrollbar {
-        width: 6px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
-        border-radius: 10px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: #94a3b8;
-      }
-    </style>
   </head>
 
   <body class="bg-slate-50 min-h-screen font-sans text-slate-800">
@@ -179,7 +47,7 @@
                   tabindex="0"
                   class="dropdown-content z-[310] menu p-2 shadow bg-base-100 rounded-box w-72 overflow-y-auto"
                 >
-                  <li class="bg-blue-50 rounded-box">
+                  <li class="bg-primary/10 rounded-box">
                     <a
                       href="/solutions"
                       class="flex items-center justify-between font-bold"
@@ -264,7 +132,7 @@
                   tabindex="0"
                   class="dropdown-content z-[310] menu p-2 shadow bg-base-100 rounded-box w-72"
                 >
-                  <li class="bg-blue-50 rounded-box">
+                  <li class="bg-primary/10 rounded-box">
                     <a
                       href="/resources/resources-home"
                       class="flex items-center justify-between font-bold"
@@ -321,7 +189,7 @@
                   tabindex="0"
                   class="dropdown-content z-[310] menu p-2 shadow bg-base-100 rounded-box w-56"
                 >
-                  <li class="bg-blue-50 rounded-box">
+                  <li class="bg-primary/10 rounded-box">
                     <a
                       href="/special-offers/special-offers-home"
                       class="flex items-center justify-between font-bold"
@@ -355,7 +223,7 @@
                   tabindex="0"
                   class="dropdown-content z-[310] menu p-2 shadow bg-base-100 rounded-box w-64"
                 >
-                  <li class="bg-blue-50 rounded-box">
+                  <li class="bg-primary/10 rounded-box">
                     <a
                       href="/knowledge-center"
                       class="flex items-center justify-between font-bold"
@@ -399,7 +267,7 @@
                   tabindex="0"
                   class="dropdown-content z-[310] menu p-2 shadow bg-base-100 rounded-box w-72"
                 >
-                  <li class="bg-blue-50 rounded-box">
+                  <li class="bg-primary/10 rounded-box">
                     <a
                       href="/ui/myaccount"
                       class="flex items-center justify-between font-bold"
@@ -826,7 +694,7 @@
                   placeholder="Search..."
                 />
                 <button
-                  class="btn btn-primary join-item px-6 text-white border-none bg-msc-blue hover:bg-blue-700 h-11 min-h-0 rounded-r-lg"
+                  class="btn btn-primary join-item px-6 text-white border-none bg-msc-blue hover:bg-[#1143c7] h-11 min-h-0 rounded-r-lg"
                 >
                   <i class="fa-solid fa-magnifying-glass text-lg"></i>
                 </button>
@@ -840,7 +708,7 @@
               >
                 <ul
                   id="section_recentSearches"
-                  class="flex flex-col bg-white custom-scrollbar max-h-[350px] overflow-y-auto pt-5"
+                  class="flex flex-col bg-white [&::-webkit-scrollbar]:w-[6px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-400 max-h-[350px] overflow-y-auto pt-5"
                 >
                   <li
                     class="border-b border-slate-100 flex flex-row justify-between bg-white mx-6 mb-2 pb-1"
@@ -881,7 +749,7 @@
 
                 <ul
                   id="trendingSearchesSection"
-                  class="flex flex-col bg-white custom-scrollbar max-h-[350px] overflow-y-auto pt-5 hidden"
+                  class="flex flex-col bg-white [&::-webkit-scrollbar]:w-[6px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-400 max-h-[350px] overflow-y-auto pt-5 hidden"
                 >
                   <div
                     class="border-b border-slate-100 flex flex-row justify-between bg-white mx-6 mb-2 pb-1"
@@ -1179,7 +1047,7 @@
         <!-- Sticky Toolbar Section -->
         <div
           id="sticky-toolbar"
-          class="sticky top-20 md:top-20 z-50 transition-all duration-300 py-2"
+          class="sticky top-20 md:top-20 z-50 transition-all duration-300 py-2 [&.is-stuck]:bg-white/95 [&.is-stuck]:backdrop-blur-md [&.is-stuck]:border-b [&.is-stuck]:border-slate-200 [&.is-stuck]:shadow-md [&.is-stuck]:py-3"
         >
           <div class="w-full max-w-[1800px] mx-auto px-4 md:px-8">
             <div
@@ -1299,7 +1167,7 @@
                   </div>
                   <div class="flex flex-wrap gap-2">
                     <span
-                      class="badge badge-md bg-blue-50 text-primary border-blue-100 font-bold px-3 py-4 gap-2"
+                      class="badge badge-md bg-primary/10 text-primary border-primary/20 font-bold px-3 py-4 gap-2"
                     >
                       <i
                         class="fa-solid fa-xmark text-[10px] cursor-pointer"
@@ -1556,7 +1424,7 @@
                 </div>
 
                 <button
-                  class="btn btn-primary w-full mt-8 text-white font-bold rounded-2xl shadow-lg shadow-blue-100"
+                  class="btn btn-primary w-full mt-8 text-white font-bold rounded-2xl shadow-lg shadow-primary/20"
                 >
                   Apply Refinements
                 </button>
@@ -1727,10 +1595,10 @@
               <div
                 class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden"
               >
-                <div class="overflow-x-auto md:p-4">
+                <div class="overflow-x-auto md:p-4 max-[1024px]:!overflow-x-visible">
                   <table
                     id="msc-tv-table-"
-                    class="table table-xs w-full text-slate-700 border-collapse"
+                    class="table table-xs w-full text-slate-700 border-collapse max-[1024px]:!grid max-[1024px]:!grid-cols-2 max-[1024px]:!gap-0 max-[1024px]:!border-none max-[1024px]:bg-[#e2e8f0] max-[1024px]:[&_thead]:!hidden max-[1024px]:[&_tbody]:!contents max-[1024px]:[&_tr.main-row]:!hidden max-[1024px]:[&_tr.details-row]:!block max-[1024px]:[&_tr.details-row]:!border-[0.5px] max-[1024px]:[&_tr.details-row]:!border-[#e2e8f0] max-[1024px]:[&_tr.details-row]:!m-0 max-[1024px]:[&_tr.details-row]:!bg-white max-[1024px]:[&_tr.details-row_td]:!block max-[1024px]:[&_tr.details-row_td]:!w-full max-[1024px]:[&_tr.details-row_td]:!border-none max-[1024px]:[&_tr.details-row_td]:!p-0 max-[1024px]:[&_tr.details-row_.flex-wrap]:!flex-col max-[1024px]:[&_tr.details-row_.flex-wrap]:!gap-0 max-[1024px]:[&_tr.details-row_.h-40.w-40]:!w-full max-[1024px]:[&_tr.details-row_.h-40.w-40]:!h-auto max-[1024px]:[&_tr.details-row_.h-40.w-40]:aspect-square max-[1024px]:[&_tr.details-row_.h-40.w-40]:!p-2 max-[1024px]:[&_tr.details-row_.w-full.md\:w-64]:!w-full max-[1024px]:[&_tr.details-row_.w-full.md\:w-64]:!border-none max-[1024px]:[&_tr.details-row_.w-full.md\:w-64]:!rounded-none max-[1024px]:[&_tr.details-row_.w-full.md\:w-64]:!shadow-none max-[1024px]:[&_tr.details-row_.w-full.md\:w-64]:!p-2 max-[1024px]:[&_tr.details-row_.p-2.md\:p-4]:!p-2 max-[1024px]:[&_tr.details-row_.p-2.md\:p-4]:!m-0 max-[1024px]:[&_tr.details-row_h3]:!text-sm max-[1024px]:[&_tr.details-row_h3]:!leading-tight max-[1024px]:[&_tr.details-row_p]:!text-xs max-[1024px]:[&_tr.details-row_.mt-4]:!mt-2 max-[1024px]:[&_tr.details-row_.mt-6]:!mt-2"
                   >
                     <thead>
                       <tr class="bg-white border-b-0">
@@ -1980,7 +1848,7 @@
                 class="flex flex-col items-center gap-2 group cursor-pointer"
               >
                 <div
-                  class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm"
+                  class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm"
                 >
                   <i class="fa-solid fa-comments text-xl"></i>
                 </div>
@@ -2762,7 +2630,7 @@
                 </button>
                 <button
                   onclick="validateEmailSubscribe('email_address')"
-                  class="btn btn-primary flex-1 rounded-2xl font-black text-white shadow-lg shadow-blue-200"
+                  class="btn btn-primary flex-1 rounded-2xl font-black text-white shadow-lg shadow-primary/30"
                 >
                   Subscribe
                 </button>
@@ -2817,7 +2685,7 @@
       </div>
       <!-- Close drawer-content -->
 
-      <div class="drawer-side z-[200]">
+      <div class="drawer-side z-[200] [&_*]:[tap-highlight-color:transparent] [&_.menu_li_a:active]:!bg-transparent [&_.menu_li_a:active]:!text-primary [&_.menu_li_summary:active]:!bg-transparent [&_.menu_li_summary:active]:!text-primary [&_.menu_li_a:focus]:!bg-transparent [&_.menu_li_a:focus]:!text-primary [&_.menu_li_summary:focus]:!bg-transparent [&_.menu_li_summary:focus]:!text-primary [&_.menu_li_ul_li_a:active]:!bg-transparent [&_.menu_li_ul_li_a:active]:!text-primary [&_.menu_li_ul_li_a:focus]:!bg-transparent [&_.menu_li_ul_li_a:focus]:!text-primary [&_.menu_li_a:hover]:!bg-[#f8fafc] [&_.menu_li_a:hover]:!text-primary [&_.menu_li_summary:hover]:!bg-[#f8fafc] [&_.menu_li_summary:hover]:!text-primary">
         <label
           for="mobile-menu-drawer"
           aria-label="close sidebar"
@@ -2840,11 +2708,11 @@
             </div>
             
             <!-- Content -->
-            <div class="flex-1 overflow-y-auto custom-scrollbar p-4">
+            <div class="flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-[6px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-400 p-4">
               <!-- Shop All Products -->
-              <div class="bg-white rounded border border-[#2563eb] p-4 flex justify-between items-center cursor-pointer shadow-sm mb-6">
-                <span class="font-bold text-[#2563eb]">Shop All Products</span>
-                <i class="fa-solid fa-chevron-right text-[#2563eb]"></i>
+              <div class="bg-white rounded border border-primary p-4 flex justify-between items-center cursor-pointer shadow-sm mb-6">
+                <span class="font-bold text-primary">Shop All Products</span>
+                <i class="fa-solid fa-chevron-right text-primary"></i>
               </div>
               
               <!-- Category Links -->
@@ -2872,7 +2740,7 @@
             <div class="px-4 py-6 shrink-0 bg-slate-100">
               <div class="flex flex-wrap items-center gap-1 text-sm text-slate-800">
                 <span>Need help? Call us</span>
-                <a href="tel:1-800-645-7270" class="text-[#2563eb] font-bold">1-800-645-7270</a>
+                <a href="tel:1-800-645-7270" class="text-primary font-bold">1-800-645-7270</a>
               </div>
             </div>
           </div>
@@ -2881,7 +2749,7 @@
           <div id="solutions-menu" class="absolute inset-0 flex flex-col bg-white transition-transform duration-300 ease-in-out transform translate-x-full z-20">
             <!-- Submenu Header -->
             <div class="flex justify-between items-center px-4 py-4 bg-slate-100 border-b border-slate-200 shrink-0">
-              <button onclick="closeSubmenu('solutions-menu')" class="flex items-center text-slate-800 hover:text-[#2563eb]">
+              <button onclick="closeSubmenu('solutions-menu')" class="flex items-center text-slate-800 hover:text-primary">
                 <i class="fa-solid fa-chevron-left mr-2 text-slate-500"></i>
                 <span>Back to main menu</span>
               </button>
@@ -2891,10 +2759,10 @@
             </div>
             
             <!-- Submenu Content -->
-            <div class="flex-1 overflow-y-auto custom-scrollbar bg-slate-100">
-              <div class="bg-blue-50 px-4 py-3 flex justify-between items-center">
-                <span class="font-bold text-[#2563eb]">All Solutions</span>
-                <a href="/solutions" class="text-sm font-bold text-slate-800 underline hover:text-[#2563eb]">See all</a>
+            <div class="flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-[6px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-400 bg-slate-100">
+              <div class="bg-primary/10 px-4 py-3 flex justify-between items-center">
+                <span class="font-bold text-primary">All Solutions</span>
+                <a href="/solutions" class="text-sm font-bold text-slate-800 underline hover:text-primary">See all</a>
               </div>
               
               <ul class="flex flex-col text-slate-700 bg-white border-b border-slate-200">

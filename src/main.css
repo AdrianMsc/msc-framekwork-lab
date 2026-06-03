@@ -2,9 +2,9 @@
 @plugin "daisyui";
 
 @theme {
-  --color-primary: #1C58EE;
-  --color-msc-blue: #1C58EE;
-  --color-msc-red: #EE3124;
+  --color-primary: #1c58ee;
+  --color-msc-blue: #1c58ee;
+  --color-msc-red: #ee3124;
   --color-success-available: #187a41;
 
   --font-sans: "Roboto", sans-serif;
@@ -17,7 +17,8 @@
 }
 
 @keyframes gradient-x {
-  0%, 100% {
+  0%,
+  100% {
     background-size: 200% 200%;
     background-position: left center;
   }
@@ -28,7 +29,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -39,9 +41,16 @@
 @plugin "daisyui/theme" {
   name: "msc";
   default: false;
-  --color-primary: #1C58EE;
+  --color-primary: #1c58ee;
   --color-secondary: #f000b8;
   --color-accent: #37cdbe;
   --color-neutral: #3d4451;
   --color-base-100: #ffffff;
+}
+
+/* Override DaisyUI v5 light theme primary to MSC blue */
+:root,
+[data-theme="light"] {
+  --color-primary: #1c58ee;
+  --color-primary-content: oklch(96% 0.018 272.314);
 }

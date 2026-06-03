@@ -547,7 +547,7 @@ const renderFractionalTable = () => {
     const mscNum = primaryBrand.msc;
 
     tbody.innerHTML = `
-            <tr class="main-row cursor-pointer hover:bg-blue-50/30 transition-colors border-l-4 border-l-transparent hidden md:table-row" data-ids="${Object.values(
+            <tr class="main-row cursor-pointer hover:bg-primary/5 transition-colors border-l-4 border-l-transparent hidden md:table-row" data-ids="${Object.values(
               item.brands,
             )
               .map((b) => b.msc)
@@ -652,7 +652,7 @@ const renderFractionalTable = () => {
                                             </div>
                                             <button 
                                                 onclick="window.addToCart('${mscNum}', 'Ball End Mill: ${item.millDia}', '${primaryBrand.price}', '${fixedImgUrl}', 'qty-${mscNum}')"
-                                                class="btn btn-sm md:btn-md btn-primary w-full rounded-xl text-white font-bold shadow-lg shadow-blue-100"
+                                                class="btn btn-sm md:btn-md btn-primary w-full rounded-xl text-white font-bold shadow-lg shadow-primary/20"
                                             >
                                                 Add to Cart
                                             </button>
@@ -780,7 +780,7 @@ const renderFractionalList = () => {
                     </div>
                     <button 
                         onclick="window.addToCart('${brandData.msc}', 'Ball End Mill: ${item.millDia}', '${brandData.price}', '${fixedImgUrl}', 'qty-list-${brandData.msc}')"
-                        class="btn btn-primary w-full rounded-full text-white font-black uppercase tracking-widest shadow-lg shadow-blue-100 h-12"
+                        class="btn btn-primary w-full rounded-full text-white font-black uppercase tracking-widest shadow-lg shadow-primary/20 h-12"
                     >
                         Add to Cart
                     </button>
