@@ -18,7 +18,6 @@
     />
 
     <link rel="stylesheet" href="../dist/output.css" />
-
   </head>
 
   <body class="bg-slate-50 min-h-screen font-sans text-slate-800">
@@ -30,7 +29,7 @@
           class="hidden md:block bg-slate-100 border-b border-slate-200 py-1"
         >
           <div
-            class="max-w-[1800px] mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-2"
+            class="max-w-450 mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-2"
           >
             <!-- Left: Sub Nav -->
             <div class="flex flex-wrap items-center gap-1 md:gap-4">
@@ -45,7 +44,7 @@
                 </div>
                 <ul
                   tabindex="0"
-                  class="dropdown-content z-[310] menu p-2 shadow bg-base-100 rounded-box w-72 overflow-y-auto"
+                  class="dropdown-content z-310 menu p-2 shadow bg-base-100 rounded-box w-72 overflow-y-auto"
                 >
                   <li class="bg-primary/10 rounded-box">
                     <a
@@ -130,7 +129,7 @@
                 </div>
                 <ul
                   tabindex="0"
-                  class="dropdown-content z-[310] menu p-2 shadow bg-base-100 rounded-box w-72"
+                  class="dropdown-content z-310 menu p-2 shadow bg-base-100 rounded-box w-72"
                 >
                   <li class="bg-primary/10 rounded-box">
                     <a
@@ -187,7 +186,7 @@
                 </div>
                 <ul
                   tabindex="0"
-                  class="dropdown-content z-[310] menu p-2 shadow bg-base-100 rounded-box w-56"
+                  class="dropdown-content z-310 menu p-2 shadow bg-base-100 rounded-box w-56"
                 >
                   <li class="bg-primary/10 rounded-box">
                     <a
@@ -221,7 +220,7 @@
                 </div>
                 <ul
                   tabindex="0"
-                  class="dropdown-content z-[310] menu p-2 shadow bg-base-100 rounded-box w-64"
+                  class="dropdown-content z-310 menu p-2 shadow bg-base-100 rounded-box w-64"
                 >
                   <li class="bg-primary/10 rounded-box">
                     <a
@@ -265,7 +264,7 @@
                 </div>
                 <ul
                   tabindex="0"
-                  class="dropdown-content z-[310] menu p-2 shadow bg-base-100 rounded-box w-72"
+                  class="dropdown-content z-310 menu p-2 shadow bg-base-100 rounded-box w-72"
                 >
                   <li class="bg-primary/10 rounded-box">
                     <a
@@ -303,7 +302,7 @@
           </div>
         </div>
         <!-- MSC Main Header -->
-        <header class="bg-white border-b border-slate-200 sticky top-0 z-[150]">
+        <header class="bg-white border-b border-slate-200 sticky top-0 z-150">
           <div
             class="max-w-[1800px] mx-auto px-4 md:px-8 h-auto min-h-[5rem] lg:h-20 flex flex-wrap lg:flex-nowrap items-center justify-between gap-x-4 gap-y-2 py-3 lg:py-0"
           >
@@ -341,7 +340,7 @@
                   <!-- Mega Menu Content -->
                   <div
                     tabindex="0"
-                    class="dropdown-content z-[100] mt-0 p-0 left-0 w-[95vw] lg:w-[1000px] pt-[15px]"
+                    class="dropdown-content z-100 mt-0 p-0 left-0 w-[95vw] lg:w-[1000px] pt-[15px]"
                   >
                     <div
                       class="shadow-2xl bg-white rounded-b-xl border-t-[3px] border-primary overflow-hidden"
@@ -704,7 +703,7 @@
               <div
                 onmousedown="event.preventDefault()"
                 id="search-history-overlay"
-                class="absolute left-0 right-0 top-full mt-1 z-[200] text-left items-center font-normal leading-8 rounded-b-xl pb-5 bg-white shadow-2xl border border-slate-200 hidden overflow-hidden"
+                class="absolute left-0 right-0 top-full mt-1 z-200 text-left items-center font-normal leading-8 rounded-b-xl pb-5 bg-white shadow-2xl border border-slate-200 hidden overflow-hidden"
               >
                 <ul
                   id="section_recentSearches"
@@ -955,7 +954,7 @@
                 </div>
                 <div
                   tabindex="0"
-                  class="dropdown-content z-[100] card card-compact w-80 p-2 shadow-2xl bg-white border border-slate-200 mt-4"
+                  class="dropdown-content z-100 card card-compact w-80 p-2 shadow-2xl bg-white border border-slate-200 mt-4"
                 >
                   <div class="card-body">
                     <span
@@ -1595,7 +1594,9 @@
               <div
                 class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden"
               >
-                <div class="overflow-x-auto md:p-4 max-[1024px]:!overflow-x-visible">
+                <div
+                  class="overflow-x-auto md:p-4 max-[1024px]:!overflow-x-visible"
+                >
                   <table
                     id="msc-tv-table-"
                     class="table table-xs w-full text-slate-700 border-collapse max-[1024px]:!grid max-[1024px]:!grid-cols-2 max-[1024px]:!gap-0 max-[1024px]:!border-none max-[1024px]:bg-[#e2e8f0] max-[1024px]:[&_thead]:!hidden max-[1024px]:[&_tbody]:!contents max-[1024px]:[&_tr.main-row]:!hidden max-[1024px]:[&_tr.details-row]:!block max-[1024px]:[&_tr.details-row]:!border-[0.5px] max-[1024px]:[&_tr.details-row]:!border-[#e2e8f0] max-[1024px]:[&_tr.details-row]:!m-0 max-[1024px]:[&_tr.details-row]:!bg-white max-[1024px]:[&_tr.details-row_td]:!block max-[1024px]:[&_tr.details-row_td]:!w-full max-[1024px]:[&_tr.details-row_td]:!border-none max-[1024px]:[&_tr.details-row_td]:!p-0 max-[1024px]:[&_tr.details-row_.flex-wrap]:!flex-col max-[1024px]:[&_tr.details-row_.flex-wrap]:!gap-0 max-[1024px]:[&_tr.details-row_.h-40.w-40]:!w-full max-[1024px]:[&_tr.details-row_.h-40.w-40]:!h-auto max-[1024px]:[&_tr.details-row_.h-40.w-40]:aspect-square max-[1024px]:[&_tr.details-row_.h-40.w-40]:!p-2 max-[1024px]:[&_tr.details-row_.w-full.md\:w-64]:!w-full max-[1024px]:[&_tr.details-row_.w-full.md\:w-64]:!border-none max-[1024px]:[&_tr.details-row_.w-full.md\:w-64]:!rounded-none max-[1024px]:[&_tr.details-row_.w-full.md\:w-64]:!shadow-none max-[1024px]:[&_tr.details-row_.w-full.md\:w-64]:!p-2 max-[1024px]:[&_tr.details-row_.p-2.md\:p-4]:!p-2 max-[1024px]:[&_tr.details-row_.p-2.md\:p-4]:!m-0 max-[1024px]:[&_tr.details-row_h3]:!text-sm max-[1024px]:[&_tr.details-row_h3]:!leading-tight max-[1024px]:[&_tr.details-row_p]:!text-xs max-[1024px]:[&_tr.details-row_.mt-4]:!mt-2 max-[1024px]:[&_tr.details-row_.mt-6]:!mt-2"
@@ -1804,7 +1805,7 @@
             </div>
             <div
               id="list-pagination"
-              class="sticky bottom-0 z-[40] flex justify-center py-6 mt-auto"
+              class="sticky bottom-0 z-40 flex justify-center py-6 mt-auto"
             ></div>
 
             <!-- Grid View Container -->
@@ -1816,7 +1817,7 @@
             </div>
             <div
               id="grid-pagination"
-              class="sticky bottom-0 z-[40] flex justify-center py-6 mt-auto"
+              class="sticky bottom-0 z-40 flex justify-center py-6 mt-auto"
             ></div>
           </main>
         </div>
@@ -2642,7 +2643,7 @@
         <!-- Processing Loader -->
         <div
           id="loading"
-          class="hidden fixed inset-0 z-[100] bg-white/80 backdrop-blur-sm flex items-center justify-center"
+          class="hidden fixed inset-0 z-100 bg-white/80 backdrop-blur-sm flex items-center justify-center"
         >
           <div class="flex flex-col items-center gap-4">
             <span
@@ -2685,160 +2686,334 @@
       </div>
       <!-- Close drawer-content -->
 
-      <div class="drawer-side z-[200] [&_*]:[tap-highlight-color:transparent] [&_.menu_li_a:active]:!bg-transparent [&_.menu_li_a:active]:!text-primary [&_.menu_li_summary:active]:!bg-transparent [&_.menu_li_summary:active]:!text-primary [&_.menu_li_a:focus]:!bg-transparent [&_.menu_li_a:focus]:!text-primary [&_.menu_li_summary:focus]:!bg-transparent [&_.menu_li_summary:focus]:!text-primary [&_.menu_li_ul_li_a:active]:!bg-transparent [&_.menu_li_ul_li_a:active]:!text-primary [&_.menu_li_ul_li_a:focus]:!bg-transparent [&_.menu_li_ul_li_a:focus]:!text-primary [&_.menu_li_a:hover]:!bg-[#f8fafc] [&_.menu_li_a:hover]:!text-primary [&_.menu_li_summary:hover]:!bg-[#f8fafc] [&_.menu_li_summary:hover]:!text-primary">
+      <div
+        class="drawer-side z-200 [&_*]:[tap-highlight-color:transparent] [&_.menu_li_a:active]:!bg-transparent [&_.menu_li_a:active]:!text-primary [&_.menu_li_summary:active]:!bg-transparent [&_.menu_li_summary:active]:!text-primary [&_.menu_li_a:focus]:!bg-transparent [&_.menu_li_a:focus]:!text-primary [&_.menu_li_summary:focus]:!bg-transparent [&_.menu_li_summary:focus]:!text-primary [&_.menu_li_ul_li_a:active]:!bg-transparent [&_.menu_li_ul_li_a:active]:!text-primary [&_.menu_li_ul_li_a:focus]:!bg-transparent [&_.menu_li_ul_li_a:focus]:!text-primary [&_.menu_li_a:hover]:!bg-[#f8fafc] [&_.menu_li_a:hover]:!text-primary [&_.menu_li_summary:hover]:!bg-[#f8fafc] [&_.menu_li_summary:hover]:!text-primary"
+      >
         <label
           for="mobile-menu-drawer"
           aria-label="close sidebar"
           class="drawer-overlay"
         ></label>
-        <div class="w-10/12 max-w-sm min-h-full bg-slate-100 shadow-2xl relative overflow-hidden flex flex-col">
-          
+        <div
+          class="w-10/12 max-w-sm min-h-full bg-slate-100 shadow-2xl relative overflow-hidden flex flex-col"
+        >
           <!-- MAIN MENU PANEL -->
-          <div id="main-menu-panel" class="absolute inset-0 flex flex-col bg-slate-100 transition-transform duration-300 ease-in-out transform translate-x-0 z-10">
+          <div
+            id="main-menu-panel"
+            class="absolute inset-0 flex flex-col bg-slate-100 transition-transform duration-300 ease-in-out transform translate-x-0 z-10"
+          >
             <!-- Header -->
-            <div class="flex justify-between items-center px-6 py-5 bg-white border-b border-slate-100 shrink-0">
+            <div
+              class="flex justify-between items-center px-6 py-5 bg-white border-b border-slate-100 shrink-0"
+            >
               <img
                 src="https://cdn.mscdirect.com/global/v2/img/header/msc-logo.svg"
                 alt="MSC Industrial Supply"
                 class="h-7 w-auto"
               />
-              <label for="mobile-menu-drawer" class="btn btn-ghost btn-circle btn-sm text-slate-400 hover:text-slate-600 hover:bg-slate-50 cursor-pointer">
+              <label
+                for="mobile-menu-drawer"
+                class="btn btn-ghost btn-circle btn-sm text-slate-400 hover:text-slate-600 hover:bg-slate-50 cursor-pointer"
+              >
                 <i class="fa-solid fa-xmark text-lg"></i>
               </label>
             </div>
-            
+
             <!-- Content -->
-            <div class="flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-[6px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-400 p-4">
+            <div
+              class="flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-[6px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-400 p-4"
+            >
               <!-- Shop All Products -->
-              <div class="bg-white rounded border border-primary p-4 flex justify-between items-center cursor-pointer shadow-sm mb-6">
+              <div
+                class="bg-white rounded border border-primary p-4 flex justify-between items-center cursor-pointer shadow-sm mb-6"
+              >
                 <span class="font-bold text-primary">Shop All Products</span>
                 <i class="fa-solid fa-chevron-right text-primary"></i>
               </div>
-              
+
               <!-- Category Links -->
               <div class="space-y-2">
-                <div class="bg-white rounded p-4 flex justify-between items-center cursor-pointer shadow-sm" onclick="openSubmenu('solutions-menu')">
+                <div
+                  class="bg-white rounded p-4 flex justify-between items-center cursor-pointer shadow-sm"
+                  onclick="openSubmenu('solutions-menu')"
+                >
                   <span class="text-slate-700">Solutions</span>
-                  <i class="fa-solid fa-chevron-right text-slate-400 text-sm"></i>
+                  <i
+                    class="fa-solid fa-chevron-right text-slate-400 text-sm"
+                  ></i>
                 </div>
-                <div class="bg-white rounded p-4 flex justify-between items-center cursor-pointer shadow-sm" onclick="openSubmenu('resources-menu')">
+                <div
+                  class="bg-white rounded p-4 flex justify-between items-center cursor-pointer shadow-sm"
+                  onclick="openSubmenu('resources-menu')"
+                >
                   <span class="text-slate-700">Resources</span>
-                  <i class="fa-solid fa-chevron-right text-slate-400 text-sm"></i>
+                  <i
+                    class="fa-solid fa-chevron-right text-slate-400 text-sm"
+                  ></i>
                 </div>
-                <div class="bg-white rounded p-4 flex justify-between items-center cursor-pointer shadow-sm" onclick="openSubmenu('deals-menu')">
+                <div
+                  class="bg-white rounded p-4 flex justify-between items-center cursor-pointer shadow-sm"
+                  onclick="openSubmenu('deals-menu')"
+                >
                   <span class="text-slate-700">Deals</span>
-                  <i class="fa-solid fa-chevron-right text-slate-400 text-sm"></i>
+                  <i
+                    class="fa-solid fa-chevron-right text-slate-400 text-sm"
+                  ></i>
                 </div>
-                <div class="bg-white rounded p-4 flex justify-between items-center cursor-pointer shadow-sm" onclick="openSubmenu('knowledge-menu')">
+                <div
+                  class="bg-white rounded p-4 flex justify-between items-center cursor-pointer shadow-sm"
+                  onclick="openSubmenu('knowledge-menu')"
+                >
                   <span class="text-slate-700">Knowledge Center</span>
-                  <i class="fa-solid fa-chevron-right text-slate-400 text-sm"></i>
+                  <i
+                    class="fa-solid fa-chevron-right text-slate-400 text-sm"
+                  ></i>
                 </div>
               </div>
             </div>
 
             <!-- Footer -->
             <div class="px-4 py-6 shrink-0 bg-slate-100">
-              <div class="flex flex-wrap items-center gap-1 text-sm text-slate-800">
+              <div
+                class="flex flex-wrap items-center gap-1 text-sm text-slate-800"
+              >
                 <span>Need help? Call us</span>
-                <a href="tel:1-800-645-7270" class="text-primary font-bold">1-800-645-7270</a>
+                <a href="tel:1-800-645-7270" class="text-primary font-bold"
+                  >1-800-645-7270</a
+                >
               </div>
             </div>
           </div>
 
           <!-- SOLUTIONS SUBMENU PANEL -->
-          <div id="solutions-menu" class="absolute inset-0 flex flex-col bg-white transition-transform duration-300 ease-in-out transform translate-x-full z-20">
+          <div
+            id="solutions-menu"
+            class="absolute inset-0 flex flex-col bg-white transition-transform duration-300 ease-in-out transform translate-x-full z-20"
+          >
             <!-- Submenu Header -->
-            <div class="flex justify-between items-center px-4 py-4 bg-slate-100 border-b border-slate-200 shrink-0">
-              <button onclick="closeSubmenu('solutions-menu')" class="flex items-center text-slate-800 hover:text-primary">
+            <div
+              class="flex justify-between items-center px-4 py-4 bg-slate-100 border-b border-slate-200 shrink-0"
+            >
+              <button
+                onclick="closeSubmenu('solutions-menu')"
+                class="flex items-center text-slate-800 hover:text-primary"
+              >
                 <i class="fa-solid fa-chevron-left mr-2 text-slate-500"></i>
                 <span>Back to main menu</span>
               </button>
-              <label for="mobile-menu-drawer" class="cursor-pointer text-slate-500 hover:text-slate-800">
+              <label
+                for="mobile-menu-drawer"
+                class="cursor-pointer text-slate-500 hover:text-slate-800"
+              >
                 <i class="fa-solid fa-xmark text-lg"></i>
               </label>
             </div>
-            
+
             <!-- Submenu Content -->
-            <div class="flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-[6px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-400 bg-slate-100">
-              <div class="bg-primary/10 px-4 py-3 flex justify-between items-center">
+            <div
+              class="flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-[6px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-400 bg-slate-100"
+            >
+              <div
+                class="bg-primary/10 px-4 py-3 flex justify-between items-center"
+              >
                 <span class="font-bold text-primary">All Solutions</span>
-                <a href="/solutions" class="text-sm font-bold text-slate-800 underline hover:text-primary">See all</a>
+                <a
+                  href="/solutions"
+                  class="text-sm font-bold text-slate-800 underline hover:text-primary"
+                  >See all</a
+                >
               </div>
-              
-              <ul class="flex flex-col text-slate-700 bg-white border-b border-slate-200">
-                <li><a href="#" class="block px-4 py-3 hover:bg-slate-50 border-b border-slate-100">eProcurement</a></li>
-                <li><a href="#" class="block px-4 py-3 hover:bg-slate-50 border-b border-slate-100">Managed Inventory</a></li>
+
+              <ul
+                class="flex flex-col text-slate-700 bg-white border-b border-slate-200"
+              >
+                <li>
+                  <a
+                    href="#"
+                    class="block px-4 py-3 hover:bg-slate-50 border-b border-slate-100"
+                    >eProcurement</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block px-4 py-3 hover:bg-slate-50 border-b border-slate-100"
+                    >Managed Inventory</a
+                  >
+                </li>
                 <li class="border-b border-slate-100">
-                  <a href="#" class="block px-4 py-3 hover:bg-slate-50">Metalworking Innovations</a>
+                  <a href="#" class="block px-4 py-3 hover:bg-slate-50"
+                    >Metalworking Innovations</a
+                  >
                   <ul class="flex flex-col pl-4 text-sm text-slate-700">
-                    <li><a href="#" class="block px-4 py-2 hover:bg-slate-50">Accupro ST Series</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-slate-50">MachineMax Pro</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-slate-50">MillMax</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-slate-50">Techmate</a></li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-slate-50"
+                        >Accupro ST Series</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-slate-50"
+                        >MachineMax Pro</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-slate-50"
+                        >MillMax</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-slate-50"
+                        >Techmate</a
+                      >
+                    </li>
                   </ul>
                 </li>
-                <li><a href="#" class="block px-4 py-3 hover:bg-slate-50 border-b border-slate-100">Supply Chain Services</a></li>
-                <li><a href="#" class="block px-4 py-3 hover:bg-slate-50 border-b border-slate-100">MRO GO</a></li>
-                <li><a href="#" class="block px-4 py-3 hover:bg-slate-50 border-b border-slate-100">Safety Services</a></li>
-                <li><a href="#" class="block px-4 py-3 hover:bg-slate-50">ResaleLink</a></li>
+                <li>
+                  <a
+                    href="#"
+                    class="block px-4 py-3 hover:bg-slate-50 border-b border-slate-100"
+                    >Supply Chain Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block px-4 py-3 hover:bg-slate-50 border-b border-slate-100"
+                    >MRO GO</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block px-4 py-3 hover:bg-slate-50 border-b border-slate-100"
+                    >Safety Services</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="block px-4 py-3 hover:bg-slate-50"
+                    >ResaleLink</a
+                  >
+                </li>
               </ul>
-              
+
               <!-- Industries Section -->
               <div class="bg-slate-100 pb-10">
                 <div class="px-4 py-3 font-bold text-slate-800">Industries</div>
                 <ul class="flex flex-col text-slate-700">
-                  <li><a href="#" class="block px-4 py-3 hover:bg-slate-200">Machinery</a></li>
-                  <li><a href="#" class="block px-4 py-3 hover:bg-slate-200">Automotive</a></li>
-                  <li><a href="#" class="block px-4 py-3 hover:bg-slate-200">Medical</a></li>
-                  <li><a href="#" class="block px-4 py-3 hover:bg-slate-200">Public Sector</a></li>
-                  <li><a href="#" class="block px-4 py-3 hover:bg-slate-200">Aerospace</a></li>
-                  <li><a href="#" class="block px-4 py-3 hover:bg-slate-200">Education</a></li>
-                  <li><a href="#" class="block px-4 py-3 hover:bg-slate-200">National Accounts</a></li>
+                  <li>
+                    <a href="#" class="block px-4 py-3 hover:bg-slate-200"
+                      >Machinery</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="block px-4 py-3 hover:bg-slate-200"
+                      >Automotive</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="block px-4 py-3 hover:bg-slate-200"
+                      >Medical</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="block px-4 py-3 hover:bg-slate-200"
+                      >Public Sector</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="block px-4 py-3 hover:bg-slate-200"
+                      >Aerospace</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="block px-4 py-3 hover:bg-slate-200"
+                      >Education</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="block px-4 py-3 hover:bg-slate-200"
+                      >National Accounts</a
+                    >
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
 
           <!-- Dummy panels for other options -->
-          <div id="resources-menu" class="absolute inset-0 flex flex-col bg-white transition-transform duration-300 ease-in-out transform translate-x-full z-20">
-            <div class="flex justify-between items-center px-4 py-4 bg-slate-100 border-b border-slate-200 shrink-0">
-              <button onclick="closeSubmenu('resources-menu')" class="flex items-center text-slate-800">
+          <div
+            id="resources-menu"
+            class="absolute inset-0 flex flex-col bg-white transition-transform duration-300 ease-in-out transform translate-x-full z-20"
+          >
+            <div
+              class="flex justify-between items-center px-4 py-4 bg-slate-100 border-b border-slate-200 shrink-0"
+            >
+              <button
+                onclick="closeSubmenu('resources-menu')"
+                class="flex items-center text-slate-800"
+              >
                 <i class="fa-solid fa-chevron-left mr-2 text-slate-500"></i>
                 <span>Back to main menu</span>
               </button>
-              <label for="mobile-menu-drawer" class="cursor-pointer text-slate-500 hover:text-slate-800">
+              <label
+                for="mobile-menu-drawer"
+                class="cursor-pointer text-slate-500 hover:text-slate-800"
+              >
                 <i class="fa-solid fa-xmark text-lg"></i>
               </label>
             </div>
             <div class="flex-1 overflow-y-auto p-4">Resources Content...</div>
           </div>
-          
-          <div id="deals-menu" class="absolute inset-0 flex flex-col bg-white transition-transform duration-300 ease-in-out transform translate-x-full z-20">
-            <div class="flex justify-between items-center px-4 py-4 bg-slate-100 border-b border-slate-200 shrink-0">
-              <button onclick="closeSubmenu('deals-menu')" class="flex items-center text-slate-800">
+
+          <div
+            id="deals-menu"
+            class="absolute inset-0 flex flex-col bg-white transition-transform duration-300 ease-in-out transform translate-x-full z-20"
+          >
+            <div
+              class="flex justify-between items-center px-4 py-4 bg-slate-100 border-b border-slate-200 shrink-0"
+            >
+              <button
+                onclick="closeSubmenu('deals-menu')"
+                class="flex items-center text-slate-800"
+              >
                 <i class="fa-solid fa-chevron-left mr-2 text-slate-500"></i>
                 <span>Back to main menu</span>
               </button>
-              <label for="mobile-menu-drawer" class="cursor-pointer text-slate-500 hover:text-slate-800">
+              <label
+                for="mobile-menu-drawer"
+                class="cursor-pointer text-slate-500 hover:text-slate-800"
+              >
                 <i class="fa-solid fa-xmark text-lg"></i>
               </label>
             </div>
             <div class="flex-1 overflow-y-auto p-4">Deals Content...</div>
           </div>
-          
-          <div id="knowledge-menu" class="absolute inset-0 flex flex-col bg-white transition-transform duration-300 ease-in-out transform translate-x-full z-20">
-            <div class="flex justify-between items-center px-4 py-4 bg-slate-100 border-b border-slate-200 shrink-0">
-              <button onclick="closeSubmenu('knowledge-menu')" class="flex items-center text-slate-800">
+
+          <div
+            id="knowledge-menu"
+            class="absolute inset-0 flex flex-col bg-white transition-transform duration-300 ease-in-out transform translate-x-full z-20"
+          >
+            <div
+              class="flex justify-between items-center px-4 py-4 bg-slate-100 border-b border-slate-200 shrink-0"
+            >
+              <button
+                onclick="closeSubmenu('knowledge-menu')"
+                class="flex items-center text-slate-800"
+              >
                 <i class="fa-solid fa-chevron-left mr-2 text-slate-500"></i>
                 <span>Back to main menu</span>
               </button>
-              <label for="mobile-menu-drawer" class="cursor-pointer text-slate-500 hover:text-slate-800">
+              <label
+                for="mobile-menu-drawer"
+                class="cursor-pointer text-slate-500 hover:text-slate-800"
+              >
                 <i class="fa-solid fa-xmark text-lg"></i>
               </label>
             </div>
-            <div class="flex-1 overflow-y-auto p-4">Knowledge Center Content...</div>
+            <div class="flex-1 overflow-y-auto p-4">
+              Knowledge Center Content...
+            </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -2885,11 +3060,11 @@
       function openSubmenu(menuId) {
         const mainMenu = document.getElementById("main-menu-panel");
         const submenu = document.getElementById(menuId);
-        
+
         if (mainMenu && submenu) {
           mainMenu.classList.remove("translate-x-0");
           mainMenu.classList.add("-translate-x-full");
-          
+
           submenu.classList.remove("translate-x-full");
           submenu.classList.add("translate-x-0");
         }
@@ -2898,16 +3073,16 @@
       function closeSubmenu(menuId) {
         const mainMenu = document.getElementById("main-menu-panel");
         const submenu = document.getElementById(menuId);
-        
+
         if (mainMenu && submenu) {
           submenu.classList.remove("translate-x-0");
           submenu.classList.add("translate-x-full");
-          
+
           mainMenu.classList.remove("-translate-x-full");
           mainMenu.classList.add("translate-x-0");
         }
       }
-      
+
       // Make functions available globally so onclick attributes can use them
       window.openSubmenu = openSubmenu;
       window.closeSubmenu = closeSubmenu;
