@@ -21,6 +21,9 @@
   </head>
 
   <body class="bg-slate-50 min-h-screen font-sans text-slate-800">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[1000] focus:px-4 focus:py-2 focus:bg-white focus:text-primary focus:font-bold focus:rounded-xl focus:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary">
+      Skip to main content
+    </a>
     <div class="drawer">
       <input id="mobile-menu-drawer" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content flex flex-col">
@@ -40,7 +43,7 @@
                   role="button"
                   class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
                 >
-                  Solutions <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                  Solutions <i class="fa-solid fa-chevron-down text-[8px]" aria-hidden="true"></i>
                 </div>
                 <ul
                   tabindex="0"
@@ -125,7 +128,7 @@
                   role="button"
                   class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
                 >
-                  Resources <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                  Resources <i class="fa-solid fa-chevron-down text-[8px]" aria-hidden="true"></i>
                 </div>
                 <ul
                   tabindex="0"
@@ -182,7 +185,7 @@
                   role="button"
                   class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
                 >
-                  Deals <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                  Deals <i class="fa-solid fa-chevron-down text-[8px]" aria-hidden="true"></i>
                 </div>
                 <ul
                   tabindex="0"
@@ -216,7 +219,7 @@
                   class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
                 >
                   Knowledge Center
-                  <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                  <i class="fa-solid fa-chevron-down text-[8px]" aria-hidden="true"></i>
                 </div>
                 <ul
                   tabindex="0"
@@ -257,7 +260,7 @@
                   class="btn btn-ghost btn-xs text-[11px] font-medium bg-white border-none shadow-sm h-7 min-h-0"
                 >
                   Notifications
-                  <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                  <i class="fa-solid fa-chevron-down text-[8px]" aria-hidden="true"></i>
                   <i
                     class="fa-solid fa-circle-question text-primary text-[10px]"
                   ></i>
@@ -313,7 +316,7 @@
                 for="mobile-menu-drawer"
                 class="btn btn-ghost lg:hidden p-0 min-h-0 h-auto"
               >
-                <i class="fa-solid fa-bars text-2xl text-msc-blue"></i>
+                <i class="fa-solid fa-bars text-2xl text-msc-blue" aria-hidden="true"></i>
               </label>
 
               <a href="/" class="shrink-0">
@@ -689,13 +692,13 @@
               <div class="join w-full">
                 <input
                   id="main-search-input"
-                  class="input input-bordered join-item w-full focus:outline-none focus:border-primary border-slate-200 h-11 text-sm rounded-l-lg"
+                  class="input input-bordered join-item w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus:border-primary border-slate-200 h-11 text-sm rounded-l-lg"
                   placeholder="Search..."
                 />
                 <button
                   class="btn btn-primary join-item px-6 text-white border-none bg-msc-blue hover:bg-[#1143c7] h-11 min-h-0 rounded-r-lg"
                 >
-                  <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                  <i class="fa-solid fa-magnifying-glass text-lg" aria-hidden="true"></i>
                 </button>
               </div>
 
@@ -719,6 +722,7 @@
                     </p>
                     <button
                       type="button"
+                      id="clear-recent-searches"
                       class="text-primary text-xs font-bold hover:underline"
                     >
                       Clear
@@ -945,6 +949,7 @@
                 >
                   <i
                     class="fa-solid fa-cart-shopping text-2xl text-slate-600 group-hover:text-primary transition-colors"
+                    aria-hidden="true"
                   ></i>
                   <span
                     id="cart-count"
@@ -997,8 +1002,11 @@
               <!-- User -->
               <div
                 class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center cursor-pointer hover:bg-slate-200 transition-all border border-slate-200/50"
+                role="button"
+                aria-label="Account"
+                tabindex="0"
               >
-                <i class="fa-solid fa-user text-xl text-slate-400"></i>
+                <i class="fa-solid fa-user text-xl text-slate-400" aria-hidden="true"></i>
               </div>
             </div>
           </div>
@@ -1108,7 +1116,8 @@
                     >Sort by</span
                   >
                   <select
-                    class="select select-bordered select-xs md:select-sm w-24 md:w-48 rounded-lg md:rounded-xl font-bold focus:outline-none focus:border-primary shadow-sm bg-white"
+                    class="select select-bordered select-xs md:select-sm w-24 md:w-48 rounded-lg md:rounded-xl font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus:border-primary shadow-sm bg-white"
+                    aria-label="Sort by"
                   >
                     <option selected>Best Match</option>
                     <option>Price: Low to High</option>
@@ -1170,6 +1179,7 @@
                     >
                       <i
                         class="fa-solid fa-xmark text-[10px] cursor-pointer"
+                        aria-hidden="true"
                       ></i>
                       Ball End Mills
                     </span>
@@ -1567,11 +1577,12 @@
                     class="w-32 h-32 shrink-0 bg-slate-50 rounded-xl p-4 flex items-center justify-center border border-slate-100"
                   >
                     <img
-                      src="https://cdn.mscdirect.com/global/images/ProductImages/0913779-24.gif"
-                      alt="Solid Carbide End Mill"
-                      class="max-h-full mix-blend-multiply"
-                      width="128"
-                      height="128"
+                           src="https://cdn.mscdirect.com/global/images/ProductImages/0913779-24.gif"
+                           alt="Solid Carbide End Mill"
+                           class="max-h-full mix-blend-multiply"
+                           width="128"
+                           height="128"
+                           loading="lazy"
                     />
                   </div>
                   <div class="flex-1">
@@ -1600,10 +1611,14 @@
                   <table
                     id="msc-tv-table-"
                     class="table table-xs w-full text-slate-700 border-collapse max-[1024px]:!grid max-[1024px]:!grid-cols-2 max-[1024px]:!gap-0 max-[1024px]:!border-none max-[1024px]:bg-[#e2e8f0] max-[1024px]:[&_thead]:!hidden max-[1024px]:[&_tbody]:!contents max-[1024px]:[&_tr.main-row]:!hidden max-[1024px]:[&_tr.details-row]:!block max-[1024px]:[&_tr.details-row]:!border-[0.5px] max-[1024px]:[&_tr.details-row]:!border-[#e2e8f0] max-[1024px]:[&_tr.details-row]:!m-0 max-[1024px]:[&_tr.details-row]:!bg-white max-[1024px]:[&_tr.details-row_td]:!block max-[1024px]:[&_tr.details-row_td]:!w-full max-[1024px]:[&_tr.details-row_td]:!border-none max-[1024px]:[&_tr.details-row_td]:!p-0 max-[1024px]:[&_tr.details-row_.flex-wrap]:!flex-col max-[1024px]:[&_tr.details-row_.flex-wrap]:!gap-0 max-[1024px]:[&_tr.details-row_.h-40.w-40]:!w-full max-[1024px]:[&_tr.details-row_.h-40.w-40]:!h-auto max-[1024px]:[&_tr.details-row_.h-40.w-40]:aspect-square max-[1024px]:[&_tr.details-row_.h-40.w-40]:!p-2 max-[1024px]:[&_tr.details-row_.w-full.md\:w-64]:!w-full max-[1024px]:[&_tr.details-row_.w-full.md\:w-64]:!border-none max-[1024px]:[&_tr.details-row_.w-full.md\:w-64]:!rounded-none max-[1024px]:[&_tr.details-row_.w-full.md\:w-64]:!shadow-none max-[1024px]:[&_tr.details-row_.w-full.md\:w-64]:!p-2 max-[1024px]:[&_tr.details-row_.p-2.md\:p-4]:!p-2 max-[1024px]:[&_tr.details-row_.p-2.md\:p-4]:!m-0 max-[1024px]:[&_tr.details-row_h3]:!text-sm max-[1024px]:[&_tr.details-row_h3]:!leading-tight max-[1024px]:[&_tr.details-row_p]:!text-xs max-[1024px]:[&_tr.details-row_.mt-4]:!mt-2 max-[1024px]:[&_tr.details-row_.mt-6]:!mt-2"
+                    aria-label="Fractional Inch Ball End Mills specification comparison table"
                   >
+                    <caption class="sr-only">
+                      Comparison table of fractional inch ball end mills by mill diameter, length of cut, shank diameter, overall length, and helix angle across brands Hertel, Accupro, Widia, Seco, M.A. Ford, and SGS.
+                    </caption>
                     <thead>
                       <tr class="bg-white border-b-0">
-                        <th colspan="5" class="p-1 border-none">
+                        <th colspan="5" class="p-1 border-none" scope="colgroup">
                           <h2
                             class="text-lg font-black text-slate-800 tracking-tight"
                           >
@@ -1613,6 +1628,7 @@
                         <th
                           colspan="2"
                           class="border-l border-slate-100 p-1 align-middle"
+                          scope="colgroup"
                         >
                           <div
                             class="h-12 flex items-center justify-center p-1"
@@ -1627,6 +1643,7 @@
                         <th
                           colspan="2"
                           class="border-l border-slate-100 p-1 align-middle"
+                          scope="colgroup"
                         >
                           <div
                             class="h-12 flex items-center justify-center p-1"
@@ -1641,6 +1658,7 @@
                         <th
                           colspan="2"
                           class="border-l border-slate-100 p-1 align-middle"
+                          scope="colgroup"
                         >
                           <div
                             class="h-12 flex items-center justify-center p-1"
@@ -1655,6 +1673,7 @@
                         <th
                           colspan="2"
                           class="border-l border-slate-100 p-1 align-middle"
+                          scope="colgroup"
                         >
                           <div
                             class="h-12 flex items-center justify-center p-1"
@@ -1669,6 +1688,7 @@
                         <th
                           colspan="2"
                           class="border-l border-slate-100 p-1 align-middle"
+                          scope="colgroup"
                         >
                           <div
                             class="h-12 flex items-center justify-center p-1"
@@ -1683,6 +1703,7 @@
                         <th
                           colspan="2"
                           class="border-l border-slate-100 p-1 align-middle"
+                          scope="colgroup"
                         >
                           <div
                             class="h-12 flex items-center justify-center p-1"
@@ -1698,97 +1719,109 @@
                       <tr class="bg-slate-50/50 border-b-2 border-slate-800">
                         <th
                           class="p-1 uppercase text-[10px] font-black tracking-widest text-slate-500 cursor-pointer hover:bg-slate-100 transition-colors text-center"
-                          data-key="mill-dia"
+                          data-key="mill-dia" scope="col"
                         >
                           Mill Dia.
                         </th>
                         <th
                           class="p-1 uppercase text-[10px] font-black tracking-widest text-slate-500 cursor-pointer hover:bg-slate-100 transition-colors text-center"
-                          data-key="loc"
+                          data-key="loc" scope="col"
                         >
                           LOC
                         </th>
                         <th
                           class="p-1 uppercase text-[10px] font-black tracking-widest text-slate-500 cursor-pointer hover:bg-slate-100 transition-colors text-center"
-                          data-key="shank-dia"
+                          data-key="shank-dia" scope="col"
                         >
                           Shank Dia.
                         </th>
                         <th
                           class="p-1 uppercase text-[10px] font-black tracking-widest text-slate-500 cursor-pointer hover:bg-slate-100 transition-colors text-center"
-                          data-key="oal"
+                          data-key="oal" scope="col"
                         >
                           OAL
                         </th>
                         <th
                           class="p-1 uppercase text-[10px] font-black tracking-widest text-slate-500 cursor-pointer hover:bg-slate-100 transition-colors text-center"
-                          data-key="helix"
+                          data-key="helix" scope="col"
                         >
                           Helix
                         </th>
 
                         <th
                           class="border-l border-slate-200 p-1 uppercase text-[10px] font-black text-primary"
+                          scope="col"
                         >
                           MSC #
                         </th>
                         <th
                           class="p-1 uppercase text-[10px] font-black text-primary text-right"
+                          scope="col"
                         >
                           Price
                         </th>
 
                         <th
                           class="border-l border-slate-200 p-1 uppercase text-[10px] font-black text-primary"
+                          scope="col"
                         >
                           MSC #
                         </th>
                         <th
                           class="p-1 uppercase text-[10px] font-black text-primary text-right"
+                          scope="col"
                         >
                           Price
                         </th>
 
                         <th
                           class="border-l border-slate-200 p-1 uppercase text-[10px] font-black text-primary"
+                          scope="col"
                         >
                           MSC #
                         </th>
                         <th
                           class="p-1 uppercase text-[10px] font-black text-primary text-right"
+                          scope="col"
                         >
                           Price
                         </th>
 
                         <th
                           class="border-l border-slate-200 p-1 uppercase text-[10px] font-black text-primary"
+                          scope="col"
                         >
                           MSC #
                         </th>
                         <th
                           class="p-1 uppercase text-[10px] font-black text-primary text-right"
+                          scope="col"
                         >
                           Price
                         </th>
 
                         <th
                           class="border-l border-slate-200 p-1 uppercase text-[10px] font-black text-primary"
+                          scope="col"
                         >
                           MSC #
                         </th>
                         <th
                           class="p-1 uppercase text-[10px] font-black text-primary text-right"
+                          scope="col"
                         >
                           Price
                         </th>
 
                         <th
                           class="border-l border-slate-200 p-1 uppercase text-[10px] font-black text-primary"
+                          scope="col"
                         >
                           MSC #
                         </th>
                         <th
                           class="p-1 uppercase text-[10px] font-black text-primary text-right"
+                          scope="col"
                         >
                           Price
                         </th>
@@ -1947,6 +1980,9 @@
                         src="https://cdn.mscdirect.com/global/images/ProductImages/8596653AI-24.jpg"
                         alt="Disposable Gloves"
                         class="max-h-full object-contain mix-blend-multiply"
+                        loading="lazy"
+                        width="200"
+                        height="200"
                       />
                     </div>
                   </figure>
@@ -2008,6 +2044,9 @@
                         src="https://cdn.mscdirect.com/global/images/ProductImages/8937426AA-24.jpg"
                         alt="Lens Towelettes"
                         class="max-h-full object-contain mix-blend-multiply"
+                        loading="lazy"
+                        width="200"
+                        height="200"
                       />
                     </div>
                   </figure>
@@ -2068,6 +2107,9 @@
                         src="https://cdn.mscdirect.com/global/images/ProductImages/0650578-21.jpg"
                         alt="Batteries"
                         class="max-h-full object-contain mix-blend-multiply"
+                        loading="lazy"
+                        width="200"
+                        height="200"
                       />
                     </div>
                   </figure>
@@ -2132,6 +2174,9 @@
                         src="https://cdn.mscdirect.com/global/images/ProductImages/0335654-24.jpg"
                         alt="Sanding Pad"
                         class="max-h-full object-contain mix-blend-multiply"
+                        loading="lazy"
+                        width="200"
+                        height="200"
                       />
                     </div>
                   </figure>
@@ -2192,6 +2237,9 @@
                         src="https://cdn.mscdirect.com/global/images/ProductImages/0652912AA-24.jpg"
                         alt="Safety Glasses"
                         class="max-h-full object-contain mix-blend-multiply"
+                        loading="lazy"
+                        width="200"
+                        height="200"
                       />
                     </div>
                   </figure>
@@ -2580,6 +2628,9 @@
         <div
           id="footer-subscribe-lightbox"
           class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="subscribe-title"
         >
           <div
             class="bg-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden"
@@ -2588,12 +2639,14 @@
               <button
                 onclick="lightboxHide()"
                 class="btn btn-ghost btn-circle btn-sm"
+                aria-label="Close"
               >
-                <i class="fa-solid fa-xmark text-xl text-slate-400"></i>
+                <i class="fa-solid fa-xmark text-xl text-slate-400" aria-hidden="true"></i>
               </button>
             </div>
             <div class="px-8 pb-12 text-center">
               <h2
+                id="subscribe-title"
                 class="text-3xl font-black text-slate-800 mb-4 tracking-tight"
               >
                 Subscribe for Exclusive Deals
@@ -3022,39 +3075,53 @@
     <!-- JS Handling -->
     <script src="app.js" type="module"></script>
     <script>
-      // Handle Sticky Toolbar Background Toggle
+      // Handle Sticky Toolbar Background Toggle (throttled)
+      let ticking = false;
       window.addEventListener("scroll", () => {
-        const toolbar = document.getElementById("sticky-toolbar");
-        if (!toolbar) return;
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const toolbar = document.getElementById("sticky-toolbar");
+            if (!toolbar) { ticking = false; return; }
 
-        // The toolbar sticks at top-20 (80px) on mobile and top-24 (96px) on md+
-        const stickyThreshold = window.innerWidth >= 768 ? 96 : 80;
-        const rect = toolbar.getBoundingClientRect();
+            const stickyThreshold = window.innerWidth >= 768 ? 96 : 80;
+            const rect = toolbar.getBoundingClientRect();
 
-        // If the toolbar has reached its sticky position
-        if (rect.top <= stickyThreshold + 1) {
-          toolbar.classList.add("is-stuck");
-        } else {
-          toolbar.classList.remove("is-stuck");
+            if (rect.top <= stickyThreshold + 1) {
+              toolbar.classList.add("is-stuck");
+            } else {
+              toolbar.classList.remove("is-stuck");
+            }
+            ticking = false;
+          });
+          ticking = true;
         }
       });
 
-      // Handle Search History Overlay Focus
-      const searchInput = document.getElementById("main-search-input");
-      const searchOverlay = document.getElementById("search-history-overlay");
+      // Search overlay focus - handled in app.js via click-outside and input events
 
-      if (searchInput && searchOverlay) {
-        searchInput.addEventListener("focus", () => {
-          searchOverlay.classList.remove("hidden");
+      // Keyboard accessibility for dropdown-hover menus
+      document.querySelectorAll(".dropdown-hover > [tabindex]").forEach((trigger) => {
+        trigger.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            const dropdown = trigger.closest(".dropdown");
+            dropdown.classList.toggle("dropdown-open");
+          }
         });
-
-        searchInput.addEventListener("blur", () => {
-          // Small delay to allow clicks on the overlay to register
+        trigger.addEventListener("focus", () => {
+          const dropdown = trigger.closest(".dropdown");
+          dropdown.classList.add("dropdown-open");
+        });
+        trigger.addEventListener("blur", (e) => {
+          const dropdown = trigger.closest(".dropdown");
+          // Small delay to allow clicking inside dropdown
           setTimeout(() => {
-            searchOverlay.classList.add("hidden");
-          }, 200);
+            if (!dropdown.contains(document.activeElement)) {
+              dropdown.classList.remove("dropdown-open");
+            }
+          }, 150);
         });
-      }
+      });
 
       // Drawer Submenu Navigation
       function openSubmenu(menuId) {
